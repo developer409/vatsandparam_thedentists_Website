@@ -5918,6 +5918,33 @@ p {
   display: block;
 }
 
+/* Desktop: show photo, hide video */
+@media (min-width: 769px) {
+  .founder-bg-photo {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    z-index: 0;
+  }
+  .founder-video--mobile {
+    display: none;
+  }
+}
+
+/* Mobile: hide photo, show video */
+@media (max-width: 768px) {
+  .founder-bg-photo {
+    display: none;
+  }
+  .founder-video--mobile {
+    display: block;
+  }
+}
+
 .founder-video-overlay {
   position: absolute;
   inset: 0;
