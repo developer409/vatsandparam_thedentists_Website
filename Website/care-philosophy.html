@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Care Philosophy | Vats & Param – The Dentists</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="treatments-redesign.css">
+</head>
+
+<body>
+
+  <!-- ========== NAVIGATION (REUSED) ========== -->
+  <nav class="nav scrolled" id="mainNav">
+    <div class="nav__inner">
+      <a href="index.html#home" class="nav__logo">
+        <div class="nav__logo-icon-container">
+          <svg class="nav__logo-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M12 2C8.5 2 7 5 7 8C7 10.5 8 13.5 6 16C4.5 18 4.5 21 7 22C9.5 23 11 21 12 19C13 21 14.5 23 17 22C19.5 21 19.5 18 18 16C16 13.5 17 10.5 17 8C17 5 15.5 2 12 2Z"
+              stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </div>
+        <div class="nav__logo-text">
+          Vats &amp; Param
+          <div class="nav__logo-subtitle">
+            <span class="logo-line"></span>
+            <span>The Dentists</span>
+            <span class="logo-line"></span>
+          </div>
+        </div>
+      </a>
+      <div class="nav__toggle" id="navToggle"><span></span><span></span><span></span></div>
+      <div class="nav__menu" id="navMenu">
+        <div class="nav__links">
+          <a href="index.html#home" class="nav__link">Home</a>
+          <a href="index.html#about" class="nav__link">About</a>
+          <a href="care-philosophy.html" class="nav__link active">Our Approach</a>
+          <a href="index.html#treatments" class="nav__link">Treatments</a>
+          <a href="index.html#team" class="nav__link">Team</a>
+          <a href="#contact" class="nav__link">Contact</a>
+        </div>
+        <a href="#contact" class="btn btn--primary nav__cta">Book Consultation</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ========== CARE PHILOSOPHY PAGE CONTENT ========== -->
+  <main>
+    
+    <!-- Section 1: Hero — Video Background -->
+    <header class="cp-video-hero">
+      <div class="cp-video-bg">
+        <video id="approachVideo" autoplay muted loop playsinline>
+          <source src="assets/our approach_1.mp4" type="video/mp4">
+        </video>
+        <div class="cp-video-overlay"></div>
+      </div>
+      <button class="cp-pause-btn" id="approachPauseBtn" aria-label="Pause background video">&#9646;&#9646;</button>
+      <div class="cp-hero-glass">
+        <span class="treat-label" style="color:var(--color-gold);">Patient-Centered Care</span>
+        <h1 class="treat-title" style="color:#fff;">Dentistry Designed Around You</h1>
+        <p style="color:rgba(255,255,255,0.85);font-size:1.1rem;line-height:1.75;margin-bottom:var(--space-lg);">We focus on preserving natural teeth, reducing anxiety, and delivering long-term oral health — not just performing procedures.</p>
+        <a href="index.html#treatments" class="btn btn--primary">Explore Treatments</a>
+      </div>
+    </header>
+
+    <!-- Section 2: Care Principles -->
+    <section class="treat-section">
+      <div class="treat-container">
+        <div class="text-center">
+            <span class="treat-label">Our Principles</span>
+            <h2 class="treat-title">How We Redefine Dental Care</h2>
+        </div>
+        
+        <div class="treat-grid">
+          <div class="treat-principle-card">
+            <div class="treat-principle-card__num">01</div>
+            <h3 class="treat-principle-card__title">Conservative Dentistry</h3>
+            <p class="treat-principle-card__text">We preserve natural tooth structure whenever possible, using biomimetic materials and minimally invasive techniques.</p>
+          </div>
+          
+          <div class="treat-principle-card">
+            <div class="treat-principle-card__num">02</div>
+            <h3 class="treat-principle-card__title">Comfort-First Protocol</h3>
+            <p class="treat-principle-card__text">Gentle techniques, clear explanations, and a focus on reducing sensory triggers to ensure minimal discomfort.</p>
+          </div>
+          
+          <div class="treat-principle-card">
+            <div class="treat-principle-card__num">03</div>
+            <h3 class="treat-principle-card__title">Transparent Communication</h3>
+            <p class="treat-principle-card__text">We explain every step before we begin. No surprises, no unexplained technical jargon, just clear guidance.</p>
+          </div>
+          
+          <div class="treat-principle-card">
+            <div class="treat-principle-card__num">04</div>
+            <h3 class="treat-principle-card__title">Long-Term Oral Health</h3>
+            <p class="treat-principle-card__text">We treat causes, not just symptoms. Our goal is to build structural health that lasts for decades, not months.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Visit Experience — Glass Cards over Video -->
+    <section class="cp-journey-section">
+      <div class="cp-video-bg">
+        <video autoplay muted loop playsinline>
+          <source src="assets/our approach_1.mp4" type="video/mp4">
+        </video>
+        <div class="cp-video-overlay"></div>
+      </div>
+      <div class="cp-journey-inner">
+        <div class="text-center" style="margin-bottom:var(--space-2xl);">
+          <span class="treat-label" style="color:var(--color-gold);">The Journey</span>
+          <h2 class="treat-title" style="color:#fff;">Your Visit Experience</h2>
+        </div>
+        <div class="cp-glass-grid">
+          <div class="cp-glass-card">
+            <div class="cp-glass-card__num">01</div>
+            <h3>Careful Diagnosis</h3>
+            <p>We start with a thorough clinical assessment, listening to your concerns and using digital imaging to see what lies beneath the surface.</p>
+          </div>
+          <div class="cp-glass-card">
+            <div class="cp-glass-card__num">02</div>
+            <h3>Personalized Treatment Plan</h3>
+            <p>Based on our findings, we co-create a plan that fits your health goals, timeline, and comfort levels.</p>
+          </div>
+          <div class="cp-glass-card">
+            <div class="cp-glass-card__num">03</div>
+            <h3>Gentle Clinical Execution</h3>
+            <p>Our specialists perform the necessary work following global precision protocols, ensuring you remain comfortable throughout.</p>
+          </div>
+          <div class="cp-glass-card">
+            <div class="cp-glass-card__num">04</div>
+            <h3>Follow-Up & Support</h3>
+            <p>Care doesn't end when you leave the chair. We provide clear recovery guidance and proactive health monitoring.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: CTA -->
+    <section class="treat-section">
+      <div class="treat-container">
+        <div class="treat-cta-block">
+          <h2>Experience Dentistry That Feels Different</h2>
+          <p>Schedule a consultation today and discover a philosophy centered entirely around your health and well-being.</p>
+          <a href="index.html#contact" class="btn btn--primary" style="background:var(--color-gold); border-color:var(--color-gold);">Book Appointment</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========== FOOTER (REUSED) ========== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <a href="index.html#home" class="nav__logo nav__logo--footer" style="margin-bottom:var(--space-sm);display:inline-flex;">
+            <div class="nav__logo-icon-container">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2C8.5 2 7 5 7 8C7 10.5 8 13.5 6 16C4.5 18 4.5 21 7 22C9.5 23 11 21 12 19C13 21 14.5 23 17 22C19.5 21 19.5 18 18 16C16 13.5 17 10.5 17 8C17 5 15.5 2 12 2Z"
+                  stroke="#C6A75E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </div>
+            <div class="nav__logo-text" style="color:#fff;">Vats & Param</div>
+          </a>
+          <p class="footer__brand-desc">Premium holistic dentistry focused on root-cause diagnosis, whole-body wellness, and precision care.</p>
+        </div>
+        <div>
+          <h4 class="footer__heading">Quick Links</h4>
+          <a href="index.html#home" class="footer__link">Home</a>
+          <a href="care-philosophy.html" class="footer__link">Philosophy</a>
+          <a href="index.html#treatments" class="footer__link">Treatments</a>
+          <a href="index.html#team" class="footer__link">Our Team</a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>&copy; 2026 Vats & Param – The Dentists.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+  <script>
+    (function () {
+      var btn = document.getElementById('approachPauseBtn');
+      var vid = document.getElementById('approachVideo');
+      if (!btn || !vid) return;
+      btn.addEventListener('click', function () {
+        if (vid.paused) {
+          vid.play();
+          btn.innerHTML = '&#9646;&#9646;';
+          btn.setAttribute('aria-label', 'Pause background video');
+        } else {
+          vid.pause();
+          btn.innerHTML = '&#9654;';
+          btn.setAttribute('aria-label', 'Play background video');
+        }
+      });
+    })();
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+node_modules/
+package.json
+package-lock.json
+
+# Screenshots & debug files
+*.png
+read_log.js
+check_diff.js
+rebuild_original_css.js
+check_original_segments.js
+find_originals.js
+test_search.js
+find_lines.js
+search_css_definitions.js
+dump_all_backups.js
+check_css_brackets.js
+check_styles.js
+styles_rebuilt.css
+backup_step_*.txt
+
+# OS files
+.DS_Store
+Thumbs.db
