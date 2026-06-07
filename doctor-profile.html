@@ -1,0 +1,1045 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Profile | Vats &amp; Param &#8211; The Dentists</title>
+    <meta name="description" content="Meet our expert dental specialists at Vats & Param. Detailed profiles, specializations, and consultation information.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* ===== DESIGN TOKENS ===== */
+        :root {
+            --dp-navy: #0B1F3A;
+            --dp-gold: #C6A75E;
+            --dp-gold-light: #e8d4a8;
+            --dp-green: #2a7d5e;
+            --dp-green-light: #e6f4ef;
+            --dp-text: #1a2d44;
+            --dp-text-muted: #6b7a8d;
+            --dp-bg: #f5f7fa;
+            --dp-bg-alt: #eef1f6;
+            --dp-border: rgba(11, 31, 58, 0.09);
+            --dp-card-shadow: 0 4px 24px rgba(11,31,58,0.08);
+            --dp-card-hover-shadow: 0 12px 40px rgba(11,31,58,0.14);
+            --radius: 16px;
+            --radius-sm: 10px;
+            --transition: all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--dp-bg);
+            color: var(--dp-text);
+            min-height: 100vh;
+            padding-top: 90px;
+            padding-bottom: 60px;
+        }
+
+        a { text-decoration: none; color: inherit; }
+
+        /* ===== NAV ===== */
+        .dp-nav {
+            background: #fff;
+            border-bottom: 1px solid var(--dp-border);
+            padding: 12px 48px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 12px rgba(11,31,58,0.05);
+        }
+
+        .dp-nav__back {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--dp-text-muted);
+            transition: var(--transition);
+            padding: 6px 14px;
+            border-radius: 20px;
+            border: 1px solid var(--dp-border);
+        }
+
+        .dp-nav__back:hover {
+            color: var(--dp-gold);
+            border-color: var(--dp-gold);
+            background: rgba(198,167,94,0.06);
+        }
+
+        .dp-nav__logo {
+            margin-left: auto;
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--dp-navy);
+            letter-spacing: 0.5px;
+        }
+
+        /* ===== PAGE WRAPPER ===== */
+        .dp-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 32px 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+        }
+
+        /* ===== CARD BASE ===== */
+        .dp-card {
+            background: #fff;
+            border-radius: var(--radius);
+            border: 1px solid var(--dp-border);
+            box-shadow: var(--dp-card-shadow);
+            transition: var(--transition);
+        }
+
+        .dp-card:hover {
+            box-shadow: var(--dp-card-hover-shadow);
+            transform: translateY(-2px);
+        }
+
+        /* ===== HERO HEADER CARD ===== */
+        .dp-hero {
+            display: grid;
+            grid-template-columns: 22% 1fr;
+            gap: 0;
+            min-height: 320px;
+            overflow: hidden;
+        }
+
+        /* Left Panel: Image */
+        .dp-hero__image-panel {
+            position: relative;
+            background: linear-gradient(160deg, var(--dp-navy) 0%, #1a3a5c 100%);
+            overflow: hidden;
+            border-radius: var(--radius) 0 0 var(--radius);
+        }
+
+        .dp-hero__image-panel img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            display: block;
+            opacity: 1;
+            mix-blend-mode: normal;
+        }
+
+        .dp-hero__image-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(11,31,58,0.7) 0%, transparent 50%);
+        }
+
+        .dp-hero__image-badge {
+            position: absolute;
+            bottom: 16px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--dp-gold);
+            color: #fff;
+            font-size: 0.67rem;
+            font-weight: 700;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            padding: 5px 14px;
+            border-radius: 20px;
+            white-space: nowrap;
+            box-shadow: 0 4px 12px rgba(198,167,94,0.45);
+        }
+
+        /* Right Panel: Info */
+        .dp-hero__content {
+            padding: 36px 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            border-left: none;
+        }
+
+        .dp-hero__name {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.1rem;
+            font-weight: 700;
+            color: var(--dp-navy);
+            line-height: 1.2;
+        }
+
+        .dp-hero__subtitle {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--dp-text-muted);
+            margin-top: -14px;
+        }
+
+        .dp-hero__tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .dp-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 0.77rem;
+            font-weight: 600;
+            background: var(--dp-bg);
+            border: 1px solid var(--dp-border);
+            color: var(--dp-text);
+            transition: var(--transition);
+        }
+
+        .dp-tag:hover { background: var(--dp-navy); color: #fff; border-color: transparent; }
+        .dp-tag--gold { background: rgba(198,167,94,0.1); border-color: rgba(198,167,94,0.35); color: var(--dp-gold); }
+        .dp-tag--gold:hover { background: var(--dp-gold); color: #fff; }
+
+        .dp-hero__overview-label {
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--dp-text-muted);
+        }
+
+        .dp-hero__overview-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .dp-hero__overview-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--dp-text);
+            line-height: 1.5;
+        }
+
+        .overview-content {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .dp-hero__overview-list li strong {
+            font-weight: 700;
+            color: var(--dp-navy);
+        }
+
+        .overview-desc {
+            color: var(--dp-text);
+        }
+
+        .dp-hero__overview-list li::before {
+            content: '';
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--dp-gold);
+            flex-shrink: 0;
+            margin-top: 7px;
+        }
+
+        /* CTA Buttons */
+        .dp-hero__actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .dp-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 11px 26px;
+            border-radius: 10px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .dp-btn--primary {
+            background: var(--dp-green);
+            color: #fff;
+            border-color: var(--dp-green);
+        }
+        .dp-btn--primary:hover {
+            background: #235f49;
+            border-color: #235f49;
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(42,125,94,0.3);
+        }
+
+        .dp-btn--outline {
+            background: transparent;
+            color: var(--dp-navy);
+            border-color: var(--dp-border);
+        }
+        .dp-btn--outline:hover {
+            border-color: var(--dp-navy);
+            background: var(--dp-bg);
+        }
+
+        /* Info mini-cards */
+        .dp-hero__info-cards {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .dp-info-chip {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--dp-bg);
+            border: 1px solid var(--dp-border);
+            border-radius: var(--radius-sm);
+            padding: 10px 16px;
+            flex: 1;
+            min-width: 200px;
+            transition: var(--transition);
+        }
+
+        .dp-info-chip:hover {
+            border-color: var(--dp-gold);
+            background: rgba(198,167,94,0.05);
+        }
+
+        .dp-info-chip__icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            background: var(--dp-navy);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .dp-info-chip__icon svg { stroke: var(--dp-gold); }
+
+        .dp-info-chip__label {
+            font-size: 0.68rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: var(--dp-text-muted);
+        }
+
+        .dp-info-chip__value {
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--dp-text);
+            margin-top: 1px;
+        }
+
+        /* ===== BODY AREA (Tabs + Sidebar) ===== */
+        .dp-body {
+            display: grid;
+            grid-template-columns: 1fr 280px;
+            gap: 24px;
+            align-items: start;
+        }
+
+        /* ===== TABS ===== */
+        .dp-tabs-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .dp-tabs {
+            display: flex;
+            gap: 4px;
+            background: #fff;
+            border-radius: var(--radius);
+            padding: 6px;
+            border: 1px solid var(--dp-border);
+            box-shadow: var(--dp-card-shadow);
+        }
+
+        .dp-tab {
+            flex: 1;
+            padding: 9px 12px;
+            border: none;
+            border-radius: 10px;
+            background: transparent;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--dp-text-muted);
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: 'Inter', sans-serif;
+            white-space: nowrap;
+        }
+
+        .dp-tab:hover { color: var(--dp-navy); background: var(--dp-bg); }
+
+        .dp-tab.active {
+            background: var(--dp-navy);
+            color: #fff;
+            box-shadow: 0 4px 12px rgba(11,31,58,0.2);
+        }
+
+        /* Tab Panels */
+        .dp-tab-panel { display: none; }
+        .dp-tab-panel.active { display: flex; flex-direction: column; gap: 20px; }
+
+        /* Profile Summary Card */
+        .dp-section-card {
+            padding: 30px;
+        }
+
+        .dp-section-card__header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 16px;
+        }
+
+        .dp-section-card__title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--dp-navy);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .dp-section-card__title-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            background: var(--dp-navy);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .dp-section-card__title-icon svg { stroke: var(--dp-gold); }
+
+        .dp-section-card__text {
+            font-size: 0.9rem;
+            line-height: 1.75;
+            color: var(--dp-text-muted);
+        }
+
+        /* Bold/keyword links for video modal */
+        .dp-section-card__text strong {
+            color: var(--dp-navy);
+            font-weight: 700;
+            cursor: pointer;
+            border-bottom: 2px solid rgba(198,167,94,0.5);
+            padding-bottom: 1px;
+            transition: var(--transition);
+        }
+
+        .dp-section-card__text strong:hover {
+            color: var(--dp-gold);
+            border-color: var(--dp-gold);
+        }
+
+        .dp-read-more-collapsed { display: none; }
+        .dp-read-more-collapsed.visible { display: block; margin-top: 10px; }
+
+        .dp-readmore-btn {
+            margin-top: 14px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--dp-gold);
+            cursor: pointer;
+            background: none;
+            border: none;
+            font-family: 'Inter', sans-serif;
+            transition: var(--transition);
+            padding: 0;
+        }
+
+        .dp-readmore-btn:hover { color: var(--dp-navy); }
+
+        .dp-readmore-btn svg { transition: var(--transition); }
+        .dp-readmore-btn.expanded svg { transform: rotate(180deg); }
+
+        /* Philosophy Card */
+        .dp-philosophy-card {
+            padding: 28px;
+            border-left: 4px solid var(--dp-gold);
+            background: linear-gradient(135deg, rgba(198,167,94,0.04) 0%, rgba(255,255,255,0) 100%);
+        }
+
+        .dp-philosophy-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        .dp-philosophy-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 0.88rem;
+            line-height: 1.65;
+            color: var(--dp-text-muted);
+        }
+
+        .dp-philosophy-list li::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--dp-gold);
+            flex-shrink: 0;
+            margin-top: 6px;
+        }
+
+        /* Specializations Grid */
+        .dp-spec-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 14px;
+        }
+
+        .dp-spec-item {
+            padding: 18px;
+            background: var(--dp-bg);
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--dp-border);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .dp-spec-item:hover {
+            border-color: var(--dp-gold);
+            background: rgba(198,167,94,0.05);
+        }
+
+        .dp-spec-item__icon {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .dp-spec-item__label {
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--dp-text);
+        }
+
+        /* Treatment Image Cards */
+        .dp-treatment-card {
+            position: relative;
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            aspect-ratio: 1;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border: 1px solid var(--dp-border);
+            cursor: pointer;
+        }
+
+        .dp-treatment-card__img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .dp-treatment-card:hover .dp-treatment-card__img {
+            transform: scale(1.08);
+        }
+
+        .dp-treatment-card__overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(11, 31, 58, 0.85); /* Navy overlay */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .dp-treatment-card:hover .dp-treatment-card__overlay {
+            opacity: 1;
+        }
+
+        .dp-treatment-card__text {
+            color: #fff;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-align: center;
+            line-height: 1.4;
+            transform: translateY(10px);
+            transition: var(--transition);
+        }
+
+        .dp-treatment-card:hover .dp-treatment-card__text {
+            transform: translateY(0);
+        }
+
+        /* ===== SIDEBAR ===== */
+        .dp-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            position: sticky;
+            top: 80px;
+        }
+
+        .dp-sidebar-card {
+            padding: 22px;
+        }
+
+        .dp-sidebar-card__header {
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--dp-text-muted);
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .dp-sidebar-card__header::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--dp-border);
+        }
+
+        .dp-clinic-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--dp-navy);
+            margin-bottom: 8px;
+        }
+
+        .dp-clinic-address {
+            font-size: 0.82rem;
+            line-height: 1.65;
+            color: var(--dp-text-muted);
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        .dp-clinic-address svg { flex-shrink: 0; margin-top: 2px; }
+
+        .dp-sidebar-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .dp-sidebar-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px;
+            border-radius: 10px;
+            font-size: 0.84rem;
+            font-weight: 600;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: var(--transition);
+            font-family: 'Inter', sans-serif;
+            text-decoration: none;
+        }
+
+        .dp-sidebar-btn--primary {
+            background: var(--dp-green);
+            color: #fff;
+            border-color: var(--dp-green);
+        }
+        .dp-sidebar-btn--primary:hover {
+            background: #235f49;
+            border-color: #235f49;
+            transform: translateY(-1px);
+        }
+
+        .dp-sidebar-btn--outline {
+            background: transparent;
+            color: var(--dp-navy);
+            border-color: var(--dp-border);
+        }
+        .dp-sidebar-btn--outline:hover {
+            border-color: var(--dp-navy);
+            background: var(--dp-bg);
+        }
+
+        /* ===== VIDEO MODAL ===== */
+        .dp-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(11, 31, 58, 0.75);
+            z-index: 999;
+            backdrop-filter: blur(6px);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .dp-modal.active { display: flex; }
+
+        .dp-modal__box {
+            background: var(--dp-navy);
+            border-radius: 20px;
+            width: 90%;
+            max-width: 780px;
+            aspect-ratio: 16/9;
+            position: relative;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+            overflow: hidden;
+            animation: modalIn 0.3s cubic-bezier(0.4,0,0.2,1) forwards;
+        }
+
+        @keyframes modalIn {
+            from { opacity: 0; transform: scale(0.93); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .dp-modal__close {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            z-index: 10;
+            background: rgba(255,255,255,0.15);
+            border: none;
+            color: #fff;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .dp-modal__close:hover { background: rgba(255,255,255,0.3); }
+
+        .dp-modal__box iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 900px) {
+            .dp-hero { grid-template-columns: 1fr; }
+            .dp-hero__image-panel {
+                height: 450px !important;
+                background: transparent !important;
+                border-radius: var(--radius) var(--radius) 0 0;
+            }
+            .dp-body { grid-template-columns: 1fr; }
+            .dp-sidebar { position: static; }
+            .dp-nav { padding: 12px 20px; }
+            .dp-wrapper { padding: 20px 16px; }
+        }
+
+        @media (max-width: 600px) {
+            .dp-hero { grid-template-columns: 1fr; }
+            .dp-hero__image-panel {
+                height: 500px !important;
+                background: transparent !important;
+            }
+            .dp-hero__content { padding: 24px 20px; }
+            .dp-hero__name { font-size: 1.6rem; }
+            .dp-tabs { flex-wrap: wrap; }
+            .dp-tab { flex: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ========== NAVIGATION ========== -->
+    <nav class="nav" id="mainNav">
+        <div class="nav__inner">
+            <a href="index.html#home" class="nav__logo">
+                <div class="nav__logo-icon-container">
+                    <img src="assets/logo_teeth.png" alt="Vats &amp; Param logo" class="nav__logo-img">
+                </div>
+                <div class="nav__logo-text">
+                    Vats &amp; Param
+                    <div class="nav__logo-subtitle">
+                        <span class="logo-line"></span>
+                        <span>The Dentists</span>
+                        <span class="logo-line"></span>
+                    </div>
+                </div>
+            </a>
+            <div class="nav__toggle" id="navToggle"><span></span><span></span><span></span></div>
+            <div class="nav__menu" id="navMenu">
+                <div class="nav__links">
+                    <a href="index.html#home" class="nav__link">Home</a>
+                    <a href="index.html#about" class="nav__link">About</a>
+                    <a href="index.html#approach" class="nav__link">Our Approach</a>
+                    <a href="index.html#treatments" class="nav__link">Treatments</a>
+                    <a href="index.html#team" class="nav__link active">Team</a>
+                    <a href="index.html#technology" class="nav__link">Technology</a>
+                    <a href="index.html#education" class="nav__link">Education</a>
+                    <a href="index.html#testimonials" class="nav__link">Testimonials</a>
+                    <div class="nav__item dropdown">
+                        <a href="achievements.html" class="nav__link dropdown-toggle">Achievements</a>
+                        <div class="dropdown-menu">
+                            <a href="achievements.html#awards" class="dropdown-item">Awards and Recognition</a>
+                            <a href="achievements.html#initiatives" class="dropdown-item">Our Initiatives</a>
+                        </div>
+                    </div>
+                    <a href="blog.html" class="nav__link">Blog</a>
+                    <a href="index.html#contact" class="nav__link">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="dp-wrapper">
+
+        <!-- ===== 1. HERO HEADER CARD ===== -->
+        <div class="dp-card dp-hero">
+
+            <!-- Left: Doctor Image -->
+            <div class="dp-hero__image-panel">
+                <img src="" alt="" id="doctor-image">
+                <div class="dp-hero__image-overlay"></div>
+            </div>
+
+            <!-- Right: Info -->
+            <div class="dp-hero__content">
+                <div>
+                    <h1 class="dp-hero__name" id="doctor-name">Dr. Saloni Gaur</h1>
+                    <p class="dp-hero__subtitle" id="doctor-role">Clinical Director at Vats &amp; Param</p>
+                </div>
+
+                <!-- Tags -->
+                <div class="dp-hero__tags" id="doctor-tags">
+                    <!-- Populated by JS -->
+                </div>
+
+                <!-- Care Overview -->
+                <div>
+                    <p class="dp-hero__overview-label">Care Overview</p>
+                    <ul class="dp-hero__overview-list" id="doctor-overview">
+                        <!-- Populated by JS -->
+                    </ul>
+                </div>
+
+                <!-- CTA Buttons -->
+                <div class="dp-hero__actions">
+                    <a href="index.html#contact" class="dp-btn dp-btn--primary">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M8 2v4m8-4v4M3 10h18M5 4h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/></svg>
+                        Book Appointment
+                    </a>
+                </div>
+
+                <!-- Info Chips -->
+                <div class="dp-hero__info-cards">
+                    <div class="dp-info-chip">
+                        <div class="dp-info-chip__icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8m-4-4v4"/></svg>
+                        </div>
+                        <div>
+                            <div class="dp-info-chip__label">Experience</div>
+                            <div class="dp-info-chip__value" id="doctor-location">—</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== 2. BODY: Tabs + Sidebar ===== -->
+        <div class="dp-body">
+
+            <!-- Main Content: Tabs -->
+            <div class="dp-tabs-wrapper">
+
+                <!-- Tab Nav -->
+                <div class="dp-tabs" role="tablist">
+                    <button class="dp-tab active" role="tab" onclick="switchTab('overview')">Overview</button>
+                    <button class="dp-tab" role="tab" onclick="switchTab('specializations')">Areas of Expertise</button>
+                    <button class="dp-tab" role="tab" onclick="switchTab('treatments')">Treatments</button>
+                    <button class="dp-tab" role="tab" onclick="switchTab('philosophy')">Philosophy</button>
+                    <button class="dp-tab" role="tab" onclick="switchTab('memberships')">Memberships</button>
+                </div>
+
+                <!-- Tab: Overview -->
+                <div class="dp-tab-panel active" id="panel-overview">
+                    <div class="dp-card dp-section-card">
+                        <div class="dp-section-card__header">
+                            <div class="dp-section-card__title">
+                                <div class="dp-section-card__title-icon">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                                </div>
+                                Profile Summary
+                            </div>
+                        </div>
+                        <div class="dp-section-card__text" id="doctor-intro-short"></div>
+                        <div class="dp-section-card__text dp-read-more-collapsed" id="doctor-intro-full"></div>
+                        <button class="dp-readmore-btn" id="readmore-btn" onclick="toggleReadMore()">
+                            Read more
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Tab: Areas of Expertise -->
+                <div class="dp-tab-panel" id="panel-specializations">
+                    <div class="dp-card dp-section-card">
+                        <div class="dp-section-card__title" style="margin-bottom:20px;">
+                            <div class="dp-section-card__title-icon">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                            </div>
+                            Areas of Expertise
+                        </div>
+                        <div class="dp-spec-grid" id="doctor-specializations">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab: Treatments -->
+                <div class="dp-tab-panel" id="panel-treatments">
+                    <div class="dp-card dp-section-card">
+                        <div class="dp-section-card__title" style="margin-bottom:20px;">
+                            <div class="dp-section-card__title-icon">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm-7 4v8m-4-4h8"/></svg>
+                            </div>
+                            Procedures &amp; Treatments
+                        </div>
+                        <div class="dp-spec-grid" id="doctor-treatments">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab: Philosophy -->
+                <div class="dp-tab-panel" id="panel-philosophy">
+                    <div class="dp-card dp-section-card">
+                        <div class="dp-section-card__title" style="margin-bottom:16px;">
+                            <div class="dp-section-card__title-icon">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                            </div>
+                            Clinical Philosophy
+                        </div>
+                        <div class="dp-section-card__text" id="doctor-philosophy-full"></div>
+                    </div>
+                </div>
+
+                <!-- Tab: Memberships -->
+                <div class="dp-tab-panel" id="panel-memberships">
+                    <div class="dp-card dp-section-card">
+                        <div class="dp-section-card__title" style="margin-bottom:20px;">
+                            <div class="dp-section-card__title-icon">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+                            </div>
+                            Professional Memberships
+                        </div>
+                        <div class="dp-spec-grid" id="doctor-memberships">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== 3. SIDEBAR ===== -->
+            <aside class="dp-sidebar">
+
+                <!-- Clinic Card -->
+
+                <!-- Background Card -->
+                <div class="dp-card dp-sidebar-card">
+                    <div class="dp-sidebar-card__header">Background</div>
+                    <div style="display:flex;flex-direction:column;gap:12px;">
+                        <div>
+                            <div style="font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--dp-text-muted);margin-bottom:3px;">Education</div>
+                            <div style="font-size:0.85rem;font-weight:600;color:var(--dp-text);" id="sidebar-education">BDS</div>
+                        </div>
+                        <div>
+                            <div style="font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--dp-text-muted);margin-bottom:3px;">Experience</div>
+                            <div style="font-size:0.85rem;font-weight:600;color:var(--dp-text);" id="sidebar-experience">—</div>
+                        </div>
+                        <div>
+                            <div style="font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--dp-text-muted);margin-bottom:3px;">Languages</div>
+                            <div style="font-size:0.85rem;font-weight:600;color:var(--dp-text);" id="sidebar-languages">English, Hindi, Kannada</div>
+                        </div>
+                    </div>
+                </div>
+
+            </aside>
+
+        </div>
+    </div>
+
+    <!-- ===== VIDEO MODAL ===== -->
+    <div class="dp-modal" id="dp-modal">
+        <div class="dp-modal__box">
+            <button class="dp-modal__close" id="dp-modal-close">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
+            </button>
+            <iframe id="dp-modal-iframe" src="" allowfullscreen allow="autoplay"></iframe>
+        </div>
+    </div>
+
+    <script src="assets/js/doctor-profiles.js"></script>
+    <script>
+        
+
+        /* ===== TAB SWITCHING ===== */
+        function switchTab(tabId) {
+            document.querySelectorAll('.dp-tab').forEach((t, i) => {
+                const panels = ['overview', 'specializations', 'treatments', 'philosophy', 'memberships'];
+                t.classList.toggle('active', panels[i] === tabId);
+            });
+            document.querySelectorAll('.dp-tab-panel').forEach(p => {
+                p.classList.toggle('active', p.id === 'panel-' + tabId);
+            });
+        }
+
+        /* ===== READ MORE ===== */
+        function toggleReadMore() {
+            const full = document.getElementById('doctor-intro-full');
+            const btn = document.getElementById('readmore-btn');
+            const isVisible = full.classList.contains('visible');
+            full.classList.toggle('visible', !isVisible);
+            btn.classList.toggle('expanded', !isVisible);
+            btn.innerHTML = (isVisible ? 'Read more' : 'Read less') + `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>`;
+        }
+    </script>
+  <script src="nav.js"></script>
+</body>
+</html>
+
+
+
+

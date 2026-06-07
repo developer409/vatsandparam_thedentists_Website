@@ -1,0 +1,579 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mouth–Body Connection</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+<style>
+/* ── Reset & Base ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --navy:   #0B1F3A;
+  --gold:   #C6A75E;
+  --gold-lt:#e8d49a;
+  --slate:  #1e3a5f;
+  --cream:  #f8f5ef;
+  --text:   #2c3e50;
+  --muted:  #6b7c93;
+  --white:  #ffffff;
+  --line-clr: rgba(198,167,94,0.7);
+  --glow:   rgba(198,167,94,0.35);
+  --ease:   cubic-bezier(0.4,0,0.2,1);
+}
+
+body { font-family: 'Inter', sans-serif; background: var(--cream); color: var(--text); }
+
+/* ── Section Wrapper ── */
+.mbc-section {
+  position: relative;
+  background: linear-gradient(160deg, #0b1f3a 0%, #1a3352 55%, #0e2640 100%);
+  padding: 80px 24px 60px;
+  overflow: hidden;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* subtle grid bg */
+.mbc-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(198,167,94,.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(198,167,94,.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+  pointer-events: none;
+}
+
+/* ── Pause/Play Button ── */
+.mbc-toggle {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(198,167,94,0.3);
+  color: var(--gold);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  padding: 8px 16px;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: background 0.3s, border-color 0.3s;
+  z-index: 10;
+  text-transform: uppercase;
+}
+.mbc-toggle:hover { background: rgba(198,167,94,0.12); border-color: var(--gold); }
+.mbc-toggle svg { width: 14px; height: 14px; fill: var(--gold); flex-shrink: 0; }
+
+/* ── Header ── */
+.mbc-header {
+  text-align: center;
+  margin-bottom: 48px;
+  position: relative;
+  z-index: 2;
+}
+.mbc-label {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+.mbc-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  color: var(--white);
+  line-height: 1.2;
+  margin-bottom: 14px;
+}
+.mbc-intro {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.55);
+  max-width: 480px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* ── Canvas Area ── */
+.mbc-canvas {
+  position: relative;
+  width: 100%;
+  max-width: 780px;
+  aspect-ratio: 1 / 1.15;
+  margin: 0 auto;
+}
+
+/* SVG fills the canvas */
+.mbc-svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+/* ── Mouth Node (anchor) ── */
+.mouth-node {
+  transition: filter 0.5s var(--ease);
+}
+.mouth-node.glowing {
+  filter: drop-shadow(0 0 14px rgba(198,167,94,0.9)) drop-shadow(0 0 30px rgba(198,167,94,0.4));
+}
+@keyframes mouthPulse {
+  0%,100% { r: 14; opacity: 0.9; }
+  50%      { r: 18; opacity: 1;   }
+}
+.mouth-core { animation: mouthPulse 2s ease-in-out infinite; }
+
+/* ── Connection Lines ── */
+.conn-line {
+  stroke: var(--line-clr);
+  stroke-width: 1.5;
+  fill: none;
+  stroke-dasharray: 300;
+  stroke-dashoffset: 300;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.7s var(--ease), opacity 0.4s;
+  opacity: 0;
+}
+.conn-line.draw {
+  stroke-dashoffset: 0;
+  opacity: 1;
+}
+.conn-line.fade-out {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+/* ── Organ Nodes ── */
+.organ-node {
+  transition: filter 0.5s var(--ease), opacity 0.4s;
+  opacity: 0.35;
+  cursor: default;
+}
+.organ-node.active {
+  opacity: 1;
+  filter: drop-shadow(0 0 12px rgba(198,167,94,0.8)) drop-shadow(0 0 24px rgba(198,167,94,0.3));
+}
+@keyframes organPulse {
+  0%,100% { transform: scale(1);   }
+  50%      { transform: scale(1.12); }
+}
+.organ-node.active .organ-ring { animation: organPulse 1.2s ease-in-out infinite; }
+
+/* Ping ripple on active */
+@keyframes ping {
+  0%   { r: 18; opacity: 0.6; }
+  100% { r: 36; opacity: 0;   }
+}
+.organ-ping { opacity: 0; }
+.organ-node.active .organ-ping { animation: ping 1.4s ease-out infinite; }
+
+/* ── Progress Dots ── */
+.mbc-dots {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-top: 20px;
+  position: relative;
+  z-index: 2;
+}
+.mbc-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.2);
+  transition: background 0.4s, transform 0.3s;
+}
+.mbc-dot.active {
+  background: var(--gold);
+  transform: scale(1.4);
+}
+
+/* ── Text Panel ── */
+.mbc-panel {
+  position: relative;
+  z-index: 2;
+  max-width: 620px;
+  width: 100%;
+  margin: 28px auto 0;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(198,167,94,0.2);
+  border-radius: 16px;
+  padding: 24px 28px;
+  min-height: 96px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+}
+.mbc-panel-inner {
+  transition: opacity 0.4s var(--ease), transform 0.4s var(--ease);
+}
+.mbc-panel-inner.exiting {
+  opacity: 0;
+  transform: translateY(8px);
+}
+.mbc-panel-inner.entering {
+  opacity: 0;
+  transform: translateY(-8px);
+}
+.mbc-panel-organ {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 6px;
+}
+.mbc-panel-text {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.8);
+  line-height: 1.65;
+}
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  .mbc-section { padding: 70px 16px 48px; }
+  .mbc-canvas  { max-width: 100%; }
+  .mbc-panel   { padding: 18px 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════════
+     MOUTH–BODY CONNECTION SECTION
+     Drop this between any two sections in home.html
+     ════════════════════════════════════════════ -->
+<section class="mbc-section" id="mouth-body-connection" aria-label="Mouth–Body Connection Animation">
+
+  <!-- Pause / Play -->
+  <button class="mbc-toggle" id="mbcToggle" aria-label="Pause animation">
+    <!-- icon swaps via JS -->
+    <svg id="mbcIcon" viewBox="0 0 24 24"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+    <span id="mbcLabel">Pause</span>
+  </button>
+
+  <!-- Header -->
+  <header class="mbc-header">
+    <span class="mbc-label">The Connection</span>
+    <h2 class="mbc-title">Your Mouth Speaks<br>to Your Whole Body</h2>
+    <p class="mbc-intro">Oral health is not isolated. Watch how inflammation, bacteria, and imbalance travel from your mouth to affect every system.</p>
+  </header>
+
+  <!-- Animated SVG Canvas -->
+  <div class="mbc-canvas" role="img" aria-label="Body connection diagram">
+    <svg class="mbc-svg" viewBox="0 0 400 460" xmlns="http://www.w3.org/2000/svg">
+
+      <!-- ── Body silhouette (simple medical outline) ── -->
+      <g opacity="0.08" fill="#C6A75E">
+        <!-- head -->
+        <ellipse cx="200" cy="55" rx="38" ry="46"/>
+        <!-- neck -->
+        <rect x="186" y="96" width="28" height="22" rx="6"/>
+        <!-- torso -->
+        <path d="M148 118 Q130 125 125 160 L120 280 Q118 295 130 300
+                 L165 308 L165 420 L175 420 L175 308
+                 L200 312 L225 308 L225 420 L235 420 L235 308
+                 L270 300 Q282 295 280 280 L275 160
+                 Q270 125 252 118 Z"/>
+      </g>
+
+      <!-- ── Connection Lines (drawn by JS) ── -->
+      <!-- Brain  (top-centre) -->
+      <path id="line-brain"  class="conn-line" d="M200 140 Q200 95  200 78"/>
+      <!-- Heart  (left) -->
+      <path id="line-heart"  class="conn-line" d="M200 180 Q165 175 148 185"/>
+      <!-- Lungs  (right) -->
+      <path id="line-lungs"  class="conn-line" d="M200 190 Q232 185 250 195"/>
+      <!-- Gut    (centre-low) -->
+      <path id="line-gut"    class="conn-line" d="M200 200 Q200 240 200 255"/>
+      <!-- Joints (bottom-left) -->
+      <path id="line-joints" class="conn-line" d="M200 210 Q165 270 152 310"/>
+
+      <!-- ── Mouth Anchor Node ── -->
+      <g class="mouth-node glowing" id="mouthNode" transform="translate(200,140)">
+        <circle class="mouth-core" cx="0" cy="0" r="14" fill="#0e2640" stroke="#C6A75E" stroke-width="2"/>
+        <!-- tooth icon -->
+        <path d="M-6-4 Q-6-8 0-8 Q6-8 6-4 L5 2 Q3 6 0 6 Q-3 6-5 2 Z"
+              fill="none" stroke="#C6A75E" stroke-width="1.3" stroke-linejoin="round"/>
+        <path d="M-6-4 Q0 0 6-4" fill="none" stroke="#C6A75E" stroke-width="1.3"/>
+        <!-- label -->
+        <text y="28" text-anchor="middle" fill="#C6A75E" font-size="8.5" font-family="Inter,sans-serif" font-weight="600" letter-spacing="0.06em">MOUTH</text>
+      </g>
+
+      <!-- ── Brain Node ── -->
+      <g class="organ-node" id="node-brain" transform="translate(200,62)">
+        <circle class="organ-ping" cx="0" cy="0" r="18" fill="none" stroke="#C6A75E" stroke-width="1.5"/>
+        <circle class="organ-ring" cx="0" cy="0" r="18" fill="#0d2340" stroke="#C6A75E" stroke-width="1.8"/>
+        <!-- brain icon -->
+        <path d="M-8-4 Q-10-10-4-10 Q0-12 4-10 Q10-10 8-4 Q10 0 6 4 Q2 8-2 6 Q-6 8-8 4 Q-12 0-8-4Z"
+              fill="none" stroke="#C6A75E" stroke-width="1.3"/>
+        <path d="M0-10 L0 6" fill="none" stroke="#C6A75E" stroke-width="1" opacity="0.5"/>
+        <text y="30" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="7.5" font-family="Inter,sans-serif" font-weight="600" letter-spacing="0.08em">BRAIN</text>
+      </g>
+
+      <!-- ── Heart Node ── -->
+      <g class="organ-node" id="node-heart" transform="translate(140,188)">
+        <circle class="organ-ping" cx="0" cy="0" r="18" fill="none" stroke="#C6A75E" stroke-width="1.5"/>
+        <circle class="organ-ring" cx="0" cy="0" r="18" fill="#0d2340" stroke="#C6A75E" stroke-width="1.8"/>
+        <path d="M0 6 Q-10-2-10-8 Q-10-14-4-14 Q-1-14 0-10 Q1-14 4-14 Q10-14 10-8 Q10-2 0 6Z"
+              fill="none" stroke="#C6A75E" stroke-width="1.3"/>
+        <text y="30" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="7.5" font-family="Inter,sans-serif" font-weight="600" letter-spacing="0.08em">HEART</text>
+      </g>
+
+      <!-- ── Lungs Node ── -->
+      <g class="organ-node" id="node-lungs" transform="translate(258,198)">
+        <circle class="organ-ping" cx="0" cy="0" r="18" fill="none" stroke="#C6A75E" stroke-width="1.5"/>
+        <circle class="organ-ring" cx="0" cy="0" r="18" fill="#0d2340" stroke="#C6A75E" stroke-width="1.8"/>
+        <path d="M0-8 L0 6 M-4-8 Q-12-6-10 4 Q-8 10-2 8 L0 6 M4-8 Q12-6 10 4 Q8 10 2 8 L0 6"
+              fill="none" stroke="#C6A75E" stroke-width="1.3" stroke-linecap="round"/>
+        <text y="30" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="7.5" font-family="Inter,sans-serif" font-weight="600" letter-spacing="0.08em">LUNGS</text>
+      </g>
+
+      <!-- ── Gut Node ── -->
+      <g class="organ-node" id="node-gut" transform="translate(200,262)">
+        <circle class="organ-ping" cx="0" cy="0" r="18" fill="none" stroke="#C6A75E" stroke-width="1.5"/>
+        <circle class="organ-ring" cx="0" cy="0" r="18" fill="#0d2340" stroke="#C6A75E" stroke-width="1.8"/>
+        <path d="M-8-6 Q-8 0-4 4 Q0 8 4 4 Q8 0 8-6 M-8-6 Q-6-10 0-10 Q6-10 8-6"
+              fill="none" stroke="#C6A75E" stroke-width="1.3" stroke-linecap="round"/>
+        <text y="30" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="7.5" font-family="Inter,sans-serif" font-weight="600" letter-spacing="0.08em">GUT</text>
+      </g>
+
+      <!-- ── Joints Node ── -->
+      <g class="organ-node" id="node-joints" transform="translate(148,316)">
+        <circle class="organ-ping" cx="0" cy="0" r="18" fill="none" stroke="#C6A75E" stroke-width="1.5"/>
+        <circle class="organ-ring" cx="0" cy="0" r="18" fill="#0d2340" stroke="#C6A75E" stroke-width="1.8"/>
+        <circle cx="-4" cy="-4" r="4" fill="none" stroke="#C6A75E" stroke-width="1.3"/>
+        <circle cx="4"  cy="4"  r="4" fill="none" stroke="#C6A75E" stroke-width="1.3"/>
+        <line x1="0" y1="-4" x2="0" y2="4" stroke="#C6A75E" stroke-width="1" opacity="0.5"/>
+        <text y="30" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="7.5" font-family="Inter,sans-serif" font-weight="600" letter-spacing="0.08em">JOINTS</text>
+      </g>
+
+    </svg>
+  </div>
+
+  <!-- Progress Dots -->
+  <div class="mbc-dots" id="mbcDots" aria-hidden="true">
+    <div class="mbc-dot" data-i="0"></div>
+    <div class="mbc-dot" data-i="1"></div>
+    <div class="mbc-dot" data-i="2"></div>
+    <div class="mbc-dot" data-i="3"></div>
+    <div class="mbc-dot" data-i="4"></div>
+  </div>
+
+  <!-- Dynamic Text Panel -->
+  <div class="mbc-panel" id="mbcPanel" aria-live="polite">
+    <div class="mbc-panel-inner" id="mbcPanelInner">
+      <div class="mbc-panel-organ" id="mbcOrganLabel">The Mouth–Body Link</div>
+      <p class="mbc-panel-text" id="mbcPanelText">Your oral health is connected to your entire body.</p>
+    </div>
+  </div>
+
+</section>
+
+<script>
+/* ══════════════════════════════════════════════
+   Mouth–Body Connection Animation Controller
+   ══════════════════════════════════════════════ */
+
+const STEPS = [
+  {
+    id:    'brain',
+    label: 'Brain & Cognitive Health',
+    text:  'Oral inflammation and poor sleep can impact mental health, focus, and cognitive function.'
+  },
+  {
+    id:    'heart',
+    label: 'Cardiovascular Health',
+    text:  'Gum inflammation is linked to heart disease and cardiovascular risk.'
+  },
+  {
+    id:    'lungs',
+    label: 'Respiratory Health',
+    text:  'Oral bacteria can affect lung health and worsen respiratory conditions.'
+  },
+  {
+    id:    'gut',
+    label: 'Digestive & Gut Health',
+    text:  'The oral microbiome influences digestion, immunity, and gut balance.'
+  },
+  {
+    id:    'joints',
+    label: 'Joints & Systemic Balance',
+    text:  'Chronic inflammation can contribute to pain, autoimmune issues, and slower healing.'
+  }
+];
+
+/* Timing (ms) */
+const T = {
+  intro:      2500,   // Phase 1 hold
+  lineGrow:    700,   // line drawing duration
+  organHold:  2000,   // organ stays active
+  fadeOut:     500,   // line + organ fade
+  textSwitch:  350,   // text crossfade
+  stepTotal:  3500    // total per organ step
+};
+
+/* State */
+let currentStep  = -1;   // -1 = intro
+let isPlaying    = true;
+let scheduledIds = [];    // setTimeout IDs for clean cancellation
+let stepStarted  = false;
+
+/* DOM refs */
+const toggle   = document.getElementById('mbcToggle');
+const mbcIcon  = document.getElementById('mbcIcon');
+const mbcLabel = document.getElementById('mbcLabel');
+const dots     = document.querySelectorAll('.mbc-dot');
+const panelInner  = document.getElementById('mbcPanelInner');
+const organLabel  = document.getElementById('mbcOrganLabel');
+const panelText   = document.getElementById('mbcPanelText');
+const mouthNode   = document.getElementById('mouthNode');
+
+/* ── Helpers ── */
+function schedule(fn, delay) {
+  const id = setTimeout(fn, delay);
+  scheduledIds.push(id);
+  return id;
+}
+
+function clearAll() {
+  scheduledIds.forEach(clearTimeout);
+  scheduledIds = [];
+}
+
+function setLine(id, active) {
+  const el = document.getElementById('line-' + id);
+  if (!el) return;
+  if (active) {
+    el.classList.remove('fade-out');
+    el.classList.add('draw');
+  } else {
+    el.classList.add('fade-out');
+    schedule(() => { el.classList.remove('draw','fade-out'); }, T.fadeOut);
+  }
+}
+
+function setOrgan(id, active) {
+  const el = document.getElementById('node-' + id);
+  if (!el) return;
+  active ? el.classList.add('active') : el.classList.remove('active');
+}
+
+function setDot(idx) {
+  dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+}
+
+function updateText(label, text) {
+  panelInner.classList.add('exiting');
+  schedule(() => {
+    organLabel.textContent  = label;
+    panelText.textContent   = text;
+    panelInner.classList.remove('exiting');
+    panelInner.classList.add('entering');
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => panelInner.classList.remove('entering'));
+    });
+  }, T.textSwitch);
+}
+
+/* ── Deactivate all organs + lines ── */
+function clearOrganState() {
+  STEPS.forEach(s => {
+    setLine(s.id, false);
+    setOrgan(s.id, false);
+  });
+}
+
+/* ── Run a single organ step ── */
+function runStep(index) {
+  if (!isPlaying) return;
+  currentStep = index;
+  const step = STEPS[index];
+
+  /* 1. Mouth glows (already permanent), draw line */
+  setLine(step.id, true);
+
+  /* 2. After line grows → activate organ */
+  schedule(() => {
+    setOrgan(step.id, true);
+    setDot(index);
+    updateText(step.label, step.text);
+  }, T.lineGrow);
+
+  /* 3. Hold → then fade out & advance */
+  schedule(() => {
+    setLine(step.id, false);
+    setOrgan(step.id, false);
+
+    const next = (index + 1) % STEPS.length;
+    schedule(() => runStep(next), T.fadeOut + 120);
+
+  }, T.lineGrow + T.organHold);
+}
+
+/* ── Phase 1 — Intro ── */
+function runIntro() {
+  organLabel.textContent = 'The Mouth–Body Link';
+  panelText.textContent  = 'Your oral health is connected to your entire body.';
+  mouthNode.classList.add('glowing');
+  dots.forEach(d => d.classList.remove('active'));
+
+  schedule(() => {
+    if (isPlaying) runStep(0);
+  }, T.intro);
+}
+
+/* ── Start ── */
+function start() {
+  clearAll();
+  clearOrganState();
+  runIntro();
+}
+
+/* ── Pause / Resume ── */
+function pause() {
+  isPlaying = false;
+  clearAll();
+  mbcIcon.innerHTML  = '<polygon points="5,3 19,12 5,21"/>';
+  mbcLabel.textContent = 'Play';
+  toggle.setAttribute('aria-label','Resume animation');
+}
+
+function resume() {
+  isPlaying = true;
+  mbcIcon.innerHTML  = '<rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/>';
+  mbcLabel.textContent = 'Pause';
+  toggle.setAttribute('aria-label','Pause animation');
+
+  /* Resume from next step (don't restart) */
+  clearOrganState();
+  const nextStep = currentStep < 0 ? 0 : (currentStep + 1) % STEPS.length;
+  runStep(nextStep);
+}
+
+toggle.addEventListener('click', () => {
+  isPlaying ? pause() : resume();
+});
+
+/* ── Kick off on load ── */
+document.addEventListener('DOMContentLoaded', () => {
+  schedule(() => start(), 400);
+});
+</script>
+
+  <script src="nav.js"></script>
+</body>
+</html>
+

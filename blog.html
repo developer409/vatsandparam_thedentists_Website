@@ -1,0 +1,1505 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog | Vats &amp; Param &#8211; The Dentists</title>
+  <meta name="description" content="Insights, tips, and the latest in holistic dental care from Vats & Param.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Hero */
+    .blog-hero {
+      padding: var(--space-3xl) 0 var(--space-xl);
+      background: var(--color-navy);
+      color: white;
+      text-align: center;
+    }
+
+    .blog-hero h1 {
+      color: white;
+    }
+
+    /* Section divider heading */
+    .blog-section-heading {
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+      margin-bottom: var(--space-2xl);
+    }
+
+    .blog-section-heading__line {
+      flex: 1;
+      height: 1px;
+      background: var(--color-gold);
+      opacity: 0.3;
+    }
+
+    .blog-section-heading__text {
+      font-family: var(--font-heading);
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      color: var(--color-navy);
+      white-space: nowrap;
+    }
+
+    /* ── Blog post cards (LinkedIn articles) ── */
+    .blog-posts-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-xl);
+    }
+
+    .blog-post-card {
+      background: #fff;
+      border-radius: var(--radius-lg);
+      border: 1.5px solid rgba(92, 10, 10, 0.12);
+      box-shadow: var(--shadow-card);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .blog-post-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .blog-post-card__cover {
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: var(--color-navy);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .blog-post-card__cover img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .blog-post-card__cover-placeholder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, var(--color-navy) 0%, #7D1212 100%);
+    }
+
+    .blog-post-card__cover-placeholder svg {
+      width: 40px;
+      height: 40px;
+      opacity: 0.5;
+    }
+
+    .blog-post-card__cover-placeholder span {
+      font-size: 0.7rem;
+      color: rgba(255, 255, 255, 0.4);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .blog-post-card__body {
+      padding: var(--space-lg);
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+
+    .blog-post-card__tag {
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-gold);
+      font-weight: 600;
+    }
+
+    .blog-post-card__title {
+      font-family: var(--font-heading);
+      font-size: 1.15rem;
+      color: var(--color-navy);
+      line-height: 1.4;
+    }
+
+    .blog-post-card__excerpt {
+      font-size: var(--fs-small);
+      color: var(--color-text-muted);
+      line-height: 1.6;
+      flex: 1;
+    }
+
+    .blog-post-card__footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: var(--space-md) var(--space-lg);
+      border-top: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
+    .blog-post-card__author {
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+    }
+
+    .blog-post-card__link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--color-navy);
+      text-decoration: none;
+      letter-spacing: 0.03em;
+      transition: color 0.2s;
+    }
+
+    .blog-post-card__link:hover {
+      color: var(--color-gold);
+    }
+
+    /* ── Articles photo grid ── */
+    .articles-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-xl);
+    }
+
+    .article-photo {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1.5px solid rgba(92, 10, 10, 0.12);
+      box-shadow: var(--shadow-card);
+    }
+
+    .article-photo img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .article-photo:hover img {
+      transform: scale(1.02);
+    }
+
+    /* Article group label */
+    .article-group-label {
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      color: var(--color-text-muted);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin: var(--space-2xl) 0 var(--space-md);
+      padding-left: 4px;
+      border-left: 3px solid var(--color-gold);
+      padding-left: var(--space-sm);
+    }
+
+    /* ── Publications cards ── */
+    .publications-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-xl);
+    }
+
+    @media (max-width: 1024px) {
+      .blog-posts-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .articles-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .publications-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .publication-card {
+      background: #fff;
+      border-radius: var(--radius-lg);
+      border: 1.5px solid rgba(92, 10, 10, 0.12);
+      box-shadow: var(--shadow-card);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .publication-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .publication-card__header {
+      padding: var(--space-xl) var(--space-lg);
+      background: linear-gradient(135deg, var(--color-navy) 0%, #7D1212 100%);
+      border-bottom: 3px solid var(--color-gold);
+      min-height: 90px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: var(--space-md);
+    }
+
+    .publication-card__newspaper {
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-gold);
+      font-weight: 700;
+      margin: 0;
+    }
+
+    .publication-card__date {
+      font-size: 0.75rem;
+      color: rgba(255, 255, 255, 0.85);
+      margin: 0;
+      font-weight: 500;
+    }
+
+    .publication-card__body {
+      padding: var(--space-lg) var(--space-lg) var(--space-md);
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+
+    .publication-card__title {
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      color: var(--color-navy);
+      line-height: 1.5;
+      margin: 0;
+      font-weight: 600;
+    }
+
+    .publication-card__excerpt {
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+      line-height: 1.65;
+      flex: 1;
+      margin: 0;
+    }
+
+    .publication-card__footer {
+      padding: var(--space-md) var(--space-lg) var(--space-lg);
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+    }
+
+    .publication-card__link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--color-navy);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: color 0.2s;
+    }
+
+    .publication-card__link:hover {
+      color: var(--color-gold);
+    }
+
+    @media (max-width: 1024px) {
+      .publications-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .blog-posts-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .articles-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .publications-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .publications-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .blog-posts-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .articles-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ========== NAVIGATION ========== -->
+  <nav class="nav" id="mainNav">
+    <div class="nav__inner">
+      <a href="index.html#home" class="nav__logo">
+        <div class="nav__logo-icon-container">
+          <img src="assets/logo_teeth.png" alt="Vats &amp; Param logo" class="nav__logo-img">
+        </div>
+        <div class="nav__logo-text">
+          Vats &amp; Param
+          <div class="nav__logo-subtitle">
+            <span class="logo-line"></span>
+            <span>The Dentists</span>
+            <span class="logo-line"></span>
+          </div>
+        </div>
+      </a>
+      <div class="nav__toggle" id="navToggle"><span></span><span></span><span></span></div>
+      <div class="nav__menu" id="navMenu">
+        <div class="nav__links">
+          <a href="index.html#home" class="nav__link">Home</a>
+          <a href="index.html#about" class="nav__link">About</a>
+
+          <!-- Services Dropdown -->
+          <div class="nav__item dropdown">
+            <a href="#" class="nav__link dropdown-toggle">Services</a>
+            <div class="dropdown-menu">
+              <a href="index.html#approach" class="dropdown-item">Our Approach</a>
+              <a href="index.html#treatments" class="dropdown-item">Treatments</a>
+              <a href="index.html#technology" class="dropdown-item">Technology</a>
+            </div>
+          </div>
+
+          <a href="index.html#team" class="nav__link">Team</a>
+
+          <!-- Resources Dropdown -->
+          <div class="nav__item dropdown">
+            <a href="#" class="nav__link dropdown-toggle">Resources</a>
+            <div class="dropdown-menu">
+              <a href="index.html#education" class="dropdown-item">Education</a>
+              <a href="index.html#testimonials" class="dropdown-item">Testimonials</a>
+              <a href="achievements.html" class="dropdown-item">Achievements</a>
+              <a href="blog.html" class="dropdown-item active">Blog</a>
+            </div>
+          </div>
+
+          <a href="index.html#contact" class="nav__link">Contact</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section class="blog-hero">
+      <div class="container">
+        <span class="section-label" style="color: var(--color-gold);">Wellness Insights</span>
+        <h1>The Oral Health Journal</h1>
+        <p class="section-subtitle centered" style="color: rgba(255,255,255,0.8);">Understanding the connections between
+          your smile and your health.</p>
+      </div>
+    </section>
+
+    <!-- ========== BLOG SECTION ========== -->
+    <section class="section">
+      <div class="container">
+
+        <div class="blog-section-heading">
+          <div class="blog-section-heading__line"></div>
+          <span class="blog-section-heading__text">In The Press</span>
+          <div class="blog-section-heading__line"></div>
+        </div>
+
+        <!-- Magazine Features Grid -->
+        <div class="magazine-features-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
+          <!-- Dr. Srivats Magazine -->
+          <div style="background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1); display: flex; flex-direction: column; transition: transform 0.3s;">
+            <div style="background: linear-gradient(135deg, #5C0A0A 0%, #8B1212 100%); padding: 2rem; color: white; text-align: center;">
+              <p style="margin: 0; font-size: 0.9rem; opacity: 0.9;">Featured In</p>
+              <p style="margin: 0.5rem 0 0 0; font-size: 1.4rem; font-weight: bold;">CEO India Magazine</p>
+            </div>
+            <div style="padding: 1.5rem; flex: 1; display: flex; flex-direction: column;">
+              <p style="margin: 0 0 1rem 0; font-size: 1.1rem; font-weight: 600; color: var(--color-navy);">Dr. Srivats Bharadwaj</p>
+              <p style="margin: 0; font-size: 0.95rem; color: #666; line-height: 1.6; flex: 1;">Featured on the cover for advancing whole-body, connected dentistry and pioneering integrated health solutions.</p>
+              <a href="assets/SRIVATS latest .pdf" style="display: inline-block; margin-top: 1rem; padding: 0.75rem 1.5rem; background: #5C0A0A; color: white; text-decoration: none; border-radius: 25px; font-size: 0.9rem; text-align: center; transition: background 0.3s;">Check Out Now →</a>
+            </div>
+          </div>
+
+          <!-- Dr. Paramjot Magazine -->
+          <div style="background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1); display: flex; flex-direction: column; transition: transform 0.3s;">
+            <div style="background: linear-gradient(135deg, #5C0A0A 0%, #8B1212 100%); padding: 2rem; color: white; text-align: center;">
+              <p style="margin: 0; font-size: 0.9rem; opacity: 0.9;">Featured In</p>
+              <p style="margin: 0.5rem 0 0 0; font-size: 1.4rem; font-weight: bold;">Women Entrepreneur Magazine</p>
+            </div>
+            <div style="padding: 1.5rem; flex: 1; display: flex; flex-direction: column;">
+              <p style="margin: 0 0 1rem 0; font-size: 1.1rem; font-weight: 600; color: var(--color-navy);">Dr. Paramjot Kaur</p>
+              <p style="margin: 0; font-size: 0.95rem; color: #666; line-height: 1.6; flex: 1;">Among the Top 10 Women Entrepreneurs in India and Top 10 Dentists in India, recognized for shaping the future of dentistry with innovative and compassionate care.</p>
+              <a href="assets/PARAMJOT latest .pdf" style="display: inline-block; margin-top: 1rem; padding: 0.75rem 1.5rem; background: #5C0A0A; color: white; text-decoration: none; border-radius: 25px; font-size: 0.9rem; text-align: center; transition: background 0.3s;">Check Out Now →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="blog-section-heading">
+          <div class="blog-section-heading__line"></div>
+          <span class="blog-section-heading__text">Blog</span>
+          <div class="blog-section-heading__line"></div>
+        </div>
+
+        <div class="blog-posts-grid">
+          <!-- ── Blog Post 1 ── -->
+          <a class="blog-post-card" href="https://www.linkedin.com/pulse/prevention-healthcare-behaviour-problem-governance-bharadwaj-mxpkc/?trackingId=6w12bQVDR%2BKyEcQj5%2FpyrQ%3D%3D" target="_blank" rel="noopener">
+            <div class="blog-post-card__cover">
+              <img src="assets/awards/blog/img_1.png" alt="Blog Post 1">
+            </div>
+            <div class="blog-post-card__body">
+              <span class="blog-post-card__tag">LinkedIn Article</span>
+              <p class="blog-post-card__title">Why isn't prevention working in Indian Dentistry</p>
+              <p class="blog-post-card__excerpt">Prevention in Healthcare Is Not a Behaviour Problem. It Is a Governance Problem</p>
+            </div>
+            <div class="blog-post-card__footer">
+              <span class="blog-post-card__author">Dr. Srivats B · 06/01/2026</span>
+              <span class="blog-post-card__link">Read on LinkedIn ↗</span>
+            </div>
+          </a>
+
+          <!-- ── Blog Post 2 — replace href, title, excerpt, author ── -->
+          <div class="blog-post-card">
+            <div class="blog-post-card__cover">
+              <img src="assets/awards/blog/img_2.png" alt="Blog Post 1">
+              <div class="blog-post-card__cover-placeholder">
+                
+                
+              </div>
+            </div>
+            <div class="blog-post-card__body">
+              <span class="blog-post-card__tag">LinkedIn Article</span>
+              <p class="blog-post-card__title">Why It’s Time to Rename “Artificial Intelligence” as “Collective Intelligence”</p>
+              <p class="blog-post-card__excerpt">Why We Need To Change How We Talk About AI</p>
+            </div>
+            <div class="blog-post-card__footer">
+              <span class="blog-post-card__author">Dr. Srivats B — · 07/01/2026</span>
+              <a href="https://www.linkedin.com/pulse/why-its-time-rename-artificial-intelligence-bharadwaj-veftc/?trackingId=6w12bQVDR%2BKyEcQj5%2FpyrQ%3D%3D" target="_blank" rel="noopener" class="blog-post-card__link">Read on LinkedIn ↗</a>
+            </div>
+          </div>
+
+          <!-- ── Blog Post 3 — replace href, title, excerpt, author ── -->
+          <div class="blog-post-card">
+            <div class="blog-post-card__cover">
+              <img src="assets/Awards/blog/img_3.png" alt="">
+              <div class="blog-post-card__cover-placeholder">
+                
+              </div>
+            </div>
+            <div class="blog-post-card__body">
+              <span class="blog-post-card__tag">LinkedIn Article</span>
+              <p class="blog-post-card__title">What Founders see vs What Leaders understand: Why Skill Creates Potential but Strategy Creates Destiny !</p>
+              <p class="blog-post-card__excerpt"></p>
+            </div>
+            <div class="blog-post-card__footer">
+              <span class="blog-post-card__author">Dr. Srivats B · 25/12/2025</span>
+              <a href="https://www.linkedin.com/pulse/what-founders-see-vs-leaders-understand-why-skill-bharadwaj-nujic/?trackingId=6w12bQVDR%2BKyEcQj5%2FpyrQ%3D%3D" target="_blank" rel="noopener" class="blog-post-card__link">Read on LinkedIn ↗</a>
+            </div>
+          </div>
+
+          <div class="blog-post-card">
+            <div class="blog-post-card__cover">
+              <img src="assets/Awards/blog/img_4.png" alt="">
+              <div class="blog-post-card__cover-placeholder">
+                
+              </div>
+            </div>
+            <div class="blog-post-card__body">
+              <span class="blog-post-card__tag">LinkedIn Article</span>
+              <p class="blog-post-card__title">Dentistry Is Not Saturated - Our Thinking Is</p>
+              <p class="blog-post-card__excerpt">Why Most Dentists Struggle Financially and How a Culture of Mentorship Can Transform the Profession</p>
+            </div>
+            <div class="blog-post-card__footer">
+              <span class="blog-post-card__author">Dr. Srivats B · 18/11/2025</span>
+              <a href="https://www.linkedin.com/pulse/dentistry-saturated-our-thinking-professor-dr-srivats-bharadwaj-dxilc/?trackingId=6w12bQVDR%2BKyEcQj5%2FpyrQ%3D%3D" target="_blank" rel="noopener" class="blog-post-card__link">Read on LinkedIn ↗</a>
+            </div>
+          </div>
+
+          <div class="blog-post-card">
+            <div class="blog-post-card__cover">
+              <img src="assets/Awards/blog/img_5.png" alt="">
+              <div class="blog-post-card__cover-placeholder">
+                
+              </div>
+            </div>
+            <div class="blog-post-card__body">
+              <span class="blog-post-card__tag">LinkedIn Article</span>
+              <p class="blog-post-card__title">The Mouth as a Mirror: How Oral Health Reflects and Influences Chronic Disease</p>
+              <p class="blog-post-card__excerpt">Why the Gateway to Your Body Is Key to Your Overall Well-Being</p>
+            </div>
+            <div class="blog-post-card__footer">
+              <span class="blog-post-card__author">Dr. Srivats B · 24/10/2025</span>
+              <a href="https://www.linkedin.com/pulse/mouth-mirror-how-oral-health-reflects-influences-bharadwaj-zrxuc/?trackingId=6w12bQVDR%2BKyEcQj5%2FpyrQ%3D%3D" target="_blank" rel="noopener" class="blog-post-card__link">Read on LinkedIn ↗</a>
+            </div>
+          </div>
+
+          <div class="blog-post-card">
+            <div class="blog-post-card__cover">
+              <img src="assets/Awards/blog/img_6.png" alt="">
+              <div class="blog-post-card__cover-placeholder">
+                
+              </div>
+            </div>
+            <div class="blog-post-card__body">
+              <span class="blog-post-card__tag">LinkedIn Article</span>
+              <p class="blog-post-card__title">Breaking the Silence: Reintegrating Dentistry Into the Healthcare Continuum</p>
+              <p class="blog-post-card__excerpt">How oral healthcare can be finally positioned as an integral part of systemic healthcare</p>
+            </div>
+            <div class="blog-post-card__footer">
+              <span class="blog-post-card__author">Dr. Srivats B · 02/08/2025</span>
+              <a href="https://www.linkedin.com/pulse/breaking-silence-reintegrating-dentistry-healthcare-bharadwaj-rkipc/?trackingId=6w12bQVDR%2BKyEcQj5%2FpyrQ%3D%3D" target="_blank" rel="noopener" class="blog-post-card__link">Read on LinkedIn ↗</a>
+            </div>
+          </div>
+
+          <div class="blog-post-card">
+            <div class="blog-post-card__cover">
+              <img src="assets/Awards/blog/img_7.png" alt="">
+              <div class="blog-post-card__cover-placeholder">
+                
+              </div>
+            </div>
+            <div class="blog-post-card__body">
+              <span class="blog-post-card__tag">LinkedIn Article</span>
+              <p class="blog-post-card__title">“We Are Educated, But Are We Evolved?”</p>
+              <p class="blog-post-card__excerpt">A Case for Rebuilding Human Culture from the Ground Up</p>
+            </div>
+            <div class="blog-post-card__footer">
+              <span class="blog-post-card__author">Dr. Srivats B · 10/07/2025</span>
+              <a href="https://www.linkedin.com/pulse/we-educated-evolved-case-rebuilding-human-culture-from-bharadwaj-jm8xc/?trackingId=6w12bQVDR%2BKyEcQj5%2FpyrQ%3D%3D" target="_blank" rel="noopener" class="blog-post-card__link">Read on LinkedIn ↗</a>
+            </div>
+          </div>
+
+          <div class="blog-post-card">
+            <div class="blog-post-card__cover">
+              <img src="assets/Awards/blog/img_8.png" alt="">
+              <div class="blog-post-card__cover-placeholder">
+                
+              </div>
+            </div>
+            <div class="blog-post-card__body">
+              <span class="blog-post-card__tag">LinkedIn Article</span>
+              <p class="blog-post-card__title">“Success Begins With the Gut: The Power of Intent and Inner Wisdom”</p>
+              <p class="blog-post-card__excerpt">Why Your Thoughts Influence Your Digestion and Your Destiny</p>
+            </div>
+            <div class="blog-post-card__footer">
+              <span class="blog-post-card__author">Dr. Srivats B · 05/07/2025</span>
+              <a href="https://www.linkedin.com/pulse/success-begins-gut-power-intent-inner-wisdom-bharadwaj-gd1rc/?trackingId=6w12bQVDR%2BKyEcQj5%2FpyrQ%3D%3D" target="_blank" rel="noopener" class="blog-post-card__link">Read on LinkedIn ↗</a>
+            </div>
+          </div>
+          
+          <div class="blog-post-card">
+            <div class="blog-post-card__cover">
+              <img src="assets/Awards/blog/img_9.png" alt="">
+              <div class="blog-post-card__cover-placeholder">
+                
+              </div>
+            </div>
+            <div class="blog-post-card__body">
+              <span class="blog-post-card__tag">LinkedIn Article</span>
+              <p class="blog-post-card__title">“The Forgotten Togetherness: Reclaiming What Truly Matters”</p>
+              <p class="blog-post-card__excerpt">Reflections on Relationships, Resilience, and Rediscovering the Joy of Connection</p>
+            </div>
+            <div class="blog-post-card__footer">
+              <span class="blog-post-card__author">Dr. Srivats B · 30/06/2025</span>
+              <a href="https://www.linkedin.com/pulse/forgotten-togetherness-reclaiming-what-truly-matters-dr-bharadwaj-skcbc/?trackingId=6w12bQVDR%2BKyEcQj5%2FpyrQ%3D%3D" target="_blank" rel="noopener" class="blog-post-card__link">Read on LinkedIn ↗</a>
+            </div>
+          </div>
+          
+          <div class="blog-post-card">
+            <div class="blog-post-card__cover">
+              <img src="assets/Awards/blog/img_10.png" alt="">
+              <div class="blog-post-card__cover-placeholder">
+                
+              </div>
+            </div>
+            <div class="blog-post-card__body">
+              <span class="blog-post-card__tag">LinkedIn Article</span>
+              <p class="blog-post-card__title">The Forgotten Art of Giving:</p>
+              <p class="blog-post-card__excerpt">Give, Not to Change the World — But to Let It Change You</p>
+            </div>
+            <div class="blog-post-card__footer">
+              <span class="blog-post-card__author">Dr. Srivats B · 26/06/2025</span>
+              <a href="https://www.linkedin.com/pulse/forgotten-art-giving-give-change-world-let-you-bharadwaj-rgxmc/?trackingId=4V6ygeHIRvCwq5CZZzRy3A%3D%3D" target="_blank" rel="noopener" class="blog-post-card__link">Read on LinkedIn ↗</a>
+            </div>
+          </div>
+
+          <div class="blog-post-card">
+            <div class="blog-post-card__cover">
+              <img src="assets/Awards/blog/img_11.png" alt="">
+              <div class="blog-post-card__cover-placeholder">
+                
+              </div>
+            </div>
+            <div class="blog-post-card__body">
+              <span class="blog-post-card__tag">LinkedIn Article</span>
+              <p class="blog-post-card__title">Beyond protocols: The lost Art of Personalized Medicini</p>
+              <p class="blog-post-card__excerpt">One Size Doesn’t Heal All: When Medicine Becomes Mechanical</p>
+            </div>
+            <div class="blog-post-card__footer">
+              <span class="blog-post-card__author">Dr. Srivats B · 24/06/2025</span>
+              <a href="https://www.linkedin.com/pulse/one-size-doesnt-heal-all-when-medicine-becomes-bharadwaj-xq08c/?trackingId=4V6ygeHIRvCwq5CZZzRy3A%3D%3D" target="_blank" rel="noopener" class="blog-post-card__link">Read on LinkedIn ↗</a>
+            </div>
+          </div>
+          
+          <div class="blog-post-card">
+            <div class="blog-post-card__cover">
+              <img src="assets/Awards/blog/img_12.png" alt="">
+              <div class="blog-post-card__cover-placeholder">
+                
+              </div>
+            </div>
+            <div class="blog-post-card__body">
+              <span class="blog-post-card__tag">LinkedIn Article</span>
+              <p class="blog-post-card__title">To Every Doctor Who Still Chooses to Care</p>
+              <p class="blog-post-card__excerpt"></p>
+            </div>
+            <div class="blog-post-card__footer">
+              <span class="blog-post-card__author">Dr. Srivats B · 17/06/2025</span>
+              <a href="https://www.linkedin.com/pulse/every-doctor-who-still-chooses-care-professor-dr-srivats-bharadwaj-vntpc/?trackingId=4V6ygeHIRvCwq5CZZzRy3A%3D%3D" target="_blank" rel="noopener" class="blog-post-card__link">Read on LinkedIn ↗</a>
+            </div>
+          </div>
+
+          <div class="blog-post-card">
+            <div class="blog-post-card__cover">
+              <img src="assets/Awards/blog/img_13.png" alt="">
+              <div class="blog-post-card__cover-placeholder">
+                
+              </div>
+            </div>
+            <div class="blog-post-card__body">
+              <span class="blog-post-card__tag">LinkedIn Article</span>
+              <p class="blog-post-card__title">Is This the Price of a Dream? Rethinking the Pursuit of Education Abroad</p>
+              <p class="blog-post-card__excerpt">A Hard look at Modern Obsession with studying Abroad</p>
+            </div>
+            <div class="blog-post-card__footer">
+              <span class="blog-post-card__author">Dr. Srivats B · 10/06/2025</span>
+              <a href="https://www.linkedin.com/pulse/price-dream-rethinking-pursuit-education-abroad-bharadwaj-mtmxf/?trackingId=4V6ygeHIRvCwq5CZZzRy3A%3D%3D" target="_blank" rel="noopener" class="blog-post-card__link">Read on LinkedIn ↗</a>
+            </div>
+          </div>
+
+          <div class="blog-post-card">
+            <div class="blog-post-card__cover">
+              <img src="assets/Awards/blog/img_14.png" alt="">
+              <div class="blog-post-card__cover-placeholder">
+                
+              </div>
+            </div>
+            <div class="blog-post-card__body">
+              <span class="blog-post-card__tag">LinkedIn Article</span>
+              <p class="blog-post-card__title">Beyond the Degree:</p>
+              <p class="blog-post-card__excerpt"> Why Real Dentistry Begins After Dental School !</p>
+            </div>
+            <div class="blog-post-card__footer">
+              <span class="blog-post-card__author">Dr. Srivats B · 25/05/2025</span>
+              <a href="https://www.linkedin.com/pulse/beyond-degree-why-real-dentistry-begins-after-dental-school-skkxc/?trackingId=4V6ygeHIRvCwq5CZZzRy3A%3D%3D" target="_blank" rel="noopener" class="blog-post-card__link">Read on LinkedIn ↗</a>
+            </div>
+          </div>
+
+          <div class="blog-post-card">
+            <div class="blog-post-card__cover">
+              <img src="assets/Awards/blog/img_15.png" alt="">
+              <div class="blog-post-card__cover-placeholder">
+                
+              </div>
+            </div>
+            <div class="blog-post-card__body">
+              <span class="blog-post-card__tag">LinkedIn Article</span>
+              <p class="blog-post-card__title">Bridging the Gap:</p>
+              <p class="blog-post-card__excerpt"> How Technology and AI Can Heal the Broken Link Between Medical Education and Real-World Practice</p>
+            </div>
+            <div class="blog-post-card__footer">
+              <span class="blog-post-card__author">Dr. Srivats B · 21/05/2025</span>
+              <a href="https://www.linkedin.com/pulse/bridging-gap-how-technology-ai-can-heal-broken-link-bharadwaj-sxejc/?trackingId=4V6ygeHIRvCwq5CZZzRy3A%3D%3D" target="_blank" rel="noopener" class="blog-post-card__link">Read on LinkedIn ↗</a>
+            </div>
+          </div>
+
+          <div class="blog-post-card">
+            <div class="blog-post-card__cover">
+              <img src="assets/Awards/blog/img_16.png" alt="">
+              <div class="blog-post-card__cover-placeholder">
+                
+              </div>
+            </div>
+            <div class="blog-post-card__body">
+              <span class="blog-post-card__tag">LinkedIn Article</span>
+              <p class="blog-post-card__title">Rebuilding Trust:</p>
+              <p class="blog-post-card__excerpt">The Doctor-Patient Relationship as a Human Endeavor </p>
+            </div>
+            <div class="blog-post-card__footer">
+              <span class="blog-post-card__author">Dr. Srivats B · 02/05/2025</span>
+              <a href="https://www.linkedin.com/pulse/rebuilding-trust-doctorpatient-relationship-human-mutual-bharadwaj-tbmvc/?trackingId=4V6ygeHIRvCwq5CZZzRy3A%3D%3D" target="_blank" rel="noopener" class="blog-post-card__link">Read on LinkedIn ↗</a>
+            </div>
+          </div>
+
+          <div class="blog-post-card">
+            <div class="blog-post-card__cover">
+              <img src="assets/Awards/blog/img_17.png" alt="">
+              <div class="blog-post-card__cover-placeholder">
+                
+              </div>
+            </div>
+            <div class="blog-post-card__body">
+              <span class="blog-post-card__tag">LinkedIn Article</span>
+              <p class="blog-post-card__title">What Money Wasn't the Reason for Everything</p>
+              <p class="blog-post-card__excerpt">Imagine a world where meaning matters more than money — where life is led by purpose, passion, and kindness</p>
+            </div>
+            <div class="blog-post-card__footer">
+              <span class="blog-post-card__author">Dr. Srivats B · 28/04/2025</span>
+              <a href="https://www.linkedin.com/pulse/what-money-wasnt-reason-everything-professor-dr-srivats-bharadwaj-vy7ac/?trackingId=4V6ygeHIRvCwq5CZZzRy3A%3D%3D" target="_blank" rel="noopener" class="blog-post-card__link">Read on LinkedIn ↗</a>
+            </div>
+          </div>
+
+          <div class="blog-post-card">
+            <div class="blog-post-card__cover">
+              <img src="assets/Awards/blog/img_18.png" alt="">
+              <div class="blog-post-card__cover-placeholder">
+                
+              </div>
+            </div>
+            <div class="blog-post-card__body">
+              <span class="blog-post-card__tag">LinkedIn Article</span>
+              <p class="blog-post-card__title">American Dream, India's Forgotten Parents</p>
+              <p class="blog-post-card__excerpt"></p>
+            </div>
+            <div class="blog-post-card__footer">
+              <span class="blog-post-card__author">Dr. Srivats B · 14/04/2025</span>
+              <a href="https://www.linkedin.com/pulse/american-dream-indias-forgotten-parents-bharadwaj-0ugpc/?trackingId=4V6ygeHIRvCwq5CZZzRy3A%3D%3D" target="_blank" rel="noopener" class="blog-post-card__link">Read on LinkedIn ↗</a>
+            </div>
+          </div>
+
+          <div class="blog-post-card">
+            <div class="blog-post-card__cover">
+              <img src="assets/Awards/blog/img_19.png" alt="">
+              <div class="blog-post-card__cover-placeholder">
+                
+              </div>
+            </div>
+            <div class="blog-post-card__body">
+              <span class="blog-post-card__tag">LinkedIn Article</span>
+              <p class="blog-post-card__title">What Medicine & Dentistry Must Learn From the IPL Cricket Format</p>
+              <p class="blog-post-card__excerpt"></p>
+            </div>
+            <div class="blog-post-card__footer">
+              <span class="blog-post-card__author">Dr. Srivats B · 06/04/2025</span>
+              <a href="https://www.linkedin.com/pulse/what-medicine-dentistry-must-learn-from-ipl-cricket-format-bharadwaj-aovic/?trackingId=4V6ygeHIRvCwq5CZZzRy3A%3D%3D" target="_blank" rel="noopener" class="blog-post-card__link">Read on LinkedIn ↗</a>
+            </div>
+          </div>
+
+          <div class="blog-post-card">
+            <div class="blog-post-card__cover">
+              <img src="assets/Awards/blog/img_20.png" alt="">
+              <div class="blog-post-card__cover-placeholder">
+                
+              </div>
+            </div>
+            <div class="blog-post-card__body">
+              <span class="blog-post-card__tag">LinkedIn Article</span>
+              <p class="blog-post-card__title">Illusion of Financial Freedom:</p>
+              <p class="blog-post-card__excerpt">The Chasing of an Infinite Mirage</p>
+            </div>
+            <div class="blog-post-card__footer">
+              <span class="blog-post-card__author">Dr. Srivats B · 05/04/2025</span>
+              <a href="https://www.linkedin.com/pulse/illusion-financial-freedom-chasing-infinite-mirage-bharadwaj-x5o6c/?trackingId=V%2FR5SgIuT3%2Bt68LvYXtOoA%3D%3D" target="_blank" rel="noopener" class="blog-post-card__link">Read on LinkedIn ↗</a>
+            </div>
+          </div>
+
+          <div class="blog-post-card">
+            <div class="blog-post-card__cover">
+              <img src="assets/Awards/blog/img_21.png" alt="">
+              <div class="blog-post-card__cover-placeholder">
+                
+              </div>
+            </div>
+            <div class="blog-post-card__body">
+              <span class="blog-post-card__tag">LinkedIn Article</span>
+              <p class="blog-post-card__title">Why Everyone Should Be an Entrepreneur:</p>
+              <p class="blog-post-card__excerpt">That's Completely Okay, Too</p>
+            </div>
+            <div class="blog-post-card__footer">
+              <span class="blog-post-card__author">Dr. Srivats B · 04/04/2025</span>
+              <a href="https://www.linkedin.com/pulse/why-everyone-should-entrepreneur-thats-completely-okay-bharadwaj-lbvac/?trackingId=V%2FR5SgIuT3%2Bt68LvYXtOoA%3D%3D" target="_blank" rel="noopener" class="blog-post-card__link">Read on LinkedIn ↗</a>
+            </div>
+          </div>
+
+          <div class="blog-post-card">
+            <div class="blog-post-card__cover">
+              <img src="assets/Awards/blog/img_22.png" alt="">
+              <div class="blog-post-card__cover-placeholder">
+                
+              </div>
+            </div>
+            <div class="blog-post-card__body">
+              <span class="blog-post-card__tag">LinkedIn Article</span>
+              <p class="blog-post-card__title">Silent Agony of Leadership:</p>
+              <p class="blog-post-card__excerpt">The Burden No One Talks About</p>
+            </div>
+            <div class="blog-post-card__footer">
+              <span class="blog-post-card__author">Dr. Srivats B · 27/03/2025</span>
+              <a href="https://www.linkedin.com/pulse/silent-agony-leadership-burden-one-talks-bharadwaj-ersic/?trackingId=V%2FR5SgIuT3%2Bt68LvYXtOoA%3D%3D" target="_blank" rel="noopener" class="blog-post-card__link">Read on LinkedIn ↗</a>
+            </div>
+          </div>
+
+          <div class="blog-post-card">
+            <div class="blog-post-card__cover">
+              <img src="assets/Awards/blog/img_23.png" alt="">
+              <div class="blog-post-card__cover-placeholder">
+                
+              </div>
+            </div>
+            <div class="blog-post-card__body">
+              <span class="blog-post-card__tag">LinkedIn Article</span>
+              <p class="blog-post-card__title">Bridging the Gap in Dental Education</p>
+              <p class="blog-post-card__excerpt"></p>
+            </div>
+            <div class="blog-post-card__footer">
+              <span class="blog-post-card__author">Dr. Srivats B · 11/06/2020</span>
+              <a href="https://www.linkedin.com/pulse/bridging-gap-dental-education-professor-dr-srivats-bharadwaj/?trackingId=V%2FR5SgIuT3%2Bt68LvYXtOoA%3D%3D" target="_blank" rel="noopener" class="blog-post-card__link">Read on LinkedIn ↗</a>
+            </div>
+          </div>
+
+          <div class="blog-post-card">
+            <div class="blog-post-card__cover">
+              <img src="assets/Awards/blog/img_24.png" alt="">
+              <div class="blog-post-card__cover-placeholder">
+                
+              </div>
+            </div>
+            <div class="blog-post-card__body">
+              <span class="blog-post-card__tag">LinkedIn Article</span>
+              <p class="blog-post-card__title">Bridging the Gap in Dental Education</p>
+              <p class="blog-post-card__excerpt">"Don’t just mop the floor , turn off the tap" - Burkitt DP</p>
+            </div>
+            <div class="blog-post-card__footer">
+              <span class="blog-post-card__author">Dr. Srivats B · 16/06/2020</span>
+              <a href="https://www.linkedin.com/pulse/revisiting-indias-public-healthcare-policy-pandemic-times-bharadwaj/?trackingId=V%2FR5SgIuT3%2Bt68LvYXtOoA%3D%3D" target="_blank" rel="noopener" class="blog-post-card__link">Read on LinkedIn ↗</a>
+            </div>
+          </div>
+
+          <div class="blog-post-card">
+            <div class="blog-post-card__cover">
+              <img src="assets/Awards/blog/img_25.png" alt="">
+              <div class="blog-post-card__cover-placeholder">
+                
+              </div>
+            </div>
+            <div class="blog-post-card__body">
+              <span class="blog-post-card__tag">LinkedIn Article</span>
+              <p class="blog-post-card__title">COVID-19</p>
+              <p class="blog-post-card__excerpt">A Clarion Call For A Robust Public-Private Disaster Management Program</p>
+            </div>
+            <div class="blog-post-card__footer">
+              <span class="blog-post-card__author">Dr. Srivats B · 06/06/2020</span>
+              <a href="https://www.linkedin.com/pulse/covid-19-clarion-call-robust-public-private-program-bharadwaj/?trackingId=V%2FR5SgIuT3%2Bt68LvYXtOoA%3D%3D" target="_blank" rel="noopener" class="blog-post-card__link">Read on LinkedIn ↗</a>
+            </div>
+          </div>
+          
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========== PUBLICATIONS SECTION ========== -->
+    <section class="section section--alt">
+      <div class="container">
+
+        <div class="blog-section-heading">
+          <div class="blog-section-heading__line"></div>
+          <span class="blog-section-heading__text">Publications</span>
+          <div class="blog-section-heading__line"></div>
+        </div>
+
+        <div class="publications-grid">
+          <!-- Publication Card 1 -->
+          <div class="publication-card">
+            <div class="publication-card__header">
+              <p class="publication-card__newspaper">ET Health world</p>
+              <p class="publication-card__date">01/01/2020</p>
+            </div>
+            <div class="publication-card__body">
+              <p class="publication-card__title">Pediatric dentistry can reveal signs or diseases at a very early stage: Dr Srivats Bharadwaj</p>
+              <p class="publication-card__excerpt">There have been many types of research establishing the fact that oral health is directly linked to heart health, stroke, uncontrolled diabetes etc. All of these issues are related to oral health. Therefore, paediatric dentistry is the future of not just dentistry but health in general.</p>
+            </div>
+            <div class="publication-card__footer">
+              <a href="https://health.economictimes.indiatimes.com/news/industry/pediatric-dentistry-can-reveal-signs-or-diseases-at-a-very-early-stage-dr-srivats-bharadwaj/73464653" target="_blank" rel="noopener" class="publication-card__link">Read Full Article ↗</a>
+            </div>
+          </div>
+
+          <!-- Publication Card 2 -->
+          <div class="publication-card">
+            <div class="publication-card__header">
+              <p class="publication-card__newspaper">Times of India</p>
+              <p class="publication-card__date">14/04/2019</p>
+            </div>
+            <div class="publication-card__body">
+              <p class="publication-card__title">DOCTOR ON DEMAND House calls make a comeback</p>
+              <p class="publication-card__excerpt">A section of doctors are now offering house call services for patients who cannot visit clinics due to age or illness, or those who would prefer home-based care. Doctors say this trend could grow as technology improves, making remote monitoring easier and more cost-effective.</p>
+            </div>
+            <div class="publication-card__footer">
+              <a href="https://timesofindia.indiatimes.com/india/doctor-on-demand-house-calls-make-a-comeback/articleshow/68870581.cms" target="_blank" rel="noopener" class="publication-card__link">Read Full Article ↗</a>
+            </div>
+          </div>
+
+          <!-- Publication Card 3 -->
+          <div class="publication-card">
+            <div class="publication-card__header">
+              <p class="publication-card__newspaper">Deccan Chronicle</p>
+              <p class="publication-card__date">09/05/2017</p>
+            </div>
+            <div class="publication-card__body">
+              <p class="publication-card__title">Bad breath for sure if you munch on snacks during night shifts</p>
+              <p class="publication-card__excerpt">Bad breath could be a sign of dental problems. According to Dr. Srivats Bharadwaj, poor dental hygiene can also lead to bad breath.</p>
+            </div>
+            <div class="publication-card__footer">
+              <a href="https://www.deccanchronicle.com/lifestyle/health-and-wellbeing/090517/bad-breath-for-sure-if-you-munch-on-snacks-during-night-shifts.html" target="_blank" rel="noopener" class="publication-card__link">Read Full Article ↗</a>
+            </div>
+          </div>
+
+          <!-- Publication Card 4 -->
+          <div class="publication-card">
+            <div class="publication-card__header">
+              <p class="publication-card__newspaper">The News Minute</p>
+              <p class="publication-card__date">13/08/2017</p>
+            </div>
+            <div class="publication-card__body">
+              <p class="publication-card__title">In this jungle, you can get your cavities filled: Bengaluru’s unique dental centre</p>
+              <p class="publication-card__excerpt">At Dento Jungle, children get their teeth cleaned while watching animated movies and learning about oral hygiene.</p>
+            </div>
+            <div class="publication-card__footer">
+              <a href="https://www.thenewsminute.com/karnataka/jungle-you-can-get-your-cavities-filled-bengaluru-s-unique-dental-centre-71155" target="_blank" rel="noopener" class="publication-card__link">Read Full Article ↗</a>
+            </div>
+          </div>
+
+          <!-- Publication Card 5 -->
+          <div class="publication-card">
+            <div class="publication-card__header">
+              <p class="publication-card__newspaper">The Hindu</p>
+              <p class="publication-card__date">22/02/2017</p>
+            </div>
+            <div class="publication-card__body">
+              <p class="publication-card__title">Children of tribal school in H.D. Kote get dental sealants</p>
+              <p class="publication-card__excerpt">Over 300 children of tribal schools in H.D. Kote forest areas received dental sealants.</p>
+            </div>
+            <div class="publication-card__footer">
+              <a href="https://www.thehindu.com/news/national/karnataka/Children-of-tribal-school-in-H.D.-Kote-get-dental-sealants/article17343249.ece" target="_blank" rel="noopener" class="publication-card__link">Read Full Article ↗</a>
+            </div>
+          </div>
+
+          <!-- Publication Card 6 -->
+          <div class="publication-card">
+            <div class="publication-card__header">
+              <p class="publication-card__newspaper">Times of India</p>
+              <p class="publication-card__date">22/03/2017</p>
+            </div>
+            <div class="publication-card__body">
+              <p class="publication-card__title">Dental hygiene in kids: Where are you going wrong?</p>
+              <p class="publication-card__excerpt">Simple habits like brushing teeth regularly and cleaning the tongue after waking up and before going to bed can prevent many dental problems.</p>
+            </div>
+            <div class="publication-card__footer">
+              <a href="https://timesofindia.indiatimes.com/life-style/health-fitness/health-news/dental-hygiene-in-kids-where-are-you-going-wrong/articleshow/57773412.cms" target="_blank" rel="noopener" class="publication-card__link">Read Full Article ↗</a>
+            </div>
+          </div>
+
+          <div class="publication-card">
+            <div class="publication-card__header">
+              <p class="publication-card__newspaper">Franchise India</p>
+              <p class="publication-card__date">29/09/2017</p>
+            </div>
+            <div class="publication-card__body">
+              <p class="publication-card__title">Innovations in healthcare delivery, opportunities and challenges</p>
+              <p class="publication-card__excerpt">Dentistry has undergone several innovations and will continue to do so. Innovations in healthcare delivery, opportunities, and challenges in the dental sector and the measures that can be adopted for quality care have been discussed</p>
+            </div>
+            <div class="publication-card__footer">
+              <a href="https://www.franchiseindia.com/insights/en/article/innovations-in-healthcare-delivery-opportunities-and-challenges.38972" target="_blank" rel="noopener" class="publication-card__link">Read Full Article ↗</a>
+            </div>
+          </div>
+
+          <div class="publication-card">
+            <div class="publication-card__header">
+              <p class="publication-card__newspaper">Times of India</p>
+              <p class="publication-card__date">22/03/2017</p>
+            </div>
+            <div class="publication-card__body">
+              <p class="publication-card__title">Dental hygiene in kids: Where are you going wrong?</p>
+              <p class="publication-card__excerpt">Simple habits like brushing teeth regularly and cleaning the tongue after waking up and before going to bed can prevent many dental problems.</p>
+            </div>
+            <div class="publication-card__footer">
+              <a href="https://timesofindia.indiatimes.com/life-style/health-fitness/health-news/dental-hygiene-in-kids-where-are-you-going-wrong/articleshow/57773412.cms" target="_blank" rel="noopener" class="publication-card__link">Read Full Article ↗</a>
+            </div>
+          </div>
+
+          <div class="publication-card">
+            <div class="publication-card__header">
+              <p class="publication-card__newspaper">IBN Live</p>
+              <p class="publication-card__date">9/11/2017</p>
+            </div>
+            <div class="publication-card__body">
+              <p class="publication-card__title"> Bengaluru-based clinic serves up smiles with fun dentist visit for children</p>
+              <p class="publication-card__excerpt"> Bengaluru-based Vatsalya Dental-Dento-Jungle is working on children’s teeth and making dental visits fun. Parents can make appointments for their children.</p>
+            </div>
+            <div class="publication-card__footer">
+              <a href="https://www.ibtimes.co.in/interview-bengaluru-based-clinic-serves-smiles-fun-dentist-visit-children-748816" target="_blank" rel="noopener" class="publication-card__link">Read Full Article ↗</a>
+            </div>
+          </div>
+
+          <div class="publication-card">
+            <div class="publication-card__header">
+              <p class="publication-card__newspaper">New Indian Express</p>
+              <p class="publication-card__date">04/05/2017</p>
+            </div>
+            <div class="publication-card__body">
+              <p class="publication-card__title">Midnight munchies killing your teeth?</p>
+              <p class="publication-card__excerpt">Simple habits like brushing teeth regularly and cleaning the tongue after waking up and before going to bed can prevent many dental problems.</p>
+            </div>
+            <div class="publication-card__footer">
+              <a href="https://www.newindianexpress.com/bengaluru/2017/May/03/midnight-munchies-killing-your-teeth-1600686.html" target="_blank" rel="noopener" class="publication-card__link">Read Full Article ↗</a>
+            </div>
+          </div>
+
+          <div class="publication-card">
+            <div class="publication-card__header">
+              <p class="publication-card__newspaper">New Indian Express</p>
+              <p class="publication-card__date">07/08/2017</p>
+            </div>
+            <div class="publication-card__body">
+              <p class="publication-card__title">Techie band plays at clinic, to ease hours of wait</p>
+              <p class="publication-card__excerpt">A Bangalore-based techie has added a musical twist to dental visits. Apart from being a dentist, he also leads a band that entertains patients at his clinic.</p>
+            </div>
+            <div class="publication-card__footer">
+              <a href="https://www.newindianexpress.com/bengaluru/2017/Aug/06/techie-band-plays-at-clinic-to-ease-hours-of-wait-1639395.html" target="_blank" rel="noopener" class="publication-card__link">Read Full Article ↗</a>
+            </div>
+          </div>
+
+          <div class="publication-card">
+            <div class="publication-card__header">
+              <p class="publication-card__newspaper">BW Disrupt</p>
+              <p class="publication-card__date">16/01/2017</p>
+            </div>
+            <div class="publication-card__body">
+              <p class="publication-card__title">Vatsalya Dental launches incubation centre for medical professionals</p>
+              <p class="publication-card__excerpt">Vatsalya Dental, a dental clinic chain, has launched an incubation centre for medical professionals. The centre will provide space, equipment, and mentorship to help aspiring dentists start their own practice.</p>
+            </div>
+            <div class="publication-card__footer">
+              <a href="https://www.bwdisrupt.com/article/vatsalya-dental-launches-incubation-centre-for-medical-professionals-111476" target="_blank" rel="noopener" class="publication-card__link">Read Full Article ↗</a>
+            </div>
+          </div>
+
+          <div class="publication-card">
+            <div class="publication-card__header">
+              <p class="publication-card__newspaper">The New Indian Express</p>
+              <p class="publication-card__date">31/08/2017</p>
+            </div>
+            <div class="publication-card__body">
+              <p class="publication-card__title">Who said yellow teeth are stronger? They’re not</p>
+              <p class="publication-card__excerpt">Your tooth colour is determined largely by the translucent, porcelain-like enamel and the underlying dentine. Enamel is generally white, while dentine is yellow. The dentine layer beneath the enamel is what gives teeth their characteristic yellow hue. In fact, yellower teeth can be stronger because they have more dentine.</p>
+            </div>
+            <div class="publication-card__footer">
+              <a href="https://www.newindianexpress.com/lifestyle/health/2017/Aug/31/who-said-yellow-teeth-are-stronger-theyre-not-1650353.html" target="_blank" rel="noopener" class="publication-card__link">Read Full Article ↗</a>
+            </div>
+          </div>
+
+          <div class="publication-card">
+            <div class="publication-card__header">
+              <p class="publication-card__newspaper">BW Disrupt</p>
+              <p class="publication-card__date">06/07/2018</p>
+            </div>
+            <div class="publication-card__body">
+              <p class="publication-card__title">Bracing up for a new future</p>
+              <p class="publication-card__excerpt">As the global economy gets to grips with the uncertainties of 2017, many healthcare segments are positioning themselves for the new normal.</p>
+            </div>
+            <div class="publication-card__footer">
+              <a href="https://health.economictimes.indiatimes.com/news/industry/bracing-up-for-a-new-future/53116447" target="_blank" rel="noopener" class="publication-card__link">Read Full Article ↗</a>
+            </div>
+          </div>    
+
+          <div class="publication-card">
+            <div class="publication-card__header">
+              <p class="publication-card__newspaper">BW Disrupt</p>
+              <p class="publication-card__date">28/10/2016</p>
+            </div>
+            <div class="publication-card__body">
+              <p class="publication-card__title">Diwali 2016: This one advice can aid your oral health</p>
+              <p class="publication-card__excerpt">With Diwali round the corner, Dr. Shiba Desai, founder of Vatsalya Dental, has one piece of advice -Brush your teeth with fluoridated toothpaste twice a day, flossing once a day, and rinsing your mouth with an antiseptic mouthwash. This will help keep your teeth healthy and strong.</p>
+            </div>
+            <div class="publication-card__footer">
+              <a href="https://www.ibtimes.co.in/diwali-2016-this-one-advice-can-aid-your-oral-health-701720" target="_blank" rel="noopener" class="publication-card__link">Read Full Article ↗</a>
+            </div>
+          </div>
+
+          <div class="publication-card">
+            <div class="publication-card__header">
+              <p class="publication-card__newspaper">BW Disrupt</p>
+              <p class="publication-card__date">03/07/2016</p>
+            </div>
+            <div class="publication-card__body">
+              <p class="publication-card__title">For this doctor, prevention is better than cure</p>
+              <p class="publication-card__excerpt">Dr. Srivats Bharadwaj, founder of Vatsalya Dental, believes in the power of preventive dentistry. "My aim is to prevent dental problems before they occur, rather than treating them after they have occurred," she says.</p>
+            </div>
+            <div class="publication-card__footer">
+              <a href="https://www.deccanchronicle.com/amp/lifestyle/viral-and-trending/040716/for-this-doctor-prevention-is-better-than-cure.html" target="_blank" rel="noopener" class="publication-card__link">Read Full Article ↗</a>
+            </div>
+          </div>
+
+          <div class="publication-card">
+            <div class="publication-card__header">
+              <p class="publication-card__newspaper">The New Indian Express</p>
+              <p class="publication-card__date">01/10/2016</p>
+            </div>
+            <div class="publication-card__body">
+              <p class="publication-card__title">Healthy teeth for a smiling heart</p>
+              <p class="publication-card__excerpt">A healthy smile goes beyond just aesthetics — it reflects good oral hygiene and overall well-being.</p>
+            </div>
+            <div class="publication-card__footer">
+              <a href="https://www.newindianexpress.com/magazine/2016/Oct/01/healthy-teeth-for-a-smiling-heart-1518443.html" target="_blank" rel="noopener" class="publication-card__link">Read Full Article ↗</a>
+            </div>
+          </div>
+
+          <div class="publication-card">
+            <div class="publication-card__header">
+              <p class="publication-card__newspaper">Yourstory</p>
+              <p class="publication-card__date">02/12/2016</p>
+            </div>
+            <div class="publication-card__body">
+              <p class="publication-card__title">TNo more drilling, filling, and billing</p>
+              <p class="publication-card__excerpt">Vatsalya's new model for oral care</p>
+            </div>
+            <div class="publication-card__footer">
+              <a href="https://yourstory.com/2016/12/vatsalya-2" target="_blank" rel="noopener" class="publication-card__link">Read Full Article ↗</a>
+            </div>
+          </div>
+
+          <div class="publication-card">
+            <div class="publication-card__header">
+              <p class="publication-card__newspaper">New Indian Express</p>
+              <p class="publication-card__date">01/08/2016</p>
+            </div>
+            <div class="publication-card__body">
+              <p class="publication-card__title">Oral Health Without Tears</p>
+              <p class="publication-card__excerpt">How to take care of your teeth and gums without pain or discomfort</p>
+            </div>
+            <div class="publication-card__footer">
+              <a href="https://medium.com/@vatsalyadental/oral-health-without-tears-5307993098c4" target="_blank" rel="noopener" class="publication-card__link">Read Full Article ↗</a>
+            </div>
+          </div>
+
+          <div class="publication-card">
+            <div class="publication-card__header">
+              <p class="publication-card__newspaper">BW Disrupt</p>
+              <p class="publication-card__date">16/01/2017</p>
+            </div>
+            <div class="publication-card__body">
+              <p class="publication-card__title">Technology building India’s “Global “ health care industry</p>
+              <p class="publication-card__excerpt">Role ofDentistry in overall well-being</p>
+            </div>
+            <div class="publication-card__footer">
+              <a href="https://www.siliconindia.com/startup/magazine/september-2016-issue-special5-healthcare.html" target="_blank" rel="noopener" class="publication-card__link">Read Full Article ↗</a>
+            </div>
+          </div>
+
+          <div class="publication-card">
+            <div class="publication-card__header">
+              <p class="publication-card__newspaper">YourStory</p>
+              <p class="publication-card__date">01/05/2016</p>
+            </div>
+            <div class="publication-card__body">
+              <p class="publication-card__title">House of healthcare start-up</p>
+              <p class="publication-card__excerpt">These 8 startups are out to change home healthcare in India</p>
+            </div>
+            <div class="publication-card__footer">
+              <a href="https://yourstory.com/2016/05/house-healthcare-startup" target="_blank" rel="noopener" class="publication-card__link">Read Full Article ↗</a>
+            </div>
+          </div>
+
+          <div class="publication-card">
+            <div class="publication-card__header">
+              <p class="publication-card__newspaper">The Times of India</p>
+
+              <p class="publication-card__date">19/07/2016</p>
+            </div>
+            <div class="publication-card__body">
+              <p class="publication-card__title">Tooth ache leads to multi organ failure</p>
+              <p class="publication-card__excerpt">A dental abscess can lead to multiple organ dysfunction. A 33 year old software engineer had to undergo surgery after his dental infection spread to multiple organs.</p>
+            </div>
+            <div class="publication-card__footer">
+              <a href="https://timesofindia.indiatimes.com/city/bengaluru/Toothache-leads-to-multi-organ-dysfunction/articleshow/53278219.cms" target="_blank" rel="noopener" class="publication-card__link">Read Full Article ↗</a>
+            </div>
+          </div>
+
+          <div class="publication-card">
+            <div class="publication-card__header">
+              <p class="publication-card__newspaper">Pharma Biz</p>
+              <p class="publication-card__date">28/07/2016</p>
+            </div>
+            <div class="publication-card__body">
+              <p class="publication-card__title">Vatsalya Oral Health & ENR Foundation complete 41st dental camp for under-privileged kids with cardiac disorders
+</p>
+              <p class="publication-card__excerpt">Under its CSR initiative, Vatsalya’s dental camps have so far benefited over 10,000 children. The foundation proposes to provide free dental care to 100,000 children in the next five years.</p>
+            </div>
+            <div class="publication-card__footer">
+              <a href="https://www.pharmabiz.com/NewsDetails.aspx?aid=96532&sid=2" target="_blank" rel="noopener" class="publication-card__link">Read Full Article ↗</a>
+            </div>
+          </div>
+
+
+          <div class="publication-card">
+            <div class="publication-card__header">
+              <p class="publication-card__newspaper">ET Indiatime</p>
+              <p class="publication-card__date">23/08/2016</p>
+            </div>
+            <div class="publication-card__body">
+              <p class="publication-card__title">Vatsalya introduces VELscope - oral cancer detecting device</p>
+              <p class="publication-card__excerpt">VELscope is an adjunctive device to standard visual examination for detecting oral cancer. It is a non-invasive handheld device that uses natural fluorescence to screen for abnormalities in the oral cavity. The device is FDA-approved and has been used by dentists worldwide to detect oral cancer in its early stages.</p>
+            </div>
+            <div class="publication-card__footer">
+              <a href="https://health.economictimes.indiatimes.com/news/medical-devices/vatsalya-introduces-velscope-oral-cancer-detecting-device/53827093" target="_blank" rel="noopener" class="publication-card__link">Read Full Article ↗</a>
+            </div>
+          </div>
+
+          <div class="publication-card">
+            <div class="publication-card__header">
+              <p class="publication-card__newspaper">Express Health Care</p>
+              <p class="publication-card__date">28/07/2016</p>
+            </div>
+            <div class="publication-card__body">
+              <p class="publication-card__title">Vatsalya – Centre for Oral Health with ENR Foundation conducts campaign on oral health</p>
+              <p class="publication-card__excerpt">Vatsalya – Centre for Oral Health in collaboration with Germany – based ENR Foundation recently conducted a two-week campaign on oral health for under – privileged children with cardiac issues. As part of this programme that has been running for the last five years, the children went through free dental screening and treatment at Vatsalya – Centre for Oral Health.</p>
+            </div>
+            <div class="publication-card__footer">
+              <a href="https://www.expresshealthcare.in/amp/news/vatsalya-centre-for-oral-health-with-enr-foundation-conducts-campaign-on-oral-health/331595/" target="_blank" rel="noopener" class="publication-card__link">Read Full Article ↗</a>
+            </div>
+          </div>
+
+          <div class="publication-card">
+            <div class="publication-card__header">
+              <p class="publication-card__newspaper">Deccan Chronicle</p>
+              <p class="publication-card__date">11/07/2016</p>
+            </div>
+            <div class="publication-card__body">
+              <p class="publication-card__title">Ventilator-linked pneumonia deaths can be reduced: Experts</p>
+              <p class="publication-card__excerpt">A Bengaluru-based dental clinic, Vatsalya Dental, is now advocating for mandatory annual dental check-ups for all children, regardless of their overall health. The clinic, which provides free dental treatment to underprivileged children with heart disorders in association with ENR Foundation, has conducted 39 camps so far, benefiting over 10,000 children. The foundation plans to provide free dental care to 100,000 children in the next five years. Additionally, the clinic has introduced VELscope, an FDA-approved non-invasive handheld device that uses natural fluorescence to screen for oral cancer, with early detection rates as high as 90%.</p>
+            </div>
+            <div class="publication-card__footer">
+              <a href="https://www.deccanchronicle.com/lifestyle/health-and-wellbeing/110716/ventilator-linked-pneumonia-deaths-can-be-reduced-experts.html" target="_blank" rel="noopener" class="publication-card__link">Read Full Article ↗</a>
+            </div>
+          </div>
+
+          
+
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========== ARTICLES SECTION ========== -->
+    <section class="section section--alt">
+      <div class="container">
+
+        <div class="blog-section-heading">
+          <div class="blog-section-heading__line"></div>
+          <span class="blog-section-heading__text">Articles</span>
+          <div class="blog-section-heading__line"></div>
+        </div>
+
+        <!-- Article group 1 -->
+        <p class="article-group-label">Article 1</p>
+        <div class="articles-grid">
+          <div class="article-photo"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.08.03 PM (16).jpeg"
+              alt="Article 1"></div>
+          <div class="article-photo"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.08.03 PM (18).jpeg"
+              alt="Article 1"></div>
+          <div class="article-photo"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.08.03 PM (19).jpeg"
+              alt="Article 1"></div>
+          <div class="article-photo"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.08.03 PM (2).jpeg"
+              alt="Article 1"></div>
+          <div class="article-photo"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.08.03 PM (20).jpeg"
+              alt="Article 1"></div>
+          <div class="article-photo"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.08.03 PM (21).jpeg"
+              alt="Article 1"></div>
+          <div class="article-photo"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.08.03 PM (22).jpeg"
+              alt="Article 1"></div>
+          <div class="article-photo"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.08.03 PM (23).jpeg"
+              alt="Article 1"></div>
+          <div class="article-photo"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.08.03 PM (24).jpeg"
+              alt="Article 1"></div>
+          <div class="article-photo"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.08.03 PM (3).jpeg"
+              alt="Article 1"></div>
+          <div class="article-photo"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.08.03 PM (6).jpeg"
+              alt="Article 1"></div>
+          <div class="article-photo"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.08.04 PM (1).jpeg"
+              alt="Article 1"></div>
+          <div class="article-photo"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.08.04 PM (2).jpeg"
+              alt="Article 1"></div>
+          <div class="article-photo"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.08.04 PM (3).jpeg"
+              alt="Article 1"></div>
+          <div class="article-photo"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.08.04 PM (4).jpeg"
+              alt="Article 1"></div>
+          <div class="article-photo"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.08.04 PM (6).jpeg"
+              alt="Article 1"></div>
+        </div>
+
+        <!-- Article group 2 -->
+        <p class="article-group-label">Article 2</p>
+        <div class="articles-grid">
+          <div class="article-photo"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.07.59 PM.jpeg"
+              alt="Article 2"></div>
+          <div class="article-photo"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.08.02 PM (1).jpeg"
+              alt="Article 2"></div>
+          <div class="article-photo"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.08.02 PM (10).jpeg"
+              alt="Article 2"></div>
+          <div class="article-photo"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.08.02 PM (12).jpeg"
+              alt="Article 2"></div>
+          <div class="article-photo"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.08.02 PM (2).jpeg"
+              alt="Article 2"></div>
+          <div class="article-photo"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.08.02 PM (3).jpeg"
+              alt="Article 2"></div>
+          <div class="article-photo"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.08.02 PM (4).jpeg"
+              alt="Article 2"></div>
+          <div class="article-photo"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.08.02 PM (7).jpeg"
+              alt="Article 2"></div>
+          <div class="article-photo"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.08.02 PM (8).jpeg"
+              alt="Article 2"></div>
+          <div class="article-photo"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.08.02 PM (9).jpeg"
+              alt="Article 2"></div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="mainFooter">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <a href="index.html#home" class="nav__logo nav__logo--footer"
+            style="margin-bottom:var(--space-sm);display:inline-flex;">
+            <div class="nav__logo-icon-container">
+              <img src="assets/logo_teeth.png" alt="Vats &amp; Param logo" class="nav__logo-img" style="width:32px;height:auto;">
+            </div>
+            <div class="nav__logo-text" style="color:#fff;">
+              Vats &amp; Param
+              <div class="nav__logo-subtitle">
+                <span class="logo-line"></span>
+                <span>The Dentists</span>
+                <span class="logo-line"></span>
+              </div>
+            </div>
+          </a>
+          <p class="footer__brand-desc">Premium holistic dentistry focused on root-cause diagnosis, whole-body wellness, and precision care for lasting health.</p>
+        </div>
+        <div>
+          <h4 class="footer__heading">Navigation</h4>
+          <a href="index.html#home" class="footer__link">Home</a>
+          <a href="index.html#about" class="footer__link">About</a>
+          <a href="index.html#approach" class="footer__link">Our Approach</a>
+          <a href="index.html#team" class="footer__link">Team</a>
+        </div>
+        <div>
+          <h4 class="footer__heading">Resources</h4>
+          <a href="index.html#technology" class="footer__link">Technology</a>
+          <a href="index.html#education" class="footer__link">Education</a>
+          <a href="index.html#testimonials" class="footer__link">Testimonials</a>
+          <a href="index.html#contact" class="footer__link">Contact</a>
+        </div>
+        <div>
+          <h4 class="footer__heading">Contact &amp; Timings</h4>
+          <p class="footer__link">contact@vatsandparam.com</p>
+          <p class="footer__link">+91 98XXX XXXXX</p>
+          <p class="footer__link">Mon &ndash; Sat: 10:00 AM &ndash; 7:00 PM</p>
+          <p class="footer__link">Bengaluru: <a href="https://maps.app.goo.gl/..." target="_blank" style="color:inherit;text-decoration:underline;">Hulimavu</a> | <a href="https://maps.app.goo.gl/..." target="_blank" style="color:inherit;text-decoration:underline;">J.P Nagar</a> | <a href="https://maps.app.goo.gl/..." target="_blank" style="color:inherit;text-decoration:underline;">Arekere</a></p>
+          <p class="footer__link" style="font-size:0.75rem;margin-top:10px;opacity:0.7;">KSDC Registered Clinic</p>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>&copy; 2026 <img src="assets/logo.png" alt="Vats &amp; Param" class="footer-brand-logo">. All rights reserved.</span>
+        <span>Dentistry, Reconnected to the Body</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Article Popup Overlay & Card -->
+  <div class="modal-overlay" id="article-modal">
+    <div class="modal-content">
+      <button class="modal-close" id="article-close">&times;</button>
+
+      <p class="modal-featured-text">
+        Dr. Srivats Bharadwaj featured<br>
+        on the cover of "CEO India Magazine"<br>
+        for advancing whole-body, connected dentistry
+      </p>
+
+      <!-- Placeholder for the magazine image -->
+      <img src="assets/magazine_cover.jpg" alt="Women Entrepreneur Magazine Cover" class="modal-magazine-img" onerror="this.src='https://via.placeholder.com/300x400/0b1f3a/c6a75e?text=Magazine+Cover'">
+
+      <a href="assets/SRIVATS latest .pdf" class="modal-btn">Check Out Now <span>&#9658;</span></a>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+
+  <script src="nav.js"></script>
+
+  <script>
+    // Modal Logic for Blog Page
+    document.addEventListener("DOMContentLoaded", () => {
+      const modal = document.getElementById('article-modal');
+      const closeBtn = document.getElementById('article-close');
+
+      // Show modal on blog page after a short delay
+      setTimeout(() => {
+        if (modal) {
+          modal.classList.add('active');
+        }
+      }, 1500);
+
+      const closeModal = () => {
+        if (modal) modal.classList.remove('active');
+      };
+
+      if (closeBtn) closeBtn.addEventListener('click', closeModal);
+    });
+
+    // Ensure burger menu works on this page
+    (function() {
+      const navToggle = document.getElementById('navToggle');
+      const navMenu = document.getElementById('navMenu');
+
+      if (navToggle && navMenu) {
+        navToggle.addEventListener('click', () => {
+          navToggle.classList.toggle('active');
+          navMenu.classList.toggle('open');
+        });
+      }
+    })();
+  </script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mouth-Body Connection | Vats & Param</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --deep-green: #1B4332;
+      --gold: #C6A75E;
+      --off-white: #F8F7F5;
+    }
+
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family: 'Inter', sans-serif; background: var(--off-white); color: #333; line-height: 1.6; overflow-x: hidden; }
+
+    /* ── INFOGRAPHIC SECTION ── */
+    .mbc-section {
+      position: relative;
+      width: 100%;
+      background: #0a0a0a;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    /* Heart glow video background */
+    .mbc-video-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+      opacity: 0.6;
+    }
+
+    .mbc-container {
+      position: relative;
+      width: 100%;
+      max-width: 1400px;
+      margin: 0 auto;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .mbc-img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* PANELS (Restore with slow 5s gaps) */
+    .panel {
+      position: absolute;
+      top: 0;
+      height: 100%;
+      background: #F4F2EE;
+      z-index: 10;
+      transition: transform 2.5s cubic-bezier(0.77, 0, 0.175, 1);
+    }
+    .panel-left   { left: 0; width: 33.4%; }
+    .panel-center { left: 33.4%; width: 33.4%; transition-delay: 5s; }
+    .panel-right  { right: 0; width: 33.4%; transition-delay: 10s; }
+    
+    .panel.hide { transform: translateY(100%); }
+
+    /* REMOVED: mouth-glow and spotlight styles */
+
+    /* ORGAN LABELS */
+    .organ-list {
+      position: absolute;
+      right: 4%; top: 50%;
+      transform: translateY(-50%);
+      z-index: 15;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .organ-item {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: rgba(0,0,0,0.3);
+      padding: 10px 14px;
+      border-radius: 4px;
+      transition: all 0.4s ease;
+    }
+    .organ-item.active {
+      color: var(--deep-green);
+      background: rgba(198, 167, 94, 0.1);
+      transform: translateX(-5px);
+      box-shadow: -4px 0 0 var(--gold);
+    }
+
+    /* PAUSE BUTTON */
+    .mbc-toggle {
+      position: absolute;
+      top: 25px; left: 25px;
+      z-index: 20;
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.8);
+      border: 1px solid rgba(0,0,0,0.1);
+      color: var(--deep-green);
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    /* ── SIGNAL ANIMATION (Lines) ── */
+    .mbc-signals {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 5;
+    }
+    .conn-line {
+      fill: none;
+      stroke: var(--gold);
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-dasharray: 1000;
+      stroke-dashoffset: 1000;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .conn-line.active {
+      opacity: 1;
+      animation: drawSignal 1.5s ease-out forwards;
+    }
+    @keyframes drawSignal {
+      to { stroke-dashoffset: 0; }
+    }
+
+    @media (max-width: 768px) {
+      .organ-list { position: relative; right: 0; top: 0; transform: none; width: 100%; padding: 20px; flex-direction: row; flex-wrap: wrap; justify-content: center; }
+      .mbc-signals { display: none; } /* Hide lines on mobile to avoid clutter */
+    }
+  </style>
+</head>
+<body>
+
+  <section class="mbc-section" id="mbc">
+    <video autoplay muted loop playsinline class="mbc-video-bg">
+      <source src="assets/videos/heart_glow.mov" type="video/quicktime">
+      <source src="assets/videos/heart_glow.mov" type="video/mp4">
+    </video>
+    <div class="mbc-container">
+      <img src="assets/backgroung_home.png" class="mbc-img" alt="Mouth Body Connection Infographic">
+      
+      <!-- SVG Signals Layer -->
+      <svg class="mbc-signals" viewBox="0 0 1000 1000" preserveAspectRatio="none">
+        <!-- Coordinates adjusted based on organ positions (Brain, Heart, Lungs, Gut, Joints) -->
+        <!-- Mouth is roughly at 44.5, 21.0 in Turn 144 context -->
+        <path id="line-brain"  class="conn-line" d="M445 210 Q500 150 638 100" />
+        <path id="line-heart"  class="conn-line" d="M445 210 Q540 240 638 275" />
+        <path id="line-lungs"  class="conn-line" d="M445 210 Q540 330 638 450" />
+        <path id="line-gut"    class="conn-line" d="M445 210 Q540 420 638 625" />
+        <path id="line-joints" class="conn-line" d="M445 210 Q540 500 638 800" />
+      </svg>
+
+      <!-- Reveal Panels Restored -->
+      <div class="panel panel-left"></div>
+      <div class="panel panel-center"></div>
+      <div class="panel panel-right"></div>
+
+      <button class="mbc-toggle" id="toggle">❚❚</button>
+
+      <div class="organ-list">
+        <div class="organ-item" id="brain">Brain</div>
+        <div class="organ-item" id="heart">Heart</div>
+        <div class="organ-item" id="lungs">Lungs</div>
+        <div class="organ-item" id="gut">Gut</div>
+        <div class="organ-item" id="joints">Joints</div>
+      </div>
+    </div>
+  </section>
+
+<script>
+  (function() {
+    const organs = ["brain","heart","lungs","gut","joints"];
+    let index = 0;
+    let playing = true;
+    let timer;
+
+    function activate(idx){
+      const organId = organs[idx];
+      
+      // Deactivate all
+      organs.forEach(id => {
+        const el = document.getElementById(id);
+        const line = document.getElementById('line-' + id);
+        if(el) el.classList.remove("active");
+        if(line) line.classList.remove("active");
+      });
+
+      // Activate current
+      const currentEl = document.getElementById(organId);
+      const currentLine = document.getElementById('line-' + organId);
+      
+      if(currentEl) currentEl.classList.add("active");
+      if(currentLine) {
+        // Reset animation by removing and re-adding
+        currentLine.style.animation = 'none';
+        currentLine.offsetHeight; // trigger reflow
+        currentLine.style.animation = '';
+        currentLine.classList.add("active");
+      }
+    }
+
+    function startLoop(){
+      clearInterval(timer);
+      timer = setInterval(()=>{
+        if(!playing) return;
+        index = (index + 1) % organs.length;
+        activate(index);
+      }, 5000);
+    }
+
+    function reveal(){
+      const mbc = document.getElementById('mbc');
+      mbc.classList.add('revealed');
+      document.querySelectorAll('.panel').forEach(p => p.classList.add('hide'));
+      // Wait for reveal panels to finish (10s delay + 2.5s duration)
+      setTimeout(() => { activate(0); startLoop(); }, 12500);
+    }
+
+    window.onload = () => {
+      setTimeout(reveal, 500);
+    };
+
+    document.getElementById("toggle").onclick = () => {
+      playing = !playing;
+      document.getElementById("toggle").innerText = playing ? "❚❚" : "▶";
+    };
+  })();
+</script>
+
+  <script src="nav.js"></script>
+</body>
+</html>
