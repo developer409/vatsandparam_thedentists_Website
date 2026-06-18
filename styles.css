@@ -8893,15 +8893,19 @@ p {
    FULL-SCREEN VIDEO SERVICE CARDS  (#page-treatments)
    =================================================== */
 .svc-vcards {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 12px 16px 24px;
 }
 
 .svc-vcard {
   position: relative;
-  height: 100vh;
+  height: calc(100vh - 32px);
   display: flex;
   align-items: center;
   overflow: hidden;
+  border-radius: 24px;
 }
 
 .svc-vcard__video {
@@ -8976,11 +8980,10 @@ p {
 }
 
 .svc-vcard__pills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
+  display: grid;
+  grid-template-columns: repeat(2, max-content);
+  gap: 10px 12px;
   margin-left: 58px;
-  max-width: 760px;
 }
 
 /* Transparent pill links */
@@ -9045,8 +9048,11 @@ p {
 
 /* ---- Responsive ---- */
 @media (max-width: 768px) {
-  .svc-vcard__content { padding: 0 24px; }
+  .svc-vcards { padding: 8px; gap: 10px; }
+  .svc-vcard { border-radius: 16px; height: calc(100vh - 20px); }
+  .svc-vcard__content { padding: 0 20px; }
   .svc-vcard__desc, .svc-vcard__pills { margin-left: 0; }
-  .svc-vcard__title { font-size: clamp(1.6rem, 5vw, 2.2rem); }
-  .svc-pill { font-size: 0.82rem; padding: 8px 16px; }
+  .svc-vcard__title { font-size: clamp(1.5rem, 5vw, 2rem); }
+  .svc-vcard__pills { grid-template-columns: 1fr; }
+  .svc-pill { font-size: 0.82rem; padding: 8px 16px; white-space: normal; }
 }
