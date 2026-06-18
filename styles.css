@@ -8887,4 +8887,166 @@ p {
   margin-bottom: 1.25rem;
   letter-spacing: -0.5px;
 }
-
+
+
+/* ===================================================
+   FULL-SCREEN VIDEO SERVICE CARDS  (#page-treatments)
+   =================================================== */
+.svc-vcards {
+  display: block;
+}
+
+.svc-vcard {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.svc-vcard__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.svc-vcard__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    rgba(11,31,58,0.80) 0%,
+    rgba(11,31,58,0.50) 50%,
+    rgba(11,31,58,0.25) 100%
+  );
+  z-index: 1;
+}
+
+.svc-vcard__content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 64px;
+}
+
+.svc-vcard__header {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 10px;
+}
+
+.svc-vcard__tag {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--color-gold, #C6A75E);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading, 'Playfair Display', serif);
+  font-weight: 700;
+  font-size: 1rem;
+  flex-shrink: 0;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.25);
+}
+
+.svc-vcard__title {
+  font-family: var(--font-heading, 'Playfair Display', serif);
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.15;
+  margin: 0;
+  text-shadow: 0 2px 24px rgba(0,0,0,0.45);
+}
+
+.svc-vcard__desc {
+  color: rgba(255,255,255,0.65);
+  font-size: 1rem;
+  font-style: italic;
+  margin: 10px 0 32px 58px;
+  letter-spacing: 0.01em;
+}
+
+.svc-vcard__pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-left: 58px;
+  max-width: 760px;
+}
+
+/* Transparent pill links */
+.svc-pill {
+  display: inline-block;
+  padding: 9px 22px;
+  border: 1.5px solid rgba(255,255,255,0.50);
+  border-radius: 100px;
+  color: rgba(255,255,255,0.88);
+  text-decoration: none;
+  font-size: 0.86rem;
+  font-weight: 500;
+  letter-spacing: 0.015em;
+  transition: background 0.22s ease, border-color 0.22s ease, color 0.22s ease, transform 0.18s ease;
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  white-space: nowrap;
+}
+
+.svc-pill:hover {
+  background: rgba(255,255,255,0.18);
+  border-color: rgba(255,255,255,0.90);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* Scroll indicator between cards */
+.svc-vcard__scroll-hint {
+  position: absolute;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  opacity: 0.55;
+  animation: svc-bounce 2s infinite;
+}
+.svc-vcard__scroll-hint span {
+  display: block;
+  width: 1px;
+  height: 36px;
+  background: rgba(255,255,255,0.6);
+}
+.svc-vcard__scroll-hint::after {
+  content: '';
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-right: 1.5px solid rgba(255,255,255,0.7);
+  border-bottom: 1.5px solid rgba(255,255,255,0.7);
+  transform: rotate(45deg);
+  margin-top: -14px;
+}
+@keyframes svc-bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(6px); }
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 768px) {
+  .svc-vcard__content { padding: 0 24px; }
+  .svc-vcard__desc, .svc-vcard__pills { margin-left: 0; }
+  .svc-vcard__title { font-size: clamp(1.6rem, 5vw, 2.2rem); }
+  .svc-pill { font-size: 0.82rem; padding: 8px 16px; }
+}
