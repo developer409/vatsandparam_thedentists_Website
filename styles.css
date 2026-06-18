@@ -2796,6 +2796,13 @@ p {
   color: rgba(255, 255, 255, 0.5);
 }
 
+.footer__brand-tagline {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.5);
+  margin-top: 8px;
+  letter-spacing: 0.02em;
+}
+
 .footer__heading {
   font-family: var(--font-body);
   font-size: var(--fs-caption);
