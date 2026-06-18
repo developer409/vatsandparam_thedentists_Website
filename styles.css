@@ -9210,7 +9210,7 @@ p {
 .wb-connections-section {
   position: relative;
   background: linear-gradient(160deg, #0b1f3a 0%, #1a3352 55%, #0e2640 100%);
-  padding: 80px 40px 100px;
+  padding: 100px 60px 120px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -9222,35 +9222,37 @@ p {
    =================================================== */
 .wb-left-connections-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 48px;
   width: 100%;
-  max-width: 1400px;
+  max-width: 1300px;
+  align-items: center;
 }
 
 .wb-connections-heading {
   grid-column: 1 / -1;
   text-align: center;
   font-family: var(--font-heading, 'Playfair Display', serif);
-  font-size: 1.8rem;
+  font-size: 2rem;
   font-weight: 700;
   color: #fff;
-  margin: 0 0 48px;
+  margin: 0 0 60px;
   letter-spacing: 0.02em;
 }
 
 .wb-connection-card {
   position: relative;
   aspect-ratio: 1;
-  border-radius: 20px;
+  border-radius: 24px;
   overflow: hidden;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 12px 48px rgba(0,0,0,0.4);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  min-height: 420px;
 }
 
 .wb-connection-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 48px rgba(0,0,0,0.4);
+  transform: translateY(-12px);
+  box-shadow: 0 20px 64px rgba(0,0,0,0.5);
 }
 
 .wb-connection-video {
@@ -9301,20 +9303,28 @@ p {
 }
 
 @media (max-width: 1200px) {
-  .wb-left-connections-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; padding: 0 30px 60px; }
-  .wb-connections-heading { font-size: 1.5rem; }
+  .wb-left-connections-grid { grid-template-columns: repeat(2, 1fr); gap: 36px; }
+  .wb-connections-heading { font-size: 1.7rem; margin-bottom: 50px; }
+  .wb-connection-card { min-height: 360px; }
+}
+
+@media (max-width: 900px) {
+  .wb-left-connections-grid { grid-template-columns: 1fr; gap: 32px; }
+  .wb-connection-card { min-height: 320px; }
 }
 
 @media (max-width: 768px) {
-  .wb-left-connections-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; padding: 0 16px 40px; margin-top: 60px; }
-  .wb-connections-heading { font-size: 1.3rem; margin-bottom: 32px; }
-  .wb-connection-title { font-size: 1rem; }
-  .wb-connection-desc { font-size: 0.72rem; }
+  .wb-left-connections-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .wb-connections-heading { font-size: 1.4rem; margin-bottom: 36px; }
+  .wb-connection-title { font-size: 1.05rem; }
+  .wb-connection-desc { font-size: 0.76rem; }
+  .wb-connection-card { min-height: 280px; }
 }
 
 @media (max-width: 500px) {
-  .wb-left-connections-grid { grid-template-columns: 1fr; gap: 12px; padding: 0 12px 32px; }
-  .wb-connections-heading { font-size: 1.1rem; margin-bottom: 24px; }
-  .wb-connection-title { font-size: 0.9rem; }
-  .wb-connection-desc { font-size: 0.65rem; }
+  .wb-left-connections-grid { grid-template-columns: 1fr; gap: 16px; }
+  .wb-connections-heading { font-size: 1.2rem; margin-bottom: 28px; }
+  .wb-connection-title { font-size: 0.95rem; }
+  .wb-connection-desc { font-size: 0.7rem; }
+  .wb-connection-card { min-height: 240px; }
 }
