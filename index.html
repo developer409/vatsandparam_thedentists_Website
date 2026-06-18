@@ -2138,72 +2138,15 @@
           </svg>
         </a>
       </div>
-      <!-- ===== LEGAL & DISCLAIMERS ===== -->
+      <!-- ===== LEGAL LINKS ===== -->
       <div class="footer__disclaimers">
         <p class="footer__legal-notice">Educational information only. Individual treatment needs and outcomes vary. No guarantee or warranty is provided regarding treatment outcomes, timelines or longevity. Consultation required before treatment recommendations can be made.</p>
-        <p class="footer__legal-label">Legal &amp; Policies</p>
-        <div class="footer__legal-accordion" id="footerLegal">
-
-          <div class="footer__legal-item">
-            <button class="footer__legal-trigger" type="button">
-              Master FAQ Introduction
-              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </button>
-            <div class="footer__legal-body">
-              <p>At Vats &amp; Param – The Dentists, we believe oral health is deeply connected to overall health and wellbeing. Our approach focuses on education, prevention, early diagnosis and informed decision-making. The information below is intended to help you better understand common dental conditions and treatment options. Every individual is unique, and recommendations can only be made following a comprehensive consultation and examination.</p>
-            </div>
-          </div>
-
-          <div class="footer__legal-item">
-            <button class="footer__legal-trigger" type="button">
-              Medical Disclaimer
-              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </button>
-            <div class="footer__legal-body">
-              <p>The content on this website is provided for educational and informational purposes only and does not constitute medical, dental, or healthcare advice. No doctor-patient relationship is created by viewing this website. Treatment recommendations, risks, benefits, alternatives, costs, timelines, maintenance requirements and outcomes vary between individuals. No guarantee or warranty is expressed or implied regarding treatment outcomes, longevity, aesthetics, comfort, symptom resolution, or future oral health.</p>
-            </div>
-          </div>
-
-          <div class="footer__legal-item">
-            <button class="footer__legal-trigger" type="button">
-              Treatment Page Disclaimer
-              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </button>
-            <div class="footer__legal-body">
-              <p>Information provided on this page is general in nature and may not apply to every individual. Treatment suitability can only be determined following a clinical examination and review of relevant records. All procedures have potential benefits, risks, limitations and alternatives which should be discussed with your treating dentist.</p>
-            </div>
-          </div>
-
-          <div class="footer__legal-item">
-            <button class="footer__legal-trigger" type="button">
-              Terms &amp; Conditions
-              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </button>
-            <div class="footer__legal-body">
-              <p>Use of this website constitutes acceptance of these terms. Content is provided for informational purposes only. Users should not rely on website content as a substitute for professional advice, diagnosis or treatment. Vats &amp; Param – The Dentists reserves the right to modify website content without notice.</p>
-            </div>
-          </div>
-
-          <div class="footer__legal-item">
-            <button class="footer__legal-trigger" type="button">
-              Privacy Policy
-              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </button>
-            <div class="footer__legal-body">
-              <p>We respect your privacy. Information submitted through forms, appointment requests or other communication channels will be handled in accordance with applicable laws. Personal information will not be sold to third parties. Information may be used for appointment scheduling, communication, treatment coordination and service improvement.</p>
-            </div>
-          </div>
-
-          <div class="footer__legal-item">
-            <button class="footer__legal-trigger" type="button">
-              Consent to Contact
-              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </button>
-            <div class="footer__legal-body">
-              <p>By submitting your information through this website, you consent to being contacted by phone, email, SMS, WhatsApp or other communication channels regarding appointments, enquiries and related services.</p>
-            </div>
-          </div>
-
+        <div class="footer__policy-links">
+          <button class="footer__policy-link" data-modal="modal-medical">Medical Disclaimer</button>
+          <span class="footer__policy-sep">&middot;</span>
+          <button class="footer__policy-link" data-modal="modal-terms">Terms &amp; Conditions</button>
+          <span class="footer__policy-sep">&middot;</span>
+          <button class="footer__policy-link" data-modal="modal-privacy">Privacy Policy</button>
         </div>
       </div>
       <!-- ===== END LEGAL ===== -->
@@ -2212,21 +2155,50 @@
         <span>&copy; 2026 <img src="assets/logo.png" alt="Vats &amp; Param" class="footer-brand-logo">. All rights reserved.</span>
         <span>Dentistry, Reconnected to the Body</span>
       </div>
-
-      <script>
-        (function(){
-          var items = document.querySelectorAll('#footerLegal .footer__legal-item');
-          items.forEach(function(item){
-            item.querySelector('.footer__legal-trigger').addEventListener('click', function(){
-              var isOpen = item.classList.contains('active');
-              items.forEach(function(i){ i.classList.remove('active'); });
-              if(!isOpen) item.classList.add('active');
-            });
-          });
-        })();
-      </script>
     </div>
   </footer>
+
+  <!-- ===== POLICY MODALS ===== -->
+  <div class="policy-modal" id="modal-medical" role="dialog" aria-modal="true" aria-labelledby="modal-medical-title">
+    <div class="policy-modal__card">
+      <button class="policy-modal__close" aria-label="Close">&times;</button>
+      <h3 class="policy-modal__title" id="modal-medical-title">Medical Disclaimer</h3>
+      <p class="policy-modal__body">The content on this website is provided for educational and informational purposes only and does not constitute medical, dental, or healthcare advice. No doctor-patient relationship is created by viewing this website. Treatment recommendations, risks, benefits, alternatives, costs, timelines, maintenance requirements and outcomes vary between individuals. No guarantee or warranty is expressed or implied regarding treatment outcomes, longevity, aesthetics, comfort, symptom resolution, or future oral health.</p>
+    </div>
+  </div>
+
+  <div class="policy-modal" id="modal-terms" role="dialog" aria-modal="true" aria-labelledby="modal-terms-title">
+    <div class="policy-modal__card">
+      <button class="policy-modal__close" aria-label="Close">&times;</button>
+      <h3 class="policy-modal__title" id="modal-terms-title">Terms &amp; Conditions</h3>
+      <p class="policy-modal__body">Use of this website constitutes acceptance of these terms. Content is provided for informational purposes only. Users should not rely on website content as a substitute for professional advice, diagnosis or treatment. Vats &amp; Param – The Dentists reserves the right to modify website content without notice.</p>
+    </div>
+  </div>
+
+  <div class="policy-modal" id="modal-privacy" role="dialog" aria-modal="true" aria-labelledby="modal-privacy-title">
+    <div class="policy-modal__card">
+      <button class="policy-modal__close" aria-label="Close">&times;</button>
+      <h3 class="policy-modal__title" id="modal-privacy-title">Privacy Policy</h3>
+      <p class="policy-modal__body">We respect your privacy. Information submitted through forms, appointment requests or other communication channels will be handled in accordance with applicable laws. Personal information will not be sold to third parties. Information may be used for appointment scheduling, communication, treatment coordination and service improvement.</p>
+    </div>
+  </div>
+  <!-- ===== END POLICY MODALS ===== -->
+
+  <script>
+    (function(){
+      var modals = document.querySelectorAll('.policy-modal');
+      function openModal(id){ var m = document.getElementById(id); if(m){ m.classList.add('active'); document.body.style.overflow='hidden'; } }
+      function closeAll(){ modals.forEach(function(m){ m.classList.remove('active'); }); document.body.style.overflow=''; }
+      document.querySelectorAll('[data-modal]').forEach(function(btn){
+        btn.addEventListener('click', function(){ openModal(btn.dataset.modal); });
+      });
+      modals.forEach(function(m){
+        m.addEventListener('click', function(e){ if(e.target === m) closeAll(); });
+        m.querySelector('.policy-modal__close').addEventListener('click', closeAll);
+      });
+      document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeAll(); });
+    })();
+  </script>
 
   <!-- WhatsApp Button -->
   <a href="https://wa.me/919480972337" target="_blank" class="whatsapp-btn" title="Chat on WhatsApp">
