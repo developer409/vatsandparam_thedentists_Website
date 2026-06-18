@@ -442,6 +442,10 @@ body { font-family: 'Inter', sans-serif; background: var(--cream); color: var(--
     <div class="mbc-dot" data-i="2"></div>
     <div class="mbc-dot" data-i="3"></div>
     <div class="mbc-dot" data-i="4"></div>
+    <div class="mbc-dot" data-i="5"></div>
+    <div class="mbc-dot" data-i="6"></div>
+    <div class="mbc-dot" data-i="7"></div>
+    <div class="mbc-dot" data-i="8"></div>
   </div>
 
   <!-- Dynamic Text Panel -->
@@ -449,73 +453,6 @@ body { font-family: 'Inter', sans-serif; background: var(--cream); color: var(--
     <div class="mbc-panel-inner" id="mbcPanelInner">
       <div class="mbc-panel-organ" id="mbcOrganLabel">The Mouth–Body Link</div>
       <p class="mbc-panel-text" id="mbcPanelText">Your oral health is connected to your entire body.</p>
-    </div>
-  </div>
-
-  <!-- ═════════════════════════════════════════════
-       JOINTS CONNECTION (Special focus after animated section)
-       ═════════════════════════════════════════════ -->
-  <div class="wb-left-connections-grid" style="max-width: 1200px; margin: 0 auto; padding: 0 40px 60px;">
-    <div class="wb-connection-card">
-      <video autoplay muted loop playsinline class="wb-connection-video">
-        <source src="assets/videos/whole_body/joint_glow.mp4" type="video/mp4">
-      </video>
-      <div class="wb-connection-overlay"></div>
-      <div class="wb-connection-content">
-        <h4 class="wb-connection-title">Joints & Systemic Balance</h4>
-        <p class="wb-connection-desc">Your bite shapes your skeleton. Bite imbalance and jaw misalignment create compensatory postural patterns throughout the body. Periodontal inflammation also mimics and worsens rheumatoid arthritis.</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- ═════════════════════════════════════════════
-       KEY BODY CONNECTIONS - 4 CARDS (1 COLUMN 75/25)
-       ═════════════════════════════════════════════ -->
-  <div class="wb-left-connections-grid" style="max-width: 1200px; margin: 0 auto; padding: 0 40px;">
-    <h3 class="wb-connections-heading">Key Body Connections</h3>
-
-    <div class="wb-connection-card">
-      <video autoplay muted loop playsinline class="wb-connection-video">
-        <source src="assets/videos/whole_body/muscle_glow.mp4" type="video/mp4">
-      </video>
-      <div class="wb-connection-overlay"></div>
-      <div class="wb-connection-content">
-        <h4 class="wb-connection-title">Skeletal Muscle Health</h4>
-        <p class="wb-connection-desc">Muscle function impacts metabolism, posture, airway patency, and overall resilience.</p>
-      </div>
-    </div>
-
-    <div class="wb-connection-card">
-      <video autoplay muted loop playsinline class="wb-connection-video">
-        <source src="assets/videos/whole_body/inflame_glow.mp4" type="video/mp4">
-      </video>
-      <div class="wb-connection-overlay"></div>
-      <div class="wb-connection-content">
-        <h4 class="wb-connection-title">Inflammation</h4>
-        <p class="wb-connection-desc">Chronic inflammation drives periodontal breakdown and contributes to systemic disease.</p>
-      </div>
-    </div>
-
-    <div class="wb-connection-card">
-      <video autoplay muted loop playsinline class="wb-connection-video">
-        <source src="assets/videos/whole_body/glyce_glow.mp4" type="video/mp4">
-      </video>
-      <div class="wb-connection-overlay"></div>
-      <div class="wb-connection-content">
-        <h4 class="wb-connection-title">Glycemic Control</h4>
-        <p class="wb-connection-desc">Blood sugar dysregulation impairs immune response and accelerates periodontal destruction.</p>
-      </div>
-    </div>
-
-    <div class="wb-connection-card">
-      <video autoplay muted loop playsinline class="wb-connection-video">
-        <source src="assets/videos/whole_body/sleep_glow.mp4" type="video/mp4">
-      </video>
-      <div class="wb-connection-overlay"></div>
-      <div class="wb-connection-content">
-        <h4 class="wb-connection-title">Sleep Disruption</h4>
-        <p class="wb-connection-desc">Poor sleep quality elevates inflammatory markers and impairs tissue healing and immune function.</p>
-      </div>
     </div>
   </div>
 
@@ -552,6 +489,26 @@ const STEPS = [
     id:    'joints',
     label: 'Joints & Systemic Balance',
     text:  'Chronic inflammation can contribute to pain, autoimmune issues, and slower healing.'
+  },
+  {
+    id:    'muscle',
+    label: 'Skeletal Muscle Health',
+    text:  'Muscle function impacts metabolism, posture, airway patency, and overall resilience.'
+  },
+  {
+    id:    'inflammation',
+    label: 'Inflammation',
+    text:  'Chronic inflammation drives periodontal breakdown and contributes to systemic disease.'
+  },
+  {
+    id:    'glycemic',
+    label: 'Glycemic Control',
+    text:  'Blood sugar dysregulation impairs immune response and accelerates periodontal destruction.'
+  },
+  {
+    id:    'sleep',
+    label: 'Sleep Disruption',
+    text:  'Poor sleep quality elevates inflammatory markers and impairs tissue healing and immune function.'
   }
 ];
 

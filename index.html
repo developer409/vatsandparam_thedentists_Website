@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -364,6 +364,26 @@
               <source src="assets/videos/whole_body/joint_glow.mp4" type="video/mp4">
             </video>
           </div>
+          <div class="wb-video-layer" data-organ="muscle">
+            <video autoplay muted loop playsinline preload="auto">
+              <source src="assets/videos/whole_body/muscle_glow.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="wb-video-layer" data-organ="inflammation">
+            <video autoplay muted loop playsinline preload="auto">
+              <source src="assets/videos/whole_body/inflame_glow.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="wb-video-layer" data-organ="glycemic">
+            <video autoplay muted loop playsinline preload="auto">
+              <source src="assets/videos/whole_body/glyce_glow.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="wb-video-layer" data-organ="sleep">
+            <video autoplay muted loop playsinline preload="auto">
+              <source src="assets/videos/whole_body/sleep_glow.mp4" type="video/mp4">
+            </video>
+          </div>
         </div>
 
         <!-- Dark gradient overlay for text legibility -->
@@ -432,6 +452,54 @@
             </ul>
           </div>
 
+          <div class="wb-organ-info" data-organ="muscle">
+            <span class="wb-organ-num">06 &nbsp;/&nbsp; 06</span>
+            <h3 class="wb-organ-name">Muscles</h3>
+            <p class="wb-organ-headline">Your bite shapes your skeleton</p>
+            <p class="wb-organ-body">Bite imbalance and jaw misalignment create compensatory postural patterns throughout the body. Periodontal inflammation also mimics and worsens rheumatoid arthritis the same immune pathways are activated.</p>
+            <ul class="wb-organ-facts">
+              <li>Jaw dysfunction causes neck and back pain</li>
+              <li>Periodontal bacteria trigger joint inflammation</li>
+              <li>RA patients have 8× higher rates of gum disease</li>
+            </ul>
+          </div>
+
+          <div class="wb-organ-info" data-organ="inflammation">
+            <span class="wb-organ-num">07 &nbsp;/&nbsp; 06</span>
+            <h3 class="wb-organ-name">Inflammation</h3>
+            <p class="wb-organ-headline">Your bite shapes your skeleton</p>
+            <p class="wb-organ-body">Bite imbalance and jaw misalignment create compensatory postural patterns throughout the body. Periodontal inflammation also mimics and worsens rheumatoid arthritis the same immune pathways are activated.</p>
+            <ul class="wb-organ-facts">
+              <li>Jaw dysfunction causes neck and back pain</li>
+              <li>Periodontal bacteria trigger joint inflammation</li>
+              <li>RA patients have 8× higher rates of gum disease</li>
+            </ul>
+          </div>
+
+          <div class="wb-organ-info" data-organ="glycemic">
+            <span class="wb-organ-num">08 &nbsp;/&nbsp; 06</span>
+            <h3 class="wb-organ-name">Glycemic</h3>
+            <p class="wb-organ-headline">Your bite shapes your skeleton</p>
+            <p class="wb-organ-body">Bite imbalance and jaw misalignment create compensatory postural patterns throughout the body. Periodontal inflammation also mimics and worsens rheumatoid arthritis the same immune pathways are activated.</p>
+            <ul class="wb-organ-facts">
+              <li>Jaw dysfunction causes neck and back pain</li>
+              <li>Periodontal bacteria trigger joint inflammation</li>
+              <li>RA patients have 8× higher rates of gum disease</li>
+            </ul>
+          </div>
+
+          <div class="wb-organ-info" data-organ="sleep">
+            <span class="wb-organ-num">09 &nbsp;/&nbsp; 06</span>
+            <h3 class="wb-organ-name">Sleep</h3>
+            <p class="wb-organ-headline">Your bite shapes your skeleton</p>
+            <p class="wb-organ-body">Bite imbalance and jaw misalignment create compensatory postural patterns throughout the body. Periodontal inflammation also mimics and worsens rheumatoid arthritis the same immune pathways are activated.</p>
+            <ul class="wb-organ-facts">
+              <li>Jaw dysfunction causes neck and back pain</li>
+              <li>Periodontal bacteria trigger joint inflammation</li>
+              <li>RA patients have 8× higher rates of gum disease</li>
+            </ul>
+          </div>
+
           
         </div><!-- end wb-info-panel -->
 
@@ -442,6 +510,10 @@
           <div class="wb-dot" data-organ="heart"><span class="wb-dot-label">Heart</span></div>
           <div class="wb-dot" data-organ="gut"><span class="wb-dot-label">Gut</span></div>
           <div class="wb-dot" data-organ="joint"><span class="wb-dot-label">Joints</span></div>
+          <div class="wb-dot" data-organ="muscle"><span class="wb-dot-label">Muscle</span></div>
+          <div class="wb-dot" data-organ="inflammation"><span class="wb-dot-label">Inflammation</span></div>
+          <div class="wb-dot" data-organ="glycemic"><span class="wb-dot-label">Glycemic</span></div>
+          <div class="wb-dot" data-organ="sleep"><span class="wb-dot-label">Sleep</span></div>
         </div>
 
         <!-- Mobile tab buttons -->
@@ -451,6 +523,10 @@
           <button class="wb-mobile-btn" data-organ="heart">Heart</button>
           <button class="wb-mobile-btn" data-organ="gut">Gut</button>
           <button class="wb-mobile-btn" data-organ="joint">Joints</button>
+          <button class="wb-mobile-btn" data-organ="muscle">Muscle</button>
+          <button class="wb-mobile-btn" data-organ="inflammation">Inflammation</button>
+          <button class="wb-mobile-btn" data-organ="glycemic">Glycemic</button>
+          <button class="wb-mobile-btn" data-organ="sleep">Sleep</button>
         </div>
 
       </div><!-- end wb-sticky -->
@@ -941,15 +1017,15 @@
           </div>
         </div>
       </div>
-    </section>
-
-    <div class="section section--navy cta-section">
-      <div class="container fade-in">
-        <h2>Ready to Experience Our Clinical Method?</h2>
-        <p>Schedule a comprehensive consultation and let us build your personalized care blueprint.</p>
-        <a href="#contact" class="btn btn--gold-outline">Schedule Consultation</a>
+      <!-- Final CTA Item inside discovery-section to play video in background -->
+      <div class="discovery-item discovery-item--centered fade-in-scroll">
+        <div class="discovery-content" style="text-align: center; max-width: 600px;">
+          <h3 style="margin-bottom: var(--space-sm);">Ready to Experience Our Clinical Method?</h3>
+          <p style="margin-bottom: var(--space-lg); color: rgba(255, 255, 255, 0.85);">Schedule a comprehensive consultation and let us build your personalized care blueprint.</p>
+          <a href="#contact" class="btn btn--gold-outline" style="display: inline-block;">Schedule Consultation</a>
+        </div>
       </div>
-    </div>
+    </section>
   </section>
 
   <!-- ========== TREATMENTS PAGE ========== -->
