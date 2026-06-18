@@ -9205,14 +9205,25 @@ p {
   .policy-modal__title { font-size: 1.1rem; }
 }
 /* ===================================================
+   WHOLE BODY CONNECTIONS SECTION
+   =================================================== */
+.wb-connections-section {
+  position: relative;
+  background: linear-gradient(160deg, #0b1f3a 0%, #1a3352 55%, #0e2640 100%);
+  padding: 80px 40px 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ===================================================
    WHOLE BODY LEFT CONNECTIONS - 4 CARD GRID
    =================================================== */
 .wb-left-connections-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 24px;
-  margin-top: 80px;
-  padding: 0 40px 80px;
   width: 100%;
   max-width: 1400px;
 }
