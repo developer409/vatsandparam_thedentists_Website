@@ -241,11 +241,83 @@ body { font-family: 'Inter', sans-serif; background: var(--cream); color: var(--
   line-height: 1.65;
 }
 
+/* ── Body Connections Grid ── */
+.body-connections-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-top: 60px;
+  width: 100%;
+  max-width: 1000px;
+  position: relative;
+  z-index: 2;
+  padding: 0 24px;
+}
+
+.body-connection-card {
+  position: relative;
+  aspect-ratio: 1;
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  group/card;
+}
+
+.body-connection-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.body-connection-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(11,31,58,0.75) 0%, rgba(11,31,58,0.35) 100%);
+  z-index: 1;
+  transition: background 0.4s ease;
+}
+
+.body-connection-card:hover .body-connection-overlay {
+  background: linear-gradient(135deg, rgba(11,31,58,0.55) 0%, rgba(11,31,58,0.15) 100%);
+}
+
+.body-connection-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 24px;
+  z-index: 2;
+}
+
+.body-connection-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 8px;
+  line-height: 1.2;
+}
+
+.body-connection-desc {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.5;
+  margin: 0;
+}
+
 /* ── Responsive ── */
 @media (max-width: 600px) {
   .mbc-section { padding: 70px 16px 48px; }
   .mbc-canvas  { max-width: 100%; }
   .mbc-panel   { padding: 18px 20px; }
+  .body-connections-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; padding: 0 16px; }
+  .body-connection-title { font-size: 0.95rem; }
+  .body-connection-desc { font-size: 0.7rem; }
 }
 </style>
 </head>
@@ -377,6 +449,55 @@ body { font-family: 'Inter', sans-serif; background: var(--cream); color: var(--
     <div class="mbc-panel-inner" id="mbcPanelInner">
       <div class="mbc-panel-organ" id="mbcOrganLabel">The Mouth–Body Link</div>
       <p class="mbc-panel-text" id="mbcPanelText">Your oral health is connected to your entire body.</p>
+    </div>
+  </div>
+
+  <!-- ═════════════════════════════════════════════
+       6 BODY CONNECTIONS WITH VIDEOS
+       ═════════════════════════════════════════════ -->
+  <div class="body-connections-grid">
+    <div class="body-connection-card">
+      <video autoplay muted loop playsinline class="body-connection-video">
+        <source src="assets/videos/whole_body/glyce_glow.mp4" type="video/mp4">
+      </video>
+      <div class="body-connection-overlay"></div>
+      <div class="body-connection-content">
+        <h3 class="body-connection-title">Glycemic Control</h3>
+        <p class="body-connection-desc">Blood sugar dysregulation impairs immune response and accelerates periodontal destruction.</p>
+      </div>
+    </div>
+
+    <div class="body-connection-card">
+      <video autoplay muted loop playsinline class="body-connection-video">
+        <source src="assets/videos/whole_body/inflame_glow.mp4" type="video/mp4">
+      </video>
+      <div class="body-connection-overlay"></div>
+      <div class="body-connection-content">
+        <h3 class="body-connection-title">Inflammation</h3>
+        <p class="body-connection-desc">Chronic inflammation drives periodontal breakdown and contributes to systemic disease.</p>
+      </div>
+    </div>
+
+    <div class="body-connection-card">
+      <video autoplay muted loop playsinline class="body-connection-video">
+        <source src="assets/videos/whole_body/muscle_glow.mp4" type="video/mp4">
+      </video>
+      <div class="body-connection-overlay"></div>
+      <div class="body-connection-content">
+        <h3 class="body-connection-title">Skeletal Muscle Health</h3>
+        <p class="body-connection-desc">Muscle function impacts metabolism, posture, airway patency, and overall resilience.</p>
+      </div>
+    </div>
+
+    <div class="body-connection-card">
+      <video autoplay muted loop playsinline class="body-connection-video">
+        <source src="assets/videos/whole_body/sleep_glow.mp4" type="video/mp4">
+      </video>
+      <div class="body-connection-overlay"></div>
+      <div class="body-connection-content">
+        <h3 class="body-connection-title">Sleep Disruption</h3>
+        <p class="body-connection-desc">Poor sleep quality elevates inflammatory markers and impairs tissue healing and immune function.</p>
+      </div>
     </div>
   </div>
 
