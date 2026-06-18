@@ -8895,15 +8895,15 @@ p {
 .svc-vcards {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  padding: 12px 16px 24px;
+  gap: 40px;
+  padding: 40px;
 }
 
 .svc-vcard {
   position: relative;
-  height: calc(100vh - 32px);
+  height: calc(100vh - 80px);
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   overflow: hidden;
   border-radius: 24px;
 }
@@ -8921,10 +8921,11 @@ p {
   position: absolute;
   inset: 0;
   background: linear-gradient(
-    105deg,
-    rgba(11,31,58,0.80) 0%,
-    rgba(11,31,58,0.50) 50%,
-    rgba(11,31,58,0.25) 100%
+    to bottom,
+    transparent 0%,
+    transparent 40%,
+    rgba(11,31,58,0.55) 70%,
+    rgba(11,31,58,0.88) 100%
   );
   z-index: 1;
 }
@@ -8933,9 +8934,7 @@ p {
   position: relative;
   z-index: 2;
   width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 64px;
+  padding: 0 56px 56px;
 }
 
 .svc-vcard__header {
