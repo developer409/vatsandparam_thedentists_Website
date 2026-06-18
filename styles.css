@@ -9204,3 +9204,89 @@ p {
   .policy-modal__card { padding: 36px 24px 28px; }
   .policy-modal__title { font-size: 1.1rem; }
 }
+/* ===================================================
+   WHOLE BODY LEFT CONNECTIONS - 4 CARD GRID
+   =================================================== */
+.wb-left-connections-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-top: 60px;
+  padding: 0 24px 60px;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.wb-connections-heading {
+  grid-column: 1 / -1;
+  text-align: center;
+  font-family: var(--font-heading, 'Playfair Display', serif);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 32px;
+}
+
+.wb-connection-card {
+  position: relative;
+  aspect-ratio: 1;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.wb-connection-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.wb-connection-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(11,31,58,0.75) 0%, rgba(11,31,58,0.35) 100%);
+  z-index: 1;
+  transition: background 0.4s ease;
+}
+
+.wb-connection-card:hover .wb-connection-overlay {
+  background: linear-gradient(135deg, rgba(11,31,58,0.55) 0%, rgba(11,31,58,0.15) 100%);
+}
+
+.wb-connection-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 24px;
+  z-index: 2;
+}
+
+.wb-connection-title {
+  font-family: var(--font-heading, 'Playfair Display', serif);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 8px;
+  line-height: 1.2;
+}
+
+.wb-connection-desc {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.5;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .wb-left-connections-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; padding: 0 16px 40px; }
+  .wb-connection-title { font-size: 0.95rem; }
+  .wb-connection-desc { font-size: 0.7rem; }
+}
+
+@media (max-width: 500px) {
+  .wb-left-connections-grid { grid-template-columns: 1fr; }
+}
