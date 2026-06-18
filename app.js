@@ -71,6 +71,56 @@
 
         observeFadeIns();
         if (isVideoPage) observeScrollDiscovery();
+
+        // Services page animation
+        if (page === 'treatments') runServicesAnimation();
+    }
+
+    function runServicesAnimation() {
+        const wrapper = document.getElementById('servicesIntro');
+        const loader = document.getElementById('servicesLoader');
+        const headingWrapper = document.getElementById('servicesHeading');
+        const words = document.querySelectorAll('#servicesHeading .word-reveal');
+        const cards = document.querySelectorAll('.services-cards-reveal');
+        if (!wrapper) return;
+
+        // Reset state
+        cards.forEach(c => c.classList.remove('visible'));
+        words.forEach(w => { w.style.opacity = '0'; w.style.transform = 'translateY(16px)'; });
+        if (headingWrapper) headingWrapper.classList.remove('visible');
+        wrapper.classList.add('active');
+        if (loader) loader.style.display = '';
+
+        // 1. Loader shows for 1.2s
+        setTimeout(() => {
+            if (loader) loader.style.display = 'none';
+            if (headingWrapper) headingWrapper.classList.add('visible');
+
+            // 2. Words reveal one by one
+            words.forEach((w, i) => {
+                setTimeout(() => {
+                    w.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                    w.style.opacity = '1';
+                    w.style.transform = 'translateY(0)';
+                }, i * 200);
+            });
+
+            // 3. After all words shown + 1.5s pause, fade out overlay
+            const totalWordTime = words.length * 200 + 1500;
+            setTimeout(() => {
+                wrapper.style.transition = 'opacity 0.6s ease';
+                wrapper.style.opacity = '0';
+                setTimeout(() => {
+                    wrapper.classList.remove('active');
+                    wrapper.style.opacity = '';
+                    wrapper.style.transition = '';
+                    // Show cards
+                    cards.forEach((c, i) => {
+                        setTimeout(() => c.classList.add('visible'), i * 80);
+                    });
+                }, 600);
+            }, totalWordTime);
+        }, 1200);
     }
 
     if (pages.length > 0) {
