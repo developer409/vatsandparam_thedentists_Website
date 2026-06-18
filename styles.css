@@ -9055,3 +9055,88 @@ p {
   .svc-vcard__pills { grid-template-columns: 1fr; }
   .svc-pill { font-size: 0.82rem; padding: 8px 16px; white-space: normal; }
 }
+/* ===================================================
+   FOOTER LEGAL & DISCLAIMERS
+   =================================================== */
+.footer__disclaimers {
+  border-top: 1px solid rgba(255,255,255,0.10);
+  margin-top: 28px;
+  padding-top: 28px;
+}
+
+.footer__legal-notice {
+  font-size: 0.73rem;
+  color: rgba(255,255,255,0.38);
+  line-height: 1.7;
+  margin: 0 0 20px;
+}
+
+.footer__legal-label {
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.28);
+  margin: 0 0 4px;
+}
+
+.footer__legal-accordion {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer__legal-trigger {
+  width: 100%;
+  background: none;
+  border: none;
+  border-top: 1px solid rgba(255,255,255,0.07);
+  padding: 11px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: rgba(255,255,255,0.42);
+  font-size: 0.76rem;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  text-align: left;
+  letter-spacing: 0.02em;
+  transition: color 0.2s;
+}
+
+.footer__legal-trigger:hover {
+  color: rgba(255,255,255,0.75);
+}
+
+.footer__legal-trigger svg {
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+  margin-left: 12px;
+  opacity: 0.5;
+}
+
+.footer__legal-item.active .footer__legal-trigger {
+  color: rgba(255,255,255,0.72);
+}
+
+.footer__legal-item.active .footer__legal-trigger svg {
+  transform: rotate(180deg);
+  opacity: 0.8;
+}
+
+.footer__legal-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+}
+
+.footer__legal-item.active .footer__legal-body {
+  max-height: 500px;
+}
+
+.footer__legal-body p {
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.32);
+  line-height: 1.75;
+  padding: 6px 0 18px;
+  margin: 0;
+}
