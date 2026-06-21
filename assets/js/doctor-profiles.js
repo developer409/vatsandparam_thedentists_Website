@@ -1,4 +1,4 @@
-﻿/* ===================================================================
+/* ===================================================================
    doctor-profiles.js  —  Vats & Param Doctor Profile Data & Logic
    =================================================================== */
 
@@ -274,6 +274,149 @@ const doctorData = {
         memberships: [
             { icon: '🏛️', label: 'Indian Dental Association (IDA)' },
             { icon: '🩺', label: 'State Dental Council' },
+        ],
+    },
+
+    'gloria': {
+        name: 'Dr. Gloria',
+        role: 'Clinical Head and Senior Consultant',
+        specialization: 'Pediatric Dentist',
+        image: 'assets/Doctors/Dr_gloria.png',
+        education: 'BDS',
+        experience: '10+ Years Clinical Practice',
+        languages: 'English, Kannada, Malayalam',
+        location: 'Hulimavu Clinic, Bengaluru',
+        locationFull: 'Ground floor, 363, Bannerghatta Main Road, Hulimavu, Bengaluru - 560076',
+        tags: [
+            { label: 'BDS', gold: true },
+            { label: 'Pediatric Dentistry', gold: false },
+            { label: '10+ Years Experience', gold: false },
+        ],
+        overview: [
+            '<strong>Pediatric Dental Care:</strong> Creates a welcoming and comfortable environment for our youngest patients.',
+            '<strong>Oral Health Education:</strong> Passionate about educating families on preventive care and habits.',
+            '<strong>Nutritional Counseling:</strong> Emphasizes the role of diet in early childhood dental health.',
+            '<strong>Early Intervention:</strong> Identifies developmental concerns early to minimize future complex treatments.',
+        ],
+        intro: `Dr. Gloria specializes in <strong>Pediatric Dentistry</strong>, creating a welcoming, friendly environment for our youngest patients. She is passionate about <strong>Oral Health Education</strong> for families.`,
+        introExtra: `With over a decade of clinical experience, Dr. Gloria focuses on preventive care, behavior management, and pediatric restorative treatments. She believes that positive early dental visits lay the foundation for a lifetime of healthy smiles.`,
+        philosophy: [
+            'Early childhood is the best time to establish lifelong healthy habits.',
+            'Every child deserves a gentle, stress-free introduction to dental care.',
+            'Preventive care and family education are the keys to avoiding childhood decay.',
+            'We treat children with the utmost empathy, patience, and behavioral understanding.',
+        ],
+        specializations: [
+            { icon: '👶', label: 'Pediatric Dentistry' },
+            { icon: '🛡️', label: 'Preventive Care' },
+            { icon: '🍎', label: 'Nutritional Counseling' },
+            { icon: '🗣️', label: 'Oral Health Education' },
+            { icon: '✨', label: 'Behavior Management' },
+        ],
+        treatments: [
+            { icon: '👶', label: 'Pediatric Restorations' },
+            { icon: '🛡️', label: 'Fluoride Applications & Pit and Fissure Sealants' },
+            { icon: '🦷', label: 'Early Orthodontic Evaluation' },
+            { icon: '🦷', label: 'Space Maintainers' },
+        ],
+        memberships: [
+            { icon: '🏛️', label: 'Indian Dental Association (IDA)' },
+            { icon: '🩺', label: 'Karnataka State Dental Council' },
+        ],
+    },
+
+    'rakshitha': {
+        name: 'Dr. Rakshitha',
+        role: 'Clinical Head and Senior Consultant',
+        specialization: 'Orthodontist',
+        image: 'assets/Doctors/Dr_rakshitha.png',
+        education: 'BDS, MDS (Orthodontics)',
+        experience: '8+ Years Clinical Practice',
+        languages: 'English, Kannada, Hindi',
+        location: 'J.P Nagar Branch, Bengaluru',
+        locationFull: 'KR Layout, 2nd Phase, J. P. Nagar, Bengaluru - 560078',
+        tags: [
+            { label: 'BDS, MDS', gold: true },
+            { label: 'Orthodontist', gold: false },
+            { label: '8+ Years Experience', gold: false },
+        ],
+        overview: [
+            '<strong>Orthodontic Correction:</strong> Expert in structural alignment and malocclusion correction.',
+            '<strong>Clear Aligner Specialist:</strong> Specializes in advanced invisible aligner treatments.',
+            '<strong>Bite Dynamics:</strong> Focuses on functional bite harmony and jaw relationships.',
+            '<strong>Patient-Centered Design:</strong> Designs custom treatment plans for kids, teens, and adults.',
+        ],
+        intro: `Dr. Rakshitha is an expert Orthodontist specializing in <strong>Clear Aligners</strong>, braces, and dentofacial orthopedics. She is dedicated to creating balanced, healthy smiles.`,
+        introExtra: `With over 8 years of clinical experience, Dr. Rakshitha uses state-of-the-art diagnostic and digital tools to design custom orthodontic solutions. She prioritizes both functional bite stability and natural aesthetic alignment, ensuring long-term results.`,
+        philosophy: [
+            'Orthodontics is about more than just straight teeth; it is about functional bite alignment and facial balance.',
+            'Modern digital tools allow us to make orthodontic treatment more comfortable and predictable.',
+            'A healthy, beautiful smile boosts self-confidence at any age.',
+            'Every patient is unique, and their orthodontic treatment plan should reflect their specific goals.',
+        ],
+        specializations: [
+            { icon: '🦷', label: 'Orthodontics & Dentofacial Orthopedics' },
+            { icon: '✨', label: 'Clear Aligner Therapy' },
+            { icon: '⚙️', label: 'Bite Correction & Dynamics' },
+            { icon: '📈', label: 'Growth Modulation Treatments' },
+            { icon: '📋', label: 'Digital Smile Design' },
+        ],
+        treatments: [
+            { icon: '✨', label: 'Clear Aligners' },
+            { icon: '⚙️', label: 'Traditional & Ceramic Braces' },
+            { icon: '👶', label: 'Interceptive Orthodontics' },
+            { icon: '🦷', label: 'Myofunctional Appliances' },
+        ],
+        memberships: [
+            { icon: '🏛️', label: 'Indian Orthodontic Society (IOS)' },
+            { icon: '🇮🇳', label: 'Indian Dental Association (IDA)' },
+        ],
+    },
+
+    'vikram': {
+        name: 'Dr. Vikram',
+        role: 'Consultant Oral Surgeon',
+        specialization: 'Oral Surgery',
+        image: 'assets/Doctors/Dr_Srivats_B/Dr_srivats.png',
+        education: 'BDS, MDS (Oral & Maxillofacial Surgery)',
+        experience: '25+ Years Clinical Practice',
+        languages: 'English, Hindi, Kannada, Marathi',
+        location: 'Arekere Clinic, Bengaluru',
+        locationFull: '83, 6th Cross Rd, Arekere MICO Layout 2nd Stage, Bengaluru - 560076',
+        tags: [
+            { label: 'BDS, MDS', gold: true },
+            { label: 'Oral Surgeon', gold: false },
+            { label: '25+ Years Experience', gold: false },
+        ],
+        overview: [
+            '<strong>Maxillofacial Surgery:</strong> Expertise in complex extractions, jaw reconstructions, and surgical procedures.',
+            '<strong>Dental Implants:</strong> High success rate in placement and rehabilitation of dental implants.',
+            '<strong>Procedural Precision:</strong> Performs surgeries with minimal discomfort and efficient recovery planning.',
+            '<strong>Patient Safety Focus:</strong> Strict adherence to sterile techniques and safety monitoring.',
+        ],
+        intro: `Dr. Vikram is a seasoned expert in <strong>Maxillofacial Surgery</strong> and <strong>Dental Implants</strong>. He handles complex surgical extractions and structural reconstructions with precision.`,
+        introExtra: `With over 25 years of specialized clinical practice, Dr. Vikram delivers advanced surgical solutions for tooth restoration, jaw injuries, and wisdom tooth extraction. He combines technical mastery with anatomical understanding for superior outcomes.`,
+        philosophy: [
+            'Surgical excellence requires a combination of technical mastery and deep anatomical understanding.',
+            'We prioritize safety and efficient recovery in every procedural blueprint.',
+            'Patient comfort and minimizing anxiety are essential parts of surgical care.',
+            'Every procedure is planned with digital precision to ensure long-term stability.',
+        ],
+        specializations: [
+            { icon: '🦷', label: 'Oral & Maxillofacial Surgery' },
+            { icon: '🔩', label: 'Dental Implantology' },
+            { icon: '🔪', label: 'Complex Surgical Extractions' },
+            { icon: '🛡️', label: 'Trauma & Reconstruction' },
+        ],
+        treatments: [
+            { icon: '🦷', label: 'Wisdom Teeth Removal' },
+            { icon: '🔩', label: 'Dental Implants' },
+            { icon: '🩹', label: 'Surgical Extractions' },
+            { icon: '🏥', label: 'Jaw Reconstruction' },
+        ],
+        memberships: [
+            { icon: '🏛️', label: 'Association of Oral and Maxillofacial Surgeons of India (AOMSI)' },
+            { icon: '🇮🇳', label: 'Indian Dental Association (IDA)' },
         ],
     }
 };

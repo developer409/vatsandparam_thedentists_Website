@@ -23,7 +23,7 @@
   <!-- ========== NAVIGATION ========== -->
   <nav class="nav" id="mainNav">
     <div class="nav__inner">
-      <a href="#about" class="nav__logo" data-page="about">
+      <a href="#home" class="nav__logo" data-page="home">
         <div class="nav__logo-icon-container">
           <img src="assets/logo_teeth.png" alt="Vats & Param logo" class="nav__logo-img">
         </div>
@@ -40,8 +40,8 @@
       <div class="nav__toggle" id="navToggle"><span></span><span></span><span></span></div>
       <div class="nav__menu" id="navMenu">
         <div class="nav__links">
-          <a href="#about" class="nav__link active" data-page="about">Home</a>
-          <a href="#home" class="nav__link" data-page="home">About Us</a>
+          <a href="#home" class="nav__link active" data-page="home">Home</a>
+          <a href="#about" class="nav__link" data-page="about">About Us</a>
 
           <a href="#approach" class="nav__link" data-page="approach">Our Approach</a>
           <a href="#treatments" class="nav__link" data-page="treatments">Services</a>
@@ -75,7 +75,7 @@
     <section class="immersive-video-section" data-nav="dark">
       <div class="immersive-bg">
         <video autoplay muted loop playsinline class="immersive-video">
-          <source src="assets/videos/whole_body/Homepage_3.mp4" type="video/mp4">
+          <source src="assets/videos/homepage video v3.mp4" type="video/mp4">
         </video>
       </div>
       <!-- Two long rectangles pinned to the bottom of the hero video -->
@@ -139,19 +139,19 @@
             <span class="immersive-label desktop-only">Philosophy</span>
             <h2 class="immersive-title desktop-only">Dentistry Beyond Teeth</h2>
             <p class="immersive-body desktop-only">We look beyond the tooth to understand the whole person. Your oral health is a window into your systemic health and we use it as one.</p>
-            <div class="model-flow desktop-only">
-              <div class="flow-item"><span class="flow-label">Traditional dentistry</span><span class="flow-arrow">→</span><span class="flow-result">Treats symptoms</span></div>
-              <div class="flow-item"><span class="flow-label">Our approach</span><span class="flow-arrow">→</span><span class="flow-result">Identifies causes</span></div>
+            <div class="approach-comparison">
+              <div class="comparison-row traditional-row">
+                <span class="comp-label">Traditional approach</span>
+                <span class="comp-eq">=</span>
+                <span class="comp-val">Treats symptoms</span>
+              </div>
+              <div class="comparison-row ours-row">
+                <span class="comp-label">Our Approach</span>
+                <span class="comp-eq">=</span>
+                <span class="comp-val">Identifies causes</span>
+              </div>
             </div>
-            <p class="immersive-body"><strong>From Treating Teeth to Understanding Health</strong></p>
-            <p class="immersive-body">- From Reactive Care → To Preventive Health</p>
-            <p class="immersive-body">- From Isolated Dentistry → To Integrated Wellbeing</p>
-            <p class="immersive-body" style="margin-top: 1rem;"><strong>Our approach focuses on:</strong></p>
-            <ul class="card-list">
-              <li>- Identifying sources of chronic inflammation</li>
-              <li>- Detecting hidden oral infections</li>
-              <li>- Understanding the oral-systemic health connection</li>
-            </ul>
+            
           </div>
 
           <div class="walkthrough-card glass-panel" data-index="2">
@@ -161,15 +161,14 @@
             </div>
             <span class="immersive-label desktop-only">Our Process</span>
             <h2 class="immersive-title desktop-only">Time. Thought. Trust.</h2>
-            <p class="immersive-body desktop-only">Every appointment is unhurried. We take the time to listen, evaluate thoroughly, and explain clearly because understanding comes before treatment.</p>
+            <p class="immersive-body desktop-only"></p>
             <p class="immersive-body"><strong>Great care begins with understanding.</strong></p>
             <ul class="card-list">
-              <li><strong>- Time to Listen:</strong> Your concerns, goals, and health history matter.</li>
-              <li><strong>- Time to Evaluate:</strong> Comprehensive diagnostics support accurate decisions.</li>
-              <li><strong>- Time to Explain:</strong> Clear guidance helps you understand every step.</li>
+              <li><strong>- Time:</strong> Your concerns, goals, and health history matter.</li>
+              <li><strong>- Thought:</strong> Comprehensive diagnostics support accurate decisions.</li>
+              <li><strong>- Trust:</strong> Clear guidance helps you understand every step.</li>
             </ul>
-            <p class="card-note">Because accurate diagnosis starts with taking the time to understand the whole picture.</p>
-          </div>
+             </div>
 
           <div class="walkthrough-card glass-panel" data-index="3">
             <div class="card-header-row">
@@ -187,7 +186,7 @@
               <li>- Strict infection control</li>
               <li>- Advanced sterilisation</li>
             </ul>
-            <p class="card-note">Designed to support a safer, healthier treatment experience.</p>
+            
           </div>
 
           <div class="walkthrough-card glass-panel" data-index="4">
@@ -197,7 +196,6 @@
             </div>
             <span class="immersive-label desktop-only">Longevity</span>
             <h2 class="immersive-title desktop-only">Dentistry and Longevity</h2>
-            <p class="immersive-body desktop-only">Oral health is not separate from whole-body health it is foundational to it. We connect dental care to long-term wellbeing, vitality, and quality of life.</p>
             <p class="immersive-body"><strong>Oral health is part of whole-body health.</strong></p>
             <ul class="card-list" style="margin-top: 1rem;">
               <li>- Better nutrition</li>
@@ -393,7 +391,7 @@
         <div class="wb-info-panel">
 
           <div class="wb-organ-info" data-organ="brain">
-            <span class="wb-organ-num">01 &nbsp;/&nbsp; 05</span>
+            <span class="wb-organ-num">01 &nbsp;/&nbsp; 09</span>
             <h3 class="wb-organ-name">Brain</h3>
             <p class="wb-organ-headline">Your mouth shapes your mind</p>
             <p class="wb-organ-body">Oral infections release inflammatory cytokines that cross the blood-brain barrier, directly affecting cognition, mood, and neural clarity. Chronic periodontal disease has been linked to accelerated cognitive decline.</p>
@@ -405,7 +403,7 @@
           </div>
 
           <div class="wb-organ-info" data-organ="lung">
-            <span class="wb-organ-num">02 &nbsp;/&nbsp; 05</span>
+            <span class="wb-organ-num">02 &nbsp;/&nbsp; 09</span>
             <h3 class="wb-organ-name">Lungs</h3>
             <p class="wb-organ-headline">Every breath carries what your mouth holds</p>
             <p class="wb-organ-body">Oral bacteria can be aspirated into the lower respiratory tract, triggering infections and worsening conditions like COPD and pneumonia. Poor oral hygiene dramatically increases pulmonary infection risk.</p>
@@ -417,7 +415,7 @@
           </div>
 
           <div class="wb-organ-info" data-organ="heart">
-            <span class="wb-organ-num">03 &nbsp;/&nbsp; 05</span>
+            <span class="wb-organ-num">03 &nbsp;/&nbsp; 09</span>
             <h3 class="wb-organ-name">Heart</h3>
             <p class="wb-organ-headline">Gum disease and your cardiovascular system</p>
             <p class="wb-organ-body">Periodontal bacteria enter the bloodstream, attaching to arterial plaques and triggering inflammatory responses that narrow vessels. Studies show gum disease patients face nearly twice the risk of heart disease.</p>
@@ -429,7 +427,7 @@
           </div>
 
           <div class="wb-organ-info" data-organ="gut">
-            <span class="wb-organ-num">04 &nbsp;/&nbsp; 05</span>
+            <span class="wb-organ-num">04 &nbsp;/&nbsp; 09</span>
             <h3 class="wb-organ-name">Gut</h3>
             <p class="wb-organ-headline">Digestion begins in the mouth</p>
             <p class="wb-organ-body">The oral microbiome is the gateway to your gut. Imbalanced oral bacteria disrupt the digestive ecosystem, while compromised chewing reduces nutrient absorption and burdens the entire digestive system.</p>
@@ -441,7 +439,7 @@
           </div>
 
           <div class="wb-organ-info" data-organ="joint">
-            <span class="wb-organ-num">05 &nbsp;/&nbsp; 05</span>
+            <span class="wb-organ-num">05 &nbsp;/&nbsp; 09</span>
             <h3 class="wb-organ-name">Joints</h3>
             <p class="wb-organ-headline">Your bite shapes your skeleton</p>
             <p class="wb-organ-body">Bite imbalance and jaw misalignment create compensatory postural patterns throughout the body. Periodontal inflammation also mimics and worsens rheumatoid arthritis the same immune pathways are activated.</p>
@@ -453,50 +451,50 @@
           </div>
 
           <div class="wb-organ-info" data-organ="muscle">
-            <span class="wb-organ-num">06 &nbsp;/&nbsp; 06</span>
-            <h3 class="wb-organ-name">Muscles</h3>
-            <p class="wb-organ-headline">Your bite shapes your skeleton</p>
-            <p class="wb-organ-body">Bite imbalance and jaw misalignment create compensatory postural patterns throughout the body. Periodontal inflammation also mimics and worsens rheumatoid arthritis the same immune pathways are activated.</p>
+            <span class="wb-organ-num">06 &nbsp;/&nbsp; 09</span>
+            <h3 class="wb-organ-name">Skeletal Muscle Health</h3>
+            <p class="wb-organ-headline">Muscle function impacts metabolism, posture, airway patency, and overall resilience</p>
+            <p class="wb-organ-body">Muscle function impacts metabolism, posture, airway patency, and overall resilience.</p>
             <ul class="wb-organ-facts">
-              <li>Jaw dysfunction causes neck and back pain</li>
-              <li>Periodontal bacteria trigger joint inflammation</li>
-              <li>RA patients have 8× higher rates of gum disease</li>
+              <li>Supports metabolism and energy production</li>
+              <li>Maintains airway patency and breathing function</li>
+              <li>Essential for postural stability and spinal health</li>
             </ul>
           </div>
 
           <div class="wb-organ-info" data-organ="inflammation">
-            <span class="wb-organ-num">07 &nbsp;/&nbsp; 06</span>
+            <span class="wb-organ-num">07 &nbsp;/&nbsp; 09</span>
             <h3 class="wb-organ-name">Inflammation</h3>
-            <p class="wb-organ-headline">Your bite shapes your skeleton</p>
-            <p class="wb-organ-body">Bite imbalance and jaw misalignment create compensatory postural patterns throughout the body. Periodontal inflammation also mimics and worsens rheumatoid arthritis the same immune pathways are activated.</p>
+            <p class="wb-organ-headline">Chronic inflammation drives periodontal breakdown and contributes to systemic disease</p>
+            <p class="wb-organ-body">Chronic inflammation drives periodontal breakdown and contributes to systemic disease.</p>
             <ul class="wb-organ-facts">
-              <li>Jaw dysfunction causes neck and back pain</li>
-              <li>Periodontal bacteria trigger joint inflammation</li>
-              <li>RA patients have 8× higher rates of gum disease</li>
+              <li>Oral inflammation spreads systemically</li>
+              <li>Accelerates periodontal destruction</li>
+              <li>Linked to cardiovascular disease and autoimmune conditions</li>
             </ul>
           </div>
 
           <div class="wb-organ-info" data-organ="glycemic">
-            <span class="wb-organ-num">08 &nbsp;/&nbsp; 06</span>
-            <h3 class="wb-organ-name">Glycemic</h3>
-            <p class="wb-organ-headline">Your bite shapes your skeleton</p>
-            <p class="wb-organ-body">Bite imbalance and jaw misalignment create compensatory postural patterns throughout the body. Periodontal inflammation also mimics and worsens rheumatoid arthritis the same immune pathways are activated.</p>
+            <span class="wb-organ-num">08 &nbsp;/&nbsp; 09</span>
+            <h3 class="wb-organ-name">Glycemic Control</h3>
+            <p class="wb-organ-headline">Blood sugar dysregulation impairs immune response and accelerates periodontal destruction</p>
+            <p class="wb-organ-body">Blood sugar dysregulation impairs immune response and accelerates periodontal destruction.</p>
             <ul class="wb-organ-facts">
-              <li>Jaw dysfunction causes neck and back pain</li>
-              <li>Periodontal bacteria trigger joint inflammation</li>
-              <li>RA patients have 8× higher rates of gum disease</li>
+              <li>Weakens immune defense against oral bacteria</li>
+              <li>Accelerates gum disease progression</li>
+              <li>Creates feedback loop between diabetes and dental health</li>
             </ul>
           </div>
 
           <div class="wb-organ-info" data-organ="sleep">
-            <span class="wb-organ-num">09 &nbsp;/&nbsp; 06</span>
-            <h3 class="wb-organ-name">Sleep</h3>
-            <p class="wb-organ-headline">Your bite shapes your skeleton</p>
-            <p class="wb-organ-body">Bite imbalance and jaw misalignment create compensatory postural patterns throughout the body. Periodontal inflammation also mimics and worsens rheumatoid arthritis the same immune pathways are activated.</p>
+            <span class="wb-organ-num">09 &nbsp;/&nbsp; 09</span>
+            <h3 class="wb-organ-name">Sleep Disruption</h3>
+            <p class="wb-organ-headline">Poor sleep quality elevates inflammatory markers and impairs tissue healing and immune function</p>
+            <p class="wb-organ-body">Poor sleep quality elevates inflammatory markers and impairs tissue healing and immune function.</p>
             <ul class="wb-organ-facts">
-              <li>Jaw dysfunction causes neck and back pain</li>
-              <li>Periodontal bacteria trigger joint inflammation</li>
-              <li>RA patients have 8× higher rates of gum disease</li>
+              <li>Increases systemic inflammation</li>
+              <li>Impairs immune response and healing</li>
+              <li>Sleep apnea linked to periodontal disease</li>
             </ul>
           </div>
 
@@ -530,57 +528,6 @@
         </div>
 
       </div><!-- end wb-sticky -->
-    </section>
-
-    <!-- 4 KEY BODY CONNECTIONS CARDS (75/25 LAYOUT) -->
-    <section class="wb-connections-section" data-nav="dark">
-      <div class="wb-left-connections-grid">
-        <h3 class="wb-connections-heading">Key Body Connections</h3>
-
-        <div class="wb-connection-card">
-          <video autoplay muted loop playsinline class="wb-connection-video">
-            <source src="assets/videos/whole_body/muscle_glow.mp4" type="video/mp4">
-          </video>
-          <div class="wb-connection-overlay"></div>
-          <div class="wb-connection-content">
-            <h4 class="wb-connection-title">Skeletal Muscle Health</h4>
-            <p class="wb-connection-desc">Muscle function impacts metabolism, posture, airway patency, and overall resilience.</p>
-          </div>
-        </div>
-
-        <div class="wb-connection-card">
-          <video autoplay muted loop playsinline class="wb-connection-video">
-            <source src="assets/videos/whole_body/inflame_glow.mp4" type="video/mp4">
-          </video>
-          <div class="wb-connection-overlay"></div>
-          <div class="wb-connection-content">
-            <h4 class="wb-connection-title">Inflammation</h4>
-            <p class="wb-connection-desc">Chronic inflammation drives periodontal breakdown and contributes to systemic disease.</p>
-          </div>
-        </div>
-
-        <div class="wb-connection-card">
-          <video autoplay muted loop playsinline class="wb-connection-video">
-            <source src="assets/videos/whole_body/glyce_glow.mp4" type="video/mp4">
-          </video>
-          <div class="wb-connection-overlay"></div>
-          <div class="wb-connection-content">
-            <h4 class="wb-connection-title">Glycemic Control</h4>
-            <p class="wb-connection-desc">Blood sugar dysregulation impairs immune response and accelerates periodontal destruction.</p>
-          </div>
-        </div>
-
-        <div class="wb-connection-card">
-          <video autoplay muted loop playsinline class="wb-connection-video">
-            <source src="assets/videos/whole_body/sleep_glow.mp4" type="video/mp4">
-          </video>
-          <div class="wb-connection-overlay"></div>
-          <div class="wb-connection-content">
-            <h4 class="wb-connection-title">Sleep Disruption</h4>
-            <p class="wb-connection-desc">Poor sleep quality elevates inflammatory markers and impairs tissue healing and immune function.</p>
-          </div>
-        </div>
-      </div>
     </section>
 
     <!-- UNDERSTAND MORE ABOUT US (kept for spacing/nav) -->
@@ -700,7 +647,7 @@
       <div class="discovery-item discovery-item--centered">
         <div class="discovery-content discovery-content--hero discovery-content--visible">
           <h3>A New Standard in Dental Care</h3>
-          <p>Founded on the belief that oral health is inseparable from overall wellness, Vats &amp; Param brings diagnostic precision and personalized care to every person.</p>
+          <p>Founded on the belief that oral health is inseparable from overall wellness, Vats &amp; Param delivers comprehensive, personalized care with diagnostic precision for every individual.</p>
         </div>
       </div>
 
@@ -1022,7 +969,10 @@
         <div class="discovery-content" style="text-align: center; max-width: 600px;">
           <h3 style="margin-bottom: var(--space-sm);">Ready to Experience Our Clinical Method?</h3>
           <p style="margin-bottom: var(--space-lg); color: rgba(255, 255, 255, 0.85);">Schedule a comprehensive consultation and let us build your personalized care blueprint.</p>
-          <a href="#contact" class="btn btn--gold-outline" style="display: inline-block;">Schedule Consultation</a>
+          <div style="display: flex; gap: var(--space-md); justify-content: center; flex-wrap: wrap; margin-top: var(--space-md);">
+            <a href="#contact" class="btn btn--gold-outline">Schedule Consultation</a>
+            <a href="#treatments" class="btn btn--gold-solid" data-page="treatments">Explore Our Services</a>
+          </div>
         </div>
       </div>
     </section>
@@ -1036,15 +986,17 @@
       <div class="services-heading-wrapper" id="servicesHeading">
         <h2 class="services-heading-animated">
           <span class="word-reveal">Every</span>
-          <span class="word-reveal">smile</span>
-          <span class="word-reveal">has</span>
-          <span class="word-reveal">a</span>
-          <span class="word-reveal">story.</span>
+          <span class="word-reveal">person</span>
+          <span class="word-reveal">deserves</span>
+          <span class="word-reveal">root-cause</span>
+          <span class="word-reveal">care.</span>
           <span class="word-reveal">We</span>
-          <span class="word-reveal">treat</span>
-          <span class="word-reveal">the</span>
-          <span class="word-reveal">whole</span>
-          <span class="word-reveal">person.</span>
+          <span class="word-reveal">listen,</span>
+          <span class="word-reveal">diagnose,</span>
+          <span class="word-reveal">and</span>
+          <span class="word-reveal">heal</span>
+          <span class="word-reveal">with</span>
+          <span class="word-reveal">precision.</span>
         </h2>
       </div>
     </div>
@@ -1109,7 +1061,7 @@
           <span class="svc-vcard__tag">C</span>
           <h2 class="svc-vcard__title">Functional &amp; Whole-Body Health</h2>
         </div>
-        <p class="svc-vcard__desc">Where oral health connects to the whole body &mdash; function, breathing, and systemic wellbeing.</p>
+        <p class="svc-vcard__desc">Where oral health connects to the whole body, affecting function, breathing, and systemic wellbeing.</p>
         <div class="svc-vcard__pills">
           <a href="bite-tmj-functional-dentistry.html" class="svc-pill">Bite, TMJ &amp; Functional Dentistry</a>
           <a href="airway-breathing-sleep-health.html" class="svc-pill">Airway, Breathing &amp; Sleep Health</a>
@@ -1151,7 +1103,7 @@
     <div class="page-header">
       <div class="container">
         <span class="section-label">Our Team</span>
-        <h1>Meet Your Dental Specialists</h1>
+        <h1>Meet Your Doctors</h1>
         <p>Trained under standardized global protocols with decades of combined experience in diagnostic and precision
           dentistry.</p>
       </div>
@@ -1325,6 +1277,114 @@
               <div class="doc-info">
                 <h3 class="doc-name">Dr. Paramjot Kaur</h3>
                 <p class="doc-role">Lead Dentist & Co-Founder</p>
+              </div>
+            </div>
+
+            <!-- Dr. Madhukiran -->
+            <div class="doc-profile" style="border: 1px solid var(--color-gold); border-radius: var(--radius-md);">
+              <div class="doc-img-box">
+                <div class="doc-img-placeholder">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                    <circle cx="12" cy="7" r="4" />
+                  </svg>
+                </div>
+                <div class="doc-overlay">
+                  <div class="doc-details-grid">
+                    <div class="doc-detail">
+                      <span class="doc-detail-label">Experience</span>
+                      <p class="doc-detail-text">12+ Years</p>
+                    </div>
+                    <div class="doc-detail">
+                      <span class="doc-detail-label">Education</span>
+                      <p class="doc-detail-text">BDS, MDS</p>
+                    </div>
+                    <div class="doc-detail">
+                      <span class="doc-detail-label">Speciality</span>
+                      <p class="doc-detail-text">Endodontics</p>
+                    </div>
+                  </div>
+                  <div class="doc-bio">
+                    <p><strong>Expert in root canal treatment and endodontic therapy.</strong> Dedicated to saving teeth through advanced techniques and pain management strategies.</p>
+                  </div>
+                  <a href="doctor-profile.html?dr=madhukiran" class="btn btn--gold-outline doc-view-btn">View Profile</a>
+                </div>
+              </div>
+              <div class="doc-info">
+                <h3 class="doc-name">Dr. Madhukiran</h3>
+                <p class="doc-role">Root Canal Specialist</p>
+              </div>
+            </div>
+
+            <!-- Dr. Prithvi -->
+            <div class="doc-profile" style="border: 1px solid var(--color-gold); border-radius: var(--radius-md);">
+              <div class="doc-img-box">
+                <div class="doc-img-placeholder">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                    <circle cx="12" cy="7" r="4" />
+                  </svg>
+                </div>
+                <div class="doc-overlay">
+                  <div class="doc-details-grid">
+                    <div class="doc-detail">
+                      <span class="doc-detail-label">Experience</span>
+                      <p class="doc-detail-text">10+ Years</p>
+                    </div>
+                    <div class="doc-detail">
+                      <span class="doc-detail-label">Education</span>
+                      <p class="doc-detail-text">BDS, MDS</p>
+                    </div>
+                    <div class="doc-detail">
+                      <span class="doc-detail-label">Speciality</span>
+                      <p class="doc-detail-text">Oral Surgery</p>
+                    </div>
+                  </div>
+                  <div class="doc-bio">
+                    <p><strong>Specialist in oral extractions and surgical dentistry.</strong> Experienced in complex tooth extractions with emphasis on patient comfort and rapid healing.</p>
+                  </div>
+                  <a href="doctor-profile.html?dr=prithvi" class="btn btn--gold-outline doc-view-btn">View Profile</a>
+                </div>
+              </div>
+              <div class="doc-info">
+                <h3 class="doc-name">Dr. Prithvi</h3>
+                <p class="doc-role">Oral Extraction Specialist</p>
+              </div>
+            </div>
+
+            <!-- Dr. Ragunath -->
+            <div class="doc-profile" style="border: 1px solid var(--color-gold); border-radius: var(--radius-md);">
+              <div class="doc-img-box">
+                <div class="doc-img-placeholder">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                    <circle cx="12" cy="7" r="4" />
+                  </svg>
+                </div>
+                <div class="doc-overlay">
+                  <div class="doc-details-grid">
+                    <div class="doc-detail">
+                      <span class="doc-detail-label">Experience</span>
+                      <p class="doc-detail-text">15+ Years</p>
+                    </div>
+                    <div class="doc-detail">
+                      <span class="doc-detail-label">Education</span>
+                      <p class="doc-detail-text">BDS, MDS</p>
+                    </div>
+                    <div class="doc-detail">
+                      <span class="doc-detail-label">Speciality</span>
+                      <p class="doc-detail-text">Orthodontics</p>
+                    </div>
+                  </div>
+                  <div class="doc-bio">
+                    <p><strong>Expert in braces, aligners, and comprehensive orthodontic treatment.</strong> Focused on creating beautiful smiles through precise bite correction and dental alignment.</p>
+                  </div>
+                  <a href="doctor-profile.html?dr=ragunath" class="btn btn--gold-outline doc-view-btn">View Profile</a>
+                </div>
+              </div>
+              <div class="doc-info">
+                <h3 class="doc-name">Dr. Ragunath</h3>
+                <p class="doc-role">Braces Specialist</p>
               </div>
             </div>
 
@@ -2050,157 +2110,74 @@
 
   <!-- ========== CAREERS PAGE ========== -->
   <section class="page" id="page-careers">
+    <div class="section" style="padding: 4rem 1rem; background-color: #fafaf8;">
+      <div class="container" style="max-width: 900px;">
+        <div style="line-height: 1.9; color: var(--color-text-dark);">
+          <p style="font-size: 1.05rem; margin-bottom: 1.5rem;">We are attempting to build a culture of ethical, compassionate, science-driven, comprehensive and whole-body focused healthcare.</p>
 
-    <!-- HERO -->
-    <div class="careers-hero">
-      <div class="careers-hero__inner">
-        <span class="section-label careers-hero__label">Join Our Team</span>
-        <h1 class="careers-hero__title">Build a Career That<br>Goes Beyond Teeth</h1>
-        <p class="careers-hero__sub">We're looking for passionate, curious dental professionals who believe that real care begins with understanding the whole person — not just the presenting symptom.</p>
-        <a href="https://mail.google.com/mail/?view=cm&to=happytohelp@vatsandparam.com&subject=Application%20%E2%80%93%20Career%20Enquiry" target="_blank" class="careers-hero__cta">Apply Now
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-      </div>
-      <div class="careers-hero__badge-wrap">
-        <div class="careers-hero__stat"><span class="careers-hero__stat-num">50+</span><span class="careers-hero__stat-label">Years Combined Experience</span></div>
-        <div class="careers-hero__stat"><span class="careers-hero__stat-num">3</span><span class="careers-hero__stat-label">Clinic Locations</span></div>
-        <div class="careers-hero__stat"><span class="careers-hero__stat-num">100K+</span><span class="careers-hero__stat-label">Patients Treated</span></div>
-      </div>
-    </div>
+          <p style="font-size: 1.05rem; margin-bottom: 1.5rem;">Our approach to dentistry goes beyond procedures alone. We value:</p>
 
-    <!-- WHY JOIN US -->
-    <div class="section careers-why">
-      <div class="container">
-        <div class="text-center" style="margin-bottom:3rem;">
-          <span class="section-label">Why Vats &amp; Param</span>
-          <h2 class="fade-in-scroll">A Place to Grow, Not Just Practise</h2>
-          <p class="section-subtitle centered fade-in-scroll fade-in-delay-1">We invest in our team the same way we invest in our patients — with time, thought, and genuine care.</p>
-        </div>
-        <div class="careers-pillars">
-          <div class="careers-pillar fade-in-scroll fade-in-delay-1">
-            <div class="careers-pillar__icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-            </div>
-            <h4>Evidence-Based Learning</h4>
-            <p>Work alongside clinicians trained under standardized global protocols. Every case is a learning opportunity — we share knowledge openly across the team.</p>
-          </div>
-          <div class="careers-pillar fade-in-scroll fade-in-delay-2">
-            <div class="careers-pillar__icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
-            </div>
-            <h4>Unhurried, Thoughtful Care</h4>
-            <p>We never rush appointments. You'll have the time to diagnose properly, explain fully, and deliver treatment you're genuinely proud of — every session.</p>
-          </div>
-          <div class="careers-pillar fade-in-scroll fade-in-delay-3">
-            <div class="careers-pillar__icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-            </div>
-            <h4>Strong Team Culture</h4>
-            <p>A collaborative, respectful environment where junior and senior doctors learn from each other. Your voice matters here from day one.</p>
-          </div>
-          <div class="careers-pillar fade-in-scroll fade-in-delay-4">
-            <div class="careers-pillar__icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-            </div>
-            <h4>Advanced Technology</h4>
-            <p>Use tools that elevate your precision — microscopes, digital impressions, laser dentistry, and 3D imaging — backed by clinical purpose.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- WHAT WE LOOK FOR -->
-    <div class="section careers-traits-section">
-      <div class="container">
-        <div class="careers-traits-wrap">
-          <div class="careers-traits-left fade-in-scroll">
-            <span class="section-label">The Ideal Candidate</span>
-            <h2>What We Look For</h2>
-            <p>Beyond qualifications, we look for people whose values align with ours — doctors who are as invested in understanding as they are in treating.</p>
-            <a href="https://mail.google.com/mail/?view=cm&to=happytohelp@vatsandparam.com&subject=Application%20%E2%80%93%20CV%20Submission" target="_blank" class="careers-traits__cta">Send Your CV →</a>
-          </div>
-          <ul class="careers-traits-list fade-in-scroll fade-in-delay-2">
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
-              <span>Genuine curiosity about the oral-systemic health connection</span>
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
-              <span>A patient-first mindset — listening before treating</span>
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
-              <span>Commitment to continuous learning and evidence-based practice</span>
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
-              <span>Strong communication skills and genuine empathy</span>
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
-              <span>Energy, initiative, and a desire to grow within a structured team</span>
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
-              <span>BDS or MDS degree (freshers and experienced both welcome)</span>
-            </li>
+          <ul style="font-size: 1rem; margin-bottom: 2rem; margin-left: 2rem;">
+            <li style="margin-bottom: 0.75rem;">Thoughtful diagnosis and comprehensive treatment planning.</li>
+            <li style="margin-bottom: 0.75rem;">Strong communication and healthy patient conversations.</li>
+            <li style="margin-bottom: 0.75rem;">Prevention, education and long-term thinking.</li>
+            <li style="margin-bottom: 0.75rem;">Respect, empathy and patient dignity.</li>
+            <li style="margin-bottom: 0.75rem;">Documentation, hygiene, systems and professional discipline.</li>
+            <li style="margin-bottom: 0.75rem;">Continuous learning and professional growth.</li>
           </ul>
-        </div>
-      </div>
-    </div>
 
-    <!-- OPEN ROLES -->
-    <div class="section section--alt">
-      <div class="container">
-        <div class="text-center" style="margin-bottom:2.5rem;">
-          <span class="section-label">Opportunities</span>
-          <h2 class="fade-in-scroll">Current Openings</h2>
-        </div>
-        <div class="careers-roles">
-          <div class="careers-role-card fade-in-scroll">
-            <div class="careers-role-card__header">
-              <div>
-                <span class="careers-role-card__type">Full-Time</span>
-                <h3 class="careers-role-card__title">Associate Dentist</h3>
-              </div>
-            </div>
-            <p class="careers-role-card__desc">Join our clinical team across our three Bengaluru locations. Handle a broad range of cases with senior supervision and mentorship built in from day one.</p>
-            <div class="careers-role-card__tags">
-              <span>BDS</span><span>Bengaluru</span><span>Freshers welcome</span>
-            </div>
-            <a href="https://mail.google.com/mail/?view=cm&to=happytohelp@vatsandparam.com&subject=Application%20%E2%80%93%20Associate%20Dentist" target="_blank" class="careers-role-card__contact">Contact</a>
+          <p style="font-size: 1.05rem; margin-bottom: 1.5rem;">We believe the mouth is connected to the rest of health, and where relevant, we encourage broader thinking around prevention, function, lifestyle, oral-systemic understanding and long-term wellbeing.</p>
+
+          <div style="background: white; padding: 2.5rem; border-radius: 12px; border-left: 4px solid var(--color-gold); margin-bottom: 2.5rem;">
+            <p style="font-size: 1rem; margin: 0; line-height: 1.8;">
+              <strong>At Vats &amp; Param, communication is not separate from dentistry — it is part of dentistry.</strong><br><br>
+              <strong>Documentation is not paperwork — it is professionalism.</strong><br><br>
+              <strong>Learning is not optional — it is part of growth.</strong>
+            </p>
           </div>
-          <div class="careers-role-card fade-in-scroll fade-in-delay-1">
-            <div class="careers-role-card__header">
-              <div>
-                <span class="careers-role-card__type">Full-Time</span>
-                <h3 class="careers-role-card__title">Senior Doctor</h3>
-              </div>
-            </div>
-            <p class="careers-role-card__desc">Experienced clinicians ready to take ownership of complex cases and contribute to a diagnostic-first, whole-body practice with a strong patient base.</p>
-            <div class="careers-role-card__tags">
-              <span>BDS</span><span>Bengaluru</span><span>5+ years</span>
-            </div>
-            <a href="https://mail.google.com/mail/?view=cm&to=happytohelp@vatsandparam.com&subject=Application%20%E2%80%93%20Senior%20Doctor" target="_blank" class="careers-role-card__contact">Contact</a>
+
+          <h2 style="font-size: 1.8rem; margin-bottom: 1.5rem; margin-top: 2.5rem;">WHAT WE LOOK FOR</h2>
+
+          <p style="font-size: 1rem; margin-bottom: 1.5rem;">We are not necessarily looking for "finished" doctors. We are looking for doctors who demonstrate:</p>
+
+          <div style="margin-bottom: 2.5rem; margin-left: 2rem;">
+            <p style="font-size: 1rem; margin-bottom: 0.75rem;"><strong>✔ Curiosity and willingness to learn.</strong></p>
+            <p style="font-size: 1rem; margin-bottom: 0.75rem;"><strong>✔ Compassion and strong human values.</strong></p>
+            <p style="font-size: 1rem; margin-bottom: 0.75rem;"><strong>✔ Professional maturity and accountability.</strong></p>
+            <p style="font-size: 1rem; margin-bottom: 0.75rem;"><strong>✔ Respect for systems, hygiene and documentation.</strong></p>
+            <p style="font-size: 1rem; margin-bottom: 0.75rem;"><strong>✔ Good communication and patient-centred thinking.</strong></p>
+            <p style="font-size: 1rem; margin-bottom: 0.75rem;"><strong>✔ Openness to mentorship, feedback and continuous improvement.</strong></p>
           </div>
+
+          <p style="font-size: 1rem; margin-bottom: 2.5rem;"><em>Technical skills matter. Character, mindset and teachability matter deeply too.</em></p>
+
+          <h2 style="font-size: 1.8rem; margin-bottom: 1.5rem; margin-top: 2.5rem;">WHAT YOU CAN EXPECT FROM US</h2>
+
+          <p style="font-size: 1rem; margin-bottom: 1.5rem;">If you join us, you can expect:</p>
+
+          <ul style="font-size: 1rem; margin-bottom: 2.5rem; margin-left: 2rem;">
+            <li style="margin-bottom: 0.75rem;">Mentorship and guidance.</li>
+            <li style="margin-bottom: 0.75rem;">Exposure to comprehensive and whole-body focused dentistry.</li>
+            <li style="margin-bottom: 0.75rem;">Development in diagnosis, communication and systems thinking.</li>
+            <li style="margin-bottom: 0.75rem;">Honest feedback and structured growth.</li>
+            <li style="margin-bottom: 0.75rem;">A respectful culture focused on learning, professionalism and long-term development.</li>
+          </ul>
+
+          <p style="font-size: 1rem; margin-bottom: 1.5rem;"><strong>This environment may not suit everyone.</strong></p>
+
+          <p style="font-size: 1rem; margin-bottom: 2.5rem;">But if you are looking for more than "just a job" — if you are seeking growth, purpose, mentorship, challenge and meaningful healthcare culture — this conversation may be worth having.</p>
+
+          <p style="font-size: 1.05rem; margin-bottom: 2.5rem; font-weight: 500;">We look forward to meeting you.</p>
+
+          <p style="font-size: 1rem; line-height: 1.8;">
+            Warm regards,<br>
+            <strong>Dr. Srivats Bharadwaj &amp; Dr. Paramjot Kaur</strong><br>
+            Vats &amp; Param – The Dentists<br>
+            <span style="color: var(--color-gold); font-weight: 500;">Longevity &amp; Whole Body Focused Dentistry</span>
+          </p>
         </div>
       </div>
     </div>
-
-    <!-- APPLY CTA -->
-    <div class="careers-cta-section">
-      <div class="careers-cta-inner fade-in-scroll">
-        <span class="section-label" style="color:var(--color-gold);">Take the First Step</span>
-        <h2 class="careers-cta-title">Ready to Make Your Mark?</h2>
-        <p class="careers-cta-desc">Send your CV and a short note about yourself — what drives you, what you're looking for, and why Vats &amp; Param feels right. We read every message personally.</p>
-        <a href="https://mail.google.com/mail/?view=cm&to=happytohelp@vatsandparam.com&subject=Application%20%E2%80%93%20Career%20Enquiry" target="_blank" class="careers-cta-email">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-          happytohelp@vatsandparam.com
-        </a>
-        <p class="careers-cta-note">We typically respond within 3–5 working days.</p>
-      </div>
-    </div>
-
   </section>
 
   <!-- END OF PAGES -->
@@ -2213,7 +2190,7 @@
           <a href="#home" class="nav__logo nav__logo--footer"
             style="margin-bottom:var(--space-sm);display:inline-flex;">
             <div class="nav__logo-icon-container">
-              <img src="assets/logo_teeth.png" alt="Vats &amp; Param logo" class="nav__logo-img" style="width:32px;height:auto;">
+              <img src="assets/logo_teeth.png" alt="Vats &amp; Param logo" class="nav__logo-img" style="width:70px;height:70px;">
             </div>
             <div class="nav__logo-text" style="color:#fff;">
               Vats &amp; Param
@@ -2253,7 +2230,7 @@
         </div>
       </div>
       <div class="footer__socials">
-        <a href="https://instagram.com/vatsandparam" target="_blank" class="footer__social-icon" title="Instagram">
+        <a href="https://www.instagram.com/vatsandparam_thedentists?igsh=OGl5YW4yaHpsdzhm" target="_blank" class="footer__social-icon" title="Instagram">
           <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
             <rect x="2" y="2" width="20" height="20" rx="5" fill="none" stroke="currentColor" stroke-width="2"/>
             <circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="2"/>
@@ -2753,7 +2730,7 @@
       // Disable all scroll animations on mobile
       if (window.innerWidth <= 768) return;
 
-      var ORGANS = ['brain', 'lung', 'heart', 'gut', 'joint'];
+      var ORGANS = ['brain', 'lung', 'heart', 'gut', 'joint', 'muscle', 'inflammation', 'glycemic', 'sleep'];
       // Transition window: last 40% of each organ's scroll phase
       var TRANS = 0.6;
 
@@ -2961,7 +2938,7 @@
         var mobileNav = document.getElementById('wbMobileNav');
         if (mobileNav) mobileNav.style.display = 'flex';
 
-        var ORGANS_M = ['brain', 'lung', 'heart', 'gut', 'joint'];
+        var ORGANS_M = ['brain', 'lung', 'heart', 'gut', 'joint', 'muscle', 'inflammation', 'glycemic', 'sleep'];
         var currentOrgan = 'brain';
 
         function showOrgan(organ) {

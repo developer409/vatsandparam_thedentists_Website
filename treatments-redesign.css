@@ -3,7 +3,17 @@
    Shared Modular CSS for Philosophy & Treatments
    ============================================ */
 
-/* Ensure all text is visible on treatment pages */
+/* Ensure all text is visible on treatment pages and set the background to #ffefef to fill white gaps */
+body, main, .treat-section, .treat-section--alt {
+  background-color: #ffefef !important;
+}
+
+/* Override all inline navy gradients on CTA sections to match #ffefef background */
+main > section[style*="0B1F3A"],
+main > section[style*="0b1f3a"] {
+  background: #ffefef !important;
+}
+
 body, main {
   color: var(--color-text) !important;
 }
@@ -45,46 +55,66 @@ p, li, span, h1, h2, h3, h4, h5, h6 {
   color: var(--color-navy) !important;
 }
 
-/* ---- Treatment page nav: FORCE BLACK TEXT FOR MOBILE ---- */
+/* ---- Standard treatment pages: blur effect nav ---- */
 #mainNav,
 #mainNav.scrolled {
-  background: rgba(58, 6, 6, 0.96) !important;
-  backdrop-filter: blur(20px) !important;
-  -webkit-backdrop-filter: blur(20px) !important;
-  border-bottom: 1px solid rgba(198, 167, 94, 0.25) !important;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25) !important;
+  background: rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
 }
 
-/* FORCE BLACK TEXT ON TREATMENT PAGES */
-#mainNav .nav__link {
-  color: #1A1A1A !important;
-}
-
+#mainNav .nav__link { color: rgba(255,255,255,0.88) !important; }
 #mainNav .nav__link:hover,
-#mainNav .nav__link.active {
-  color: #1A1A1A !important;
-}
-
-#mainNav .nav__menu .nav__link {
-  color: #1A1A1A !important;
-}
-
-#mainNav .nav__menu .dropdown-toggle {
-  color: #1A1A1A !important;
-}
-
-#mainNav .dropdown-item {
-  color: #1A1A1A !important;
-}
-
-#mainNav .nav__toggle span {
-  background-color: var(--color-navy) !important;
-}
-
-/* Keep logo white for branding */
+#mainNav .nav__link.active { color: var(--color-gold) !important; }
+#mainNav .nav__menu .nav__link { color: rgba(255,255,255,0.88) !important; }
+#mainNav .nav__menu .dropdown-toggle { color: rgba(255,255,255,0.88) !important; }
+#mainNav .dropdown-item { color: rgba(255,255,255,0.88) !important; }
+#mainNav .nav__toggle span { background-color: #fff !important; }
 #mainNav .nav__logo-text,
 #mainNav .nav__logo-subtitle { color: #ffffff !important; }
 #mainNav .logo-line { background-color: var(--color-gold) !important; }
+
+/* ---- Video-hero pages: faint gradient at top (nav readable), solid when scrolled ---- */
+#mainNav.nav--video-hero {
+  background: linear-gradient(to bottom, rgba(11,31,58,0.45) 0%, transparent 100%) !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+#mainNav.nav--video-hero.scrolled {
+  background: #ffefef !important;
+  border-bottom: 1px solid rgba(198, 167, 94, 0.25) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+}
+
+#mainNav.nav--video-hero.scrolled .nav__link,
+#mainNav.nav--video-hero.scrolled .nav__logo-text,
+#mainNav.nav--video-hero.scrolled .nav__logo-subtitle,
+#mainNav.nav--video-hero.scrolled .dropdown-toggle {
+  color: var(--color-text, #1a1a1a) !important;
+}
+
+#mainNav.nav--video-hero.scrolled .nav__toggle span {
+  background-color: var(--color-text, #1a1a1a) !important;
+}
+
+#mainNav.nav--video-hero.scrolled .dropdown-menu {
+  background: #ffefef !important;
+  border: 1px solid var(--color-border, #E5E8ED) !important;
+}
+
+#mainNav.nav--video-hero.scrolled .dropdown-item {
+  color: var(--color-text, #1a1a1a) !important;
+}
+
+#mainNav.nav--video-hero.scrolled .dropdown-item:hover {
+  background: rgba(198, 167, 94, 0.1) !important;
+}
 
 /* ---------- Layout Utilities ---------- */
 .treat-container {
@@ -644,7 +674,7 @@ p, li, span, h1, h2, h3, h4, h5, h6 {
   display: flex;
   align-items: flex-end;
   overflow: hidden;
-  background: #0B1F3A;
+  background: #ffefef;
 }
 
 .treat-hero__video {
@@ -654,13 +684,18 @@ p, li, span, h1, h2, h3, h4, h5, h6 {
   height: 100%;
   object-fit: cover;
   z-index: 0;
-  filter: brightness(1.15) contrast(1.05);
 }
 
 .treat-hero__video-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, rgba(11,31,58,0.25) 0%, rgba(11,31,58,0.65) 100%);
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    transparent 60%,
+    rgba(0, 0, 0, 0.2) 80%,
+    rgba(0, 0, 0, 0.7) 100%
+  );
   z-index: 1;
 }
 
@@ -669,6 +704,55 @@ p, li, span, h1, h2, h3, h4, h5, h6 {
   z-index: 2;
   padding-bottom: 5rem;
   padding-top: 10rem;
+  text-align: center;
+  margin: 0 auto;
+}
+
+/* Staggered Slide-Up Reveal Animation for Hero Text and Button */
+@keyframes heroReveal {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.treat-hero__content--video > * {
+  animation: heroReveal 1.2s cubic-bezier(0.215, 0.61, 0.355, 1) both;
+}
+
+.treat-hero__content--video .treat-label {
+  animation-delay: 0.1s;
+}
+
+.treat-hero__content--video .treat-title {
+  animation-delay: 0.25s;
+}
+
+.treat-hero__content--video .treat-hero__subtext {
+  animation-delay: 0.4s;
+}
+
+.treat-hero__content--video .btn {
+  animation-delay: 0.55s;
+  background-color: var(--color-gold) !important;
+  border-color: var(--color-gold) !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.08em !important;
+  box-shadow: 0 4px 15px rgba(198, 167, 94, 0.4) !important;
+  transition: all 0.3s ease !important;
+}
+
+.treat-hero__content--video .btn:hover {
+  background-color: #ffffff !important;
+  border-color: #ffffff !important;
+  color: var(--color-navy, #1a1a1a) !important;
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.4) !important;
+  transform: translateY(-2px) !important;
 }
 
 .treat-label--light {
@@ -719,36 +803,45 @@ p, li, span, h1, h2, h3, h4, h5, h6 {
   margin: var(--space-sm) auto var(--space-xl);
 }
 
-/* ===== NUMBERED SERVICE CARDS ===== */
-.treat-svc-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-lg);
+/* ===== SERVICE CARD CAROUSEL ===== */
+.treat-carousel-wrap {
+  position: relative;
   margin-top: var(--space-xl);
 }
-@media (max-width: 900px) { .treat-svc-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 540px) { .treat-svc-grid { grid-template-columns: 1fr; } }
+.treat-carousel {
+  overflow: hidden;
+}
+.treat-carousel__track {
+  display: flex;
+  gap: 24px;
+  transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform;
+}
 
+/* Individual service card */
 .treat-svc-card {
+  flex: 0 0 calc(33.333% - 16px);
   background: #fff;
   border-radius: var(--radius-md);
   padding: var(--space-lg);
-  border: 1px solid var(--color-border);
+  border: 1px solid rgba(220, 53, 69, 0.3) !important;
   display: flex;
   flex-direction: column;
   gap: var(--space-xs);
+  box-sizing: border-box;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 .treat-svc-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(11,31,58,0.09);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
 }
 .treat-svc-card__num {
   font-family: var(--font-heading);
-  font-size: 0.85rem;
-  font-weight: 600;
+  font-size: 0.82rem;
+  font-weight: 700;
   color: var(--color-gold);
-  letter-spacing: 0.05em;
+  letter-spacing: 0.08em;
+  margin-bottom: 4px;
 }
 .treat-svc-card__title {
   font-family: var(--font-heading);
@@ -760,8 +853,72 @@ p, li, span, h1, h2, h3, h4, h5, h6 {
 .treat-svc-card__desc {
   font-size: 0.88rem;
   color: var(--color-text-light);
-  line-height: 1.6;
-  margin-top: var(--space-xs);
+  line-height: 1.65;
+  flex: 1;
+}
+
+/* Arrow buttons */
+.treat-carousel-arrows {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: var(--space-lg);
+}
+.treat-carousel__btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 2px solid var(--color-gold);
+  background: transparent;
+  color: var(--color-gold);
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, color 0.2s ease;
+  flex-shrink: 0;
+}
+.treat-carousel__btn:hover {
+  background: var(--color-gold);
+  color: #fff;
+}
+.treat-carousel__btn:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+/* Dot pagination */
+.treat-carousel__dots {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  justify-content: center;
+}
+.treat-carousel__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(198,167,94,0.3);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+.treat-carousel__dot.active {
+  background: var(--color-gold);
+  transform: scale(1.3);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .treat-svc-card { flex: 0 0 calc(50% - 12px); }
+}
+@media (max-width: 540px) {
+  .treat-svc-card { flex: 0 0 calc(85% - 0px); }
+  .treat-carousel-wrap { margin: var(--space-lg) -16px 0; padding: 0 16px; }
 }
 
 /* ===== DOCTOR CARD ===== */
@@ -773,7 +930,7 @@ p, li, span, h1, h2, h3, h4, h5, h6 {
   border-radius: var(--radius-lg);
   padding: var(--space-2xl);
   border: 1px solid var(--color-border);
-  box-shadow: 0 4px 20px rgba(11,31,58,0.06);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
 .treat-doctor-card__text { flex: 1; }
 .treat-doctor-card__text h3 {
@@ -836,3 +993,20 @@ p, li, span, h1, h2, h3, h4, h5, h6 {
   margin-top: var(--space-xl);
 }
 @media (max-width: 768px) { .treat-principles-grid { grid-template-columns: 1fr; } }
+
+/* --- Our Approach & About video backgrounds transparency fixes --- */
+#page-approach,
+#page-about {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+#page-approach .discovery-section,
+#page-about .discovery-section {
+  background: transparent !important;
+}
+
+body:has(#page-approach.active),
+body:has(#page-about.active) {
+  background-color: transparent !important;
+}

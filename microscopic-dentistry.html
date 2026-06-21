@@ -168,18 +168,52 @@
     <!-- 5. CTA Section -->
     <section class="treat-section">
       <div class="treat-container">
-        <div class="treat-cta-block">
-          <h2>Experience Precision Care</h2>
-          <p>Discover how microscopic dentistry can provide more accurate and conservative results for your dental health. Book a diagnostic consultation today.</p>
-          <a href="index.html#contact" class="btn btn--primary"
-            style="background:var(--color-gold); border-color:var(--color-gold);">Schedule Precision Consultation</a>
+        <div class="treat-cta-block" style="color: #000000;">
+          <h2 style="color: #000000;">Experience Precision Care</h2>
+          <p style="color: #000000;">Discover how microscopic dentistry can provide more accurate and conservative results for your dental health. Book a diagnostic consultation today.</p>
+          
         </div>
       </div>
     </section>
 
-  </main>
+      
+    <!-- ===== GET IN TOUCH ===== -->
+    <section class="treat-section" style="background-color: #ffefef; padding: 60px 0;">
+      <div class="treat-container">
+        <div style="text-align: center; margin-bottom: 3rem;">
+          <h2 style="font-size: 2.2rem; color: #000000; margin-bottom: 1rem;">Get in Touch</h2>
+          <p style="color: #000000; font-size: 1rem;">We're ready to discuss your personalized care plan. Fill out the form or reach us directly.</p>
+        </div>
 
-  <footer class="footer" id="mainFooter">
+        <div style="text-align: center; margin-top: 3rem;">
+          <!-- Contact Form -->
+          <form id="contactForm" style="background: white; padding: 2.5rem; border-radius: 12px; border: 1px solid #e0e0e0; max-width: 600px; margin: 0 auto;">
+            <div style="margin-bottom: 1.5rem;">
+              <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--color-text-dark);">Name</label>
+              <input type="text" name="name" required style="width: 100%; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 8px; font-size: 1rem;" />
+            </div>
+            <div style="margin-bottom: 1.5rem;">
+              <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--color-text-dark);">Email</label>
+              <input type="email" name="email" required style="width: 100%; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 8px; font-size: 1rem;" />
+            </div>
+            <div style="margin-bottom: 1.5rem;">
+              <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--color-text-dark);">Phone</label>
+              <input type="tel" name="phone" style="width: 100%; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 8px; font-size: 1rem;" />
+            </div>
+            <div style="margin-bottom: 1.5rem;">
+              <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--color-text-dark);">Message</label>
+              <textarea name="message" rows="4" required style="width: 100%; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 8px; font-size: 1rem; font-family: inherit;"></textarea>
+            </div>
+            <button type="submit" style="width: 100%; padding: 1rem; background: var(--color-gold); color: white; border: none; border-radius: 8px; font-size: 1rem; font-weight: 600; cursor: pointer;">Send Message</button>
+          </form>
+        </div>
+        </div>
+      </div>
+    </section>
+</main>
+
+    <!-- ========== FOOTER (REUSED) ========== -->
+        <footer class="footer" id="mainFooter">
     <div class="container">
       <div class="footer__grid">
         <div>
@@ -195,9 +229,9 @@
                 <span>The Dentists</span>
                 <span class="logo-line"></span>
               </div>
+              <p class="footer__brand-tagline">Longevity &amp; Whole-Body Focused Dentistry.</p>
             </div>
           </a>
-          <p class="footer__brand-desc">Premium holistic dentistry focused on root-cause diagnosis, whole-body wellness, and precision care for lasting health.</p>
         </div>
         <div>
           <h4 class="footer__heading">Navigation</h4>
@@ -212,23 +246,55 @@
           <a href="index.html#technology" class="footer__link">Technology</a>
           <a href="index.html#education" class="footer__link">Education</a>
           <a href="index.html#testimonials" class="footer__link">Testimonials</a>
+          <a href="index.html#careers" class="footer__link">Careers</a>
           <a href="index.html#contact" class="footer__link">Contact</a>
         </div>
         <div>
           <h4 class="footer__heading">Contact &amp; Timings</h4>
-          <p class="footer__link">contact@vatsandparam.com</p>
-          <p class="footer__link">+91 98XXX XXXXX</p>
-          <p class="footer__link">Mon &ndash; Sat: 10:00 AM &ndash; 7:00 PM</p>
-          <p class="footer__link">Bengaluru: <a href="https://maps.app.goo.gl/..." target="_blank" style="color:inherit;text-decoration:underline;">Hulimavu</a> | <a href="https://maps.app.goo.gl/..." target="_blank" style="color:inherit;text-decoration:underline;">J.P Nagar</a> | <a href="https://maps.app.goo.gl/..." target="_blank" style="color:inherit;text-decoration:underline;">Arekere</a></p>
-          <p class="footer__link" style="font-size:0.75rem;margin-top:10px;opacity:0.7;">KSDC Registered Clinic</p>
+          <p class="footer__link"><a href="mailto:happytohelp@vatsandparam.com" style="color: inherit; text-decoration: none;">happytohelp@vatsandparam.com</a></p>
+          <p class="footer__link"><a href="tel:+919900114151" style="color: inherit; text-decoration: none;">+91 9900114151</a></p>
+          <p class="footer__link">Mon – Sun: 10:00 AM – 7:00 PM</p>
+          <p class="footer__link">Thursday: Closed</p>
+          <p class="footer__link">Bengaluru: <a href="https://maps.google.com/?q=363,Bannerghatta+Rd,opposite+Reliance+Digital,Pai+Layout,Hulimavu,Bengaluru,Karnataka+560076" target="_blank" style="color:inherit;text-decoration:underline;">Hulimavu</a> | <a href="https://maps.google.com/?q=WH4P%2B95Q,KR+Layout,2nd+Phase,JP+Nagar,Bengaluru,Karnataka+560078" target="_blank" style="color:inherit;text-decoration:underline;">J.P Nagar</a> | <a href="https://maps.google.com/?q=83,6th+Cross+Rd,Arekere+MICO+Layout+2nd+stage,Araka+Mico+Layout,Arekere,Bengaluru,Karnataka+560076" target="_blank" style="color:inherit;text-decoration:underline;">Arekere</a></p>
+          <p class="footer__link" style="font-size: 0.75rem; margin-top: 10px; opacity: 0.7;">KSDC Registered Clinic</p>
         </div>
       </div>
+      <div class="footer__socials">
+        <a href="https://www.instagram.com/vatsandparam_thedentists?igsh=OGl5YW4yaHpsdzhm" target="_blank" class="footer__social-icon" title="Instagram">
+          <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2" y="2" width="20" height="20" rx="5" fill="none" stroke="currentColor" stroke-width="2"/>
+            <circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="2"/>
+            <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"/>
+          </svg>
+        </a>
+        <a href="https://www.youtube.com/@ScrubGuru-un3wu" target="_blank" class="footer__social-icon" title="YouTube">
+          <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+          </svg>
+        </a>
+      </div>
+      <!-- ===== LEGAL LINKS ===== -->
+      <div class="footer__disclaimers">
+        <p class="footer__legal-notice">Educational information only. Individual treatment needs and outcomes vary. No guarantee or warranty is provided regarding treatment outcomes, timelines or longevity. Consultation required before treatment recommendations can be made.</p>
+        <div class="footer__policy-links">
+          <button class="footer__policy-link" data-modal="modal-medical">Medical Disclaimer</button>
+          <span class="footer__policy-sep">&middot;</span>
+          <button class="footer__policy-link" data-modal="modal-terms">Terms &amp; Conditions</button>
+          <span class="footer__policy-sep">&middot;</span>
+          <button class="footer__policy-link" data-modal="modal-privacy">Privacy Policy</button>
+        </div>
+      </div>
+      <!-- ===== END LEGAL ===== -->
+
       <div class="footer__bottom">
         <span>&copy; 2026 <img src="assets/logo.png" alt="Vats &amp; Param" class="footer-brand-logo">. All rights reserved.</span>
         <span>Dentistry, Reconnected to the Body</span>
       </div>
     </div>
   </footer>
+
+
+
 
   <script>
     document.querySelectorAll('.treat-faq-trigger').forEach(trigger => {

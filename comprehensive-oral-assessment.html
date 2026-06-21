@@ -11,8 +11,9 @@
   <link rel="stylesheet" href="treatments-redesign.css">
 </head>
 <body>
-  <!-- ========== NAVIGATION ========== -->
-  <nav class="nav" id="mainNav">
+
+  <!-- NAVIGATION — nav--video-hero = transparent until scrolled -->
+  <nav class="nav nav--video-hero" id="mainNav">
     <div class="nav__inner">
       <a href="index.html#home" class="nav__logo">
         <div class="nav__logo-icon-container"><img src="assets/logo_teeth.png" alt="Vats &amp; Param logo" class="nav__logo-img"></div>
@@ -44,7 +45,8 @@
   </nav>
 
   <main>
-    <!-- HERO -->
+
+    <!-- ===== HERO ===== -->
     <header class="treat-hero treat-hero--video">
       <video autoplay muted loop playsinline class="treat-hero__video">
         <source src="assets/videos/Comprehensive treatment v2.mp4" type="video/mp4">
@@ -54,11 +56,11 @@
         <span class="treat-label treat-label--light">Assessments &amp; Diagnostics</span>
         <h1 class="treat-title treat-title--light">Comprehensive Oral Health Assessment</h1>
         <p class="treat-hero__subtext treat-hero__subtext--light">Our signature whole-body oral health evaluation.</p>
-        <a href="index.html#contact" class="btn btn--primary">BOOK A CONSULTATION &rarr;</a>
+        
       </div>
     </header>
 
-    <!-- INTRO + QUOTE -->
+    <!-- ===== INTRO + QUOTE ===== -->
     <section class="treat-section">
       <div class="treat-container treat-container--narrow">
         <p class="treat-lead text-center">Most dental visits look at your teeth. Ours looks at <em>you.</em> The Comprehensive Oral Health Assessment is a full-picture evaluation that connects your mouth to your whole body, examining everything from gum health and bite mechanics to airway function, sleep quality, and nutritional patterns. It is the starting point for every person at Vats &amp; Param, and the foundation of all the care that follows.</p>
@@ -68,7 +70,7 @@
       </div>
     </section>
 
-    <!-- WHAT IT INVOLVES -->
+    <!-- ===== WHAT IT INVOLVES ===== -->
     <section class="treat-section treat-section--alt">
       <div class="treat-container treat-container--narrow">
         <div class="treat-section-intro">
@@ -76,78 +78,114 @@
           <h2 class="treat-title">What Does It Involve?</h2>
           <div class="treat-divider"></div>
         </div>
-        <p class="text-center" style="color:var(--color-text-light);line-height:1.8;margin-bottom:var(--space-lg);">Unlike a standard dental check-up, our Comprehensive Oral Health Assessment is a structured, multi-dimensional evaluation. It combines clinical examination, digital imaging, functional analysis, and systemic health screening into a single, cohesive consultation. The findings are used to build a personalised, evidence-based plan &mdash; not a generic treatment list.</p>
+        <p class="text-center" style="color:var(--color-text-light);line-height:1.8;margin-bottom:var(--space-lg);">Unlike a standard dental check-up, our Comprehensive Oral Health Assessment is a structured, multi-dimensional evaluation. It combines clinical examination, digital imaging, functional analysis, and systemic health screening into a single, cohesive consultation. The findings are used to build a personalised, evidence-based plan instead of a generic treatment list.</p>
         <p class="text-center" style="color:var(--color-text-light);line-height:1.8;">Every assessment is conducted by one of our senior clinicians and takes the time it needs. We do not rush diagnoses. We document everything, explain our findings clearly, and give you the full picture before recommending anything.</p>
       </div>
     </section>
 
-    <!-- SERVICES GRID -->
+    <!-- ===== 12 SERVICES CAROUSEL ===== -->
     <section class="treat-section treat-section--alt">
       <div class="treat-container">
         <div class="treat-section-intro">
           <h2 class="treat-title">12 Areas of Evaluation</h2>
           <div class="treat-divider"></div>
         </div>
-        <div class="treat-svc-grid">
-          <div class="treat-svc-card">
-            <span class="treat-svc-card__num">01 / 12</span>
-            <h3 class="treat-svc-card__title">Comprehensive Dental Examination</h3>
-            <p class="treat-svc-card__desc">A thorough clinical review of all teeth, soft tissues, and oral structures to identify existing conditions and areas of concern.</p>
-          </div>          <div class="treat-svc-card">
-            <span class="treat-svc-card__num">02 / 12</span>
-            <h3 class="treat-svc-card__title">Digital Radiography</h3>
-            <p class="treat-svc-card__desc">High-resolution digital X-rays that reveal bone levels, hidden decay, and structural issues, with significantly reduced radiation exposure.</p>
-          </div>          <div class="treat-svc-card">
-            <span class="treat-svc-card__num">03 / 12</span>
-            <h3 class="treat-svc-card__title">Intraoral Photography</h3>
-            <p class="treat-svc-card__desc">Detailed photographic documentation of your oral cavity for precise monitoring, education, and treatment planning.</p>
-          </div>          <div class="treat-svc-card">
-            <span class="treat-svc-card__num">04 / 12</span>
-            <h3 class="treat-svc-card__title">Oral Cancer Screening</h3>
-            <p class="treat-svc-card__desc">Systematic examination of all oral soft tissues for any suspicious lesions, discolouration, or abnormal changes requiring further evaluation.</p>
-          </div>          <div class="treat-svc-card">
-            <span class="treat-svc-card__num">05 / 12</span>
-            <h3 class="treat-svc-card__title">Gum Health Assessment</h3>
-            <p class="treat-svc-card__desc">Periodontal charting to measure pocket depths, bone levels, and inflammation markers connected to systemic conditions.</p>
-          </div>          <div class="treat-svc-card">
-            <span class="treat-svc-card__num">06 / 12</span>
-            <h3 class="treat-svc-card__title">Bite Analysis</h3>
-            <p class="treat-svc-card__desc">Assessment of how your upper and lower teeth meet, identifying imbalances that can cause wear, pain, or jaw problems over time.</p>
-          </div>          <div class="treat-svc-card">
-            <span class="treat-svc-card__num">07 / 12</span>
-            <h3 class="treat-svc-card__title">TMJ Assessment</h3>
-            <p class="treat-svc-card__desc">Evaluation of jaw joint sounds, movement, and muscle tenderness to identify temporomandibular disorder risk.</p>
-          </div>          <div class="treat-svc-card">
-            <span class="treat-svc-card__num">08 / 12</span>
-            <h3 class="treat-svc-card__title">Airway Assessment</h3>
-            <p class="treat-svc-card__desc">Screening for signs of airway restriction, mouth breathing, and sleep-related breathing conditions with referral pathways.</p>
-          </div>          <div class="treat-svc-card">
-            <span class="treat-svc-card__num">09 / 12</span>
-            <h3 class="treat-svc-card__title">Sleep Screening</h3>
-            <p class="treat-svc-card__desc">A focused questionnaire and clinical review to identify signs of obstructive sleep apnoea and poor sleep quality.</p>
-          </div>          <div class="treat-svc-card">
-            <span class="treat-svc-card__num">10 / 12</span>
-            <h3 class="treat-svc-card__title">Nutrition Assessment</h3>
-            <p class="treat-svc-card__desc">Dietary history review to identify acid erosion risk, nutrient deficiencies, and their impact on oral and systemic health.</p>
-          </div>          <div class="treat-svc-card">
-            <span class="treat-svc-card__num">11 / 12</span>
-            <h3 class="treat-svc-card__title">Risk Assessment &amp; Prevention Planning</h3>
-            <p class="treat-svc-card__desc">A personalised risk score across caries, periodontal disease, wear, and cancer that shapes your long-term care plan.</p>
-          </div>          <div class="treat-svc-card">
-            <span class="treat-svc-card__num">12 / 12</span>
-            <h3 class="treat-svc-card__title">Second Opinions</h3>
-            <p class="treat-svc-card__desc">Clear, unbiased review of previous diagnoses or treatment plans with a full written summary of our findings.</p>
+
+        <div class="treat-carousel-wrap" id="svcCarousel">
+          <div class="treat-carousel">
+            <div class="treat-carousel__track" id="svcTrack">
+
+              <div class="treat-svc-card">
+                <span class="treat-svc-card__num">01 / 12</span>
+                <h3 class="treat-svc-card__title">Comprehensive Dental Examination</h3>
+                <p class="treat-svc-card__desc">A thorough clinical review of all teeth, soft tissues, and oral structures to identify existing conditions and areas of concern.</p>
+              </div>
+
+              <div class="treat-svc-card">
+                <span class="treat-svc-card__num">02 / 12</span>
+                <h3 class="treat-svc-card__title">Digital Radiography</h3>
+                <p class="treat-svc-card__desc">High-resolution digital X-rays that reveal bone levels, hidden decay, and structural issues, with significantly reduced radiation exposure.</p>
+              </div>
+
+              <div class="treat-svc-card">
+                <span class="treat-svc-card__num">03 / 12</span>
+                <h3 class="treat-svc-card__title">Intraoral Photography</h3>
+                <p class="treat-svc-card__desc">Detailed photographic documentation of your oral cavity for precise monitoring, education, and treatment planning.</p>
+              </div>
+
+              <div class="treat-svc-card">
+                <span class="treat-svc-card__num">04 / 12</span>
+                <h3 class="treat-svc-card__title">Oral Cancer Screening</h3>
+                <p class="treat-svc-card__desc">Systematic examination of all oral soft tissues for suspicious lesions, discolouration, or abnormal changes requiring further evaluation.</p>
+              </div>
+
+              <div class="treat-svc-card">
+                <span class="treat-svc-card__num">05 / 12</span>
+                <h3 class="treat-svc-card__title">Gum Health Assessment</h3>
+                <p class="treat-svc-card__desc">Periodontal charting to measure pocket depths, bone levels, and inflammation markers connected to systemic conditions.</p>
+              </div>
+
+              <div class="treat-svc-card">
+                <span class="treat-svc-card__num">06 / 12</span>
+                <h3 class="treat-svc-card__title">Bite Analysis</h3>
+                <p class="treat-svc-card__desc">Assessment of how your upper and lower teeth meet, identifying imbalances that can cause wear, pain, or jaw problems over time.</p>
+              </div>
+
+              <div class="treat-svc-card">
+                <span class="treat-svc-card__num">07 / 12</span>
+                <h3 class="treat-svc-card__title">TMJ Assessment</h3>
+                <p class="treat-svc-card__desc">Evaluation of jaw joint sounds, movement, and muscle tenderness to identify temporomandibular disorder risk.</p>
+              </div>
+
+              <div class="treat-svc-card">
+                <span class="treat-svc-card__num">08 / 12</span>
+                <h3 class="treat-svc-card__title">Airway Assessment</h3>
+                <p class="treat-svc-card__desc">Screening for signs of airway restriction, mouth breathing, and sleep-related breathing conditions with referral pathways.</p>
+              </div>
+
+              <div class="treat-svc-card">
+                <span class="treat-svc-card__num">09 / 12</span>
+                <h3 class="treat-svc-card__title">Sleep Screening</h3>
+                <p class="treat-svc-card__desc">A focused questionnaire and clinical review to identify signs of obstructive sleep apnoea and poor sleep quality.</p>
+              </div>
+
+              <div class="treat-svc-card">
+                <span class="treat-svc-card__num">10 / 12</span>
+                <h3 class="treat-svc-card__title">Nutrition Assessment</h3>
+                <p class="treat-svc-card__desc">Dietary history review to identify acid erosion risk, nutrient deficiencies, and their impact on oral and systemic health.</p>
+              </div>
+
+              <div class="treat-svc-card">
+                <span class="treat-svc-card__num">11 / 12</span>
+                <h3 class="treat-svc-card__title">Risk Assessment &amp; Prevention Planning</h3>
+                <p class="treat-svc-card__desc">A personalised risk score across caries, periodontal disease, wear, and cancer that shapes your long-term care plan.</p>
+              </div>
+
+              <div class="treat-svc-card">
+                <span class="treat-svc-card__num">12 / 12</span>
+                <h3 class="treat-svc-card__title">Second Opinions</h3>
+                <p class="treat-svc-card__desc">Clear, unbiased review of previous diagnoses or treatment plans with a full written summary of our findings.</p>
+              </div>
+
+            </div><!-- /track -->
+          </div><!-- /carousel -->
+
+          <div class="treat-carousel-arrows">
+            <button class="treat-carousel__btn treat-carousel__btn--prev" id="svcPrev" aria-label="Previous">&#8592;</button>
+            <div class="treat-carousel__dots" id="svcDots"></div>
+            <button class="treat-carousel__btn treat-carousel__btn--next" id="svcNext" aria-label="Next">&#8594;</button>
           </div>
-        </div>
+
+        </div><!-- /wrap -->
       </div>
     </section>
 
-    <!-- THREE PRINCIPLES -->
+    <!-- ===== THREE PRINCIPLES ===== -->
     <section class="treat-section treat-section--alt">
       <div class="treat-container">
         <div class="treat-section-intro">
           <span class="treat-label">Our Approach</span>
-          <h2 class="treat-title">Three Principles Behind Every Appointment</h2>
+          <h2 class="treat-title">Three Principles Behind Every Assessment</h2>
           <div class="treat-divider"></div>
         </div>
         <div class="treat-principles-grid">
@@ -170,42 +208,89 @@
       </div>
     </section>
 
-    <!-- DOCTORS -->
+    <!-- ===== DOCTORS ===== -->
     <section class="treat-section">
       <div class="treat-container">
         <div class="treat-doctor-card">
           <div class="treat-doctor-card__text">
-            <h3>The Doctors Behind Your Care</h3>
-            <p>Your care is led by our senior clinicians, Dr. Srivats and Dr. Param, who bring over 50 years of combined experience in diagnostic and whole-body dentistry. Every finding is reviewed and explained personally &mdash; we do not delegate your understanding to anyone else.</p>
+            <h3>The Doctors Behind Your Assessment</h3>
+            <p>Your assessment is led by our senior clinicians, Dr. Srivats and Dr. Param, who bring over 50 years of combined experience in diagnostic and whole-body dentistry. Every finding is reviewed and explained personally; we do not delegate your understanding to anyone else.</p>
             <a href="index.html#team" class="treat-doctor-card__link">Meet our team &rarr;</a>
           </div>
           <div class="treat-doctor-card__image">
             <img src="assets/images/doctors-team.jpg" alt="Dr. Srivats and Dr. Param" onerror="this.parentElement.style.background='linear-gradient(135deg,#f0dfe7,#e8d0da)';this.style.display='none'">
           </div>
+          <div class="treat-doctor-card__image" style="width: 100%; height: auto;"><img src="assets/images/remove_the_light_box.png" alt="Consultation" style="width: 100%; height: auto; border-radius: 12px;"></div>
         </div>
       </div>
     </section>
 
-    <!-- CTA -->
-    <section class="appt-cta" style="text-align:center; padding:88px 24px 0; background:linear-gradient(135deg,#0B1F3A 0%,#1a3352 100%);">
+    <!-- ===== CTA ===== -->
+    <section style="text-align:center;padding:88px 24px 80px;background-color: #ffefef;">
       <div class="treat-container">
-        <div class="treat-cta-block" style="background:none;padding:0;">
-          <h2 style="font-family:var(--font-heading);font-size:clamp(1.8rem,4vw,3rem);font-weight:700;color:#fff;margin-bottom:var(--space-md);">Ready to Start With a Full Picture?</h2>
-          <a href="index.html#contact" class="btn btn--primary" style="background:var(--color-gold);border-color:var(--color-gold);margin-top:var(--space-lg);">Book a Consultation &rarr;</a>
+        <h2 style="font-family:var(--font-heading);font-size:clamp(1.8rem,4vw,3rem);font-weight:700;color:#000000 !important;margin-bottom:var(--space-md);">Ready to Start With a Full Picture?</h2>
+        <p style="color:#000000 !important;font-size:1.1rem;max-width:560px;margin:0 auto var(--space-lg);">Book a Comprehensive Oral Health Assessment and see your mouth and your health the way we do.</p>
+        
+      </div>
+    </section>
+
+      
+    <!-- ===== GET IN TOUCH ===== -->
+    <section class="treat-section" style="background-color: #ffefef; padding: 60px 0;">
+      <div class="treat-container">
+        <div style="text-align: center; margin-bottom: 3rem;">
+          <h2 style="font-size: 2.2rem; color: #000000; margin-bottom: 1rem;">Get in Touch</h2>
+          <p style="color: #000000; font-size: 1rem;">We're ready to discuss your personalized care plan. Fill out the form or reach us directly.</p>
+        </div>
+
+        <div style="text-align: center; margin-top: 3rem;">
+          <!-- Contact Form -->
+          <form id="contactForm" style="background: white; padding: 2.5rem; border-radius: 12px; border: 1px solid #e0e0e0; max-width: 600px; margin: 0 auto;">
+            <div style="margin-bottom: 1.5rem;">
+              <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--color-text-dark);">Name</label>
+              <input type="text" name="name" required style="width: 100%; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 8px; font-size: 1rem;" />
+            </div>
+            <div style="margin-bottom: 1.5rem;">
+              <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--color-text-dark);">Email</label>
+              <input type="email" name="email" required style="width: 100%; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 8px; font-size: 1rem;" />
+            </div>
+            <div style="margin-bottom: 1.5rem;">
+              <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--color-text-dark);">Phone</label>
+              <input type="tel" name="phone" style="width: 100%; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 8px; font-size: 1rem;" />
+            </div>
+            <div style="margin-bottom: 1.5rem;">
+              <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--color-text-dark);">Message</label>
+              <textarea name="message" rows="4" required style="width: 100%; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 8px; font-size: 1rem; font-family: inherit;"></textarea>
+            </div>
+            <button type="submit" style="width: 100%; padding: 1rem; background: var(--color-gold); color: white; border: none; border-radius: 8px; font-size: 1rem; font-weight: 600; cursor: pointer;">Send Message</button>
+          </form>
+        </div>
         </div>
       </div>
     </section>
-  </main>
+</main>
 
-  <footer class="footer" id="mainFooter">
+  <!-- FOOTER -->
+    <!-- ========== FOOTER (REUSED) ========== -->
+        <footer class="footer" id="mainFooter">
     <div class="container">
       <div class="footer__grid">
         <div>
-          <a href="index.html#home" class="nav__logo nav__logo--footer" style="margin-bottom:var(--space-sm);display:inline-flex;">
-            <div class="nav__logo-icon-container"><img src="assets/logo_teeth.png" alt="Vats &amp; Param logo" class="nav__logo-img" style="width:32px;height:auto;"></div>
-            <div class="nav__logo-text" style="color:#fff;">Vats &amp; Param<div class="nav__logo-subtitle"><span class="logo-line"></span><span>The Dentists</span><span class="logo-line"></span></div></div>
+          <a href="index.html#home" class="nav__logo nav__logo--footer"
+            style="margin-bottom:var(--space-sm);display:inline-flex;">
+            <div class="nav__logo-icon-container">
+              <img src="assets/logo_teeth.png" alt="Vats &amp; Param logo" class="nav__logo-img" style="width:32px;height:auto;">
+            </div>
+            <div class="nav__logo-text" style="color:#fff;">
+              Vats &amp; Param
+              <div class="nav__logo-subtitle">
+                <span class="logo-line"></span>
+                <span>The Dentists</span>
+                <span class="logo-line"></span>
+              </div>
+              <p class="footer__brand-tagline">Longevity &amp; Whole-Body Focused Dentistry.</p>
+            </div>
           </a>
-          <p class="footer__brand-desc">Premium holistic dentistry focused on root-cause diagnosis, whole-body wellness, and precision care for lasting health.</p>
         </div>
         <div>
           <h4 class="footer__heading">Navigation</h4>
@@ -225,19 +310,51 @@
         </div>
         <div>
           <h4 class="footer__heading">Contact &amp; Timings</h4>
-          <p class="footer__link">contact@vatsandparam.com</p>
-          <p class="footer__link">+91 98XXX XXXXX</p>
-          <p class="footer__link">Mon &ndash; Sat: 10:00 AM &ndash; 7:00 PM</p>
-          <p class="footer__link">Bengaluru: Hulimavu | J.P Nagar | Arekere</p>
-          <p class="footer__link" style="font-size:0.75rem;margin-top:10px;opacity:0.7;">KSDC Registered Clinic</p>
+          <p class="footer__link"><a href="mailto:happytohelp@vatsandparam.com" style="color: inherit; text-decoration: none;">happytohelp@vatsandparam.com</a></p>
+          <p class="footer__link"><a href="tel:+919900114151" style="color: inherit; text-decoration: none;">+91 9900114151</a></p>
+          <p class="footer__link">Mon – Sun: 10:00 AM – 7:00 PM</p>
+          <p class="footer__link">Thursday: Closed</p>
+          <p class="footer__link">Bengaluru: <a href="https://maps.google.com/?q=363,Bannerghatta+Rd,opposite+Reliance+Digital,Pai+Layout,Hulimavu,Bengaluru,Karnataka+560076" target="_blank" style="color:inherit;text-decoration:underline;">Hulimavu</a> | <a href="https://maps.google.com/?q=WH4P%2B95Q,KR+Layout,2nd+Phase,JP+Nagar,Bengaluru,Karnataka+560078" target="_blank" style="color:inherit;text-decoration:underline;">J.P Nagar</a> | <a href="https://maps.google.com/?q=83,6th+Cross+Rd,Arekere+MICO+Layout+2nd+stage,Araka+Mico+Layout,Arekere,Bengaluru,Karnataka+560076" target="_blank" style="color:inherit;text-decoration:underline;">Arekere</a></p>
+          <p class="footer__link" style="font-size: 0.75rem; margin-top: 10px; opacity: 0.7;">KSDC Registered Clinic</p>
         </div>
       </div>
+      <div class="footer__socials">
+        <a href="https://www.instagram.com/vatsandparam_thedentists?igsh=OGl5YW4yaHpsdzhm" target="_blank" class="footer__social-icon" title="Instagram">
+          <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2" y="2" width="20" height="20" rx="5" fill="none" stroke="currentColor" stroke-width="2"/>
+            <circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="2"/>
+            <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"/>
+          </svg>
+        </a>
+        <a href="https://www.youtube.com/@ScrubGuru-un3wu" target="_blank" class="footer__social-icon" title="YouTube">
+          <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+          </svg>
+        </a>
+      </div>
+      <!-- ===== LEGAL LINKS ===== -->
+      <div class="footer__disclaimers">
+        <p class="footer__legal-notice">Educational information only. Individual treatment needs and outcomes vary. No guarantee or warranty is provided regarding treatment outcomes, timelines or longevity. Consultation required before treatment recommendations can be made.</p>
+        <div class="footer__policy-links">
+          <button class="footer__policy-link" data-modal="modal-medical">Medical Disclaimer</button>
+          <span class="footer__policy-sep">&middot;</span>
+          <button class="footer__policy-link" data-modal="modal-terms">Terms &amp; Conditions</button>
+          <span class="footer__policy-sep">&middot;</span>
+          <button class="footer__policy-link" data-modal="modal-privacy">Privacy Policy</button>
+        </div>
+      </div>
+      <!-- ===== END LEGAL ===== -->
+
       <div class="footer__bottom">
-        <span>&copy; 2026 Vats &amp; Param. All rights reserved.</span>
+        <span>&copy; 2026 <img src="assets/logo.png" alt="Vats &amp; Param" class="footer-brand-logo">. All rights reserved.</span>
         <span>Dentistry, Reconnected to the Body</span>
       </div>
     </div>
   </footer>
+
+
+
+
   <script src="nav.js"></script>
 </body>
 </html>

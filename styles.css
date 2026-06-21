@@ -891,7 +891,7 @@ p {
   .walkthrough-card[data-index="2"],
   .walkthrough-card[data-index="3"],
   .walkthrough-card[data-index="4"] {
-    border: 1.5px solid #000000 !important;
+    border: 1.5px solid #ffffff !important;
     border-radius: 16px !important;
     padding: 1.5rem !important;
     margin: 0 !important;
@@ -1012,27 +1012,42 @@ p {
   .model-flow {
     display: flex !important;
     flex-direction: column !important;
-    gap: 1.2rem !important;
+    gap: 0.8rem !important;
     margin: 1.5rem 0 !important;
     padding: 1rem !important;
     background: transparent !important;
+    align-items: flex-start !important;
   }
 
   .flow-item {
     display: flex !important;
-    flex-direction: column !important;
+    flex-direction: row !important;
     align-items: center !important;
-    text-align: center !important;
+    text-align: left !important;
     gap: 0.5rem !important;
+    width: 100%;
+  }
+
+  .flow-item:nth-child(1) .flow-label {
+    font-size: 0.95rem !important;
+    font-weight: 700 !important;
+    color: rgba(255, 255, 255, 0.85) !important;
+  }
+
+  .flow-item:nth-child(2) .flow-label {
+    font-size: 1.3rem !important;
+    font-weight: 700 !important;
+    color: rgba(255, 255, 255, 0.9) !important;
   }
 
   .flow-label {
-    font-size: 0.7rem !important;
     font-weight: 700 !important;
-    text-transform: uppercase !important;
-    letter-spacing: 0.12em !important;
-    color: var(--color-gold) !important;
+    text-transform: capitalize !important;
     margin: 0 !important;
+  }
+
+  .flow-label::after {
+    content: " = " !important;
   }
 
   .flow-old {
@@ -1058,11 +1073,22 @@ p {
   }
 
   .flow-arrow {
-    font-size: 2rem !important;
-    color: var(--color-gold) !important;
+    display: none !important;
+  }
+
+  .flow-result {
+    display: inline !important;
+    font-weight: 700 !important;
+    color: rgba(255, 255, 255, 0.85) !important;
     margin: 0 !important;
-    transform: rotate(90deg) !important;
-    display: block !important;
+  }
+
+  .flow-item:nth-child(1) .flow-result {
+    font-size: 0.95rem !important;
+  }
+
+  .flow-item:nth-child(2) .flow-result {
+    font-size: 1.3rem !important;
   }
 
   .discovery-panel-wrap {
@@ -1207,15 +1233,15 @@ p {
 }
 
 .nav__logo-img {
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   object-fit: contain;
   display: block;
 }
 
 .nav__logo-text {
   font-family: var(--font-heading);
-  font-size: 1.15rem;
+  font-size: 1.3rem;
   font-weight: 700;
   color: var(--color-navy);
   line-height: 1.1;
@@ -1227,7 +1253,8 @@ p {
 
 .nav__logo-tagline {
   font-size: 0.65rem;
-  color: rgba(0,0,0,0.5);
+  color: inherit;
+  opacity: 0.75;
   margin: 2px 0 0;
   letter-spacing: 0.01em;
   line-height: 1.3;
@@ -1238,8 +1265,8 @@ p {
 }
 
 .nav__logo--footer .nav__logo-img {
-  width: 56px;
-  height: 56px;
+  width: 70px;
+  height: 70px;
 }
 
 .nav__logo-subtitle {
@@ -6834,9 +6861,12 @@ p {
   will-change: transform, opacity;
   transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1),
               opacity 0.4s ease;
-  /* Transparent card - desktop */
+  /* Glass card - desktop */
   background: transparent;
-  border: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border: 3.5px solid rgba(255, 255, 255, 0.6);
+  border-radius: 16px;
 }
 
 /* Hide webkit scrollbar on card */
@@ -7063,6 +7093,70 @@ p {
   color: var(--color-gold);
   font-size: 1.5rem;
   font-weight: bold;
+}
+
+.approach-comparison {
+  margin: 2rem 0 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.comparison-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-body, sans-serif);
+}
+
+.traditional-row {
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.traditional-row .comp-label {
+  color: var(--color-gold) !important;
+}
+
+.ours-row {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.ours-row .comp-label {
+  color: var(--color-gold) !important;
+}
+
+.comp-eq {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.comp-val {
+  color: #ffffff !important;
+}
+
+@media (max-width: 768px) {
+  .approach-comparison {
+    margin: 1.2rem 0;
+    gap: 0.8rem;
+  }
+  .traditional-row {
+    font-size: 0.95rem;
+  }
+  .ours-row {
+    font-size: 1.15rem;
+  }
+  .traditional-row .comp-label {
+    color: #9a7d36 !important;
+  }
+  .ours-row .comp-label {
+    color: #9a7d36 !important;
+  }
+  .comp-eq,
+  .comp-val {
+    color: #000000 !important;
+  }
 }
 
 .card-list {
@@ -7549,8 +7643,8 @@ p {
 
 .wb-section {
   position: relative;
-  /* title(1×vh) + 5 organs(1.2×vh each) + outro(0.5×vh) = 7.5×vh */
-  height: 750vh;
+  /* title(1×vh) + 9 organs(1.2×vh each) + outro(0.5×vh) = 12.3×vh */
+  height: 1230vh;
   background: #000;
 }
 
@@ -7814,11 +7908,12 @@ p {
 .wb-organ-info {
   position: absolute;
   left: 10%;
-  top: 50%;
+  top: 45%;
   transform: translateY(-50%);
   width: 82%;
   opacity: 0;
   will-change: opacity;
+  padding-top: 2rem;
 }
 
 .wb-organ-num {
@@ -7836,7 +7931,7 @@ p {
 
 .wb-organ-name {
   font-family: var(--font-heading, serif);
-  font-size: clamp(3rem, 5.5vw, 5.2rem);
+  font-size: clamp(2rem, 4vw, 3.2rem);
   font-weight: 700;
   color: #fff;
   line-height: 1.05;
@@ -9337,4 +9432,34 @@ p {
   .wb-connection-title { font-size: 1rem; }
   .wb-connection-desc { font-size: 0.75rem; }
   .wb-connection-content { padding: 20px 16px; }
+}
+
+/* --- Our Approach & About video backgrounds transparency fixes --- */
+#page-approach,
+#page-about {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+#page-approach .discovery-section,
+#page-about .discovery-section {
+  background: transparent !important;
+}
+
+body:has(#page-approach.active),
+body:has(#page-about.active) {
+  background-color: transparent !important;
+}
+
+.btn--gold-solid {
+  background-color: var(--color-gold) !important;
+  color: var(--color-navy) !important;
+  border: 2px solid var(--color-gold) !important;
+}
+
+.btn--gold-solid:hover {
+  background-color: transparent !important;
+  color: var(--color-gold) !important;
+  border-color: var(--color-gold) !important;
+  transform: translateY(-1px);
 }
