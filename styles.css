@@ -8399,9 +8399,10 @@ p {
   .wb-mobile-image {
     display: block !important;
     width: 100% !important;
-    max-width: 500px !important;
+    max-width: 100% !important;
     margin: 40px auto !important;
     padding: 0 16px !important;
+    transform: scale(1.1) !important;
   }
 
   .wb-organ-info {
