@@ -170,6 +170,12 @@
         if (navToggle) navToggle.classList.remove('active');
     }
 
+    // Close menu on close button click
+    const navClose = document.getElementById('navClose');
+    if (navClose) {
+        navClose.addEventListener('click', closeMenu);
+    }
+
     navLinks.forEach(link => {
         link.addEventListener('click', closeMenu);
     });
