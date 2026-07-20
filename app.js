@@ -68,14 +68,14 @@
         // Control video playback and nav transparency based on active page
         const appVideo = document.getElementById('approachVideo');
         const aboutVideo = document.getElementById('aboutVideo');
-        const isVideoPage = page === 'approach' || page === 'about';
+        const isVideoPage = page === 'approach' || page === 'home';
 
         if (appVideo) {
             if (page === 'approach') appVideo.play().catch(err => console.log('Autoplay blocked:', err));
             else appVideo.pause();
         }
         if (aboutVideo) {
-            if (page === 'about') aboutVideo.play().catch(err => console.log('Autoplay blocked:', err));
+            if (page === 'home') aboutVideo.play().catch(err => console.log('Autoplay blocked:', err));
             else aboutVideo.pause();
         }
 

@@ -621,7 +621,8 @@
             var v = document.getElementById('aboutVideo');
             if (v) {
               var isMobile = window.innerWidth <= 768;
-              v.src = isMobile ? 'assets/our clinic_mobile.mp4' : 'assets/Walkthrough_video_VP.mp4';
+              v.src = isMobile ? 'assets/our%20clinic_mobile.mp4' : 'assets/Walkthrough_video_VP.mp4';
+              v.play().catch(function(err) { console.log('Playback error:', err); });
             }
           })();
         </script>
@@ -735,7 +736,8 @@
             var v = document.getElementById('approachVideo');
             if (v) {
               var isMobile = window.innerWidth <= 768;
-              v.src = isMobile ? 'assets/Our approach_mobile.mp4' : 'assets/our approach 1_v3.mp4';
+              v.src = isMobile ? 'assets/Our%20approach_mobile.mp4' : 'assets/our%20approach%201_v3.mp4';
+              v.play().catch(function(err) { console.log('Playback error:', err); });
             }
           })();
         </script>
