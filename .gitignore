@@ -4,7 +4,10 @@ package-lock.json
 
 # Screenshots & debug files
 *.png
-# Allow doctor photos and final photos
+# Allow all images in assets directories
+!assets/*.png
+!assets/*.jpg
+!assets/*.jpeg
 !assets/Doctors/**/*.png
 !assets/Doctors/**/*.jpg
 !assets/Doctors/**/*.jpeg
@@ -23,6 +26,9 @@ package-lock.json
 !assets/Technology/*.png
 !assets/Technology/*.jpg
 !assets/Technology/*.jpeg
+!assets/images/*.png
+!assets/images/*.jpg
+!assets/images/*.jpeg
 read_log.js
 check_diff.js
 rebuild_original_css.js
