@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -615,14 +615,13 @@
   <section class="page active" id="page-home">
     <section class="discovery-section" data-nav="dark">
       <div class="immersive-bg">
-        <video autoplay muted loop playsinline class="discovery-video" id="aboutVideo">
-          <source src="assets/Walkthrough video_VP.mp4" type="video/mp4">
-        </video>
+        <video autoplay muted loop playsinline preload="metadata" class="discovery-video" id="aboutVideo"></video>
         <script>
           (function() {
-            if (window.innerWidth <= 768) {
-              var v = document.getElementById('aboutVideo');
-              if (v) { v.querySelector('source').src = 'assets/our clinic_mobile.mp4'; v.load(); }
+            var v = document.getElementById('aboutVideo');
+            if (v) {
+              var isMobile = window.innerWidth <= 768;
+              v.src = isMobile ? 'assets/our clinic_mobile.mp4' : 'assets/Walkthrough_video_VP.mp4';
             }
           })();
         </script>
@@ -730,14 +729,13 @@
     <!-- Scroll Discovery "Our Methodology" -->
     <section class="discovery-section">
       <div class="immersive-bg">
-        <video autoplay muted loop playsinline class="discovery-video" id="approachVideo">
-          <source src="assets/our approach 1_v3.mp4" type="video/mp4">
-        </video>
+        <video autoplay muted loop playsinline preload="metadata" class="discovery-video" id="approachVideo"></video>
         <script>
           (function() {
-            if (window.innerWidth <= 768) {
-              var v = document.getElementById('approachVideo');
-              if (v) { v.querySelector('source').src = 'assets/Our approach_mobile.mp4'; v.load(); }
+            var v = document.getElementById('approachVideo');
+            if (v) {
+              var isMobile = window.innerWidth <= 768;
+              v.src = isMobile ? 'assets/Our approach_mobile.mp4' : 'assets/our approach 1_v3.mp4';
             }
           })();
         </script>
