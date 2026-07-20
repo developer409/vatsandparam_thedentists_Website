@@ -16,6 +16,8 @@
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 </head>
 
 <body>
@@ -125,12 +127,14 @@
 
       <!-- Sticky container that pins while user scrolls -->
       <div class="walkthrough-sticky">
-        <!-- Blurred background fill to eliminate black bars -->
-        <video autoplay muted loop playsinline class="walkthrough-video-bg">
+        <!-- Blurred background fill to eliminate black bars (desktop only — removed from the DOM on mobile, see script below, since it's hidden there and would otherwise double-fetch this file) -->
+        <video autoplay muted loop playsinline preload="auto" class="walkthrough-video-bg">
           <source src="assets/videos/WALKTHROUGH OF CLINIC.mp4" type="video/mp4">
         </video>
-        <!-- Main video with full content visible -->
-        <video autoplay muted loop playsinline class="walkthrough-video">
+        <!-- Main video with full content visible. Mobile gets its own source (matched via
+             media query, evaluated before any JS runs) so it never fetches the desktop clip. -->
+        <video autoplay muted loop playsinline preload="auto" class="walkthrough-video">
+          <source src="assets/Technology/about%20us_mobile%201.mp4" type="video/mp4" media="(max-width: 768px)">
           <source src="assets/videos/WALKTHROUGH OF CLINIC.mp4" type="video/mp4">
         </video>
 
@@ -222,55 +226,51 @@
         </div><!-- end walkthrough-cards -->
 
         <script>
+          // Mobile-only: pin the video and cross-fade cards one at a time via GSAP ScrollTrigger.
+          // This site's `body{overflow-x:hidden}` makes the browser's scroll-container detection
+          // ambiguous, which otherwise breaks the pin. Explicitly pointing ScrollTrigger at
+          // <html> as the scroller fixes that without touching real scroll physics/feel anywhere
+          // else on the page (an earlier attempt used ScrollTrigger.normalizeScroll(), which does
+          // fix the pin but also noticeably changes how scrolling feels site-wide on mobile).
           (function() {
             if (!window.matchMedia('(max-width: 768px)').matches) return;
+            if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
 
-            var cards = Array.prototype.slice.call(document.querySelectorAll('.walkthrough-card'));
-            var revealed = [];
+            // The blurred fill layer is desktop-only (hidden via CSS on mobile) but was still
+            // fetching/decoding the same multi-MB clip a second time in the background, which
+            // could starve the visible video of bandwidth right as the section is scrolled into
+            // view. Drop it from the DOM entirely on mobile instead of just hiding it.
+            var bgVideo = document.querySelector('#walkthroughSection .walkthrough-video-bg');
+            if (bgVideo) bgVideo.remove();
 
-            // Set initial hidden state for each card
-            cards.forEach(function(card, i) {
-              var tx = (i % 2 === 0) ? '-100px' : '100px';
-              card.style.opacity = '0';
-              card.style.transform = 'translateX(' + tx + ')';
-              card.style.transition = 'none';
-              revealed.push(false);
+            gsap.registerPlugin(ScrollTrigger);
+
+            var sticky = document.querySelector('#walkthroughSection .walkthrough-sticky');
+            var cards  = gsap.utils.toArray('#walkthroughSection .walkthrough-card');
+            if (!sticky || !cards.length) return;
+
+            gsap.set(cards, { opacity: 0 });
+            gsap.set(cards[0], { opacity: 1 });
+
+            var tl = gsap.timeline({
+              scrollTrigger: {
+                trigger: sticky,
+                scroller: document.documentElement,
+                start: 'top top',
+                end: function() { return '+=' + (window.innerHeight * cards.length); },
+                scrub: 0.6,
+                pin: true,
+                anticipatePin: 1,
+                invalidateOnRefresh: true
+              }
             });
 
-            function checkCards() {
-              cards.forEach(function(card, i) {
-                if (revealed[i]) return;
-                var rect = card.getBoundingClientRect();
-                if (rect.top < window.innerHeight * 0.85) {
-                  revealed[i] = true;
-                  card.style.transition = 'opacity 0.8s ease, transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
-                  card.style.opacity = '1';
-                  card.style.transform = 'translateX(0)';
-                }
-              });
-            }
-
-            // Check on scroll
-            window.addEventListener('scroll', checkCards, { passive: true });
-            // Check on load too
-            setTimeout(checkCards, 100);
-
-            // Tilt on touch
-            cards.forEach(function(card) {
-              card.addEventListener('touchstart', function(e) {
-                if (!revealed[cards.indexOf(card)]) return;
-                var touch = e.touches[0];
-                var r = card.getBoundingClientRect();
-                var tiltY = ((touch.clientX - r.left - r.width / 2) / (r.width / 2)) * 8;
-                var tiltX = ((touch.clientY - r.top - r.height / 2) / (r.height / 2)) * -8;
-                card.style.transition = 'transform 0.1s ease';
-                card.style.transform = 'rotateX(' + tiltX + 'deg) rotateY(' + tiltY + 'deg) scale(1.02)';
-              }, { passive: true });
-
-              card.addEventListener('touchend', function() {
-                card.style.transition = 'transform 0.3s ease';
-                card.style.transform = 'translateX(0)';
-              }, { passive: true });
+            // Each card holds fully visible, then cross-fades into the next one.
+            cards.forEach(function(card, i) {
+              if (i === 0) return;
+              var holdEnd = (i - 1) + 0.6;
+              tl.to(cards[i - 1], { opacity: 0, duration: 0.4, ease: 'power1.inOut' }, holdEnd);
+              tl.to(card,        { opacity: 1, duration: 0.4, ease: 'power1.inOut' }, holdEnd);
             });
           })();
         </script>
@@ -2768,8 +2768,10 @@
       });
     })();
 
-    // Walkthrough sticky scroll — rAF-throttled for smooth performance
+    // Walkthrough sticky scroll — rAF-throttled for smooth performance (desktop only; mobile uses GSAP ScrollTrigger above)
     (function() {
+      if (window.matchMedia('(max-width: 768px)').matches) return;
+
       const section = document.getElementById('walkthroughSection');
       const cards   = document.querySelectorAll('.walkthrough-card');
       if (!section || cards.length === 0) return;
