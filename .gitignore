@@ -33,6 +33,10 @@ package-lock.json
 !assets/Selected/*.jpg
 !assets/Selected/*.jpeg
 !assets/Selected/*.JPG
+!assets/Selected/**/*.png
+!assets/Selected/**/*.jpg
+!assets/Selected/**/*.jpeg
+!assets/Selected/**/*.JPG
 !assets/Awards/**/*.png
 !assets/Awards/**/*.jpg
 !assets/Awards/**/*.jpeg
