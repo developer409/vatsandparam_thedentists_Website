@@ -1,4 +1,4 @@
-﻿/* ============================================
+/* ============================================
    VATS & PARAM â€” Design System
    Premium Holistic Dentistry Website
    ============================================ */
@@ -1898,38 +1898,7 @@ p {
     color: var(--color-gold) !important;
   }
 
-  .founder-block {
-    background: #ffefef !important;
-    border: 1.5px solid #000000 !important;
-    border-radius: 16px !important;
-    min-height: auto !important;
-  }
-
-  .founder-info {
-    background: #ffefef !important;
-    border: none !important;
-    position: relative !important;
-    z-index: 2 !important;
-  }
-
-  .founder-name,
-  .founder-title,
-  .founder-bio {
-    color: #000000 !important;
-  }
-
-  .founder-name {
-    font-size: 1rem !important;
-    white-space: nowrap !important;
-  }
-
-  .founder-name, .founder-title, .founder-link {
-    color: #000 !important;
-  }
-
-  .founder-bio {
-    color: #1a1a1a !important;
-  }
+  /* Removed flat mobile overrides to maintain desktop dark image background and glassmorphism text panel styling */
 
   /* Mobile: Glass panel */
   .glass-panel {
@@ -6158,23 +6127,44 @@ p {
 
 /* Mobile: show photo, hide video */
 @media (max-width: 768px) {
-  .founder-bg-photo {
-    position: absolute;
-    inset: 0;
+  .founder-block {
+    min-height: 520px;
+  }
+
+  .founder-video-container {
+    position: absolute !important;
+    inset: 0 !important;
+    background: #000 !important;
+    z-index: 1;
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    object-position: center top;
+  }
+
+  .founder-bg-photo {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
     display: block !important;
-    z-index: 2;
+    z-index: 1 !important;
     opacity: 1 !important;
     visibility: visible !important;
+  }
+
+  .founder-video {
+    display: none !important;
   }
   .founder-video--mobile {
     display: none !important;
   }
   .founder-video-overlay {
-    display: none !important;
+    display: block !important;
+    position: absolute !important;
+    inset: 0 !important;
+    background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.8) 100%) !important;
+    z-index: 2 !important;
   }
 }
 
@@ -6489,11 +6479,15 @@ p {
   }
 
   .founder-name {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
+  }
+
+  .founder-title {
+    font-size: 0.85rem;
   }
 
   .founder-bio {
-    font-size: 0.85rem;
+    font-size: 0.95rem;
   }
 }
 
@@ -8611,22 +8605,39 @@ p {
   }
   .founder-block {
     display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    min-height: auto !important;
-    padding: 1.5rem !important;
+    align-items: flex-end !important;
+    min-height: 520px !important;
+    position: relative !important;
+    border-radius: 16px !important;
+    overflow: hidden !important;
+    background: #000 !important;
+    border: none !important;
+    padding: 0 !important;
   }
   .founder-video-container {
-    display: none !important;
+    display: block !important;
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    border-radius: 0 !important;
+    border: none !important;
+    margin: 0 !important;
+    z-index: 1 !important;
   }
   .founder-info {
-    width: 100% !important;
-    margin: 0 !important;
-  }
-  .founder-avatar {
-    width: 120px !important;
-    height: 120px !important;
-    margin-bottom: 1rem !important;
+    width: calc(100% - 2rem) !important;
+    margin: 1rem !important;
+    padding: 1.5rem !important;
+    position: relative !important;
+    z-index: 3 !important;
+    background: rgba(255, 255, 255, 0.12) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border-radius: 12px !important;
+    text-align: center !important;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3) !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
   }
 
   /* ---- Modal corner card ---- */
@@ -8642,7 +8653,7 @@ p {
 
 }
 
-/* ---- Small mobile (â‰¤480px) ---- */
+/* ---- Small mobile (≤480px) ---- */
 @media (max-width: 480px) {
 
   .hero-rect--1 h1 { font-size: 1.1rem; }
@@ -8653,7 +8664,7 @@ p {
 
   .treat-grid { grid-template-columns: 1fr !important; }
 
-  .founder-video-container { height: 60vw; }
+  /* Maintains full background photo on small mobile screens */
 
   .stats-animation-section .stat-number { font-size: 2.5rem; }
 
