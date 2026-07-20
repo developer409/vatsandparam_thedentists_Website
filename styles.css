@@ -8362,6 +8362,16 @@ p {
     font-size: 1.5rem !important;
   }
 
+  .wb-sticky {
+    position: relative !important;
+    height: auto !important;
+    min-height: auto !important;
+  }
+
+  .wb-title-screen {
+    display: none !important;
+  }
+
   .wb-video-stack {
     display: none !important;
   }
@@ -8378,11 +8388,19 @@ p {
     display: none !important;
   }
 
+  .wb-progress-dots {
+    display: none !important;
+  }
+
+  .wb-mobile-nav {
+    display: none !important;
+  }
+
   .wb-mobile-image {
     display: block !important;
     width: 100% !important;
-    max-width: 100% !important;
-    margin: 0 auto 32px !important;
+    max-width: 500px !important;
+    margin: 40px auto !important;
     padding: 0 16px !important;
   }
 
