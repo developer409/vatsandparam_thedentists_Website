@@ -14,6 +14,15 @@ package-lock.json
 !assets/consulting/*.png
 !assets/consulting/*.jpg
 !assets/consulting/*.jpeg
+!assets/CONSULTING/*.png
+!assets/CONSULTING/*.jpg
+!assets/CONSULTING/*.jpeg
+!assets/Whitening/*.png
+!assets/Whitening/*.jpg
+!assets/Whitening/*.jpeg
+!assets/Technology/*.png
+!assets/Technology/*.jpg
+!assets/Technology/*.jpeg
 read_log.js
 check_diff.js
 rebuild_original_css.js
