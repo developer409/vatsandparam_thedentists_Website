@@ -9590,7 +9590,7 @@ body:has(#page-about.active) {
     scrollbar-width: none !important;
     -ms-overflow-style: none !important;
     opacity: 0;
-    transform: none !important;
+    transform: translate3d(0, 0, 0) !important;
     transition: none !important;
     pointer-events: none !important;
     background: rgba(255, 255, 255, 0.16) !important;
