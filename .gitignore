@@ -29,6 +29,10 @@ package-lock.json
 !assets/images/*.png
 !assets/images/*.jpg
 !assets/images/*.jpeg
+!assets/Selected/*.png
+!assets/Selected/*.jpg
+!assets/Selected/*.jpeg
+!assets/Selected/*.JPG
 read_log.js
 check_diff.js
 rebuild_original_css.js
