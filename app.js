@@ -8,6 +8,33 @@
     // Prevent browser from restoring scroll position on back/forward navigation
     if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
 
+    // ---- Splash Screen (Mobile) ----
+    const splashScreen = document.getElementById('splashScreen');
+
+    // Word-by-word animation for splash text
+    function wrapWordsInSpans(elementId) {
+        const element = document.getElementById(elementId);
+        if (!element) return;
+
+        const text = element.textContent;
+        const words = text.split(' ');
+        element.innerHTML = words.map(word => `<span class="word">${word}</span>`).join(' ');
+    }
+
+    wrapWordsInSpans('splashTitle');
+    wrapWordsInSpans('splashSubtitle');
+    wrapWordsInSpans('splashTagline');
+
+    if (splashScreen && window.innerWidth <= 768) {
+        // Hide splash screen after 3 seconds (to let all animations complete)
+        setTimeout(() => {
+            splashScreen.classList.add('hidden');
+        }, 3000);
+    } else if (splashScreen) {
+        // Hide immediately on desktop
+        splashScreen.classList.add('hidden');
+    }
+
     // ---- Router ----
     const pages = document.querySelectorAll('.page');
     const navLinks = document.querySelectorAll('.nav__link');

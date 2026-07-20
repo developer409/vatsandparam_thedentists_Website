@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -20,10 +20,20 @@
 
 <body>
 
+  <!-- ========== SPLASH SCREEN (Mobile Only) ========== -->
+  <div id="splashScreen" class="splash-screen">
+    <div class="splash-screen__content">
+      <img src="assets/logo_teeth.png" alt="Vats & Param" class="splash-screen__logo">
+      <h1 class="splash-screen__title" id="splashTitle">Vats & Param</h1>
+      <p class="splash-screen__subtitle" id="splashSubtitle">THE DENTISTS</p>
+      <p class="splash-screen__tagline" id="splashTagline">Longevity & Whole-Body Focused Dentistry</p>
+    </div>
+  </div>
+
   <!-- ========== NAVIGATION ========== -->
   <nav class="nav" id="mainNav">
     <div class="nav__inner">
-      <a href="#home" class="nav__logo" data-page="home">
+      <a href="#about" class="nav__logo" data-page="about">
         <div class="nav__logo-icon-container">
           <img src="assets/logo_teeth.png" alt="Vats & Param logo" class="nav__logo-img">
         </div>
@@ -40,8 +50,8 @@
       <div class="nav__toggle" id="navToggle"><span></span><span></span><span></span></div>
       <div class="nav__menu" id="navMenu">
         <div class="nav__links">
-          <a href="#home" class="nav__link active" data-page="home">Home</a>
-          <a href="#about" class="nav__link" data-page="about">About Us</a>
+          <a href="#about" class="nav__link active" data-page="about">Home</a>
+          <a href="#home" class="nav__link" data-page="home">About Us</a>
 
           <a href="#approach" class="nav__link" data-page="approach">Our Approach</a>
           <a href="#treatments" class="nav__link" data-page="treatments">Services</a>
@@ -81,7 +91,8 @@
       <!-- Two long rectangles pinned to the bottom of the hero video -->
       <div class="hero-bottom-cards">
         <div class="hero-rect hero-rect--1">
-          <p class="hero-word-animate hero-reveal-text"><strong class="hero-bold-phrase">For too long,</strong> oral health has been viewed separately from overall health, despite its connection to immunity, inflammation, nutrition, and healthy ageing. At <strong class="hero-bold-phrase">Vats &amp; Param,</strong> we believe the mouth is where health begins, going <strong class="hero-bold-phrase">beyond treating teeth</strong> to support prevention, wellbeing, and whole-body health.</p>
+          <p class="hero-word-animate hero-reveal-text">Oral health is inseparable from overall health, influencing immunity, inflammation, nutrition, and healthy ageing.</p>
+          <p class="hero-reveal-text hero-mobile-sub">The condition of the mouth often reflects and affects the condition of the body.<br>By understanding these connections, care can move beyond treatment alone to support long-term health and prevention.</p>
         </div>
       </div>
     </section>
@@ -123,12 +134,13 @@
         </video>
 
         <!-- All cards sit inside the sticky viewport, JS toggles which is active -->
+        <h2 class="walkthrough-mobile-title">At Vats &amp; Param - The Dentists</h2>
         <div class="walkthrough-cards">
 
-          <div class="walkthrough-card glass-panel" data-index="0">
+          <div class="walkthrough-card glass-panel walkthrough-card--clinic" data-index="0">
             <span class="immersive-label">Experience</span>
             <h2 class="immersive-title">Our Clinic</h2>
-            <p class="immersive-body">Designed for diagnostic precision and comfort for every person. State-of-the-art technology meets a welcoming environment where every visit deepens your understanding of your health.</p>
+            <p class="immersive-body">More than dentistry, an environment designed to support comfort, prevention, and lifelong health.</p>
           </div>
 
           <div class="walkthrough-card glass-panel" data-index="1">
@@ -164,9 +176,9 @@
             <p class="immersive-body desktop-only"></p>
             <p class="immersive-body"><strong>Great care begins with understanding.</strong></p>
             <ul class="card-list">
-              <li><strong>- Time:</strong> Your concerns, goals, and health history matter.</li>
-              <li><strong>- Thought:</strong> Comprehensive diagnostics support accurate decisions.</li>
-              <li><strong>- Trust:</strong> Clear guidance helps you understand every step.</li>
+              <li><strong>Time:</strong> Your concerns, goals, and health history matter.</li>
+              <li><strong>Thought:</strong> Comprehensive diagnostics support accurate decisions.</li>
+              <li><strong>Trust:</strong> Clear guidance helps you understand every step.</li>
             </ul>
              </div>
 
@@ -182,7 +194,7 @@
             <h2 class="immersive-title desktop-only">Built for Safety. Designed for Care.</h2>
             <p class="immersive-body desktop-only">Our clinic is designed to the highest standards of infection control and safety for every person because a clean environment is the foundation of good care.</p>
             <ul class="card-list">
-              <li>- Clean air</li>
+              <li>- Hygienic atmosphere</li>
               <li>- Strict infection control</li>
               <li>- Advanced sterilisation</li>
             </ul>
@@ -321,14 +333,13 @@
         <!-- Title screen — visible on entry, fades as user scrolls -->
         <div class="wb-title-screen" id="wbTitleScreen">
           <video autoplay muted loop playsinline class="wb-title-video">
-            <source src="assets/videos/glow anima_v3.mp4" type="video/mp4">
+            <source src="assets/videos/MOUTH BODY 16x9 video.mp4" type="video/mp4">
           </video>
           <img src="assets/videos/whole_body/oral_body.jpeg" class="wb-title-image" alt="Whole Body Connection">
           <div class="wb-title-overlay"></div>
           <div class="wb-title-inner">
             <span class="wb-eyebrow">The Mouth-Body Connection</span>
-            <h2 class="wb-main-title">Your Mouth.<br>Your Whole Body.</h2>
-            <p class="wb-intro-sub">Your mouth is the gateway to your overall health.</p>
+            <h2 class="wb-main-title">Your mouth is the gateway to your overall health.</h2>
             <div class="wb-scroll-hint">
               <div class="wb-arrow-down"></div>
             </div>
@@ -369,7 +380,7 @@
           </div>
           <div class="wb-video-layer" data-organ="inflammation">
             <video autoplay muted loop playsinline preload="auto">
-              <source src="assets/videos/whole_body/inflame_glow.mp4" type="video/mp4">
+              <source src="assets/videos/whole_body/preg_glow.mp4" type="video/mp4">
             </video>
           </div>
           <div class="wb-video-layer" data-organ="glycemic">
@@ -464,13 +475,13 @@
 
           <div class="wb-organ-info" data-organ="inflammation">
             <span class="wb-organ-num">07 &nbsp;/&nbsp; 09</span>
-            <h3 class="wb-organ-name">Inflammation</h3>
-            <p class="wb-organ-headline">Chronic inflammation drives periodontal breakdown and contributes to systemic disease</p>
-            <p class="wb-organ-body">Chronic inflammation drives periodontal breakdown and contributes to systemic disease.</p>
+            <h3 class="wb-organ-name">Pregnant</h3>
+            <p class="wb-organ-headline">Pregnancy and oral health: A critical window for mother and baby</p>
+            <p class="wb-organ-body">Hormonal shifts during pregnancy amplify gum inflammation and periodontal disease risk. Untreated gum disease during pregnancy increases the risk of premature birth, low birth weight, and gestational complications. Regular dental care during pregnancy protects both mother and developing child.</p>
             <ul class="wb-organ-facts">
-              <li>Oral inflammation spreads systemically</li>
-              <li>Accelerates periodontal destruction</li>
-              <li>Linked to cardiovascular disease and autoimmune conditions</li>
+              <li>Pregnancy gingivitis affects up to 75% of expectant mothers</li>
+              <li>Untreated gum disease increases premature birth risk by 7×</li>
+              <li>Oral bacteria can cross the placental barrier affecting fetal development</li>
             </ul>
           </div>
 
@@ -509,7 +520,7 @@
           <div class="wb-dot" data-organ="gut"><span class="wb-dot-label">Gut</span></div>
           <div class="wb-dot" data-organ="joint"><span class="wb-dot-label">Joints</span></div>
           <div class="wb-dot" data-organ="muscle"><span class="wb-dot-label">Muscle</span></div>
-          <div class="wb-dot" data-organ="inflammation"><span class="wb-dot-label">Inflammation</span></div>
+          <div class="wb-dot" data-organ="inflammation"><span class="wb-dot-label">pregnant</span></div>
           <div class="wb-dot" data-organ="glycemic"><span class="wb-dot-label">Glycemic</span></div>
           <div class="wb-dot" data-organ="sleep"><span class="wb-dot-label">Sleep</span></div>
         </div>
@@ -522,7 +533,7 @@
           <button class="wb-mobile-btn" data-organ="gut">Gut</button>
           <button class="wb-mobile-btn" data-organ="joint">Joints</button>
           <button class="wb-mobile-btn" data-organ="muscle">Muscle</button>
-          <button class="wb-mobile-btn" data-organ="inflammation">Inflammation</button>
+          <button class="wb-mobile-btn" data-organ="inflammation">pregnant</button>
           <button class="wb-mobile-btn" data-organ="glycemic">Glycemic</button>
           <button class="wb-mobile-btn" data-organ="sleep">Sleep</button>
         </div>
@@ -589,7 +600,7 @@
         <!-- FOUNDER 1: Dr. Srivats -->
         <div class="founder-block founder-block--srivats">
           <div class="founder-video-container">
-            <img src="assets/Doctors/Dr_Srivats_B/Dr_srivats.png" alt="Dr. Srivats Bharadwaj" class="founder-bg-photo">
+            <img src="assets/Doctors/Dr_Srivats_B/Dr_Srivats.png" alt="Dr. Srivats Bharadwaj" class="founder-bg-photo">
             <video autoplay muted loop playsinline class="founder-video founder-video--mobile" id="srivats-video">
               <source src="assets/videos/WALKTHROUGH OF CLINIC.mp4" type="video/mp4">
             </video>
@@ -597,7 +608,7 @@
           </div>
           <div class="founder-info glass-panel">
             <h3 class="founder-name">Dr. Srivats Bharadwaj</h3>
-            <p class="founder-title">Lead Dentist & Co-Founder</p>
+            <p class="founder-title">Health care thought leader entrepreneur</p>
             <p class="founder-bio">30+ years of diagnostic-driven dentistry focused on root-cause analysis and whole-body wellness integration. Visionary pioneer in systems-based dental care.</p>
             <a href="doctor-profile.html?dr=vats" class="founder-link">View Full Profile →</a>
           </div>
@@ -614,7 +625,7 @@
           </div>
           <div class="founder-info glass-panel">
             <h3 class="founder-name">Dr. Paramjot Kaur</h3>
-            <p class="founder-title">Lead Dentist & Co-Founder</p>
+            <p class="founder-title">Health care entrepreneur</p>
             <p class="founder-bio">20+ years specialist in periodontics with a systems-thinking approach. Expert in long-term oral health preservation and strategic practice management.</p>
             <a href="doctor-profile.html?dr=param" class="founder-link">View Full Profile →</a>
           </div>
@@ -1116,7 +1127,7 @@
             <!-- Dr. Ananya -->
             <div class="doc-profile" style="border: 1px solid var(--color-gold); border-radius: var(--radius-md);">
               <div class="doc-img-box">
-                <img src="assets/Doctors/Dr_Saloni/saloni_2.png" alt="Dr. Saloni Gaur" class="doc-img">
+                <img src="assets/Doctors/Dr_Saloni/Saloni.png" alt="Dr. Saloni Gaur" class="doc-img">
                 <div class="doc-img-placeholder">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
                     <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
@@ -1150,41 +1161,10 @@
               </div>
             </div>
 
-            <!-- Dr. Nishitha Shetty -->
-            <div class="doc-profile" style="border: 1px solid var(--color-gold); border-radius: var(--radius-md);">
-              <div class="doc-img-box">
-                <img src="assets/Doctors/nishita_1.png" alt="Dr. Nishitha Shetty" class="doc-img">
-                <div class="doc-overlay">
-                  <div class="doc-details-grid">
-                    <div class="doc-detail">
-                      <span class="doc-detail-label">Experience</span>
-                      <p class="doc-detail-text">6+ Years</p>
-                    </div>
-                    <div class="doc-detail">
-                      <span class="doc-detail-label">Education</span>
-                      <p class="doc-detail-text">BDS</p>
-                    </div>
-                    <div class="doc-detail">
-                      <span class="doc-detail-label">Speciality</span>
-                      <p class="doc-detail-text">Restorative Dentistry</p>
-                    </div>
-                  </div>
-                  <div class="doc-bio">
-                    <p>Committed to patient-centered care with an emphasis on restorative excellence, clinical precision, and long-term oral health outcomes.</p>
-                  </div>
-                  <a href="doctor-profile.html?dr=nishitha" class="btn btn--gold-outline doc-view-btn">View Profile</a>
-                </div>
-              </div>
-              <div class="doc-info">
-                <h3 class="doc-name">Dr. Nishitha Shetty</h3>
-                <p class="doc-role">Clinical Head and Senior Consultant</p>
-              </div>
-            </div>
-
             <!-- Dr. Dhijila Dinesh -->
             <div class="doc-profile" style="border: 1px solid var(--color-gold); border-radius: var(--radius-md);">
               <div class="doc-img-box">
-                <img src="assets/Doctors/Dr_dhijila.png" alt="Dr. Dhijila Dinesh" class="doc-img">
+                <img src="assets/Doctors/Dr_dhijila/Dhijila.png" alt="Dr. Dhijila Dinesh" class="doc-img">
                 <div class="doc-img-placeholder">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
                     <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
@@ -1218,10 +1198,47 @@
               </div>
             </div>
 
+            <!-- Dr. Nishitha Shetty -->
+            <div class="doc-profile" style="border: 1px solid var(--color-gold); border-radius: var(--radius-md);">
+              <div class="doc-img-box">
+                <img src="assets/final_photos/Nishita.png" alt="Dr. Nishitha Shetty" class="doc-img">
+                <div class="doc-overlay">
+                  <div class="doc-details-grid">
+                    <div class="doc-detail">
+                      <span class="doc-detail-label">Experience</span>
+                      <p class="doc-detail-text">6+ Years</p>
+                    </div>
+                    <div class="doc-detail">
+                      <span class="doc-detail-label">Education</span>
+                      <p class="doc-detail-text">BDS</p>
+                    </div>
+                    <div class="doc-detail">
+                      <span class="doc-detail-label">Speciality</span>
+                      <p class="doc-detail-text">Restorative Dentistry</p>
+                    </div>
+                  </div>
+                  <div class="doc-bio">
+                    <p>Committed to patient-centered care with an emphasis on restorative excellence, clinical precision, and long-term oral health outcomes.</p>
+                  </div>
+                  <a href="doctor-profile.html?dr=nishitha" class="btn btn--gold-outline doc-view-btn">View Profile</a>
+                </div>
+              </div>
+              <div class="doc-info">
+                <h3 class="doc-name">Dr. Nishitha Shetty</h3>
+                <p class="doc-role">Clinical Head and Senior Consultant</p>
+              </div>
+            </div>
+
             <!-- Dr. Srivats B -->
             <div class="doc-profile" style="border: 1px solid var(--color-gold); border-radius: var(--radius-md);">
               <div class="doc-img-box">
-                <img src="assets/Doctors/Dr_Srivats_B/Dr_srivats.png" alt="Dr. Srivats B" class="doc-img">
+                <img src="assets/Doctors/Dr_Srivats_B/Dr_Srivats.png" alt="Dr. Srivats B" class="doc-img">
+                <div class="doc-img-placeholder">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                    <circle cx="12" cy="7" r="4" />
+                  </svg>
+                </div>
                 <div class="doc-overlay">
                   <div class="doc-details-grid">
                     <div class="doc-detail">
@@ -1245,14 +1262,14 @@
               </div>
               <div class="doc-info">
                 <h3 class="doc-name">Dr. Srivats B</h3>
-                <p class="doc-role">Lead Dentist & Co-Founder</p>
+                <p class="doc-role">Health care thought leader entrepreneur</p>
               </div>
             </div>
 
             <!-- Dr. Paramjot Kaur -->
             <div class="doc-profile" style="border: 1px solid var(--color-gold); border-radius: var(--radius-md);">
               <div class="doc-img-box">
-                <img src="assets/Doctors/Dr_Paramjot_Kaur/Dr_param.png" alt="Dr. Paramjot Kaur" class="doc-img">
+                <img src="assets/final_photos/param mam v2.png" alt="Dr. Paramjot Kaur" class="doc-img">
                 <div class="doc-overlay">
                   <div class="doc-details-grid">
                     <div class="doc-detail">
@@ -1276,19 +1293,14 @@
               </div>
               <div class="doc-info">
                 <h3 class="doc-name">Dr. Paramjot Kaur</h3>
-                <p class="doc-role">Lead Dentist & Co-Founder</p>
+                <p class="doc-role">Health care entrepreneur</p>
               </div>
             </div>
 
             <!-- Dr. Madhukiran -->
             <div class="doc-profile" style="border: 1px solid var(--color-gold); border-radius: var(--radius-md);">
               <div class="doc-img-box">
-                <div class="doc-img-placeholder">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
-                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                    <circle cx="12" cy="7" r="4" />
-                  </svg>
-                </div>
+                <img src="assets/final_photos/madhukiran black.png" alt="Dr. Madhukiran" class="doc-img">
                 <div class="doc-overlay">
                   <div class="doc-details-grid">
                     <div class="doc-detail">
@@ -1319,12 +1331,7 @@
             <!-- Dr. Prithvi -->
             <div class="doc-profile" style="border: 1px solid var(--color-gold); border-radius: var(--radius-md);">
               <div class="doc-img-box">
-                <div class="doc-img-placeholder">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
-                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                    <circle cx="12" cy="7" r="4" />
-                  </svg>
-                </div>
+                <img src="assets/consulting/pruthvi.png" alt="Dr. Prithvi" class="doc-img">
                 <div class="doc-overlay">
                   <div class="doc-details-grid">
                     <div class="doc-detail">
@@ -1355,12 +1362,7 @@
             <!-- Dr. Ragunath -->
             <div class="doc-profile" style="border: 1px solid var(--color-gold); border-radius: var(--radius-md);">
               <div class="doc-img-box">
-                <div class="doc-img-placeholder">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
-                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                    <circle cx="12" cy="7" r="4" />
-                  </svg>
-                </div>
+                <img src="assets/consulting/Raghunath_1.png" alt="Dr. Ragunath" class="doc-img">
                 <div class="doc-overlay">
                   <div class="doc-details-grid">
                     <div class="doc-detail">
@@ -1392,6 +1394,213 @@
         </div>
       </div>
     </div>
+
+    <!-- Operation Head -->
+    <div class="section">
+      <div class="container container--wide">
+        <div class="text-center fade-in" style="margin-bottom:2.5rem;">
+          <span class="section-label">Our Team</span>
+          <h2>Head of Operations</h2>
+        </div>
+        <div style="display: flex; justify-content: center; padding: 0 24px;">
+          <div class="doc-profile" style="border: 1px solid var(--color-gold); border-radius: var(--radius-md);">
+            <div class="doc-img-box">
+              <img src="assets/final_photos/Subodh.png" alt="Subodh" class="doc-img">
+              <div class="doc-img-placeholder">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                  <circle cx="12" cy="7" r="4" />
+                </svg>
+              </div>
+              <div class="doc-overlay">
+                <div class="doc-details-grid">
+                  <div class="doc-detail">
+                    <span class="doc-detail-label">Role</span>
+                    <p class="doc-detail-text">Head of Operations</p>
+                  </div>
+                  <div class="doc-detail">
+                    <span class="doc-detail-label">Responsibility</span>
+                    <p class="doc-detail-text">Clinic Management</p>
+                  </div>
+                </div>
+                <div class="doc-bio">
+                  <p><strong>Manages clinic operations and ensures seamless coordination across all departments.</strong> Oversees the entire clinic flow and supports all team members.</p>
+                </div>
+              </div>
+            </div>
+            <div class="doc-info">
+              <h3 class="doc-name">Subodh Chettri</h3>
+              <p class="doc-role">Cheif Head of Operations</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Supporting Staff -->
+    
+    <div class="section">
+      <div class="container">
+        <div class="text-center fade-in" style="margin-bottom:2.5rem;">
+          <span class="section-label">Our Team</span>
+          <h2>Supporting Staff</h2>
+        </div>
+        <div class="staff-grid fade-in">
+
+          <!-- Senior Dental Assistants -->
+           
+          <div class="staff-card">
+            <div class="staff-img-box">
+              <img src="assets/final_photos/sinu v1.png" alt="Kumar" class="staff-img">
+            </div>
+            <div class="staff-info">
+              <h3 class="staff-name">Srinivas G.J</h3>
+              <p class="staff-role">Senior Chairside Clinical Associate</p>
+            </div>
+          </div>
+
+          <div class="staff-card">
+            <div class="staff-img-box">
+              <img src="assets/Selected/Selected_Square/Kumar.png" alt="Kumar" class="staff-img">
+            </div>
+            <div class="staff-info">
+              <h3 class="staff-name">Kumar Sudegowda</h3>
+              <p class="staff-role">Senior Chairside Clinical Associate</p>
+            </div>
+          </div>
+
+          <div class="staff-card">
+            <div class="staff-img-box">
+              <img src="assets/Selected/Selected_Square/Ravi.png" alt="Ravikumar" class="staff-img">
+            </div>
+            <div class="staff-info">
+              <h3 class="staff-name">Ravikumar</h3>
+              <p class="staff-role">Senior Chairside Clinical Associate</p>
+            </div>
+          </div>
+
+          
+
+          <div class="staff-card">
+            <div class="staff-img-box">
+              <img src="assets/Selected/Selected_Square/Avinash.png" alt="Avinash" class="staff-img">
+            </div>
+            <div class="staff-info">
+              <h3 class="staff-name">Avinash</h3>
+              <p class="staff-role">Senior Chairside Clinical Associate</p>
+            </div>
+          </div>
+
+          <div class="staff-card">
+            <div class="staff-img-box">
+              <img src="assets/Selected/Selected_Square/ramya_A.png" alt="Ramya A" class="staff-img">
+            </div>
+            <div class="staff-info">
+              <h3 class="staff-name">Ramya A</h3>
+              <p class="staff-role">Senior Chairside Clinical Associate</p>
+            </div>
+          </div>
+
+          <div class="staff-card">
+            <div class="staff-img-box">
+              <img src="assets/final_photos/Ramya.png" alt="Ramya L" class="staff-img">
+            </div>
+            <div class="staff-info">
+              <h3 class="staff-name">Ramya L</h3>
+              <p class="staff-role">Senior Chairside Clinical Associate</p>
+            </div>
+          </div>
+
+          <!-- Front Office -->
+          <div class="staff-card">
+            <div class="staff-img-box">
+              <img src="assets/Selected/Selected_Square/Kiran.png" alt="Kiran Gurung" class="staff-img">
+            </div>
+            <div class="staff-info">
+              <h3 class="staff-name">Kiran Gurung</h3>
+              <p class="staff-role">Patient Care Coordinator</p>
+            </div>
+          </div>
+
+          <!-- Dental Assistants -->
+          <div class="staff-card">
+            <div class="staff-img-box">
+              <img src="assets/Selected/Selected_Square/Amulya.png" alt="Amulya" class="staff-img">
+            </div>
+            <div class="staff-info">
+              <h3 class="staff-name">Amulya</h3>
+              <p class="staff-role">Chairside Clinical Associate</p>
+            </div>
+          </div>
+
+          <div class="staff-card">
+            <div class="staff-img-box">
+              <img src="assets/Selected/Selected_Square/Mithun.png" alt="Mithun" class="staff-img">
+            </div>
+            <div class="staff-info">
+              <h3 class="staff-name">Mithun</h3>
+              <p class="staff-role">Chairside Clinical Associate</p>
+            </div>
+          </div>
+
+          <div class="staff-card">
+            <div class="staff-img-box">
+              <img src="assets/Selected/Selected_Square/Sridevi.png" alt="Sridevi" class="staff-img">
+            </div>
+            <div class="staff-info">
+              <h3 class="staff-name">Sridevi</h3>
+              <p class="staff-role">Chairside Clinical Associate</p>
+            </div>
+          </div>
+
+          <!-- Driver -->
+          <div class="staff-card">
+            <div class="staff-img-box">
+              <img src="assets/Selected/Selected_Square/Ramesh.png" alt="Ramesh" class="staff-img">
+            </div>
+            <div class="staff-info">
+              <h3 class="staff-name">Ramesh R</h3>
+              <p class="staff-role">Home Care Coordinator</p>
+            </div>
+          </div>
+
+          <div class="staff-card">
+            <div class="staff-img-box">
+              <img src="assets/final_photos/Sathish v1.png" alt="Ramesh" class="staff-img">
+            </div>
+            <div class="staff-info">
+              <h3 class="staff-name">Satish</h3>
+              <p class="staff-role">Home Care Coordinator</p>
+            </div>
+          </div>
+
+          <!-- Housekeeping -->
+          <div class="staff-card">
+            <div class="staff-img-box">
+              <img src="assets/Selected/Selected_Square/Jaya.png" alt="Jaya" class="staff-img">
+            </div>
+            <div class="staff-info">
+              <h3 class="staff-name">Jaya</h3>
+              <p class="staff-role">Care & Hygiene Associate</p>
+            </div>
+          </div>
+
+          <div class="staff-card">
+            <div class="staff-img-box">
+              <img src="assets/Selected/Selected_Square/Pavan.png" alt="Pavan" class="staff-img">
+            </div>
+            <div class="staff-info">
+              <h3 class="staff-name">Pavan</h3>
+              <p class="staff-role">Care & Hygiene Associate</p>
+            </div>
+          </div>
+
+          
+
+        </div>
+      </div>
+    </div>
+
     <div class="section section--alt">
       <div class="container text-center fade-in">
         <span class="section-label">Our Standard</span>
@@ -1419,7 +1628,7 @@
         <div class="tech-card fade-in">
           <div class="tech-card__image-container"
             style="border-radius:var(--radius-md);overflow:hidden;aspect-ratio:16/10;">
-            <img src="assets/instument/velscope.png" alt="Oral Cancer Screening with VELscope" style="width:100%;height:100%;object-fit:cover;">
+            <img src="assets/Technology/Velscope.jpeg" alt="Oral Cancer Screening with VELscope" style="width:100%;height:100%;object-fit:contain;">
           </div>
           <div class="tech-card__content">
             <h3>Oral Cancer Screening with VELscope</h3>
@@ -1457,7 +1666,7 @@
         <div class="tech-card fade-in">
           <div class="tech-card__image-container"
             style="border-radius:var(--radius-md);overflow:hidden;aspect-ratio:16/10;">
-            <img src="assets/instument/laser.png" alt="Advanced Laser Dentistry" style="width:100%;height:100%;object-fit:cover;">
+            <img src="assets/Technology/Laser_Dentistry.jpeg" alt="Advanced Laser Dentistry" style="width:100%;height:100%;object-fit:cover;">
           </div>
           <div class="tech-card__content">
             <h3>Advanced Laser Dentistry</h3>
@@ -1472,21 +1681,21 @@
           </div>
         </div>
 
-        <!-- RVG X-ray -->
+        <!-- Endomotor -->
         <div class="tech-card fade-in">
           <div class="tech-card__image-container"
             style="border-radius:var(--radius-md);overflow:hidden;aspect-ratio:16/10;">
-            <img src="assets/instument/rvg.png" alt="Digital RVG (Radiovisiography) X-rays" style="width:100%;height:100%;object-fit:cover;">
+            <img src="assets/Technology/Endomotor.jpeg" alt="Electric Endomotor for Root Canal Therapy" style="width:100%;height:100%;object-fit:cover;">
           </div>
           <div class="tech-card__content">
-            <h3>Digital RVG (Radiovisiography) X-rays</h3>
-            <p>RVG is a digital radiography system that captures instant, high-resolution dental images using electronic sensors, with significantly lower radiation exposure compared to conventional X-rays.</p>
+            <h3>Electric Endomotor for Root Canal Therapy</h3>
+            <p>Endomotors are advanced electric rotary instruments that provide precise, controlled rotation and torque during endodontic procedures. They automatically reverse direction when encountering resistance, protecting against instrument breakage and ensuring safe, efficient pulp removal and canal preparation.</p>
             <div class="tech-card__benefit">
               <svg class="tech-card__benefit-icon" viewBox="0 0 24 24" stroke-width="2">
                 <path d="m9 12 2 2 4-4" />
                 <circle cx="12" cy="12" r="10" />
               </svg>
-              <p class="tech-card__benefit-text"><strong>Precision Benefit:</strong> Delivers immediate and accurate imaging with enhanced safety and diagnostic clarity.</p>
+              <p class="tech-card__benefit-text"><strong>Precision Benefit:</strong> Delivers consistent, controlled motion that reduces treatment time, minimises operator fatigue, and significantly improves the safety and success rate of root canal therapy.</p>
             </div>
           </div>
         </div>
@@ -1495,7 +1704,7 @@
         <div class="tech-card fade-in">
           <div class="tech-card__image-container"
             style="border-radius:var(--radius-md);overflow:hidden;aspect-ratio:16/10;">
-            <img src="assets/instument/digital.png" alt="3D Digital Impressions (Intraoral Scanning)" style="width:100%;height:100%;object-fit:cover;">
+            <img src="assets/Technology/3D_Digital.jpeg" alt="3D Digital Impressions (Intraoral Scanning)" style="width:100%;height:100%;object-fit:cover;">
           </div>
           <div class="tech-card__content">
             <h3>3D Digital Impressions (Intraoral Scanning)</h3>
@@ -1514,7 +1723,7 @@
         <div class="tech-card fade-in">
           <div class="tech-card__image-container"
             style="border-radius:var(--radius-md);overflow:hidden;aspect-ratio:16/10;">
-            <img src="assets/instument/microscopic.png" alt="Microscopic Dentistry" style="width:100%;height:100%;object-fit:cover;">
+            <img src="assets/Technology/microscopic.png" alt="Microscopic Dentistry" style="width:100%;height:100%;object-fit:cover;">
           </div>
           <div class="tech-card__content">
             <h3>Microscopic Dentistry</h3>
@@ -1533,7 +1742,7 @@
         <div class="tech-card fade-in">
           <div class="tech-card__image-container"
             style="border-radius:var(--radius-md);overflow:hidden;aspect-ratio:16/10;">
-            <img src="assets/instument/full_mouth.png" alt="Full Mouth X-Ray" style="width:100%;height:100%;object-fit:cover;">
+            <img src="assets/Technology/IOPA.jpeg" alt="Full Mouth X-Ray" style="width:100%;height:100%;object-fit:cover;">
           </div>
           <div class="tech-card__content">
             <h3>Full Mouth X-Ray (IOPA Series)</h3>
@@ -1552,7 +1761,7 @@
         <div class="tech-card fade-in">
           <div class="tech-card__image-container"
             style="border-radius:var(--radius-md);overflow:hidden;aspect-ratio:16/10;">
-            <img src="assets/instument/opg.png" alt="OPG Panoramic X-Ray" style="width:100%;height:100%;object-fit:cover;">
+            <img src="assets/Technology/OPG.png" alt="OPG Panoramic X-Ray" style="width:100%;height:100%;object-fit:cover;">
           </div>
           <div class="tech-card__content">
             <h3>OPG Orthopantomogram (Panoramic X-Ray)</h3>
@@ -2110,7 +2319,7 @@
 
   <!-- ========== CAREERS PAGE ========== -->
   <section class="page" id="page-careers">
-    <div class="section" style="padding: 4rem 1rem; background-color: #fafaf8;">
+    <div class="section" style="padding: 12rem 1rem 4rem 1rem; background-color: #fafaf8;">
       <div class="container" style="max-width: 900px;">
         <div style="line-height: 1.9; color: var(--color-text-dark);">
           <p style="font-size: 1.05rem; margin-bottom: 1.5rem;">We are attempting to build a culture of ethical, compassionate, science-driven, comprehensive and whole-body focused healthcare.</p>
@@ -2175,9 +2384,30 @@
             Vats &amp; Param – The Dentists<br>
             <span style="color: var(--color-gold); font-weight: 500;">Longevity &amp; Whole Body Focused Dentistry</span>
           </p>
+
+          <hr style="margin: 3rem 0; border: none; border-top: 1px solid #e0e0e0;">
+
+          <h2 style="font-size: 1.8rem; margin-bottom: 1.5rem; margin-top: 2.5rem;">INTERESTED? GET IN TOUCH</h2>
+
+          <p style="font-size: 1rem; margin-bottom: 2rem;">If you'd like to learn more about joining our team, we'd love to hear from you.</p>
+
+          <div style="background: white; padding: 2rem; border-radius: 12px; border: 1px solid var(--color-gold); margin-bottom: 2.5rem;">
+            <p style="font-size: 1rem; margin-bottom: 1.5rem;"><strong>Email:</strong><br><a href="mailto:happytohelp@vatsandparam.com" style="color: var(--color-gold); text-decoration: none; font-weight: 500;">happytohelp@vatsandparam.com</a></p>
+            <p style="font-size: 1rem; margin: 0;"><strong>Phone:</strong><br><a href="tel:+919900114151" style="color: var(--color-gold); text-decoration: none; font-weight: 500;">+91 9900114151</a></p>
+          </div>
         </div>
       </div>
     </div>
+    <style>
+      @media (max-width: 768px) {
+        #page-careers .section { padding: 8rem 1rem 4rem 1rem !important; }
+        #page-careers .container { max-width: 100% !important; }
+        #page-careers ul { margin-left: 1.5rem !important; }
+        #page-careers div[style*="margin-left: 2rem"] { margin-left: 1.5rem !important; }
+        #page-careers h2 { font-size: 1.4rem !important; }
+        #page-careers p { font-size: 0.95rem !important; }
+      }
+    </style>
   </section>
 
   <!-- END OF PAGES -->
@@ -2187,7 +2417,7 @@
     <div class="container">
       <div class="footer__grid">
         <div>
-          <a href="#home" class="nav__logo nav__logo--footer"
+          <a href="#about" class="nav__logo nav__logo--footer"
             style="margin-bottom:var(--space-sm);display:inline-flex;">
             <div class="nav__logo-icon-container">
               <img src="assets/logo_teeth.png" alt="Vats &amp; Param logo" class="nav__logo-img" style="width:70px;height:70px;">
@@ -2205,8 +2435,8 @@
         </div>
         <div>
           <h4 class="footer__heading">Navigation</h4>
-          <a href="#home" class="footer__link">Home</a>
-          <a href="#about" class="footer__link">About</a>
+          <a href="#about" class="footer__link">Home</a>
+          <a href="#home" class="footer__link">About</a>
           <a href="#treatments" class="footer__link">Services</a>
           <a href="#approach" class="footer__link">Our Approach</a>
           <a href="#team" class="footer__link">Team</a>
@@ -2226,7 +2456,6 @@
           <p class="footer__link">Mon – Sun: 10:00 AM – 7:00 PM</p>
           <p class="footer__link">Thursday: Closed</p>
           <p class="footer__link">Bengaluru: <a href="https://maps.google.com/?q=363,Bannerghatta+Rd,opposite+Reliance+Digital,Pai+Layout,Hulimavu,Bengaluru,Karnataka+560076" target="_blank" style="color:inherit;text-decoration:underline;">Hulimavu</a> | <a href="https://maps.google.com/?q=WH4P%2B95Q,KR+Layout,2nd+Phase,JP+Nagar,Bengaluru,Karnataka+560078" target="_blank" style="color:inherit;text-decoration:underline;">J.P Nagar</a> | <a href="https://maps.google.com/?q=83,6th+Cross+Rd,Arekere+MICO+Layout+2nd+stage,Araka+Mico+Layout,Arekere,Bengaluru,Karnataka+560076" target="_blank" style="color:inherit;text-decoration:underline;">Arekere</a></p>
-          <p class="footer__link" style="font-size: 0.75rem; margin-top: 10px; opacity: 0.7;">KSDC Registered Clinic</p>
         </div>
       </div>
       <div class="footer__socials">
@@ -2257,7 +2486,7 @@
       <!-- ===== END LEGAL ===== -->
 
       <div class="footer__bottom">
-        <span>&copy; 2026 <img src="assets/logo.png" alt="Vats &amp; Param" class="footer-brand-logo">. All rights reserved.</span>
+        <span>&copy; 2026 Vats & Param. All rights reserved.</span>
         <span>Dentistry, Reconnected to the Body</span>
       </div>
     </div>
