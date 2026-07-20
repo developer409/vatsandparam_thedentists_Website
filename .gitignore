@@ -53,6 +53,10 @@ package-lock.json
 !assets/magazine_cover/**/*.jpg
 !assets/magazine_cover/**/*.jpeg
 !assets/magazine_cover/**/*.JPG
+!assets/logo/**/*.png
+!assets/logo/**/*.jpg
+!assets/logo/**/*.jpeg
+!assets/logo/**/*.JPG
 read_log.js
 check_diff.js
 rebuild_original_css.js
