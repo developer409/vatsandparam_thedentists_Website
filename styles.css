@@ -6070,7 +6070,7 @@ p {
 }
 
 .founders-header p {
-  font-size: 1.1rem;
+  font-size: 1.6rem;
   color: var(--color-gold);
   opacity: 0.9;
 }
@@ -7787,6 +7787,10 @@ p {
   opacity: 0;
   transition: opacity 0.45s ease;
 }
+.word-reveal-active {
+  font-size: 1.8rem;
+}
+
 .word-reveal-active .word-reveal-word {
   opacity: 1;
 }
