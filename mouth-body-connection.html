@@ -313,12 +313,15 @@ body { font-family: 'Inter', sans-serif; background: var(--cream); color: var(--
 /* ── Responsive ── */
 @media (max-width: 600px) {
   .mbc-section { padding: 70px 16px 48px; }
-  .mbc-canvas  { max-width: 100%; }
+  .mbc-canvas  { max-width: 100%; display: none; }
+  .mbc-mobile-image { display: block; width: 100%; max-width: 500px; margin: 0 auto 32px; }
   .mbc-panel   { padding: 18px 20px; }
   .body-connections-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; padding: 0 16px; }
   .body-connection-title { font-size: 0.95rem; }
   .body-connection-desc { font-size: 0.7rem; }
 }
+
+.mbc-mobile-image { display: none; }
 </style>
 </head>
 <body>
@@ -342,6 +345,9 @@ body { font-family: 'Inter', sans-serif; background: var(--cream); color: var(--
     <h2 class="mbc-title">Your Mouth Speaks<br>to Your Whole Body</h2>
     <p class="mbc-intro">Oral health is not isolated. Watch how inflammation, bacteria, and imbalance travel from your mouth to affect every system.</p>
   </header>
+
+  <!-- Mobile Image Fallback -->
+  <img src="assets/our_clinic_logo/Medical_infographic.jpeg" alt="Mouth-Body Connection Infographic" class="mbc-mobile-image">
 
   <!-- Animated SVG Canvas -->
   <div class="mbc-canvas" role="img" aria-label="Body connection diagram">
