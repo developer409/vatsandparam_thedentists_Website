@@ -7817,6 +7817,13 @@ p {
 }
 
 /* ---- VIDEO STACK ---- */
+.wb-mobile-image {
+  display: none;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
 .wb-video-stack {
   position: absolute;
   inset: 0;
@@ -8369,6 +8376,14 @@ p {
 
   .wb-info-panel {
     display: none !important;
+  }
+
+  .wb-mobile-image {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto 32px !important;
+    padding: 0 16px !important;
   }
 
   .wb-organ-info {
