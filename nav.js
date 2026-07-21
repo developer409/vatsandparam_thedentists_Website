@@ -62,4 +62,36 @@
             }
         }, { passive: true });
     }
+
+    // ---- Immersive pages only (pages with [data-nav] sections, e.g. video heroes) ----
+    // Pages without [data-nav] markup (every existing treatment page) are unaffected.
+    const navThemeSections = document.querySelectorAll('[data-nav]');
+    if (nav && navThemeSections.length) {
+        // Adaptive dark/light theming based on which [data-nav] section is in view
+        const navH = nav.offsetHeight || 72;
+        const themeObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    const theme = entry.target.getAttribute('data-nav');
+                    nav.classList.remove('nav--over-dark', 'nav--over-light');
+                    nav.classList.add(theme === 'light' ? 'nav--over-light' : 'nav--over-dark');
+                }
+            });
+        }, {
+            rootMargin: '-' + navH + 'px 0px -' + (window.innerHeight - navH - 1) + 'px 0px',
+            threshold: 0
+        });
+        navThemeSections.forEach((s) => themeObserver.observe(s));
+
+        // Transparent nav at the top of the page, solid once scrolled past it
+        window.addEventListener('scroll', () => {
+            if (window.scrollY < 50) {
+                nav.classList.add('nav--transparent');
+            } else {
+                nav.classList.remove('nav--transparent');
+            }
+        }, { passive: true });
+
+        if (window.scrollY < 50) nav.classList.add('nav--transparent');
+    }
 })();

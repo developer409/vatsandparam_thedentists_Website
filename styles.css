@@ -5658,7 +5658,7 @@ p {
 
 /* STATISTICS ANIMATION SECTION */
 .stats-animation-section {
-  background: transparent;
+  background: #ffefef;
   padding: 2rem 0;
   position: relative;
   z-index: 10;

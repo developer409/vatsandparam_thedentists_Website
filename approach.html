@@ -4,10 +4,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vats &amp; Param &#8211; The Dentists | Holistic Root-Cause Dentistry</title>
+  <title>Our Approach | Vats &amp; Param &#8211; The Dentists</title>
   <meta name="description"
-    content="Premium holistic dentistry focused on root-cause diagnosis, whole-body wellness, and precision care. 40+ years combined experience.">
-  <meta property="og:title" content="Vats &amp; Param &#8211; The Dentists">
+    content="The Vats & Param Method: a systematic, evidence-based framework for root-cause focused, whole-body dental care.">
+  <meta property="og:title" content="Our Approach | Vats &amp; Param &#8211; The Dentists">
   <meta property="og:description" content="We don't just treat teeth. We treat the root cause.">
   <meta property="og:type" content="website">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,6 +16,11 @@
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <style>
+    /* #page-approach's background is only made transparent while it's the active SPA page in
+       index.html (body:has(#page-approach.active) in styles.css); here it's always the page. */
+    body { background-color: transparent !important; }
+  </style>
 </head>
 
 <body>
@@ -39,9 +44,9 @@
       <div class="nav__toggle" id="navToggle"><span></span><span></span><span></span></div>
       <div class="nav__menu" id="navMenu">
         <div class="nav__links">
-          <a href="home.html" class="nav__link active">Home</a>
+          <a href="home.html" class="nav__link">Home</a>
           <a href="about.html" class="nav__link">About Us</a>
-          <a href="approach.html" class="nav__link">Our Approach</a>
+          <a href="approach.html" class="nav__link active">Our Approach</a>
           <a href="services.html" class="nav__link">Services</a>
           <a href="technology.html" class="nav__link">Technology</a>
           <a href="team.html" class="nav__link">Team</a>
@@ -61,107 +66,232 @@
     </div>
   </nav>
 
-  <!-- ========== HOME PAGE ========== -->
-  <section id="page-home">
+  <!-- ========== APPROACH PAGE ========== -->
+  <section id="page-approach">
+    <!-- Scroll Discovery "Our Methodology" -->
     <section class="discovery-section" data-nav="dark">
       <div class="immersive-bg">
-        <video autoplay muted loop playsinline preload="metadata" class="discovery-video" id="aboutVideo"></video>
-        <button class="discovery-video-pause" id="aboutVideoPause" aria-label="Pause background video">⏸</button>
+        <video autoplay muted loop playsinline preload="metadata" class="discovery-video" id="approachVideo"></video>
+        <button class="discovery-video-pause" id="approachVideoPause" aria-label="Pause background video">⏸</button>
       </div>
 
-      <!-- Hero panel: visible on load -->
+      <!-- Methodology intro panel: visible on load, centered over video -->
       <div class="discovery-item discovery-item--centered">
         <div class="discovery-content discovery-content--hero discovery-content--visible">
-          <h3>A New Standard in Dental Care</h3>
-          <p>Founded on the belief that oral health is inseparable from overall wellness, Vats &amp; Param delivers comprehensive, personalized care with diagnostic precision for every individual.</p>
+          <span class="section-label">Our Methodology</span>
+          <h3>The Vats &amp; Param Method</h3>
+          <p>A systematic, evidence-based framework that ensures every person receives comprehensive, root-cause focused care from start to finish.</p>
         </div>
       </div>
 
-      <!-- Our Story -->
+      <!-- Extra spacer to push Step 01 further down -->
+      <div class="discovery-item discovery-item--spacer"></div>
+
       <div class="discovery-item fade-in-scroll">
         <div class="discovery-content">
-          <span class="section-label">Our Story</span>
-          <h3>Where It All Began</h3>
-          <p>Vats &amp; Param was established with a singular vision: to transform how dentistry is practiced. With over 50 years of combined clinical experience, we treat the whole person, not isolated symptoms. We are trained under standardized global protocols and continuously update our methods with the latest evidence-based research.</p>
+          <span class="section-label">Step 01</span>
+          <h3>Deep Diagnostic Discovery</h3>
+          <p>We don't just "check" your teeth. We map your entire biological state using 3D imaging and systemic analysis.</p>
         </div>
       </div>
 
-      <!-- Our Mission -->
-      <div class="discovery-item fade-in-scroll discovery-item--right">
+      <div class="discovery-item fade-in-scroll">
         <div class="discovery-content">
-          <span class="section-label">Our Mission</span>
-          <h3>Root-Cause, Not Quick-Fix</h3>
-          <p>To provide diagnostic-first, root-cause focused dental care that treats the whole person delivering lasting health, not temporary relief.</p>
+          <span class="section-label">Step 02</span>
+          <h3>Analytical Root Cause Analysis</h3>
+          <p>Our doctors spend hours analyzing the "why" behind your symptoms to ensure we're not just patching a problem.</p>
         </div>
       </div>
 
-      <!-- Core Values title -->
+      <div class="discovery-item fade-in-scroll">
+        <div class="discovery-content">
+          <span class="section-label">Step 03</span>
+          <h3>Expert Case Review</h3>
+          <p>Every complex case is reviewed by our inter-disciplinary team to design a robust, long-term health roadmap.</p>
+        </div>
+      </div>
+
+      <!-- Centred title before Assessment image cards -->
       <div class="discovery-item discovery-item--centered fade-in-scroll">
         <div class="discovery-content discovery-content--hero">
-          <span class="section-label">What Defines Us</span>
-          <h3>Our Core Values</h3>
+          <span class="section-label">The Assessment</span>
+          <h3>A Journey of Clarity</h3>
+          <p>See how we build your personalized health blueprint through visual precision.</p>
         </div>
       </div>
 
-      <!-- Core Values cards -->
+      <!-- The Assessment panels as scroll discovery items with images -->
+      <div class="discovery-item fade-in-scroll discovery-item--right">
+        <div class="discovery-content discovery-content--image-card">
+          <img src="assets/diagnostic_doctor_view_1777895615895.png" alt="Diagnostic Mapping" class="discovery-card-img">
+          <div class="discovery-card-text">
+            <span class="section-label">The Assessment</span>
+            <h3>01. Systemic Mapping</h3>
+            <p>Connecting oral findings to whole-body systems.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="discovery-item fade-in-scroll">
+        <div class="discovery-content discovery-content--image-card">
+          <img src="assets/assessment_visual_sequence_1777895884507.png" alt="Functional Analysis" class="discovery-card-img">
+          <div class="discovery-card-text">
+            <span class="section-label">The Assessment</span>
+            <h3>02. Functional Analysis</h3>
+            <p>Evaluating jaw structure, airway, and bite dynamics.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="discovery-item fade-in-scroll discovery-item--right">
+        <div class="discovery-content discovery-content--image-card">
+          <img src="assets/holistic_relief_smile_1777895539965.png" alt="The Solution" class="discovery-card-img">
+          <div class="discovery-card-text">
+            <span class="section-label">The Assessment</span>
+            <h3>03. Permanent Solutions</h3>
+            <p>Designing the roadmap to lasting whole-body health.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- The Whole Body Assessment: title own panel, points own panel -->
+      <div class="discovery-item discovery-item--centered fade-in-scroll">
+        <div class="discovery-content discovery-content--hero">
+          <span class="section-label">Clinical Evaluation</span>
+          <h3>The Whole Body Assessment</h3>
+          <p>This is not a routine dental check-up. It is a structured evaluation designed to understand how your oral condition connects to your overall health.</p>
+        </div>
+      </div>
       <div class="discovery-item discovery-item--full fade-in-scroll">
         <div class="discovery-panel-wrap">
           <div class="discovery-panel-box">
             <div class="discovery-wide-grid">
               <div class="discovery-wide-card">
                 <span class="discovery-wide-num">01</span>
-                <h4>We Start By Listening</h4>
-                <p>Before we examine your teeth, we get to know you. Your health, your experiences, your concerns, and what matters most to you. Good care begins with understanding.</p>
+                <h4>Teeth and Gums</h4>
+                <p>Detailed evaluation of structural integrity and periodontal health.</p>
               </div>
               <div class="discovery-wide-card">
                 <span class="discovery-wide-num">02</span>
-                <h4>We Walk You Through Everything</h4>
-                <p>No jargon, no assumptions. We take the time to explain what we find, why it matters, and what your options are so every decision is yours to make, fully informed.</p>
+                <h4>Bite and Jaw Function</h4>
+                <p>Analyzing how your upper and lower teeth meet and how your jaw joints function.</p>
               </div>
               <div class="discovery-wide-card">
                 <span class="discovery-wide-num">03</span>
-                <h4>We Stay With You Long After</h4>
-                <p>Our relationship doesn't end at the chair. We check in, we follow up, and we remain available because good dental care is a partnership, not a transaction.</p>
+                <h4>Airway &amp; Breathing</h4>
+                <p>Evaluating airway volume and breathing patterns that influence sleep and energy levels.</p>
+              </div>
+              <div class="discovery-wide-card">
+                <span class="discovery-wide-num">04</span>
+                <h4>Oral Microbiome</h4>
+                <p>Indicators of bacterial balance that drive inflammation and systemic health.</p>
+              </div>
+              <div class="discovery-wide-card">
+                <span class="discovery-wide-num">05</span>
+                <h4>Muscle Balance</h4>
+                <p>Mapping functional patterns of facial and neck muscles that contribute to pain.</p>
+              </div>
+              <div class="discovery-wide-card">
+                <span class="discovery-wide-num">06</span>
+                <h4>Lifestyle Factors</h4>
+                <p>Understanding habits, nutrition, and stress factors contributing to your condition.</p>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Impact title -->
+      <!-- Who This Is For: title own panel, points own panel -->
       <div class="discovery-item discovery-item--centered fade-in-scroll">
         <div class="discovery-content discovery-content--hero">
-          <span class="section-label">By the Numbers</span>
-          <h3>Our Impact</h3>
+          <span class="section-label">Who We Serve</span>
+          <h3>Who We Serve</h3>
+          <p>We specialize in helping persons who are looking for clarity and long-term health, rather than just symptom relief.</p>
         </div>
       </div>
-
-      <!-- Impact stats -->
       <div class="discovery-item discovery-item--full fade-in-scroll">
         <div class="discovery-panel-wrap">
           <div class="discovery-panel-box">
-            <div class="discovery-wide-grid discovery-wide-grid--2" id="impact-stats">
-              <div class="discovery-wide-card" style="text-align:center;">
-                <div style="font-family:var(--font-heading);font-size:2.8rem;color:var(--color-gold);line-height:1;margin-bottom:var(--space-xs);"><span class="counter-val" data-target="50">0</span>+</div>
-                <div style="font-size:var(--fs-small);color:rgba(255,255,255,0.7);">Years Clinical Experience</div>
+            <div class="discovery-wide-grid discovery-wide-grid--2">
+              <div class="discovery-wide-card">
+                <span class="discovery-wide-icon">↩</span>
+                <h4>Recurring Problems</h4>
+                <p>Persons with dental issues that keep returning despite treatment.</p>
               </div>
-              <div class="discovery-wide-card" style="text-align:center;">
-                <div style="font-family:var(--font-heading);font-size:2.8rem;color:var(--color-gold);line-height:1;margin-bottom:var(--space-xs);"><span class="counter-val" data-target="100">0</span>K+</div>
-                <div style="font-size:var(--fs-small);color:rgba(255,255,255,0.7);">Persons Treated</div>
+              <div class="discovery-wide-card">
+                <span class="discovery-wide-icon">?</span>
+                <h4>Unexplained Symptoms</h4>
+                <p>Those with headaches, fatigue, or jaw pain without a clear cause.</p>
               </div>
-              <div class="discovery-wide-card" style="text-align:center;">
-                <div style="font-family:var(--font-heading);font-size:2.8rem;color:var(--color-gold);line-height:1;margin-bottom:var(--space-xs);">High</div>
-                <div style="font-size:var(--fs-small);color:rgba(255,255,255,0.7);">Person Retention</div>
+              <div class="discovery-wide-card">
+                <span class="discovery-wide-icon">◎</span>
+                <h4>Long-term Solutions</h4>
+                <p>Individuals seeking durable health rather than temporary fixes.</p>
               </div>
-              <div class="discovery-wide-card" style="text-align:center;">
-                <div style="font-family:var(--font-heading);font-size:2.8rem;color:var(--color-gold);line-height:1;margin-bottom:var(--space-xs);"><span class="counter-val" data-target="20">0</span>+</div>
-                <div style="font-size:var(--fs-small);color:rgba(255,255,255,0.7);">Advanced Certifications</div>
+              <div class="discovery-wide-card">
+                <span class="discovery-wide-icon">✦</span>
+                <h4>System-based Care</h4>
+                <p>Those interested in preventive, whole-body health optimization.</p>
               </div>
             </div>
           </div>
         </div>
       </div>
 
+      <!-- What You Can Expect: title own panel, steps own panel -->
+      <div class="discovery-item discovery-item--centered fade-in-scroll">
+        <div class="discovery-content discovery-content--hero">
+          <span class="section-label">The Process</span>
+          <h3>What You Can Expect</h3>
+        </div>
+      </div>
+      <div class="discovery-item discovery-item--full fade-in-scroll">
+        <div class="discovery-panel-wrap discovery-panel-wrap--narrow">
+          <div class="discovery-panel-box">
+            <div class="discovery-steps">
+              <div class="discovery-step">
+                <div class="discovery-step__num">1</div>
+                <div>
+                  <h4>1. Listen</h4>
+                  <p>Understanding your story, concerns, and health goals.</p>
+                </div>
+              </div>
+              <div class="discovery-step">
+                <div class="discovery-step__num">2</div>
+                <div>
+                  <h4>2. Assess</h4>
+                  <p>Comprehensive clinical, functional, and radiographic evaluation.</p>
+                </div>
+              </div>
+              <div class="discovery-step">
+                <div class="discovery-step__num">3</div>
+                <div>
+                  <h4>3. Educate</h4>
+                  <p>Clear insights into your oral and whole-body health.</p>
+                </div>
+              </div>
+              <div class="discovery-step">
+                <div class="discovery-step__num">4</div>
+                <div>
+                  <h4>4. Plan</h4>
+                  <p>A personalized roadmap for long-term health and longevity.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Final CTA Item inside discovery-section to play video in background -->
+      <div class="discovery-item discovery-item--centered fade-in-scroll">
+        <div class="discovery-content" style="text-align: center; max-width: 600px;">
+          <h3 style="margin-bottom: var(--space-sm);">Ready to Experience Our Clinical Method?</h3>
+          <p style="margin-bottom: var(--space-lg); color: rgba(255, 255, 255, 0.85);">Schedule a comprehensive consultation and let us build your personalized care blueprint.</p>
+          <div style="display: flex; gap: var(--space-md); justify-content: center; flex-wrap: wrap; margin-top: var(--space-md);">
+            <a href="index.html#contact" class="btn btn--gold-outline">Schedule Consultation</a>
+            <a href="services.html" class="btn btn--gold-solid">Explore Our Services</a>
+          </div>
+        </div>
+      </div>
     </section>
   </section>
 
@@ -296,6 +426,6 @@
   </a>
 
   <script src="nav.js"></script>
-  <script src="assets/js/home.js"></script>
+  <script src="assets/js/approach.js"></script>
 </body>
 </html>

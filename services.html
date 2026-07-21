@@ -4,10 +4,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vats &amp; Param &#8211; The Dentists | Holistic Root-Cause Dentistry</title>
+  <title>Services | Vats &amp; Param &#8211; The Dentists</title>
   <meta name="description"
-    content="Premium holistic dentistry focused on root-cause diagnosis, whole-body wellness, and precision care. 40+ years combined experience.">
-  <meta property="og:title" content="Vats &amp; Param &#8211; The Dentists">
+    content="Comprehensive dental services at Vats & Param: assessments & diagnostics, clinical treatment specialties, functional & whole-body health, and population-based care.">
+  <meta property="og:title" content="Services | Vats &amp; Param &#8211; The Dentists">
   <meta property="og:description" content="We don't just treat teeth. We treat the root cause.">
   <meta property="og:type" content="website">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,6 +16,12 @@
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Unlike the video-hero pages (Home/About/Approach), this page isn't full-bleed behind
+       the nav — it relied on the SPA's base `.page { padding-top: var(--nav-height) }` rule,
+       which doesn't apply here since this page doesn't use the `.page` class. */
+    #page-treatments { padding-top: var(--nav-height); }
+  </style>
 </head>
 
 <body>
@@ -39,10 +45,10 @@
       <div class="nav__toggle" id="navToggle"><span></span><span></span><span></span></div>
       <div class="nav__menu" id="navMenu">
         <div class="nav__links">
-          <a href="home.html" class="nav__link active">Home</a>
+          <a href="home.html" class="nav__link">Home</a>
           <a href="about.html" class="nav__link">About Us</a>
           <a href="approach.html" class="nav__link">Our Approach</a>
-          <a href="services.html" class="nav__link">Services</a>
+          <a href="services.html" class="nav__link active">Services</a>
           <a href="technology.html" class="nav__link">Technology</a>
           <a href="team.html" class="nav__link">Team</a>
           <div class="nav__item dropdown">
@@ -61,108 +67,124 @@
     </div>
   </nav>
 
-  <!-- ========== HOME PAGE ========== -->
-  <section id="page-home">
-    <section class="discovery-section" data-nav="dark">
-      <div class="immersive-bg">
-        <video autoplay muted loop playsinline preload="metadata" class="discovery-video" id="aboutVideo"></video>
-        <button class="discovery-video-pause" id="aboutVideoPause" aria-label="Pause background video">⏸</button>
+  <!-- ========== SERVICES PAGE ========== -->
+  <section id="page-treatments">
+    <!-- Services Page Intro Animation -->
+    <div class="services-intro-wrapper" id="servicesIntro">
+      <div class="services-loader" id="servicesLoader"></div>
+      <div class="services-heading-wrapper" id="servicesHeading">
+        <h2 class="services-heading-animated">
+          <span class="word-reveal">Every</span>
+          <span class="word-reveal">person</span>
+          <span class="word-reveal">deserves</span>
+          <span class="word-reveal">root-cause</span>
+          <span class="word-reveal">care.</span>
+          <span class="word-reveal">We</span>
+          <span class="word-reveal">listen,</span>
+          <span class="word-reveal">diagnose,</span>
+          <span class="word-reveal">and</span>
+          <span class="word-reveal">heal</span>
+          <span class="word-reveal">with</span>
+          <span class="word-reveal">precision.</span>
+        </h2>
       </div>
+    </div>
+      <!-- ===== 4 FULL-SCREEN VIDEO CARDS ===== -->
+  <div class="svc-vcards services-cards-reveal">
 
-      <!-- Hero panel: visible on load -->
-      <div class="discovery-item discovery-item--centered">
-        <div class="discovery-content discovery-content--hero discovery-content--visible">
-          <h3>A New Standard in Dental Care</h3>
-          <p>Founded on the belief that oral health is inseparable from overall wellness, Vats &amp; Param delivers comprehensive, personalized care with diagnostic precision for every individual.</p>
+    <!-- CARD A: ASSESSMENTS & DIAGNOSTICS -->
+    <div class="svc-vcard">
+      <video autoplay muted loop playsinline class="svc-vcard__video">
+        <source src="assets/videos/A_Comprehensive_treatment_v2.mp4" type="video/mp4">
+      </video>
+      <div class="svc-vcard__overlay"></div>
+      <div class="svc-vcard__content">
+        <div class="svc-vcard__header">
+          <span class="svc-vcard__tag">A</span>
+          <h2 class="svc-vcard__title">Assessments &amp; Diagnostics</h2>
+        </div>
+        <p class="svc-vcard__desc">Identifying risks, conditions, and opportunities for prevention before problems develop.</p>
+        <div class="svc-vcard__pills">
+          <a href="comprehensive-oral-assessment.html" class="svc-pill">Comprehensive Oral Health Assessment</a>
+          <a href="preventive-longevity-dentistry.html" class="svc-pill">Preventive &amp; Longevity Dentistry</a>
+          <a href="oral-microbiome-diagnostics.html" class="svc-pill">Oral Microbiome &amp; Saliva Diagnostics</a>
+          <a href="oral-medicine-centre.html" class="svc-pill">Oral Medicine &amp; Oral Disease</a>
+          <a href="tobacco-cessation.html" class="svc-pill">Tobacco Cessation &amp; Oral Cancer Prevention</a>
         </div>
       </div>
+      <div class="svc-vcard__scroll-hint"><span></span></div>
+    </div>
 
-      <!-- Our Story -->
-      <div class="discovery-item fade-in-scroll">
-        <div class="discovery-content">
-          <span class="section-label">Our Story</span>
-          <h3>Where It All Began</h3>
-          <p>Vats &amp; Param was established with a singular vision: to transform how dentistry is practiced. With over 50 years of combined clinical experience, we treat the whole person, not isolated symptoms. We are trained under standardized global protocols and continuously update our methods with the latest evidence-based research.</p>
+    <!-- CARD B: CLINICAL TREATMENT SPECIALTIES -->
+    <div class="svc-vcard">
+      <video autoplay muted loop playsinline class="svc-vcard__video">
+        <source src="assets/videos/B_Clinical_Treatment_Specialities.mp4" type="video/mp4">
+      </video>
+      <div class="svc-vcard__overlay"></div>
+      <div class="svc-vcard__content">
+        <div class="svc-vcard__header">
+          <span class="svc-vcard__tag">B</span>
+          <h2 class="svc-vcard__title">Clinical Treatment Specialties</h2>
+        </div>
+        <p class="svc-vcard__desc">Precision dental treatments and rehabilitation for lasting structural health.</p>
+        <div class="svc-vcard__pills">
+          <a href="gum-treatment.html" class="svc-pill">Gum Health &amp; Periodontal Care</a>
+          <a href="orthodontics-bite-development.html" class="svc-pill">Orthodontics &amp; Bite Development</a>
+          <a href="restorative-dentistry-rehabilitation.html" class="svc-pill">Restorative &amp; Rehabilitative Dentistry</a>
+          <a href="endodontics-root-canal.html" class="svc-pill">Endodontics &amp; Root Canal Therapy</a>
+          <a href="dental-implants-replacement.html" class="svc-pill">Dental Implants &amp; Tooth Replacement</a>
+          <a href="smile-design-aesthetic.html" class="svc-pill">Smile Design &amp; Aesthetic Dentistry</a>
         </div>
       </div>
+      <div class="svc-vcard__scroll-hint"><span></span></div>
+    </div>
 
-      <!-- Our Mission -->
-      <div class="discovery-item fade-in-scroll discovery-item--right">
-        <div class="discovery-content">
-          <span class="section-label">Our Mission</span>
-          <h3>Root-Cause, Not Quick-Fix</h3>
-          <p>To provide diagnostic-first, root-cause focused dental care that treats the whole person delivering lasting health, not temporary relief.</p>
+    <!-- CARD C: FUNCTIONAL & WHOLE-BODY HEALTH -->
+    <div class="svc-vcard">
+      <video autoplay muted loop playsinline class="svc-vcard__video">
+        <source src="assets/videos/C_Functional_Whole_Body_Health.mp4" type="video/mp4">
+      </video>
+      <div class="svc-vcard__overlay"></div>
+      <div class="svc-vcard__content">
+        <div class="svc-vcard__header">
+          <span class="svc-vcard__tag">C</span>
+          <h2 class="svc-vcard__title">Functional &amp; Whole-Body Health</h2>
+        </div>
+        <p class="svc-vcard__desc">Where oral health connects to the whole body, affecting function, breathing, and systemic wellbeing.</p>
+        <div class="svc-vcard__pills">
+          <a href="bite-tmj-functional-dentistry.html" class="svc-pill">Bite, TMJ &amp; Functional Dentistry</a>
+          <a href="airway-breathing-sleep-health.html" class="svc-pill">Airway, Breathing &amp; Sleep Health</a>
+          <a href="womens-oral-health.html" class="svc-pill">Women&apos;s Oral Health</a>
+          <a href="sports-dentistry.html" class="svc-pill">Sports Dentistry &amp; Performance</a>
+          <a href="complex-medical-dentistry.html" class="svc-pill">Complex Medical &amp; Medically Integrated Dentistry</a>
         </div>
       </div>
+      <div class="svc-vcard__scroll-hint"><span></span></div>
+    </div>
 
-      <!-- Core Values title -->
-      <div class="discovery-item discovery-item--centered fade-in-scroll">
-        <div class="discovery-content discovery-content--hero">
-          <span class="section-label">What Defines Us</span>
-          <h3>Our Core Values</h3>
+    <!-- CARD D: POPULATION-BASED CARE -->
+    <div class="svc-vcard">
+      <video autoplay muted loop playsinline class="svc-vcard__video">
+        <source src="assets/videos/D_Population_Based_Care.mp4" type="video/mp4">
+      </video>
+      <div class="svc-vcard__overlay"></div>
+      <div class="svc-vcard__content">
+        <div class="svc-vcard__header">
+          <span class="svc-vcard__tag">D</span>
+          <h2 class="svc-vcard__title">Population-Based Care</h2>
+        </div>
+        <p class="svc-vcard__desc">Tailored care for every life stage, ability, and community need.</p>
+        <div class="svc-vcard__pills">
+          <a href="pediatric-dentistry.html" class="svc-pill">Children&apos;s Oral Health &amp; Development</a>
+          <a href="specially-abled-dentistry.html" class="svc-pill">Special Needs Dentistry</a>
+          <a href="senior-oral-health.html" class="svc-pill">Senior Oral Health &amp; Healthy Ageing</a>
+          <a href="home-care-dentistry.html" class="svc-pill">Home Dental Care Services</a>
+          <a href="community-oral-health.html" class="svc-pill">Community Oral Health &amp; Education Programs</a>
         </div>
       </div>
+    </div>
 
-      <!-- Core Values cards -->
-      <div class="discovery-item discovery-item--full fade-in-scroll">
-        <div class="discovery-panel-wrap">
-          <div class="discovery-panel-box">
-            <div class="discovery-wide-grid">
-              <div class="discovery-wide-card">
-                <span class="discovery-wide-num">01</span>
-                <h4>We Start By Listening</h4>
-                <p>Before we examine your teeth, we get to know you. Your health, your experiences, your concerns, and what matters most to you. Good care begins with understanding.</p>
-              </div>
-              <div class="discovery-wide-card">
-                <span class="discovery-wide-num">02</span>
-                <h4>We Walk You Through Everything</h4>
-                <p>No jargon, no assumptions. We take the time to explain what we find, why it matters, and what your options are so every decision is yours to make, fully informed.</p>
-              </div>
-              <div class="discovery-wide-card">
-                <span class="discovery-wide-num">03</span>
-                <h4>We Stay With You Long After</h4>
-                <p>Our relationship doesn't end at the chair. We check in, we follow up, and we remain available because good dental care is a partnership, not a transaction.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Impact title -->
-      <div class="discovery-item discovery-item--centered fade-in-scroll">
-        <div class="discovery-content discovery-content--hero">
-          <span class="section-label">By the Numbers</span>
-          <h3>Our Impact</h3>
-        </div>
-      </div>
-
-      <!-- Impact stats -->
-      <div class="discovery-item discovery-item--full fade-in-scroll">
-        <div class="discovery-panel-wrap">
-          <div class="discovery-panel-box">
-            <div class="discovery-wide-grid discovery-wide-grid--2" id="impact-stats">
-              <div class="discovery-wide-card" style="text-align:center;">
-                <div style="font-family:var(--font-heading);font-size:2.8rem;color:var(--color-gold);line-height:1;margin-bottom:var(--space-xs);"><span class="counter-val" data-target="50">0</span>+</div>
-                <div style="font-size:var(--fs-small);color:rgba(255,255,255,0.7);">Years Clinical Experience</div>
-              </div>
-              <div class="discovery-wide-card" style="text-align:center;">
-                <div style="font-family:var(--font-heading);font-size:2.8rem;color:var(--color-gold);line-height:1;margin-bottom:var(--space-xs);"><span class="counter-val" data-target="100">0</span>K+</div>
-                <div style="font-size:var(--fs-small);color:rgba(255,255,255,0.7);">Persons Treated</div>
-              </div>
-              <div class="discovery-wide-card" style="text-align:center;">
-                <div style="font-family:var(--font-heading);font-size:2.8rem;color:var(--color-gold);line-height:1;margin-bottom:var(--space-xs);">High</div>
-                <div style="font-size:var(--fs-small);color:rgba(255,255,255,0.7);">Person Retention</div>
-              </div>
-              <div class="discovery-wide-card" style="text-align:center;">
-                <div style="font-family:var(--font-heading);font-size:2.8rem;color:var(--color-gold);line-height:1;margin-bottom:var(--space-xs);"><span class="counter-val" data-target="20">0</span>+</div>
-                <div style="font-size:var(--fs-small);color:rgba(255,255,255,0.7);">Advanced Certifications</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </section>
+  </div><!-- /svc-vcards -->
   </section>
 
   <!-- ========== FOOTER ========== -->
@@ -296,6 +318,6 @@
   </a>
 
   <script src="nav.js"></script>
-  <script src="assets/js/home.js"></script>
+  <script src="assets/js/services.js"></script>
 </body>
 </html>

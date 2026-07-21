@@ -4,10 +4,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vats &amp; Param &#8211; The Dentists | Holistic Root-Cause Dentistry</title>
+  <title>Our Technology | Vats &amp; Param &#8211; The Dentists</title>
   <meta name="description"
-    content="Premium holistic dentistry focused on root-cause diagnosis, whole-body wellness, and precision care. 40+ years combined experience.">
-  <meta property="og:title" content="Vats &amp; Param &#8211; The Dentists">
+    content="Precision through advanced technology: VELscope oral cancer screening, TMJ imaging, laser dentistry, digital impressions, microscopic dentistry, and more at Vats & Param.">
+  <meta property="og:title" content="Our Technology | Vats &amp; Param &#8211; The Dentists">
   <meta property="og:description" content="We don't just treat teeth. We treat the root cause.">
   <meta property="og:type" content="website">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,6 +16,11 @@
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <style>
+    /* This page relied on the SPA's base `.page { padding-top: var(--nav-height) }` rule,
+       which doesn't apply here since this page doesn't use the `.page` class. */
+    #page-technology { padding-top: var(--nav-height); }
+  </style>
 </head>
 
 <body>
@@ -39,11 +44,11 @@
       <div class="nav__toggle" id="navToggle"><span></span><span></span><span></span></div>
       <div class="nav__menu" id="navMenu">
         <div class="nav__links">
-          <a href="home.html" class="nav__link active">Home</a>
+          <a href="home.html" class="nav__link">Home</a>
           <a href="about.html" class="nav__link">About Us</a>
           <a href="approach.html" class="nav__link">Our Approach</a>
           <a href="services.html" class="nav__link">Services</a>
-          <a href="technology.html" class="nav__link">Technology</a>
+          <a href="technology.html" class="nav__link active">Technology</a>
           <a href="team.html" class="nav__link">Team</a>
           <div class="nav__item dropdown">
             <a href="#" class="nav__link dropdown-toggle">Resources</a>
@@ -61,108 +66,172 @@
     </div>
   </nav>
 
-  <!-- ========== HOME PAGE ========== -->
-  <section id="page-home">
-    <section class="discovery-section" data-nav="dark">
-      <div class="immersive-bg">
-        <video autoplay muted loop playsinline preload="metadata" class="discovery-video" id="aboutVideo"></video>
-        <button class="discovery-video-pause" id="aboutVideoPause" aria-label="Pause background video">⏸</button>
+  <!-- ========== TECHNOLOGY PAGE ========== -->
+  <section id="page-technology">
+    <div class="page-header">
+      <div class="container">
+        <span class="section-label">Our Technology</span>
+        <h1>Precision Through Advanced Technology</h1>
+        <p>We invest in diagnostic and treatment technology that serves a clear clinical purpose — enhancing accuracy,
+          safety, and patient outcomes.</p>
       </div>
-
-      <!-- Hero panel: visible on load -->
-      <div class="discovery-item discovery-item--centered">
-        <div class="discovery-content discovery-content--hero discovery-content--visible">
-          <h3>A New Standard in Dental Care</h3>
-          <p>Founded on the belief that oral health is inseparable from overall wellness, Vats &amp; Param delivers comprehensive, personalized care with diagnostic precision for every individual.</p>
-        </div>
-      </div>
-
-      <!-- Our Story -->
-      <div class="discovery-item fade-in-scroll">
-        <div class="discovery-content">
-          <span class="section-label">Our Story</span>
-          <h3>Where It All Began</h3>
-          <p>Vats &amp; Param was established with a singular vision: to transform how dentistry is practiced. With over 50 years of combined clinical experience, we treat the whole person, not isolated symptoms. We are trained under standardized global protocols and continuously update our methods with the latest evidence-based research.</p>
-        </div>
-      </div>
-
-      <!-- Our Mission -->
-      <div class="discovery-item fade-in-scroll discovery-item--right">
-        <div class="discovery-content">
-          <span class="section-label">Our Mission</span>
-          <h3>Root-Cause, Not Quick-Fix</h3>
-          <p>To provide diagnostic-first, root-cause focused dental care that treats the whole person delivering lasting health, not temporary relief.</p>
-        </div>
-      </div>
-
-      <!-- Core Values title -->
-      <div class="discovery-item discovery-item--centered fade-in-scroll">
-        <div class="discovery-content discovery-content--hero">
-          <span class="section-label">What Defines Us</span>
-          <h3>Our Core Values</h3>
-        </div>
-      </div>
-
-      <!-- Core Values cards -->
-      <div class="discovery-item discovery-item--full fade-in-scroll">
-        <div class="discovery-panel-wrap">
-          <div class="discovery-panel-box">
-            <div class="discovery-wide-grid">
-              <div class="discovery-wide-card">
-                <span class="discovery-wide-num">01</span>
-                <h4>We Start By Listening</h4>
-                <p>Before we examine your teeth, we get to know you. Your health, your experiences, your concerns, and what matters most to you. Good care begins with understanding.</p>
-              </div>
-              <div class="discovery-wide-card">
-                <span class="discovery-wide-num">02</span>
-                <h4>We Walk You Through Everything</h4>
-                <p>No jargon, no assumptions. We take the time to explain what we find, why it matters, and what your options are so every decision is yours to make, fully informed.</p>
-              </div>
-              <div class="discovery-wide-card">
-                <span class="discovery-wide-num">03</span>
-                <h4>We Stay With You Long After</h4>
-                <p>Our relationship doesn't end at the chair. We check in, we follow up, and we remain available because good dental care is a partnership, not a transaction.</p>
-              </div>
+    </div>
+    <div class="section">
+      <div class="container">
+        <!-- VELscope -->
+        <div class="tech-card fade-in">
+          <div class="tech-card__image-container"
+            style="border-radius:var(--radius-md);overflow:hidden;aspect-ratio:16/10;">
+            <img src="assets/Technology/Velscope.jpeg" alt="Oral Cancer Screening with VELscope" style="width:100%;height:100%;object-fit:contain;">
+          </div>
+          <div class="tech-card__content">
+            <h3>Oral Cancer Screening with VELscope</h3>
+            <p>VELscope is a fluorescence-based diagnostic device used to detect abnormal changes in oral tissues that may not be visible under standard lighting. It helps in identifying early signs of precancerous and cancerous lesions.</p>
+            <div class="tech-card__benefit">
+              <svg class="tech-card__benefit-icon" viewBox="0 0 24 24" stroke-width="2">
+                <path d="m9 12 2 2 4-4" />
+                <circle cx="12" cy="12" r="10" />
+              </svg>
+              <p class="tech-card__benefit-text"><strong>Precision Benefit:</strong> Enables early detection of abnormal tissue changes, improving chances of timely diagnosis and treatment.</p>
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- Impact title -->
-      <div class="discovery-item discovery-item--centered fade-in-scroll">
-        <div class="discovery-content discovery-content--hero">
-          <span class="section-label">By the Numbers</span>
-          <h3>Our Impact</h3>
-        </div>
-      </div>
-
-      <!-- Impact stats -->
-      <div class="discovery-item discovery-item--full fade-in-scroll">
-        <div class="discovery-panel-wrap">
-          <div class="discovery-panel-box">
-            <div class="discovery-wide-grid discovery-wide-grid--2" id="impact-stats">
-              <div class="discovery-wide-card" style="text-align:center;">
-                <div style="font-family:var(--font-heading);font-size:2.8rem;color:var(--color-gold);line-height:1;margin-bottom:var(--space-xs);"><span class="counter-val" data-target="50">0</span>+</div>
-                <div style="font-size:var(--fs-small);color:rgba(255,255,255,0.7);">Years Clinical Experience</div>
-              </div>
-              <div class="discovery-wide-card" style="text-align:center;">
-                <div style="font-family:var(--font-heading);font-size:2.8rem;color:var(--color-gold);line-height:1;margin-bottom:var(--space-xs);"><span class="counter-val" data-target="100">0</span>K+</div>
-                <div style="font-size:var(--fs-small);color:rgba(255,255,255,0.7);">Persons Treated</div>
-              </div>
-              <div class="discovery-wide-card" style="text-align:center;">
-                <div style="font-family:var(--font-heading);font-size:2.8rem;color:var(--color-gold);line-height:1;margin-bottom:var(--space-xs);">High</div>
-                <div style="font-size:var(--fs-small);color:rgba(255,255,255,0.7);">Person Retention</div>
-              </div>
-              <div class="discovery-wide-card" style="text-align:center;">
-                <div style="font-family:var(--font-heading);font-size:2.8rem;color:var(--color-gold);line-height:1;margin-bottom:var(--space-xs);"><span class="counter-val" data-target="20">0</span>+</div>
-                <div style="font-size:var(--fs-small);color:rgba(255,255,255,0.7);">Advanced Certifications</div>
-              </div>
+        <!-- TMJ X-ray -->
+        <div class="tech-card fade-in">
+          <div class="tech-card__image-container"
+            style="border-radius:var(--radius-md);overflow:hidden;aspect-ratio:16/10;">
+            <img src="assets/instument/TMJ.png" alt="TMJ (Temporomandibular Joint) Imaging" style="width:100%;height:100%;object-fit:cover;">
+          </div>
+          <div class="tech-card__content">
+            <h3>TMJ (Temporomandibular Joint) Imaging</h3>
+            <p>TMJ X-rays evaluate the jaw joint’s structure, position, and movement. They are used to diagnose conditions such as joint dysfunction, pain, clicking, or restricted jaw movement.</p>
+            <div class="tech-card__benefit">
+              <svg class="tech-card__benefit-icon" viewBox="0 0 24 24" stroke-width="2">
+                <path d="m9 12 2 2 4-4" />
+                <circle cx="12" cy="12" r="10" />
+              </svg>
+              <p class="tech-card__benefit-text"><strong>Precision Benefit:</strong> Provides accurate assessment of joint abnormalities, supporting precise diagnosis and targeted treatment planning.</p>
             </div>
           </div>
         </div>
-      </div>
 
-    </section>
+        <!-- Laser Dentistry -->
+        <div class="tech-card fade-in">
+          <div class="tech-card__image-container"
+            style="border-radius:var(--radius-md);overflow:hidden;aspect-ratio:16/10;">
+            <img src="assets/Technology/Laser_Dentistry.jpeg" alt="Advanced Laser Dentistry" style="width:100%;height:100%;object-fit:cover;">
+          </div>
+          <div class="tech-card__content">
+            <h3>Advanced Laser Dentistry</h3>
+            <p>Laser technology is used for minimally invasive dental procedures involving both soft and hard tissues, including gum treatments and cavity management.</p>
+            <div class="tech-card__benefit">
+              <svg class="tech-card__benefit-icon" viewBox="0 0 24 24" stroke-width="2">
+                <path d="m9 12 2 2 4-4" />
+                <circle cx="12" cy="12" r="10" />
+              </svg>
+              <p class="tech-card__benefit-text"><strong>Precision Benefit:</strong> Allows highly controlled treatment with minimal damage to surrounding tissues, reducing discomfort and healing time.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Endomotor -->
+        <div class="tech-card fade-in">
+          <div class="tech-card__image-container"
+            style="border-radius:var(--radius-md);overflow:hidden;aspect-ratio:16/10;">
+            <img src="assets/Technology/Endomotor.jpeg" alt="Electric Endomotor for Root Canal Therapy" style="width:100%;height:100%;object-fit:cover;">
+          </div>
+          <div class="tech-card__content">
+            <h3>Electric Endomotor for Root Canal Therapy</h3>
+            <p>Endomotors are advanced electric rotary instruments that provide precise, controlled rotation and torque during endodontic procedures. They automatically reverse direction when encountering resistance, protecting against instrument breakage and ensuring safe, efficient pulp removal and canal preparation.</p>
+            <div class="tech-card__benefit">
+              <svg class="tech-card__benefit-icon" viewBox="0 0 24 24" stroke-width="2">
+                <path d="m9 12 2 2 4-4" />
+                <circle cx="12" cy="12" r="10" />
+              </svg>
+              <p class="tech-card__benefit-text"><strong>Precision Benefit:</strong> Delivers consistent, controlled motion that reduces treatment time, minimises operator fatigue, and significantly improves the safety and success rate of root canal therapy.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Digital Impression -->
+        <div class="tech-card fade-in">
+          <div class="tech-card__image-container"
+            style="border-radius:var(--radius-md);overflow:hidden;aspect-ratio:16/10;">
+            <img src="assets/Technology/3D_Digital.jpeg" alt="3D Digital Impressions (Intraoral Scanning)" style="width:100%;height:100%;object-fit:cover;">
+          </div>
+          <div class="tech-card__content">
+            <h3>3D Digital Impressions (Intraoral Scanning)</h3>
+            <p>Digital impression systems use intraoral scanners to create precise 3D models of teeth and oral structures, eliminating the need for traditional impression materials.</p>
+            <div class="tech-card__benefit">
+              <svg class="tech-card__benefit-icon" viewBox="0 0 24 24" stroke-width="2">
+                <path d="m9 12 2 2 4-4" />
+                <circle cx="12" cy="12" r="10" />
+              </svg>
+              <p class="tech-card__benefit-text"><strong>Precision Benefit:</strong> Ensures high accuracy in restorations and treatment planning, improving fit, comfort, and overall outcomes.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Microscopic Dentistry -->
+        <div class="tech-card fade-in">
+          <div class="tech-card__image-container"
+            style="border-radius:var(--radius-md);overflow:hidden;aspect-ratio:16/10;">
+            <img src="assets/Technology/microscopic.png" alt="Microscopic Dentistry" style="width:100%;height:100%;object-fit:cover;">
+          </div>
+          <div class="tech-card__content">
+            <h3>Microscopic Dentistry</h3>
+            <p>Dental operating microscopes provide powerful magnification and illumination that allow our dentists to see and work at a level of detail invisible to the naked eye transforming the precision of every procedure.</p>
+            <div class="tech-card__benefit">
+              <svg class="tech-card__benefit-icon" viewBox="0 0 24 24" stroke-width="2">
+                <path d="m9 12 2 2 4-4" />
+                <circle cx="12" cy="12" r="10" />
+              </svg>
+              <p class="tech-card__benefit-text"><strong>Precision Benefit:</strong> Dramatically improves accuracy in root canals, crown preparations, and fine restorative work minimising errors and preserving more healthy tooth structure.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Full Mouth X-ray -->
+        <div class="tech-card fade-in">
+          <div class="tech-card__image-container"
+            style="border-radius:var(--radius-md);overflow:hidden;aspect-ratio:16/10;">
+            <img src="assets/Technology/IOPA.jpeg" alt="Full Mouth X-Ray" style="width:100%;height:100%;object-fit:cover;">
+          </div>
+          <div class="tech-card__content">
+            <h3>Full Mouth X-Ray (IOPA Series)</h3>
+            <p>A full mouth series consists of multiple intraoral periapical X-rays that together provide a complete view of all teeth crowns, roots, and surrounding bone in a single diagnostic session.</p>
+            <div class="tech-card__benefit">
+              <svg class="tech-card__benefit-icon" viewBox="0 0 24 24" stroke-width="2">
+                <path d="m9 12 2 2 4-4" />
+                <circle cx="12" cy="12" r="10" />
+              </svg>
+              <p class="tech-card__benefit-text"><strong>Precision Benefit:</strong> Delivers a comprehensive baseline record of the entire dentition, enabling detection of hidden decay, bone loss, root pathology, and early periodontal changes.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- OPG -->
+        <div class="tech-card fade-in">
+          <div class="tech-card__image-container"
+            style="border-radius:var(--radius-md);overflow:hidden;aspect-ratio:16/10;">
+            <img src="assets/Technology/OPG.png" alt="OPG Panoramic X-Ray" style="width:100%;height:100%;object-fit:cover;">
+          </div>
+          <div class="tech-card__content">
+            <h3>OPG Orthopantomogram (Panoramic X-Ray)</h3>
+            <p>An OPG is a single wide-view panoramic X-ray that captures the entire jaw — upper and lower teeth, both joints, sinuses, and surrounding bone in one image taken from outside the mouth.</p>
+            <div class="tech-card__benefit">
+              <svg class="tech-card__benefit-icon" viewBox="0 0 24 24" stroke-width="2">
+                <path d="m9 12 2 2 4-4" />
+                <circle cx="12" cy="12" r="10" />
+              </svg>
+              <p class="tech-card__benefit-text"><strong>Precision Benefit:</strong> Provides a broad overview of jaw structure, impacted teeth, cysts, and TMJ alignment essential for treatment planning implants, orthodontics, and oral surgery.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
   </section>
 
   <!-- ========== FOOTER ========== -->
@@ -296,6 +365,6 @@
   </a>
 
   <script src="nav.js"></script>
-  <script src="assets/js/home.js"></script>
+  <script src="assets/js/technology.js"></script>
 </body>
 </html>
