@@ -1,6 +1,37 @@
 (function () {
     'use strict';
 
+    // ---- Splash Screen (Mobile) ----
+    var splashScreen = document.getElementById('splashScreen');
+
+    // Word-by-word animation for splash text
+    function wrapWordsInSpans(elementId) {
+        var element = document.getElementById(elementId);
+        if (!element) return;
+
+        var text = element.textContent;
+        var words = text.split(' ');
+        element.innerHTML = words.map(function (word) { return '<span class="word">' + word + '</span>'; }).join(' ');
+    }
+
+    wrapWordsInSpans('splashTitle');
+    wrapWordsInSpans('splashSubtitle');
+    wrapWordsInSpans('splashTagline');
+
+    if (splashScreen && window.innerWidth <= 768) {
+        // Hide splash screen after 3 seconds (to let all animations complete)
+        setTimeout(function () {
+            splashScreen.classList.add('hidden');
+        }, 3000);
+    } else if (splashScreen) {
+        // Hide immediately on desktop
+        splashScreen.classList.add('hidden');
+    }
+})();
+
+(function () {
+    'use strict';
+
     // ---- Background video: viewport-appropriate source + autoplay ----
     var video = document.getElementById('aboutVideo');
     if (video) {

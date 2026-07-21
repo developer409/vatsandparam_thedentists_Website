@@ -4,10 +4,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vats &amp; Param &#8211; The Dentists | Holistic Root-Cause Dentistry</title>
+  <title>League of Dentists | Vats &amp; Param &#8211; The Dentists</title>
   <meta name="description"
-    content="Premium holistic dentistry focused on root-cause diagnosis, whole-body wellness, and precision care. 40+ years combined experience.">
-  <meta property="og:title" content="Vats &amp; Param &#8211; The Dentists">
+    content="League of Dentists: a structured professional mentorship initiative bridging dental education and real-world clinical success, founded by Dr. Srivats Bharadwaj and Dr. Paramjot Kaur.">
+  <meta property="og:title" content="League of Dentists | Vats &amp; Param &#8211; The Dentists">
   <meta property="og:description" content="We don't just treat teeth. We treat the root cause.">
   <meta property="og:type" content="website">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,26 +16,21 @@
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <style>
+    /* This page relied on the SPA's base `.page { padding-top: var(--nav-height) }` rule,
+       which doesn't apply here since this page doesn't use the `.page` class. */
+    #page-education { padding-top: var(--nav-height); }
+  </style>
 </head>
 
 <body>
 
-  <!-- ========== SPLASH SCREEN (Mobile Only) ========== -->
-  <div id="splashScreen" class="splash-screen">
-    <div class="splash-screen__content">
-      <img src="assets/logo_teeth.png" alt="Vats & Param" class="splash-screen__logo">
-      <h1 class="splash-screen__title" id="splashTitle">Vats & Param</h1>
-      <p class="splash-screen__subtitle" id="splashSubtitle">THE DENTISTS</p>
-      <p class="splash-screen__tagline" id="splashTagline">Longevity & Whole-Body Focused Dentistry</p>
-    </div>
-  </div>
-
   <!-- ========== NAVIGATION ========== -->
   <nav class="nav" id="mainNav">
     <div class="nav__inner">
-      <a href="home.html" class="nav__logo" data-page="home">
+      <a href="home.html" class="nav__logo">
         <div class="nav__logo-icon-container">
-          <img src="assets/logo_teeth.png" alt="Vats & Param logo" class="nav__logo-img">
+          <img src="assets/logo_teeth.png" alt="Vats &amp; Param logo" class="nav__logo-img">
         </div>
         <div class="nav__logo-text">
           Vats &amp; Param
@@ -44,42 +39,35 @@
             <span>The Dentists</span>
             <span class="logo-line"></span>
           </div>
-          <p class="nav__logo-tagline">Longevity &amp; Whole-Body Focused Dentistry.</p>
         </div>
       </a>
       <div class="nav__toggle" id="navToggle"><span></span><span></span><span></span></div>
       <div class="nav__menu" id="navMenu">
-        <button class="nav__close" id="navClose" aria-label="Close menu">✕</button>
         <div class="nav__links">
-          <a href="home.html" class="nav__link active" data-page="home">Home</a>
-          <a href="about.html" class="nav__link" data-page="about">About Us</a>
-
-          <a href="approach.html" class="nav__link" data-page="approach">Our Approach</a>
-          <a href="services.html" class="nav__link" data-page="treatments">Services</a>
-          <a href="technology.html" class="nav__link" data-page="technology">Technology</a>
-
-          <a href="team.html" class="nav__link" data-page="team">Team</a>
-
-          <!-- Resources Dropdown -->
+          <a href="home.html" class="nav__link">Home</a>
+          <a href="about.html" class="nav__link">About Us</a>
+          <a href="approach.html" class="nav__link">Our Approach</a>
+          <a href="services.html" class="nav__link">Services</a>
+          <a href="technology.html" class="nav__link">Technology</a>
+          <a href="team.html" class="nav__link">Team</a>
           <div class="nav__item dropdown">
             <a href="#" class="nav__link dropdown-toggle">Resources</a>
             <div class="dropdown-menu">
-              <a href="education.html" class="dropdown-item" data-page="education">Education</a>
-              <a href="testimonials.html" class="dropdown-item" data-page="testimonials">Testimonials</a>
+              <a href="education.html" class="dropdown-item active">Education</a>
+              <a href="testimonials.html" class="dropdown-item">Testimonials</a>
               <a href="achievements.html" class="dropdown-item">Achievements</a>
               <a href="blog.html" class="dropdown-item">Blog</a>
             </div>
           </div>
-
-          <a href="careers.html" class="nav__link" data-page="careers">Careers</a>
-          <a href="contact.html" class="nav__link" data-page="contact">Contact</a>
+          <a href="careers.html" class="nav__link">Careers</a>
+          <a href="contact.html" class="nav__link">Contact</a>
         </div>
       </div>
     </div>
   </nav>
 
   <!-- ========== EDUCATION PAGE ========== -->
-  <section class="page" id="page-education">
+  <section id="page-education">
     <div class="page-header">
       <div class="container">
         <span class="section-label">Education</span>
@@ -90,7 +78,6 @@
 
     <!-- ======================================================
          LEAGUE OF DENTISTS – Professional Mentorship Initiative
-         Modular subsection. Can be extracted to its own page.
          ====================================================== -->
     <div class="lod-section section section--alt" id="league-of-dentists">
       <div class="container">
@@ -408,308 +395,6 @@
 
   </section>
 
-  <!-- ========== TESTIMONIALS PAGE ========== -->
-  <section class="page" id="page-testimonials" data-nav="light">
-    <div class="page-header">
-      <div class="container">
-        <span class="section-label">Testimonials</span>
-        <h1>What Our Patients Say</h1>
-        <p>Real experiences from leaders, professionals, and families who trust our holistic approach.</p>
-      </div>
-    </div>
-    <div class="section">
-      <div class="container">
-        <div class="grid-2 fade-in" style="gap:var(--space-xl);">
-          <div class="testimonial-card">
-            <svg class="testimonial-card__quote-icon" viewBox="0 0 24 24" fill="currentColor">
-              <path
-                d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z" />
-              <path
-                d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z" />
-            </svg>
-            <p class="testimonial-card__text">"The diagnostic depth here gave me confidence that my treatment addressed
-              the real cause, not just the symptom. My oral health has never been better."</p>
-            <div class="testimonial-card__author">
-              <div class="testimonial-card__avatar">JS</div>
-              <div>
-                <div class="testimonial-card__name">Jaya S., Bengaluru</div>
-                <div class="testimonial-card__title">Tech Entrepreneur</div>
-              </div>
-            </div>
-          </div>
-          <div class="testimonial-card">
-            <svg class="testimonial-card__quote-icon" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z" />
-              <path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z" />
-            </svg>
-            <p class="testimonial-card__text">"Their preventive monitoring plan has kept me ahead of potential issues. I
-              feel proactive about my health now."</p>
-            <div class="testimonial-card__author">
-              <div class="testimonial-card__avatar">LM</div>
-              <div>
-                <div class="testimonial-card__name">Lakshmi M., Bengaluru</div>
-                <div class="testimonial-card__title">Healthcare Executive</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="testimonial-card">
-            <svg class="testimonial-card__quote-icon" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z" />
-              <path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z" />
-            </svg>
-            <p class="testimonial-card__text">"Vats &amp; Param are easily the best dentists in Bangalore. Dr Srivats and Dr Param are very passionate about what they do, and they literally go out of their way in caring for their patients. I would highly recommend Vats &amp; Param for any dental concerns!"</p>
-            <div class="testimonial-card__author">
-              <div class="testimonial-card__avatar">AB</div>
-              <div>
-                <div class="testimonial-card__name">Adarsh Balachandran</div>
-                <div class="testimonial-card__title">Patient</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="testimonial-card">
-            <svg class="testimonial-card__quote-icon" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z" />
-              <path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z" />
-            </svg>
-            <p class="testimonial-card__text">"I have known Dr. Srivats from Vats and Param clinic for over 15 years. He's not only a very experienced and reputed dentist but also a good friend to his patients. He explains the problem and proposed treatment in detail and makes sure you are comfortable with the approach. He checks-in with you throughout the journey and is available 24/7. The entire team is very professional and friendly. Highly recommend."</p>
-            <div class="testimonial-card__author">
-              <div class="testimonial-card__avatar">SS</div>
-              <div>
-                <div class="testimonial-card__name">Sabitha S</div>
-                <div class="testimonial-card__title">Patient</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="testimonial-card">
-            <svg class="testimonial-card__quote-icon" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z" />
-              <path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z" />
-            </svg>
-            <p class="testimonial-card__text">"Dr Srivats and Dr Param are the best dentists I have ever come across. In today's world where the healthcare industry is under a dark cloud of doubt from a patient's perspective, I find both of them genuine and honest in their approach. I am happy to have sought their services and wish them all the best!"</p>
-            <div class="testimonial-card__author">
-              <div class="testimonial-card__avatar">GK</div>
-              <div>
-                <div class="testimonial-card__name">Gaurav Kalra</div>
-                <div class="testimonial-card__title">Patient</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="testimonial-card">
-            <svg class="testimonial-card__quote-icon" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z" />
-              <path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z" />
-            </svg>
-            <p class="testimonial-card__text">"Dr Srivats and team are the most efficient dentists we've ever come across. Their approach is patient centric and the most advanced technology is available right here near us. I can't thank Dr. Srivats and his team enough for making my dentist's trip a great one!"</p>
-            <div class="testimonial-card__author">
-              <div class="testimonial-card__avatar">AM</div>
-              <div>
-                <div class="testimonial-card__name">Anuradha Madyalkar</div>
-                <div class="testimonial-card__title">Patient</div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== CONTACT PAGE ========== -->
-  <section class="page" id="page-contact">
-    <div class="page-header">
-      <div class="container">
-        <span class="section-label">Contact</span>
-        <h1>Get in Touch</h1>
-        <p>We’re ready to discuss your personalized care plan. Fill out the form or reach us directly.</p>
-      </div>
-    </div>
-    <div class="section">
-      <div class="container">
-        <div class="grid-2 fade-in" style="align-items:start;">
-          <div class="contact-form">
-            <form id="contactForm">
-              <div class="form-group">
-                <label class="form-label" for="name">Name</label>
-                <input class="form-input" type="text" id="name" name="name" required />
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="email">Email</label>
-                <input class="form-input" type="email" id="email" name="email" required />
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="phone">Phone</label>
-                <input class="form-input" type="tel" id="phone" name="phone" />
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="message">Message</label>
-                <textarea class="form-textarea" id="message" name="message" rows="5" required></textarea>
-              </div>
-              <button type="submit" class="btn btn--primary">Send Message</button>
-            </form>
-            <div class="form-success" id="formSuccess">
-              <svg viewBox="0 0 24 24" fill="none" stroke="#C6A75E" stroke-width="2">
-                <path d="M5 13l4 4L19 7" />
-              </svg>
-              <p>Thank you! Your message has been sent.</p>
-            </div>
-          </div>
-          <div class="contact-grid">
-            <div class="locations-list">
-              <div class="location-item active" data-lat="12.8732" data-lng="77.6015"
-                data-map="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3889.3752!2d77.5991!3d12.8687!2m3!1f45!2f45!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae15082121300b%3A0x67a07994fa40b8a4!2sBannerghatta%20Rd%2C%20Hulimavu%2C%20Bengaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1709540000001!5m2!1sen!2sin">
-                <div class="location-item__header">
-                  <svg viewBox="0 0 24 24" stroke-width="2">
-                    <path d="M21 10c0 6-9 13-9 13s-9-7-9-13a9 9 0 1 1 18 0z" />
-                  </svg>
-                  <h4>Hulimavu Clinic</h4>
-                </div>
-                <p>363, Bannerghatta Main Road opposite Reliance Digital. Pai Layout, Hulimavu, Bengaluru 560076</p>
-                <div class="location-item__contact">
-                  <a href="tel:+919900114151" style="color: inherit; text-decoration: none;">+91 9900114151</a>
-                </div>
-              </div>
-
-              <div class="location-item" data-lat="12.9156" data-lng="77.5928"
-                data-map="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.7516!2d77.5904!3d12.9101!2m3!1f45!2f45!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae150d15555555%3A0xbb5555555555!2sJP%20Nagar%202nd%20Phase%2C%20Bengaluru!5e0!3m2!1sen!2sin!4v1709540000002!5m2!1sen!2sin">
-                <div class="location-item__header">
-                  <svg viewBox="0 0 24 24" stroke-width="2">
-                    <path d="M21 10c0 6-9 13-9 13s-9-7-9-13a9 9 0 1 1 18 0z" />
-                  </svg>
-                  <h4>J.P Nagar Branch</h4>
-                </div>
-                <p>KR Layout, 2nd Phase, J. P. Nagar, Bengaluru 560078</p>
-                <div class="location-item__contact">
-                  <a href="tel:+919900114151" style="color: inherit; text-decoration: none;">+91 9900114151</a>
-                </div>
-              </div>
-
-              <div class="location-item" data-lat="12.8718" data-lng="77.6033"
-                data-map="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3889.37!2d77.6009!3d12.8688!2m3!1f45!2f45!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae15a13328e19b%3A0xf64a755dd35a8cd1!2sVatsalya%20Dental%20clinic!5e0!3m2!1sen!2sin!4v1709540000003!5m2!1sen!2sin">
-                <div class="location-item__header">
-                  <svg viewBox="0 0 24 24" stroke-width="2">
-                    <path d="M21 10c0 6-9 13-9 13s-9-7-9-13a9 9 0 1 1 18 0z" />
-                  </svg>
-                  <h4>Arekere Clinic</h4>
-                </div>
-                <p>83, 6th Cross Rd, Arekere MICO Layout 2nd stage, Bengaluru 560076</p>
-                <div class="location-item__contact">
-                  <a href="tel:+919900114151" style="color: inherit; text-decoration: none;">+91 9900114151</a>
-                </div>
-              </div>
-            </div>
-
-            <div class="map-view">
-              <div class="map-container" id="contactMapContainer">
-                <iframe id="contactMap"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3889.3752!2d77.5991!3d12.8687!2m3!1f45!2f45!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae15082121300b%3A0x67a07994fa40b8a4!2sBannerghatta%20Rd%2C%20Hulimavu%2C%20Bengaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1709540000001!5m2!1sen!2sin"
-                  allowfullscreen="" loading="lazy"></iframe>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== CAREERS PAGE ========== -->
-  <section class="page" id="page-careers">
-    <div class="section" style="padding: 12rem 1rem 4rem 1rem; background-color: #fafaf8;">
-      <div class="container" style="max-width: 900px;">
-        <div style="line-height: 1.9; color: var(--color-text-dark);">
-          <p style="font-size: 1.05rem; margin-bottom: 1.5rem;">We are attempting to build a culture of ethical, compassionate, science-driven, comprehensive and whole-body focused healthcare.</p>
-
-          <p style="font-size: 1.05rem; margin-bottom: 1.5rem;">Our approach to dentistry goes beyond procedures alone. We value:</p>
-
-          <ul style="font-size: 1rem; margin-bottom: 2rem; margin-left: 2rem;">
-            <li style="margin-bottom: 0.75rem;">Thoughtful diagnosis and comprehensive treatment planning.</li>
-            <li style="margin-bottom: 0.75rem;">Strong communication and healthy patient conversations.</li>
-            <li style="margin-bottom: 0.75rem;">Prevention, education and long-term thinking.</li>
-            <li style="margin-bottom: 0.75rem;">Respect, empathy and patient dignity.</li>
-            <li style="margin-bottom: 0.75rem;">Documentation, hygiene, systems and professional discipline.</li>
-            <li style="margin-bottom: 0.75rem;">Continuous learning and professional growth.</li>
-          </ul>
-
-          <p style="font-size: 1.05rem; margin-bottom: 1.5rem;">We believe the mouth is connected to the rest of health, and where relevant, we encourage broader thinking around prevention, function, lifestyle, oral-systemic understanding and long-term wellbeing.</p>
-
-          <div style="background: white; padding: 2.5rem; border-radius: 12px; border-left: 4px solid var(--color-gold); margin-bottom: 2.5rem;">
-            <p style="font-size: 1rem; margin: 0; line-height: 1.8;">
-              <strong>At Vats &amp; Param, communication is not separate from dentistry — it is part of dentistry.</strong><br><br>
-              <strong>Documentation is not paperwork — it is professionalism.</strong><br><br>
-              <strong>Learning is not optional — it is part of growth.</strong>
-            </p>
-          </div>
-
-          <h2 style="font-size: 1.8rem; margin-bottom: 1.5rem; margin-top: 2.5rem;">WHAT WE LOOK FOR</h2>
-
-          <p style="font-size: 1rem; margin-bottom: 1.5rem;">We are not necessarily looking for "finished" doctors. We are looking for doctors who demonstrate:</p>
-
-          <div style="margin-bottom: 2.5rem; margin-left: 2rem;">
-            <p style="font-size: 1rem; margin-bottom: 0.75rem;"><strong>✔ Curiosity and willingness to learn.</strong></p>
-            <p style="font-size: 1rem; margin-bottom: 0.75rem;"><strong>✔ Compassion and strong human values.</strong></p>
-            <p style="font-size: 1rem; margin-bottom: 0.75rem;"><strong>✔ Professional maturity and accountability.</strong></p>
-            <p style="font-size: 1rem; margin-bottom: 0.75rem;"><strong>✔ Respect for systems, hygiene and documentation.</strong></p>
-            <p style="font-size: 1rem; margin-bottom: 0.75rem;"><strong>✔ Good communication and patient-centred thinking.</strong></p>
-            <p style="font-size: 1rem; margin-bottom: 0.75rem;"><strong>✔ Openness to mentorship, feedback and continuous improvement.</strong></p>
-          </div>
-
-          <p style="font-size: 1rem; margin-bottom: 2.5rem;"><em>Technical skills matter. Character, mindset and teachability matter deeply too.</em></p>
-
-          <h2 style="font-size: 1.8rem; margin-bottom: 1.5rem; margin-top: 2.5rem;">WHAT YOU CAN EXPECT FROM US</h2>
-
-          <p style="font-size: 1rem; margin-bottom: 1.5rem;">If you join us, you can expect:</p>
-
-          <ul style="font-size: 1rem; margin-bottom: 2.5rem; margin-left: 2rem;">
-            <li style="margin-bottom: 0.75rem;">Mentorship and guidance.</li>
-            <li style="margin-bottom: 0.75rem;">Exposure to comprehensive and whole-body focused dentistry.</li>
-            <li style="margin-bottom: 0.75rem;">Development in diagnosis, communication and systems thinking.</li>
-            <li style="margin-bottom: 0.75rem;">Honest feedback and structured growth.</li>
-            <li style="margin-bottom: 0.75rem;">A respectful culture focused on learning, professionalism and long-term development.</li>
-          </ul>
-
-          <p style="font-size: 1rem; margin-bottom: 1.5rem;"><strong>This environment may not suit everyone.</strong></p>
-
-          <p style="font-size: 1rem; margin-bottom: 2.5rem;">But if you are looking for more than "just a job" — if you are seeking growth, purpose, mentorship, challenge and meaningful healthcare culture — this conversation may be worth having.</p>
-
-          <p style="font-size: 1.05rem; margin-bottom: 2.5rem; font-weight: 500;">We look forward to meeting you.</p>
-
-          <p style="font-size: 1rem; line-height: 1.8;">
-            Warm regards,<br>
-            <strong>Dr. Srivats Bharadwaj &amp; Dr. Paramjot Kaur</strong><br>
-            Vats &amp; Param – The Dentists<br>
-            <span style="color: var(--color-gold); font-weight: 500;">Longevity &amp; Whole Body Focused Dentistry</span>
-          </p>
-
-          <hr style="margin: 3rem 0; border: none; border-top: 1px solid #e0e0e0;">
-
-          <h2 style="font-size: 1.8rem; margin-bottom: 1.5rem; margin-top: 2.5rem;">INTERESTED? GET IN TOUCH</h2>
-
-          <p style="font-size: 1rem; margin-bottom: 2rem;">If you'd like to learn more about joining our team, we'd love to hear from you.</p>
-
-          <div style="background: white; padding: 2rem; border-radius: 12px; border: 1px solid var(--color-gold); margin-bottom: 2.5rem;">
-            <p style="font-size: 1rem; margin-bottom: 1.5rem;"><strong>Email:</strong><br><a href="mailto:happytohelp@vatsandparam.com" style="color: var(--color-gold); text-decoration: none; font-weight: 500;">happytohelp@vatsandparam.com</a></p>
-            <p style="font-size: 1rem; margin: 0;"><strong>Phone:</strong><br><a href="tel:+919900114151" style="color: var(--color-gold); text-decoration: none; font-weight: 500;">+91 9900114151</a></p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <style>
-      @media (max-width: 768px) {
-        #page-careers .section { padding: 8rem 1rem 4rem 1rem !important; }
-        #page-careers .container { max-width: 100% !important; }
-        #page-careers ul { margin-left: 1.5rem !important; }
-        #page-careers div[style*="margin-left: 2rem"] { margin-left: 1.5rem !important; }
-        #page-careers h2 { font-size: 1.4rem !important; }
-        #page-careers p { font-size: 0.95rem !important; }
-      }
-    </style>
-  </section>
-
-  <!-- END OF PAGES -->
-
   <!-- ========== FOOTER ========== -->
   <footer class="footer" id="mainFooter">
     <div class="container">
@@ -748,7 +433,7 @@
           <a href="contact.html" class="footer__link">Contact</a>
         </div>
         <div>
-          <h4 class="footer__heading">Contact & Timings</h4>
+          <h4 class="footer__heading">Contact &amp; Timings</h4>
           <p class="footer__link"><a href="mailto:happytohelp@vatsandparam.com" style="color: inherit; text-decoration: none;">happytohelp@vatsandparam.com</a></p>
           <p class="footer__link"><a href="tel:+919900114151" style="color: inherit; text-decoration: none;">+91 9900114151</a></p>
           <p class="footer__link">Mon – Sun: 10:00 AM – 7:00 PM</p>
@@ -784,7 +469,7 @@
       <!-- ===== END LEGAL ===== -->
 
       <div class="footer__bottom">
-        <span>&copy; 2026 Vats & Param. All rights reserved.</span>
+        <span>&copy; 2026 Vats &amp; Param. All rights reserved.</span>
         <span>Dentistry, Reconnected to the Body</span>
       </div>
     </div>
@@ -840,75 +525,7 @@
     </svg>
   </a>
 
-
-
-  <script src="app.js"></script>
-  <script>
-    // Dropdown menu toggle functionality
-    (function() {
-      const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
-
-      dropdownToggles.forEach(toggle => {
-        toggle.addEventListener('click', function(e) {
-          e.preventDefault();
-          const dropdown = this.closest('.nav__item');
-          const isActive = dropdown.classList.contains('active');
-
-          // Close all other dropdowns
-          document.querySelectorAll('.nav__item.dropdown.active').forEach(item => {
-            if (item !== dropdown) {
-              item.classList.remove('active');
-            }
-          });
-
-          // Toggle current dropdown
-          dropdown.classList.toggle('active');
-        });
-      });
-
-      // Close dropdowns when clicking outside
-      document.addEventListener('click', function(e) {
-        if (!e.target.closest('.nav__item.dropdown')) {
-          document.querySelectorAll('.nav__item.dropdown.active').forEach(item => {
-            item.classList.remove('active');
-          });
-        }
-      });
-    })();
-
-    // Adaptive navbar — changes based on section background
-    (function() {
-      var nav = document.getElementById('mainNav');
-      if (!nav) return;
-
-      var sections = document.querySelectorAll('[data-nav]');
-      if (!sections.length) return;
-
-      var navH = nav.offsetHeight || 72;
-
-      var observer = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry) {
-          if (entry.isIntersecting) {
-            var theme = entry.target.getAttribute('data-nav');
-            nav.classList.remove('nav--over-dark', 'nav--over-light');
-            nav.classList.add(theme === 'light' ? 'nav--over-light' : 'nav--over-dark');
-          }
-        });
-      }, {
-        rootMargin: '-' + navH + 'px 0px -' + (window.innerHeight - navH - 1) + 'px 0px',
-        threshold: 0
-      });
-
-      sections.forEach(function(s) { observer.observe(s); });
-    })();
-
-  </script>
-
+  <script src="nav.js"></script>
+  <script src="assets/js/education.js"></script>
 </body>
-
 </html>
-
-
-
-
-

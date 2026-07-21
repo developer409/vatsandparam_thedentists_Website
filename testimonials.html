@@ -4,10 +4,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Our Approach | Vats &amp; Param &#8211; The Dentists</title>
+  <title>Testimonials | Vats &amp; Param &#8211; The Dentists</title>
   <meta name="description"
-    content="The Vats & Param Method: a systematic, evidence-based framework for root-cause focused, whole-body dental care.">
-  <meta property="og:title" content="Our Approach | Vats &amp; Param &#8211; The Dentists">
+    content="Real experiences from leaders, professionals, and families who trust the holistic, root-cause approach at Vats & Param.">
+  <meta property="og:title" content="Testimonials | Vats &amp; Param &#8211; The Dentists">
   <meta property="og:description" content="We don't just treat teeth. We treat the root cause.">
   <meta property="og:type" content="website">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,9 +17,9 @@
     rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <style>
-    /* #page-approach's background is only made transparent while it's the active SPA page in
-       index.html (body:has(#page-approach.active) in styles.css); here it's always the page. */
-    body { background-color: transparent !important; }
+    /* This page relied on the SPA's base `.page { padding-top: var(--nav-height) }` rule,
+       which doesn't apply here since this page doesn't use the `.page` class. */
+    #page-testimonials { padding-top: var(--nav-height); }
   </style>
 </head>
 
@@ -46,7 +46,7 @@
         <div class="nav__links">
           <a href="home.html" class="nav__link">Home</a>
           <a href="about.html" class="nav__link">About Us</a>
-          <a href="approach.html" class="nav__link active">Our Approach</a>
+          <a href="approach.html" class="nav__link">Our Approach</a>
           <a href="services.html" class="nav__link">Services</a>
           <a href="technology.html" class="nav__link">Technology</a>
           <a href="team.html" class="nav__link">Team</a>
@@ -54,7 +54,7 @@
             <a href="#" class="nav__link dropdown-toggle">Resources</a>
             <div class="dropdown-menu">
               <a href="education.html" class="dropdown-item">Education</a>
-              <a href="testimonials.html" class="dropdown-item">Testimonials</a>
+              <a href="testimonials.html" class="dropdown-item active">Testimonials</a>
               <a href="achievements.html" class="dropdown-item">Achievements</a>
               <a href="blog.html" class="dropdown-item">Blog</a>
             </div>
@@ -66,233 +66,114 @@
     </div>
   </nav>
 
-  <!-- ========== APPROACH PAGE ========== -->
-  <section id="page-approach">
-    <!-- Scroll Discovery "Our Methodology" -->
-    <section class="discovery-section" data-nav="dark">
-      <div class="immersive-bg">
-        <video autoplay muted loop playsinline preload="metadata" class="discovery-video" id="approachVideo"></video>
-        <button class="discovery-video-pause" id="approachVideoPause" aria-label="Pause background video">⏸</button>
+  <!-- ========== TESTIMONIALS PAGE ========== -->
+  <section id="page-testimonials" data-nav="light">
+    <div class="page-header">
+      <div class="container">
+        <span class="section-label">Testimonials</span>
+        <h1>What Our Patients Say</h1>
+        <p>Real experiences from leaders, professionals, and families who trust our holistic approach.</p>
       </div>
-
-      <!-- Methodology intro panel: visible on load, centered over video -->
-      <div class="discovery-item discovery-item--centered">
-        <div class="discovery-content discovery-content--hero discovery-content--visible">
-          <span class="section-label">Our Methodology</span>
-          <h3>The Vats &amp; Param Method</h3>
-          <p>A systematic, evidence-based framework that ensures every person receives comprehensive, root-cause focused care from start to finish.</p>
-        </div>
-      </div>
-
-      <!-- Extra spacer to push Step 01 further down -->
-      <div class="discovery-item discovery-item--spacer"></div>
-
-      <div class="discovery-item fade-in-scroll">
-        <div class="discovery-content">
-          <span class="section-label">Step 01</span>
-          <h3>Deep Diagnostic Discovery</h3>
-          <p>We don't just "check" your teeth. We map your entire biological state using 3D imaging and systemic analysis.</p>
-        </div>
-      </div>
-
-      <div class="discovery-item fade-in-scroll">
-        <div class="discovery-content">
-          <span class="section-label">Step 02</span>
-          <h3>Analytical Root Cause Analysis</h3>
-          <p>Our doctors spend hours analyzing the "why" behind your symptoms to ensure we're not just patching a problem.</p>
-        </div>
-      </div>
-
-      <div class="discovery-item fade-in-scroll">
-        <div class="discovery-content">
-          <span class="section-label">Step 03</span>
-          <h3>Expert Case Review</h3>
-          <p>Every complex case is reviewed by our inter-disciplinary team to design a robust, long-term health roadmap.</p>
-        </div>
-      </div>
-
-      <!-- Centred title before Assessment image cards -->
-      <div class="discovery-item discovery-item--centered fade-in-scroll">
-        <div class="discovery-content discovery-content--hero">
-          <span class="section-label">The Assessment</span>
-          <h3>A Journey of Clarity</h3>
-          <p>See how we build your personalized health blueprint through visual precision.</p>
-        </div>
-      </div>
-
-      <!-- The Assessment panels as scroll discovery items with images -->
-      <div class="discovery-item fade-in-scroll discovery-item--right">
-        <div class="discovery-content discovery-content--image-card">
-          <img src="assets/diagnostic_doctor_view_1777895615895.png" alt="Diagnostic Mapping" class="discovery-card-img">
-          <div class="discovery-card-text">
-            <span class="section-label">The Assessment</span>
-            <h3>01. Systemic Mapping</h3>
-            <p>Connecting oral findings to whole-body systems.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="discovery-item fade-in-scroll">
-        <div class="discovery-content discovery-content--image-card">
-          <img src="assets/assessment_visual_sequence_1777895884507.png" alt="Functional Analysis" class="discovery-card-img">
-          <div class="discovery-card-text">
-            <span class="section-label">The Assessment</span>
-            <h3>02. Functional Analysis</h3>
-            <p>Evaluating jaw structure, airway, and bite dynamics.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="discovery-item fade-in-scroll discovery-item--right">
-        <div class="discovery-content discovery-content--image-card">
-          <img src="assets/holistic_relief_smile_1777895539965.png" alt="The Solution" class="discovery-card-img">
-          <div class="discovery-card-text">
-            <span class="section-label">The Assessment</span>
-            <h3>03. Permanent Solutions</h3>
-            <p>Designing the roadmap to lasting whole-body health.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- The Whole Body Assessment: title own panel, points own panel -->
-      <div class="discovery-item discovery-item--centered fade-in-scroll">
-        <div class="discovery-content discovery-content--hero">
-          <span class="section-label">Clinical Evaluation</span>
-          <h3>The Whole Body Assessment</h3>
-          <p>This is not a routine dental check-up. It is a structured evaluation designed to understand how your oral condition connects to your overall health.</p>
-        </div>
-      </div>
-      <div class="discovery-item discovery-item--full fade-in-scroll">
-        <div class="discovery-panel-wrap">
-          <div class="discovery-panel-box">
-            <div class="discovery-wide-grid">
-              <div class="discovery-wide-card">
-                <span class="discovery-wide-num">01</span>
-                <h4>Teeth and Gums</h4>
-                <p>Detailed evaluation of structural integrity and periodontal health.</p>
-              </div>
-              <div class="discovery-wide-card">
-                <span class="discovery-wide-num">02</span>
-                <h4>Bite and Jaw Function</h4>
-                <p>Analyzing how your upper and lower teeth meet and how your jaw joints function.</p>
-              </div>
-              <div class="discovery-wide-card">
-                <span class="discovery-wide-num">03</span>
-                <h4>Airway &amp; Breathing</h4>
-                <p>Evaluating airway volume and breathing patterns that influence sleep and energy levels.</p>
-              </div>
-              <div class="discovery-wide-card">
-                <span class="discovery-wide-num">04</span>
-                <h4>Oral Microbiome</h4>
-                <p>Indicators of bacterial balance that drive inflammation and systemic health.</p>
-              </div>
-              <div class="discovery-wide-card">
-                <span class="discovery-wide-num">05</span>
-                <h4>Muscle Balance</h4>
-                <p>Mapping functional patterns of facial and neck muscles that contribute to pain.</p>
-              </div>
-              <div class="discovery-wide-card">
-                <span class="discovery-wide-num">06</span>
-                <h4>Lifestyle Factors</h4>
-                <p>Understanding habits, nutrition, and stress factors contributing to your condition.</p>
+    </div>
+    <div class="section">
+      <div class="container">
+        <div class="grid-2 fade-in" style="gap:var(--space-xl);">
+          <div class="testimonial-card">
+            <svg class="testimonial-card__quote-icon" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z" />
+              <path
+                d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z" />
+            </svg>
+            <p class="testimonial-card__text">"The diagnostic depth here gave me confidence that my treatment addressed
+              the real cause, not just the symptom. My oral health has never been better."</p>
+            <div class="testimonial-card__author">
+              <div class="testimonial-card__avatar">JS</div>
+              <div>
+                <div class="testimonial-card__name">Jaya S., Bengaluru</div>
+                <div class="testimonial-card__title">Tech Entrepreneur</div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
-
-      <!-- Who This Is For: title own panel, points own panel -->
-      <div class="discovery-item discovery-item--centered fade-in-scroll">
-        <div class="discovery-content discovery-content--hero">
-          <span class="section-label">Who We Serve</span>
-          <h3>Who We Serve</h3>
-          <p>We specialize in helping persons who are looking for clarity and long-term health, rather than just symptom relief.</p>
-        </div>
-      </div>
-      <div class="discovery-item discovery-item--full fade-in-scroll">
-        <div class="discovery-panel-wrap">
-          <div class="discovery-panel-box">
-            <div class="discovery-wide-grid discovery-wide-grid--2">
-              <div class="discovery-wide-card">
-                <span class="discovery-wide-icon">↩</span>
-                <h4>Recurring Problems</h4>
-                <p>Persons with dental issues that keep returning despite treatment.</p>
-              </div>
-              <div class="discovery-wide-card">
-                <span class="discovery-wide-icon">?</span>
-                <h4>Unexplained Symptoms</h4>
-                <p>Those with headaches, fatigue, or jaw pain without a clear cause.</p>
-              </div>
-              <div class="discovery-wide-card">
-                <span class="discovery-wide-icon">◎</span>
-                <h4>Long-term Solutions</h4>
-                <p>Individuals seeking durable health rather than temporary fixes.</p>
-              </div>
-              <div class="discovery-wide-card">
-                <span class="discovery-wide-icon">✦</span>
-                <h4>System-based Care</h4>
-                <p>Those interested in preventive, whole-body health optimization.</p>
+          <div class="testimonial-card">
+            <svg class="testimonial-card__quote-icon" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z" />
+              <path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z" />
+            </svg>
+            <p class="testimonial-card__text">"Their preventive monitoring plan has kept me ahead of potential issues. I
+              feel proactive about my health now."</p>
+            <div class="testimonial-card__author">
+              <div class="testimonial-card__avatar">LM</div>
+              <div>
+                <div class="testimonial-card__name">Lakshmi M., Bengaluru</div>
+                <div class="testimonial-card__title">Healthcare Executive</div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
 
-      <!-- What You Can Expect: title own panel, steps own panel -->
-      <div class="discovery-item discovery-item--centered fade-in-scroll">
-        <div class="discovery-content discovery-content--hero">
-          <span class="section-label">The Process</span>
-          <h3>What You Can Expect</h3>
-        </div>
-      </div>
-      <div class="discovery-item discovery-item--full fade-in-scroll">
-        <div class="discovery-panel-wrap discovery-panel-wrap--narrow">
-          <div class="discovery-panel-box">
-            <div class="discovery-steps">
-              <div class="discovery-step">
-                <div class="discovery-step__num">1</div>
-                <div>
-                  <h4>1. Listen</h4>
-                  <p>Understanding your story, concerns, and health goals.</p>
-                </div>
-              </div>
-              <div class="discovery-step">
-                <div class="discovery-step__num">2</div>
-                <div>
-                  <h4>2. Assess</h4>
-                  <p>Comprehensive clinical, functional, and radiographic evaluation.</p>
-                </div>
-              </div>
-              <div class="discovery-step">
-                <div class="discovery-step__num">3</div>
-                <div>
-                  <h4>3. Educate</h4>
-                  <p>Clear insights into your oral and whole-body health.</p>
-                </div>
-              </div>
-              <div class="discovery-step">
-                <div class="discovery-step__num">4</div>
-                <div>
-                  <h4>4. Plan</h4>
-                  <p>A personalized roadmap for long-term health and longevity.</p>
-                </div>
+          <div class="testimonial-card">
+            <svg class="testimonial-card__quote-icon" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z" />
+              <path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z" />
+            </svg>
+            <p class="testimonial-card__text">"Vats &amp; Param are easily the best dentists in Bangalore. Dr Srivats and Dr Param are very passionate about what they do, and they literally go out of their way in caring for their patients. I would highly recommend Vats &amp; Param for any dental concerns!"</p>
+            <div class="testimonial-card__author">
+              <div class="testimonial-card__avatar">AB</div>
+              <div>
+                <div class="testimonial-card__name">Adarsh Balachandran</div>
+                <div class="testimonial-card__title">Patient</div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
-      <!-- Final CTA Item inside discovery-section to play video in background -->
-      <div class="discovery-item discovery-item--centered fade-in-scroll">
-        <div class="discovery-content" style="text-align: center; max-width: 600px;">
-          <h3 style="margin-bottom: var(--space-sm);">Ready to Experience Our Clinical Method?</h3>
-          <p style="margin-bottom: var(--space-lg); color: rgba(255, 255, 255, 0.85);">Schedule a comprehensive consultation and let us build your personalized care blueprint.</p>
-          <div style="display: flex; gap: var(--space-md); justify-content: center; flex-wrap: wrap; margin-top: var(--space-md);">
-            <a href="contact.html" class="btn btn--gold-outline">Schedule Consultation</a>
-            <a href="services.html" class="btn btn--gold-solid">Explore Our Services</a>
+
+          <div class="testimonial-card">
+            <svg class="testimonial-card__quote-icon" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z" />
+              <path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z" />
+            </svg>
+            <p class="testimonial-card__text">"I have known Dr. Srivats from Vats and Param clinic for over 15 years. He's not only a very experienced and reputed dentist but also a good friend to his patients. He explains the problem and proposed treatment in detail and makes sure you are comfortable with the approach. He checks-in with you throughout the journey and is available 24/7. The entire team is very professional and friendly. Highly recommend."</p>
+            <div class="testimonial-card__author">
+              <div class="testimonial-card__avatar">SS</div>
+              <div>
+                <div class="testimonial-card__name">Sabitha S</div>
+                <div class="testimonial-card__title">Patient</div>
+              </div>
+            </div>
           </div>
+
+          <div class="testimonial-card">
+            <svg class="testimonial-card__quote-icon" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z" />
+              <path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z" />
+            </svg>
+            <p class="testimonial-card__text">"Dr Srivats and Dr Param are the best dentists I have ever come across. In today's world where the healthcare industry is under a dark cloud of doubt from a patient's perspective, I find both of them genuine and honest in their approach. I am happy to have sought their services and wish them all the best!"</p>
+            <div class="testimonial-card__author">
+              <div class="testimonial-card__avatar">GK</div>
+              <div>
+                <div class="testimonial-card__name">Gaurav Kalra</div>
+                <div class="testimonial-card__title">Patient</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <svg class="testimonial-card__quote-icon" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z" />
+              <path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z" />
+            </svg>
+            <p class="testimonial-card__text">"Dr Srivats and team are the most efficient dentists we've ever come across. Their approach is patient centric and the most advanced technology is available right here near us. I can't thank Dr. Srivats and his team enough for making my dentist's trip a great one!"</p>
+            <div class="testimonial-card__author">
+              <div class="testimonial-card__avatar">AM</div>
+              <div>
+                <div class="testimonial-card__name">Anuradha Madyalkar</div>
+                <div class="testimonial-card__title">Patient</div>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
-    </section>
+    </div>
   </section>
 
   <!-- ========== FOOTER ========== -->
@@ -426,6 +307,6 @@
   </a>
 
   <script src="nav.js"></script>
-  <script src="assets/js/approach.js"></script>
+  <script src="assets/js/testimonials.js"></script>
 </body>
 </html>

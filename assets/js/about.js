@@ -3,7 +3,7 @@
 
     // ---- Hero word animation (mobile only) - preserves bold tags ----
     if (window.innerWidth <= 768) {
-        let globalIndex = 0;
+        var globalIndex = 0;
         document.querySelectorAll('.hero-word-animate').forEach(function (para) {
             var nodes = Array.from(para.childNodes);
             var result = '';
@@ -41,7 +41,7 @@
                     rects.forEach(function (rect, i) {
                         setTimeout(function () {
                             rect.style.cssText += '; transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.25,0.46,0.45,0.94) !important; opacity: 1 !important; transform: translateX(0) !important;';
-                        }, 2000 + (i * 400));
+                        }, 100 + (i * 200));
                     });
                 });
             });

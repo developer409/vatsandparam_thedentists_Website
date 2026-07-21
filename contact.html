@@ -4,10 +4,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Our Approach | Vats &amp; Param &#8211; The Dentists</title>
+  <title>Contact | Vats &amp; Param &#8211; The Dentists</title>
   <meta name="description"
-    content="The Vats & Param Method: a systematic, evidence-based framework for root-cause focused, whole-body dental care.">
-  <meta property="og:title" content="Our Approach | Vats &amp; Param &#8211; The Dentists">
+    content="Get in touch with Vats & Param. Fill out the form or reach us directly at our Hulimavu, J.P Nagar, or Arekere clinics in Bengaluru.">
+  <meta property="og:title" content="Contact | Vats &amp; Param &#8211; The Dentists">
   <meta property="og:description" content="We don't just treat teeth. We treat the root cause.">
   <meta property="og:type" content="website">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,9 +17,9 @@
     rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <style>
-    /* #page-approach's background is only made transparent while it's the active SPA page in
-       index.html (body:has(#page-approach.active) in styles.css); here it's always the page. */
-    body { background-color: transparent !important; }
+    /* This page relied on the SPA's base `.page { padding-top: var(--nav-height) }` rule,
+       which doesn't apply here since this page doesn't use the `.page` class. */
+    #page-contact { padding-top: var(--nav-height); }
   </style>
 </head>
 
@@ -46,7 +46,7 @@
         <div class="nav__links">
           <a href="home.html" class="nav__link">Home</a>
           <a href="about.html" class="nav__link">About Us</a>
-          <a href="approach.html" class="nav__link active">Our Approach</a>
+          <a href="approach.html" class="nav__link">Our Approach</a>
           <a href="services.html" class="nav__link">Services</a>
           <a href="technology.html" class="nav__link">Technology</a>
           <a href="team.html" class="nav__link">Team</a>
@@ -60,239 +60,107 @@
             </div>
           </div>
           <a href="careers.html" class="nav__link">Careers</a>
-          <a href="contact.html" class="nav__link">Contact</a>
+          <a href="contact.html" class="nav__link active">Contact</a>
         </div>
       </div>
     </div>
   </nav>
 
-  <!-- ========== APPROACH PAGE ========== -->
-  <section id="page-approach">
-    <!-- Scroll Discovery "Our Methodology" -->
-    <section class="discovery-section" data-nav="dark">
-      <div class="immersive-bg">
-        <video autoplay muted loop playsinline preload="metadata" class="discovery-video" id="approachVideo"></video>
-        <button class="discovery-video-pause" id="approachVideoPause" aria-label="Pause background video">⏸</button>
+  <!-- ========== CONTACT PAGE ========== -->
+  <section id="page-contact">
+    <div class="page-header">
+      <div class="container">
+        <span class="section-label">Contact</span>
+        <h1>Get in Touch</h1>
+        <p>We’re ready to discuss your personalized care plan. Fill out the form or reach us directly.</p>
       </div>
-
-      <!-- Methodology intro panel: visible on load, centered over video -->
-      <div class="discovery-item discovery-item--centered">
-        <div class="discovery-content discovery-content--hero discovery-content--visible">
-          <span class="section-label">Our Methodology</span>
-          <h3>The Vats &amp; Param Method</h3>
-          <p>A systematic, evidence-based framework that ensures every person receives comprehensive, root-cause focused care from start to finish.</p>
-        </div>
-      </div>
-
-      <!-- Extra spacer to push Step 01 further down -->
-      <div class="discovery-item discovery-item--spacer"></div>
-
-      <div class="discovery-item fade-in-scroll">
-        <div class="discovery-content">
-          <span class="section-label">Step 01</span>
-          <h3>Deep Diagnostic Discovery</h3>
-          <p>We don't just "check" your teeth. We map your entire biological state using 3D imaging and systemic analysis.</p>
-        </div>
-      </div>
-
-      <div class="discovery-item fade-in-scroll">
-        <div class="discovery-content">
-          <span class="section-label">Step 02</span>
-          <h3>Analytical Root Cause Analysis</h3>
-          <p>Our doctors spend hours analyzing the "why" behind your symptoms to ensure we're not just patching a problem.</p>
-        </div>
-      </div>
-
-      <div class="discovery-item fade-in-scroll">
-        <div class="discovery-content">
-          <span class="section-label">Step 03</span>
-          <h3>Expert Case Review</h3>
-          <p>Every complex case is reviewed by our inter-disciplinary team to design a robust, long-term health roadmap.</p>
-        </div>
-      </div>
-
-      <!-- Centred title before Assessment image cards -->
-      <div class="discovery-item discovery-item--centered fade-in-scroll">
-        <div class="discovery-content discovery-content--hero">
-          <span class="section-label">The Assessment</span>
-          <h3>A Journey of Clarity</h3>
-          <p>See how we build your personalized health blueprint through visual precision.</p>
-        </div>
-      </div>
-
-      <!-- The Assessment panels as scroll discovery items with images -->
-      <div class="discovery-item fade-in-scroll discovery-item--right">
-        <div class="discovery-content discovery-content--image-card">
-          <img src="assets/diagnostic_doctor_view_1777895615895.png" alt="Diagnostic Mapping" class="discovery-card-img">
-          <div class="discovery-card-text">
-            <span class="section-label">The Assessment</span>
-            <h3>01. Systemic Mapping</h3>
-            <p>Connecting oral findings to whole-body systems.</p>
+    </div>
+    <div class="section">
+      <div class="container">
+        <div class="grid-2 fade-in" style="align-items:start;">
+          <div class="contact-form">
+            <form id="contactForm">
+              <div class="form-group">
+                <label class="form-label" for="name">Name</label>
+                <input class="form-input" type="text" id="name" name="name" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="email">Email</label>
+                <input class="form-input" type="email" id="email" name="email" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="phone">Phone</label>
+                <input class="form-input" type="tel" id="phone" name="phone" />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="message">Message</label>
+                <textarea class="form-textarea" id="message" name="message" rows="5" required></textarea>
+              </div>
+              <button type="submit" class="btn btn--primary">Send Message</button>
+            </form>
+            <div class="form-success" id="formSuccess">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#C6A75E" stroke-width="2">
+                <path d="M5 13l4 4L19 7" />
+              </svg>
+              <p>Thank you! Your message has been sent.</p>
+            </div>
           </div>
-        </div>
-      </div>
+          <div class="contact-grid">
+            <div class="locations-list">
+              <div class="location-item active" data-lat="12.8732" data-lng="77.6015"
+                data-map="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3889.3752!2d77.5991!3d12.8687!2m3!1f45!2f45!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae15082121300b%3A0x67a07994fa40b8a4!2sBannerghatta%20Rd%2C%20Hulimavu%2C%20Bengaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1709540000001!5m2!1sen!2sin">
+                <div class="location-item__header">
+                  <svg viewBox="0 0 24 24" stroke-width="2">
+                    <path d="M21 10c0 6-9 13-9 13s-9-7-9-13a9 9 0 1 1 18 0z" />
+                  </svg>
+                  <h4>Hulimavu Clinic</h4>
+                </div>
+                <p>363, Bannerghatta Main Road opposite Reliance Digital. Pai Layout, Hulimavu, Bengaluru 560076</p>
+                <div class="location-item__contact">
+                  <a href="tel:+919900114151" style="color: inherit; text-decoration: none;">+91 9900114151</a>
+                </div>
+              </div>
 
-      <div class="discovery-item fade-in-scroll">
-        <div class="discovery-content discovery-content--image-card">
-          <img src="assets/assessment_visual_sequence_1777895884507.png" alt="Functional Analysis" class="discovery-card-img">
-          <div class="discovery-card-text">
-            <span class="section-label">The Assessment</span>
-            <h3>02. Functional Analysis</h3>
-            <p>Evaluating jaw structure, airway, and bite dynamics.</p>
-          </div>
-        </div>
-      </div>
+              <div class="location-item" data-lat="12.9156" data-lng="77.5928"
+                data-map="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.7516!2d77.5904!3d12.9101!2m3!1f45!2f45!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae150d15555555%3A0xbb5555555555!2sJP%20Nagar%202nd%20Phase%2C%20Bengaluru!5e0!3m2!1sen!2sin!4v1709540000002!5m2!1sen!2sin">
+                <div class="location-item__header">
+                  <svg viewBox="0 0 24 24" stroke-width="2">
+                    <path d="M21 10c0 6-9 13-9 13s-9-7-9-13a9 9 0 1 1 18 0z" />
+                  </svg>
+                  <h4>J.P Nagar Branch</h4>
+                </div>
+                <p>KR Layout, 2nd Phase, J. P. Nagar, Bengaluru 560078</p>
+                <div class="location-item__contact">
+                  <a href="tel:+919900114151" style="color: inherit; text-decoration: none;">+91 9900114151</a>
+                </div>
+              </div>
 
-      <div class="discovery-item fade-in-scroll discovery-item--right">
-        <div class="discovery-content discovery-content--image-card">
-          <img src="assets/holistic_relief_smile_1777895539965.png" alt="The Solution" class="discovery-card-img">
-          <div class="discovery-card-text">
-            <span class="section-label">The Assessment</span>
-            <h3>03. Permanent Solutions</h3>
-            <p>Designing the roadmap to lasting whole-body health.</p>
-          </div>
-        </div>
-      </div>
+              <div class="location-item" data-lat="12.8718" data-lng="77.6033"
+                data-map="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3889.37!2d77.6009!3d12.8688!2m3!1f45!2f45!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae15a13328e19b%3A0xf64a755dd35a8cd1!2sVatsalya%20Dental%20clinic!5e0!3m2!1sen!2sin!4v1709540000003!5m2!1sen!2sin">
+                <div class="location-item__header">
+                  <svg viewBox="0 0 24 24" stroke-width="2">
+                    <path d="M21 10c0 6-9 13-9 13s-9-7-9-13a9 9 0 1 1 18 0z" />
+                  </svg>
+                  <h4>Arekere Clinic</h4>
+                </div>
+                <p>83, 6th Cross Rd, Arekere MICO Layout 2nd stage, Bengaluru 560076</p>
+                <div class="location-item__contact">
+                  <a href="tel:+919900114151" style="color: inherit; text-decoration: none;">+91 9900114151</a>
+                </div>
+              </div>
+            </div>
 
-      <!-- The Whole Body Assessment: title own panel, points own panel -->
-      <div class="discovery-item discovery-item--centered fade-in-scroll">
-        <div class="discovery-content discovery-content--hero">
-          <span class="section-label">Clinical Evaluation</span>
-          <h3>The Whole Body Assessment</h3>
-          <p>This is not a routine dental check-up. It is a structured evaluation designed to understand how your oral condition connects to your overall health.</p>
-        </div>
-      </div>
-      <div class="discovery-item discovery-item--full fade-in-scroll">
-        <div class="discovery-panel-wrap">
-          <div class="discovery-panel-box">
-            <div class="discovery-wide-grid">
-              <div class="discovery-wide-card">
-                <span class="discovery-wide-num">01</span>
-                <h4>Teeth and Gums</h4>
-                <p>Detailed evaluation of structural integrity and periodontal health.</p>
-              </div>
-              <div class="discovery-wide-card">
-                <span class="discovery-wide-num">02</span>
-                <h4>Bite and Jaw Function</h4>
-                <p>Analyzing how your upper and lower teeth meet and how your jaw joints function.</p>
-              </div>
-              <div class="discovery-wide-card">
-                <span class="discovery-wide-num">03</span>
-                <h4>Airway &amp; Breathing</h4>
-                <p>Evaluating airway volume and breathing patterns that influence sleep and energy levels.</p>
-              </div>
-              <div class="discovery-wide-card">
-                <span class="discovery-wide-num">04</span>
-                <h4>Oral Microbiome</h4>
-                <p>Indicators of bacterial balance that drive inflammation and systemic health.</p>
-              </div>
-              <div class="discovery-wide-card">
-                <span class="discovery-wide-num">05</span>
-                <h4>Muscle Balance</h4>
-                <p>Mapping functional patterns of facial and neck muscles that contribute to pain.</p>
-              </div>
-              <div class="discovery-wide-card">
-                <span class="discovery-wide-num">06</span>
-                <h4>Lifestyle Factors</h4>
-                <p>Understanding habits, nutrition, and stress factors contributing to your condition.</p>
+            <div class="map-view">
+              <div class="map-container" id="contactMapContainer">
+                <iframe id="contactMap"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3889.3752!2d77.5991!3d12.8687!2m3!1f45!2f45!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae15082121300b%3A0x67a07994fa40b8a4!2sBannerghatta%20Rd%2C%20Hulimavu%2C%20Bengaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1709540000001!5m2!1sen!2sin"
+                  allowfullscreen="" loading="lazy"></iframe>
               </div>
             </div>
           </div>
         </div>
       </div>
-
-      <!-- Who This Is For: title own panel, points own panel -->
-      <div class="discovery-item discovery-item--centered fade-in-scroll">
-        <div class="discovery-content discovery-content--hero">
-          <span class="section-label">Who We Serve</span>
-          <h3>Who We Serve</h3>
-          <p>We specialize in helping persons who are looking for clarity and long-term health, rather than just symptom relief.</p>
-        </div>
-      </div>
-      <div class="discovery-item discovery-item--full fade-in-scroll">
-        <div class="discovery-panel-wrap">
-          <div class="discovery-panel-box">
-            <div class="discovery-wide-grid discovery-wide-grid--2">
-              <div class="discovery-wide-card">
-                <span class="discovery-wide-icon">↩</span>
-                <h4>Recurring Problems</h4>
-                <p>Persons with dental issues that keep returning despite treatment.</p>
-              </div>
-              <div class="discovery-wide-card">
-                <span class="discovery-wide-icon">?</span>
-                <h4>Unexplained Symptoms</h4>
-                <p>Those with headaches, fatigue, or jaw pain without a clear cause.</p>
-              </div>
-              <div class="discovery-wide-card">
-                <span class="discovery-wide-icon">◎</span>
-                <h4>Long-term Solutions</h4>
-                <p>Individuals seeking durable health rather than temporary fixes.</p>
-              </div>
-              <div class="discovery-wide-card">
-                <span class="discovery-wide-icon">✦</span>
-                <h4>System-based Care</h4>
-                <p>Those interested in preventive, whole-body health optimization.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- What You Can Expect: title own panel, steps own panel -->
-      <div class="discovery-item discovery-item--centered fade-in-scroll">
-        <div class="discovery-content discovery-content--hero">
-          <span class="section-label">The Process</span>
-          <h3>What You Can Expect</h3>
-        </div>
-      </div>
-      <div class="discovery-item discovery-item--full fade-in-scroll">
-        <div class="discovery-panel-wrap discovery-panel-wrap--narrow">
-          <div class="discovery-panel-box">
-            <div class="discovery-steps">
-              <div class="discovery-step">
-                <div class="discovery-step__num">1</div>
-                <div>
-                  <h4>1. Listen</h4>
-                  <p>Understanding your story, concerns, and health goals.</p>
-                </div>
-              </div>
-              <div class="discovery-step">
-                <div class="discovery-step__num">2</div>
-                <div>
-                  <h4>2. Assess</h4>
-                  <p>Comprehensive clinical, functional, and radiographic evaluation.</p>
-                </div>
-              </div>
-              <div class="discovery-step">
-                <div class="discovery-step__num">3</div>
-                <div>
-                  <h4>3. Educate</h4>
-                  <p>Clear insights into your oral and whole-body health.</p>
-                </div>
-              </div>
-              <div class="discovery-step">
-                <div class="discovery-step__num">4</div>
-                <div>
-                  <h4>4. Plan</h4>
-                  <p>A personalized roadmap for long-term health and longevity.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Final CTA Item inside discovery-section to play video in background -->
-      <div class="discovery-item discovery-item--centered fade-in-scroll">
-        <div class="discovery-content" style="text-align: center; max-width: 600px;">
-          <h3 style="margin-bottom: var(--space-sm);">Ready to Experience Our Clinical Method?</h3>
-          <p style="margin-bottom: var(--space-lg); color: rgba(255, 255, 255, 0.85);">Schedule a comprehensive consultation and let us build your personalized care blueprint.</p>
-          <div style="display: flex; gap: var(--space-md); justify-content: center; flex-wrap: wrap; margin-top: var(--space-md);">
-            <a href="contact.html" class="btn btn--gold-outline">Schedule Consultation</a>
-            <a href="services.html" class="btn btn--gold-solid">Explore Our Services</a>
-          </div>
-        </div>
-      </div>
-    </section>
+    </div>
   </section>
 
   <!-- ========== FOOTER ========== -->
@@ -426,6 +294,6 @@
   </a>
 
   <script src="nav.js"></script>
-  <script src="assets/js/approach.js"></script>
+  <script src="assets/js/contact.js"></script>
 </body>
 </html>
