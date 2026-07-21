@@ -16,8 +16,8 @@
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
   <style>
     /* #page-about's background is only made transparent while it's the active SPA page in
        index.html (body:has(#page-about.active) in styles.css); here it's always the page. */
@@ -116,9 +116,11 @@
 
       <!-- Sticky container that pins while user scrolls -->
       <div class="walkthrough-sticky">
-        <!-- Blurred background fill to eliminate black bars (desktop only — removed from the DOM on mobile, see assets/js/about.js, since it's hidden there and would otherwise double-fetch this file) -->
+        <!-- Blurred background fill to eliminate black bars (desktop only — gated by the
+             source's own media query, evaluated before any JS runs, so mobile never fetches
+             it at all. about.js also removes the element outright on mobile as a backup. -->
         <video autoplay muted loop playsinline preload="auto" poster="assets/videos/walkthrough-poster.jpg" class="walkthrough-video-bg">
-          <source src="assets/videos/walkthroughclinic.mp4" type="video/mp4">
+          <source src="assets/videos/walkthroughclinic.mp4" type="video/mp4" media="(min-width: 769px)">
         </video>
         <!-- Main video with full content visible. Mobile gets its own source (matched via
              media query, evaluated before any JS runs) so it never fetches the desktop clip.
@@ -656,7 +658,7 @@
     </svg>
   </a>
 
-  <script src="nav.js"></script>
-  <script src="assets/js/about.js"></script>
+  <script src="nav.js" defer></script>
+  <script src="assets/js/about.js" defer></script>
 </body>
 </html>

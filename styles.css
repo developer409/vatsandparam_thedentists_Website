@@ -9624,6 +9624,15 @@ body:has(#page-about.active) {
     display: none;
   }
 
+  /* First card ("Our Clinic") starts visible immediately instead of waiting on
+     assets/js/about.js + GSAP to set it via gsap.set(cards[0], {opacity:1}) — avoids a
+     blank card if those scripts are slow to load/execute. Same specificity as the base
+     .walkthrough-card rule above, placed after it, and also left un-important so GSAP can
+     still take over opacity once it does load (harmless no-op flash, not a conflict). */
+  .walkthrough-card--clinic {
+    opacity: 1;
+  }
+
   .walkthrough-card .card-header-row {
     display: flex !important;
     align-items: center !important;
