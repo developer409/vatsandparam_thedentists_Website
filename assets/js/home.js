@@ -5,7 +5,7 @@
     var video = document.getElementById('aboutVideo');
     if (video) {
         var isMobile = window.innerWidth <= 768;
-        video.src = isMobile ? 'assets/our%20clinic_mobile.mp4' : 'assets/Walkthrough_video_VP.mp4';
+        video.src = isMobile ? 'assets/our_clinic_mobile.mp4' : 'assets/Walkthrough_video_VP.mp4';
         video.play().catch(function (err) { console.log('Playback error:', err); });
     }
 

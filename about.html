@@ -117,7 +117,7 @@
       <div class="walkthrough-sticky">
         <!-- Blurred background fill to eliminate black bars (desktop only — removed from the DOM on mobile, see assets/js/about.js, since it's hidden there and would otherwise double-fetch this file) -->
         <video autoplay muted loop playsinline preload="auto" poster="assets/videos/walkthrough-poster.jpg" class="walkthrough-video-bg">
-          <source src="assets/videos/WALKTHROUGH_OF_CLINIC.mp4" type="video/mp4">
+          <source src="assets/videos/walkthroughclinic.mp4" type="video/mp4">
         </video>
         <!-- Main video with full content visible. Mobile gets its own source (matched via
              media query, evaluated before any JS runs) so it never fetches the desktop clip.
@@ -126,7 +126,7 @@
              (iOS Safari in particular is slow/conservative about preloading video). -->
         <video autoplay muted loop playsinline preload="auto" poster="assets/videos/walkthrough-poster.jpg" class="walkthrough-video">
           <source src="assets/mobile_view/about_us_mobile.mp4" type="video/mp4" media="(max-width: 768px)">
-          <source src="assets/videos/WALKTHROUGH_OF_CLINIC.mp4" type="video/mp4">
+          <source src="assets/videos/walkthroughclinic.mp4" type="video/mp4">
         </video>
 
         <!-- All cards sit inside the sticky viewport, JS toggles which is active -->
