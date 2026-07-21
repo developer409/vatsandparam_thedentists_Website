@@ -128,12 +128,15 @@
       <!-- Sticky container that pins while user scrolls -->
       <div class="walkthrough-sticky">
         <!-- Blurred background fill to eliminate black bars (desktop only — removed from the DOM on mobile, see script below, since it's hidden there and would otherwise double-fetch this file) -->
-        <video autoplay muted loop playsinline preload="auto" class="walkthrough-video-bg">
+        <video autoplay muted loop playsinline preload="auto" poster="assets/videos/walkthrough-poster.jpg" class="walkthrough-video-bg">
           <source src="assets/videos/WALKTHROUGH OF CLINIC.mp4" type="video/mp4">
         </video>
         <!-- Main video with full content visible. Mobile gets its own source (matched via
-             media query, evaluated before any JS runs) so it never fetches the desktop clip. -->
-        <video autoplay muted loop playsinline preload="auto" class="walkthrough-video">
+             media query, evaluated before any JS runs) so it never fetches the desktop clip.
+             The poster below is the desktop frame; the mobile-only script swaps it to the
+             matching mobile frame so there's never a black flash while either clip buffers
+             (iOS Safari in particular is slow/conservative about preloading video). -->
+        <video autoplay muted loop playsinline preload="auto" poster="assets/videos/walkthrough-poster.jpg" class="walkthrough-video">
           <source src="assets/Technology/about%20us_mobile%201.mp4" type="video/mp4" media="(max-width: 768px)">
           <source src="assets/videos/WALKTHROUGH OF CLINIC.mp4" type="video/mp4">
         </video>
@@ -234,6 +237,10 @@
           // fix the pin but also noticeably changes how scrolling feels site-wide on mobile).
           (function() {
             if (!window.matchMedia('(max-width: 768px)').matches) return;
+
+            var mainVideo = document.querySelector('#walkthroughSection .walkthrough-video');
+            if (mainVideo) mainVideo.poster = 'assets/Technology/about-us-mobile-poster.jpg';
+
             if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
 
             // The blurred fill layer is desktop-only (hidden via CSS on mobile) but was still
