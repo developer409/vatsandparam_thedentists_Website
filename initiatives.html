@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Initiatives | Vats &amp; Param &#8211; The Dentists</title>
+  <meta name="description" content="Community dental initiatives by Vats &amp; Param &#8211; The Dentists: Vatsalya Dental, Vatsalya Dento Jungle, Vatsalya Oral Health Foundation, and our Home Dental Care service.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* This page relied on the SPA's base `.page { padding-top: var(--nav-height) }` rule,
+       which no standalone page carries anymore, so it's added directly here. */
+    #page-initiatives { padding-top: var(--nav-height); }
+
+    .tabs-container {
+      display: flex;
+      flex-wrap: wrap;
+      border-bottom: 2px solid var(--color-border);
+      margin-bottom: var(--space-xl);
+      gap: var(--space-lg);
+    }
+    .tab-button {
+      padding: var(--space-md) var(--space-lg);
+      background: none;
+      border: none;
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--color-text-light);
+      cursor: pointer;
+      position: relative;
+      transition: color var(--transition-base);
+    }
+    .tab-button:hover {
+      color: var(--color-navy);
+    }
+    .tab-button.active {
+      color: var(--color-gold);
+    }
+    .tab-button.active::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--color-gold);
+    }
+    .tabs-scroll-hint {
+      display: none;
+    }
+    @media (max-width: 768px) {
+      .tabs-container {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        gap: var(--space-md);
+        scrollbar-width: none;
+      }
+      .tabs-container::-webkit-scrollbar {
+        display: none;
+      }
+      .tab-button {
+        flex: 0 0 auto;
+        white-space: nowrap;
+        padding: var(--space-sm) var(--space-xs);
+        font-size: 0.9rem;
+      }
+      .tabs-scroll-wrap {
+        position: relative;
+      }
+      .tabs-scroll-hint {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 2px;
+        width: 44px;
+        pointer-events: none;
+        background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,0.95) 60%);
+        color: var(--color-gold);
+        opacity: 1;
+        transition: opacity 0.25s ease;
+      }
+      .tabs-scroll-hint svg {
+        width: 18px;
+        height: 18px;
+        animation: tabsScrollHintNudge 1.4s ease-in-out infinite;
+      }
+      .tabs-scroll-hint.is-hidden {
+        opacity: 0;
+      }
+    }
+    @keyframes tabsScrollHintNudge {
+      0%, 100% { transform: translateX(0); }
+      50% { transform: translateX(4px); }
+    }
+    .tab-content {
+      display: none;
+    }
+    .tab-content.active {
+      display: block;
+    }
+    .initiatives-gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-md);
+      margin-top: var(--space-xl);
+    }
+    .vatsalya-oral-gallery {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-md);
+      margin-top: var(--space-xl);
+    }
+    .vatsalya-oral-gallery .gallery-item:first-child {
+      grid-column: 1;
+      grid-row: 1;
+    }
+    .vatsalya-oral-gallery .gallery-item:nth-child(2) {
+      grid-column: 2;
+      grid-row: 1;
+    }
+    .vatsalya-oral-gallery .gallery-item:nth-child(n+3) {
+      grid-column: span 1;
+    }
+    @media (max-width: 1024px) {
+      .initiatives-gallery {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 768px) {
+      .initiatives-gallery {
+        grid-template-columns: 1fr;
+      }
+      .vatsalya-oral-gallery {
+        grid-template-columns: 1fr;
+      }
+    }
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius-md);
+      background: white;
+      border: 1px solid var(--color-border);
+      transition: all var(--transition-base);
+      cursor: pointer;
+    }
+    .gallery-item:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-card);
+      border-color: var(--color-gold);
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      transition: transform var(--transition-base);
+    }
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+    .vd-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: var(--space-md);
+    }
+    .vd-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      border: 2px solid var(--color-navy);
+      background: transparent;
+      cursor: pointer;
+      transition: background 0.2s;
+      padding: 0;
+    }
+    .vd-dot.active {
+      background: var(--color-navy);
+    }
+    .dento-jungle-content {
+      padding: var(--space-xl) 0;
+    }
+    .dj-header {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: var(--space-xl);
+      align-items: center;
+      margin-bottom: var(--space-xl);
+    }
+    .dj-title {
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+      color: #8B1E1E;
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      margin-bottom: var(--space-lg);
+    }
+    .dj-title-icon {
+      background: #8B1E1E;
+      color: white;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+    }
+    .dj-intro p {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: var(--color-text);
+      margin-bottom: var(--space-md);
+    }
+    .dj-logo {
+      text-align: center;
+    }
+    .dj-logo img {
+      max-width: 320px;
+      width: 100%;
+    }
+    .dj-middle {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: var(--space-xl);
+      align-items: flex-start;
+      margin-bottom: var(--space-xl);
+    }
+    .dj-main-img img {
+      width: 100%;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-lg);
+    }
+    .dj-secondary-text p {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      margin-bottom: var(--space-lg);
+    }
+    .dj-gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-md);
+    }
+    .dj-carousel {
+      position: relative;
+      overflow: hidden;
+      margin-top: var(--space-xl);
+      border-radius: var(--radius-md);
+      background: #fcfbf8;
+      padding: var(--space-md) 0;
+    }
+    .dj-carousel-track {
+      display: flex;
+      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .dj-carousel-slide {
+      flex: 0 0 33.333%;
+      padding: 0 var(--space-sm);
+      box-sizing: border-box;
+    }
+    .dj-carousel-img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      border-radius: var(--radius-sm);
+      border: 6px solid white;
+      box-shadow: var(--shadow-sm);
+    }
+    @media (max-width: 992px) {
+      .dj-carousel-slide { flex: 0 0 50%; }
+    }
+    @media (max-width: 600px) {
+      .dj-carousel-slide { flex: 0 0 100%; }
+    }
+    @media (max-width: 768px) {
+      .dj-header, .dj-middle {
+        grid-template-columns: 1fr;
+      }
+      .dj-logo { order: -1; }
+      .dj-gallery-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ========== NAVIGATION ========== -->
+  <nav class="nav" id="mainNav">
+    <div class="nav__inner">
+      <a href="home.html" class="nav__logo">
+        <div class="nav__logo-icon-container">
+          <img src="assets/logo_teeth.png" alt="Vats &amp; Param logo" class="nav__logo-img">
+        </div>
+        <div class="nav__logo-text">
+          Vats &amp; Param
+          <div class="nav__logo-subtitle">
+            <span class="logo-line"></span>
+            <span>The Dentists</span>
+            <span class="logo-line"></span>
+          </div>
+        </div>
+      </a>
+      <div class="nav__toggle" id="navToggle"><span></span><span></span><span></span></div>
+      <div class="nav__menu" id="navMenu">
+        <div class="nav__links">
+          <a href="home.html" class="nav__link">Home</a>
+          <a href="about.html" class="nav__link">About Us</a>
+          <a href="approach.html" class="nav__link">Our Approach</a>
+          <a href="services.html" class="nav__link">Services</a>
+          <a href="technology.html" class="nav__link">Technology</a>
+          <a href="team.html" class="nav__link">Team</a>
+          <div class="nav__item dropdown">
+            <a href="#" class="nav__link dropdown-toggle">Resources</a>
+            <div class="dropdown-menu">
+              <a href="education.html" class="dropdown-item">Education</a>
+              <a href="testimonials.html" class="dropdown-item">Testimonials</a>
+              <a href="achievements.html" class="dropdown-item">Achievements</a>
+              <a href="initiatives.html" class="dropdown-item active">Initiatives</a>
+              <a href="blog.html" class="dropdown-item">Blog</a>
+            </div>
+          </div>
+          <a href="careers.html" class="nav__link">Careers</a>
+          <a href="contact.html" class="nav__link">Contact</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section id="page-initiatives">
+      <div class="page-header">
+        <div class="container">
+          <span class="section-label">Community &amp; Impact</span>
+          <h1>Our Initiatives</h1>
+          <p>Beyond the clinic &#8211; our ongoing programs bringing dental care and education to the wider community.</p>
+        </div>
+      </div>
+
+      <section class="section">
+        <div class="container">
+
+          <div class="tabs-scroll-wrap">
+            <div class="tabs-container" id="initiativesTabsContainer">
+              <button class="tab-button active" data-tab="vatsalya-dental-initiatives-tab" onclick="switchInitiativesTab(event)">Vatsalya Dental</button>
+              <button class="tab-button" data-tab="vatsalya-dento-jungle-tab" onclick="switchInitiativesTab(event)">Vatsalya Dento Jungle</button>
+              <button class="tab-button" data-tab="vatsalya-ohf-tab" onclick="switchInitiativesTab(event)">Vatsalya Oral Health Foundation</button>
+              <button class="tab-button" data-tab="home-dental-care-tab" onclick="switchInitiativesTab(event)">Home Dental Care Initiative</button>
+            </div>
+            <div class="tabs-scroll-hint" id="initiativesTabsHint" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </div>
+          </div>
+
+          <div id="vatsalya-dental-initiatives-tab" class="tab-content active">
+            <div class="dento-jungle-content">
+
+              <div class="dj-header">
+                <div class="dj-intro">
+                  <div class="dj-title" style="color: var(--color-navy);">
+                    <span class="dj-title-icon" style="background: var(--color-navy);">&#10095;</span>
+                    Vatsalya Dental
+                  </div>
+                  <p>Vatsalya Dental is a dental clinic chain founded in 2003 by Dr Srivats Bharadwaj with a mission to provide knowledge and education to people about dentistry. With a team of experienced and skilled dental professionals, Vatsalya Dental is committed to delivering high-quality dental care services to patients in a friendly and comfortable environment.</p>
+                </div>
+                <div class="dj-logo">
+                  <img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.07.22 PM (10).jpeg" alt="Vatsalya Dental">
+                </div>
+              </div>
+
+              <div class="dj-middle">
+                <div class="dj-main-img">
+                  <img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.07.22 PM (6).jpeg" alt="Vatsalya Dental Clinic">
+                </div>
+                <div class="dj-secondary-text">
+                  <p>Over the years, Vatsalya Dental has expanded its reach and established itself as a prominent player in the dental industry. The chain of clinics has been recognized as <strong style="color: var(--color-gold);">one of the top 5 dental clinics in the world</strong> by the Global Clinic Rating (GCR). This recognition is a testament to the quality of dental care services offered by Vatsalya Dental.</p>
+                </div>
+              </div>
+
+              <!-- Carousel -->
+              <div class="dj-carousel">
+                <div class="dj-carousel-track" id="vdTrack">
+                  <div class="dj-carousel-slide"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.07.22 PM (11).jpeg" alt="Vatsalya Dental" class="dj-carousel-img"></div>
+                  <div class="dj-carousel-slide"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.07.22 PM (7).jpeg" alt="Vatsalya Dental" class="dj-carousel-img"></div>
+                  <div class="dj-carousel-slide"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.07.22 PM (8).jpeg" alt="Vatsalya Dental" class="dj-carousel-img"></div>
+                  <div class="dj-carousel-slide"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.07.22 PM (9).jpeg" alt="Vatsalya Dental" class="dj-carousel-img"></div>
+                  <div class="dj-carousel-slide"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.07.22 PM.jpeg" alt="Vatsalya Dental" class="dj-carousel-img"></div>
+                  <div class="dj-carousel-slide"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.08.03 PM (5).jpeg" alt="Vatsalya Dental" class="dj-carousel-img"></div>
+                  <div class="dj-carousel-slide"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.08.03 PM (7).jpeg" alt="Vatsalya Dental" class="dj-carousel-img"></div>
+                </div>
+              </div>
+              <!-- Dots -->
+              <div class="vd-dots" id="vdDots"></div>
+
+            </div><!-- end dento-jungle-content -->
+
+            <!-- General gallery -->
+            <div class="initiatives-gallery">
+              <div class="gallery-item"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.07.21 PM (1).jpeg" alt="Vatsalya Dental"></div>
+              <div class="gallery-item"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.07.21 PM.jpeg" alt="Vatsalya Dental"></div>
+              <div class="gallery-item"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.07.22 PM (1).jpeg" alt="Vatsalya Dental"></div>
+              <div class="gallery-item"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.07.22 PM (2).jpeg" alt="Vatsalya Dental"></div>
+              <div class="gallery-item"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.07.22 PM (3).jpeg" alt="Vatsalya Dental"></div>
+              <div class="gallery-item"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.07.22 PM (4).jpeg" alt="Vatsalya Dental"></div>
+              <div class="gallery-item"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.07.22 PM (5).jpeg" alt="Vatsalya Dental"></div>
+              <div class="gallery-item"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.07.23 PM (1).jpeg" alt="Vatsalya Dental"></div>
+              <div class="gallery-item"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.07.23 PM (2).jpeg" alt="Vatsalya Dental"></div>
+              <div class="gallery-item"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.07.23 PM (3).jpeg" alt="Vatsalya Dental"></div>
+              <div class="gallery-item"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.07.23 PM (4).jpeg" alt="Vatsalya Dental"></div>
+              <div class="gallery-item"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.07.23 PM (5).jpeg" alt="Vatsalya Dental"></div>
+              <div class="gallery-item"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.07.23 PM (6).jpeg" alt="Vatsalya Dental"></div>
+              <div class="gallery-item"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.07.23 PM (7).jpeg" alt="Vatsalya Dental"></div>
+              <div class="gallery-item"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.07.23 PM (8).jpeg" alt="Vatsalya Dental"></div>
+              <div class="gallery-item"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.07.23 PM (9).jpeg" alt="Vatsalya Dental"></div>
+              <div class="gallery-item"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.07.23 PM.jpeg" alt="Vatsalya Dental"></div>
+              <div class="gallery-item"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.07.59 PM (1).jpeg" alt="Vatsalya Dental"></div>
+              <div class="gallery-item"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.08.02 PM (11).jpeg" alt="Vatsalya Dental"></div>
+              <div class="gallery-item"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.08.02 PM.jpeg" alt="Vatsalya Dental"></div>
+              <div class="gallery-item"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.08.03 PM (1).jpeg" alt="Vatsalya Dental"></div>
+              <div class="gallery-item"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.08.03 PM (10).jpeg" alt="Vatsalya Dental"></div>
+              <div class="gallery-item"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.08.03 PM (11).jpeg" alt="Vatsalya Dental"></div>
+              <div class="gallery-item"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.08.03 PM (12).jpeg" alt="Vatsalya Dental"></div>
+              <div class="gallery-item"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.08.03 PM (13).jpeg" alt="Vatsalya Dental"></div>
+              <div class="gallery-item"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.08.03 PM (14).jpeg" alt="Vatsalya Dental"></div>
+              <div class="gallery-item"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.08.03 PM (15).jpeg" alt="Vatsalya Dental"></div>
+              <div class="gallery-item"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.08.03 PM (17).jpeg" alt="Vatsalya Dental"></div>
+              <div class="gallery-item"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.08.03 PM (25).jpeg" alt="Vatsalya Dental"></div>
+              <div class="gallery-item"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.08.03 PM (4).jpeg" alt="Vatsalya Dental"></div>
+              <div class="gallery-item"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.08.03 PM (8).jpeg" alt="Vatsalya Dental"></div>
+              <div class="gallery-item"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.08.03 PM (9).jpeg" alt="Vatsalya Dental"></div>
+              <div class="gallery-item"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.08.03 PM.jpeg" alt="Vatsalya Dental"></div>
+              <div class="gallery-item"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.08.04 PM.jpeg" alt="Vatsalya Dental"></div>
+            </div>
+          </div>
+
+          <div id="vatsalya-dento-jungle-tab" class="tab-content">
+            <div class="dento-jungle-content">
+              <div class="dj-header">
+                <div class="dj-intro">
+                  <div class="dj-title">
+                    <span class="dj-title-icon">&#10095;</span>
+                    Vatsalya Dento Jungle
+                  </div>
+                  <p>We understand that many children experience anxiety and fear when it comes to visiting the dentist. That's why we had created Vatsalya Dento Jungle, a theme-based dental clinic specially designed to make dental visits fun and fearless for kids.</p>
+                  <p>Our jungle-themed dental clinic is filled with colorful decorations, friendly animal characters, and interactive games and activities to create a welcoming and engaging environment for children.</p>
+                </div>
+                <div class="dj-logo">
+                  <img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.07.59 PM (2).jpeg" alt="Vatsalya Dento Jungle Logo">
+                </div>
+              </div>
+
+              <div class="dj-middle">
+                <div class="dj-main-img">
+                  <img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.07.59 PM (3).jpeg" alt="Jungle Themed Treatment Room">
+                </div>
+                <div class="dj-secondary-text">
+                  <p>We believe that by creating a positive and fun atmosphere, we can help children feel more comfortable and at ease during their dental appointments.</p>
+                  <p>Vatsalya Dento Jungle is staffed by experienced dental professionals who specialize in treating children. Our team understands the unique needs and concerns of young patients and is trained to provide gentle and compassionate care.</p>
+                </div>
+              </div>
+
+              <div class="dj-carousel">
+                <div class="dj-carousel-track" id="djTrack">
+                  <div class="dj-carousel-slide"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.08.00 PM (1).jpeg" alt="Dento Jungle 1" class="dj-carousel-img"></div>
+                  <div class="dj-carousel-slide"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.08.00 PM (2).jpeg" alt="Dento Jungle 2" class="dj-carousel-img"></div>
+                  <div class="dj-carousel-slide"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.08.00 PM (3).jpeg" alt="Dento Jungle 3" class="dj-carousel-img"></div>
+                  <div class="dj-carousel-slide"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.08.00 PM (4).jpeg" alt="Dento Jungle 4" class="dj-carousel-img"></div>
+                  <div class="dj-carousel-slide"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.08.00 PM (5).jpeg" alt="Dento Jungle 5" class="dj-carousel-img"></div>
+                  <div class="dj-carousel-slide"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.08.00 PM.jpeg" alt="Dento Jungle 6" class="dj-carousel-img"></div>
+                  <div class="dj-carousel-slide"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.08.01 PM (1).jpeg" alt="Dento Jungle 7" class="dj-carousel-img"></div>
+                  <div class="dj-carousel-slide"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.08.01 PM (2).jpeg" alt="Dento Jungle 8" class="dj-carousel-img"></div>
+                  <div class="dj-carousel-slide"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.08.01 PM (3).jpeg" alt="Dento Jungle 9" class="dj-carousel-img"></div>
+                  <div class="dj-carousel-slide"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.08.01 PM.jpeg" alt="Dento Jungle 10" class="dj-carousel-img"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="vatsalya-ohf-tab" class="tab-content">
+            <div class="dento-jungle-content">
+
+              <div class="dj-header">
+                <div class="dj-intro">
+                  <div class="dj-title" style="color: var(--color-navy);">
+                    <span class="dj-title-icon" style="background: var(--color-navy);">&#10095;</span>
+                    Vatsalya Oral Health Foundation
+                  </div>
+                  <p>Vatsalya Oral Health Foundation is a non-profit organization established in 2015 with the aim of providing dental care services to underprivileged people of all ages. The foundation offers a range of dental treatments to address the oral healthcare needs of infants, children, adults, and elderly people who cannot afford dental care.</p>
+                  <p>In addition to offering dental treatments, Vatsalya Oral Health Foundation organizes free dental camps in various parts of Karnataka to reach out to people who live in remote areas and have limited access to dental care. These camps provide a platform for people to receive dental check-ups, treatments, and oral health education from experienced dental professionals.</p>
+                </div>
+                <div class="dj-logo">
+                  <img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.07.22 PM (10).jpeg" alt="Vatsalya Oral Health Foundation">
+                </div>
+              </div>
+
+              <div class="dj-middle">
+                <div class="dj-main-img">
+                  <img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.08.03 PM (9).jpeg" alt="Vatsalya Oral Health Foundation Dental Camp">
+                </div>
+                <div class="dj-secondary-text">
+                  <p>One of the key objectives of the foundation is to raise awareness about the importance of oral hygiene and dental care in preventing dental problems. The foundation provides education on oral hygiene to patients, schools, and communities through various programs and initiatives.</p>
+                  <p>Vatsalya Oral Health Foundation has also organized free dental camps and treatments for tribal people living near Kabini and other remote parts of Karnataka.</p>
+                </div>
+              </div>
+
+              <div class="dj-middle">
+                <div class="dj-secondary-text" style="grid-column: 1 / -1;">
+                  <p>The foundation's mission is to make dental care accessible to everyone, regardless of their socioeconomic status. By offering free dental treatments and education, Vatsalya Oral Health Foundation is working towards creating a healthier society with better oral health.</p>
+                </div>
+              </div>
+
+              <!-- Carousel for Vatsalya Oral Health Foundation -->
+              <div class="dj-carousel">
+                <div class="dj-carousel-track" id="vohfTrack">
+                  <div class="dj-carousel-slide"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.07.22 PM (2).jpeg" alt="Vatsalya Oral Health Foundation" class="dj-carousel-img"></div>
+                  <div class="dj-carousel-slide"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.07.22 PM (3).jpeg" alt="Vatsalya Oral Health Foundation" class="dj-carousel-img"></div>
+                  <div class="dj-carousel-slide"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.07.22 PM (4).jpeg" alt="Vatsalya Oral Health Foundation" class="dj-carousel-img"></div>
+                  <div class="dj-carousel-slide"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.07.23 PM (2).jpeg" alt="Vatsalya Oral Health Foundation" class="dj-carousel-img"></div>
+                  <div class="dj-carousel-slide"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.08.03 PM (9).jpeg" alt="Vatsalya Oral Health Foundation" class="dj-carousel-img"></div>
+                  <div class="dj-carousel-slide"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.08.03 PM (10).jpeg" alt="Vatsalya Oral Health Foundation" class="dj-carousel-img"></div>
+                </div>
+              </div>
+              <!-- Dots for carousel navigation -->
+              <div class="vohf-dots" id="vohfDots"></div>
+
+            </div>
+          </div>
+
+          <!-- Home Dental Care Initiative -->
+          <div id="home-dental-care-tab" class="tab-content">
+            <div class="dento-jungle-content">
+
+              <div class="dj-header">
+                <div class="dj-intro">
+                  <div class="dj-title" style="color: var(--color-navy);">
+                    <span class="dj-title-icon" style="background: var(--color-navy);">&#127968;</span>
+                    Home Dental Care Initiative
+                  </div>
+                  <p>As part of our ongoing commitment to providing accessible and convenient dental care, Vatsalya Dental has launched Emergency Home dental care services. With this service, we bring the best dentistry right to the comfort of your home.</p>
+                  <p>Our team of highly qualified experts is equipped with world-class technology to provide dental care services round the clock and attend to any oral emergencies at your doorstep.</p>
+                </div>
+                <div class="dj-logo" style="text-align: center; padding: 2rem; background: linear-gradient(135deg, rgba(92, 10, 10, 0.05) 0%, rgba(198, 167, 94, 0.05) 100%); border-radius: 8px;">
+                  <p style="font-size: 3rem; margin: 0;">&#127973;</p>
+                  <p style="margin: 1rem 0 0 0; font-size: 1.1rem; color: #5C0A0A; font-weight: 700;">24/7 Emergency Care</p>
+                </div>
+              </div>
+
+              <div class="dj-middle">
+                <div class="dj-secondary-text" style="grid-column: 1 / -1;">
+                  <p style="font-size: 1.1rem;"><strong style="color: #5C0A0A;">We understand that dental emergencies can happen at any time.</strong> With our Emergency Home dental care services, you can rest assured that you will receive prompt and professional care, no matter when a dental emergency strikes.</p>
+                  <p style="font-size: 1.1rem; margin-top: 1rem;"><strong style="color: #5C0A0A;">Accessible & Convenient Care:</strong> We believe that everyone deserves access to quality dental care, and we are proud to offer innovative solutions that make dental care more accessible and convenient than ever before.</p>
+                </div>
+              </div>
+
+              <!-- Service Cards -->
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin: 2rem 0;">
+                <div style="background: #fff; border-radius: 8px; padding: 1.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.08); border-left: 4px solid var(--color-gold);">
+                  <h3 style="margin: 0 0 1rem 0; color: #5C0A0A; font-size: 1.1rem; font-weight: 700;">Emergency Response</h3>
+                  <p style="margin: 0; color: #666; line-height: 1.6; font-size: 0.95rem;">Prompt and professional care available round the clock to address any oral emergencies at your doorstep.</p>
+                </div>
+                <div style="background: #fff; border-radius: 8px; padding: 1.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.08); border-left: 4px solid var(--color-gold);">
+                  <h3 style="margin: 0 0 1rem 0; color: #5C0A0A; font-size: 1.1rem; font-weight: 700;">World-Class Technology</h3>
+                  <p style="margin: 0; color: #666; line-height: 1.6; font-size: 0.95rem;">Our team is equipped with state-of-the-art technology to provide comprehensive dental care services at home.</p>
+                </div>
+                <div style="background: #fff; border-radius: 8px; padding: 1.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.08); border-left: 4px solid var(--color-gold);">
+                  <h3 style="margin: 0 0 1rem 0; color: #5C0A0A; font-size: 1.1rem; font-weight: 700;">Expert Team</h3>
+                  <p style="margin: 0; color: #666; line-height: 1.6; font-size: 0.95rem;">Highly qualified dental professionals dedicated to providing quality care in the comfort of your home.</p>
+                </div>
+              </div>
+
+              <div style="background: linear-gradient(135deg, rgba(92, 10, 10, 0.08) 0%, rgba(198, 167, 94, 0.05) 100%); border-left: 4px solid var(--color-gold); border-radius: 8px; padding: 2rem; margin-top: 2rem;">
+                <p style="margin: 0 0 1rem 0; color: #333; font-size: 0.95rem; line-height: 1.8;">
+                  <strong style="color: #5C0A0A;">Our Commitment:</strong> As part of our ongoing commitment to providing accessible and convenient dental care, our Emergency Home dental care services are an important part of our mission. With prompt and professional care available no matter when a dental emergency strikes, you can have peace of mind knowing that expert dental help is just a call away.
+                </p>
+                <p style="margin: 0; color: #333; font-size: 0.95rem; line-height: 1.8;">
+                  <strong style="color: #5C0A0A;">Quality & Innovation:</strong> We are proud to offer innovative solutions that make dental care more accessible and convenient than ever before. Our team is dedicated to ensuring that you receive the highest quality of care in the comfort of your own home.
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer" id="mainFooter">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <a href="home.html" class="nav__logo nav__logo--footer"
+            style="margin-bottom:var(--space-sm);display:inline-flex;">
+            <div class="nav__logo-icon-container">
+              <img src="assets/logo_teeth.png" alt="Vats &amp; Param logo" class="nav__logo-img" style="width:70px;height:70px;">
+            </div>
+            <div class="nav__logo-text" style="color:#fff;">
+              Vats &amp; Param
+              <div class="nav__logo-subtitle">
+                <span class="logo-line"></span>
+                <span>The Dentists</span>
+                <span class="logo-line"></span>
+              </div>
+              <p class="footer__brand-tagline">Longevity &amp; Whole-Body Focused Dentistry.</p>
+            </div>
+          </a>
+        </div>
+        <div>
+          <h4 class="footer__heading">Navigation</h4>
+          <a href="home.html" class="footer__link">Home</a>
+          <a href="about.html" class="footer__link">About</a>
+          <a href="services.html" class="footer__link">Services</a>
+          <a href="approach.html" class="footer__link">Our Approach</a>
+          <a href="team.html" class="footer__link">Team</a>
+        </div>
+        <div>
+          <h4 class="footer__heading">Resources</h4>
+          <a href="technology.html" class="footer__link">Technology</a>
+          <a href="education.html" class="footer__link">Education</a>
+          <a href="testimonials.html" class="footer__link">Testimonials</a>
+          <a href="careers.html" class="footer__link">Careers</a>
+          <a href="contact.html" class="footer__link">Contact</a>
+        </div>
+        <div>
+          <h4 class="footer__heading">Contact &amp; Timings</h4>
+          <p class="footer__link"><a href="mailto:happytohelp@vatsandparam.com" style="color: inherit; text-decoration: none;">happytohelp@vatsandparam.com</a></p>
+          <p class="footer__link"><a href="tel:+919900114151" style="color: inherit; text-decoration: none;">+91 9900114151</a></p>
+          <p class="footer__link">Mon &#8211; Sun: 10:00 AM &#8211; 7:00 PM</p>
+          <p class="footer__link">Thursday: Closed</p>
+          <p class="footer__link">Bengaluru: <a href="https://maps.google.com/?q=363,Bannerghatta+Rd,opposite+Reliance+Digital,Pai+Layout,Hulimavu,Bengaluru,Karnataka+560076" target="_blank" style="color:inherit;text-decoration:underline;">Hulimavu</a> | <a href="https://maps.google.com/?q=WH4P%2B95Q,KR+Layout,2nd+Phase,JP+Nagar,Bengaluru,Karnataka+560078" target="_blank" style="color:inherit;text-decoration:underline;">J.P Nagar</a> | <a href="https://maps.google.com/?q=83,6th+Cross+Rd,Arekere+MICO+Layout+2nd+stage,Araka+Mico+Layout,Arekere,Bengaluru,Karnataka+560076" target="_blank" style="color:inherit;text-decoration:underline;">Arekere</a></p>
+        </div>
+      </div>
+      <div class="footer__socials">
+        <a href="https://www.instagram.com/vatsandparam_thedentists?igsh=OGl5YW4yaHpsdzhm" target="_blank" class="footer__social-icon" title="Instagram">
+          <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2" y="2" width="20" height="20" rx="5" fill="none" stroke="currentColor" stroke-width="2"/>
+            <circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="2"/>
+            <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"/>
+          </svg>
+        </a>
+        <a href="https://www.youtube.com/@ScrubGuru-un3wu" target="_blank" class="footer__social-icon" title="YouTube">
+          <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+          </svg>
+        </a>
+      </div>
+      <!-- ===== LEGAL LINKS ===== -->
+      <div class="footer__disclaimers">
+        <p class="footer__legal-notice">Educational information only. Individual treatment needs and outcomes vary. No guarantee or warranty is provided regarding treatment outcomes, timelines or longevity. Consultation required before treatment recommendations can be made.</p>
+        <div class="footer__policy-links">
+          <button class="footer__policy-link" data-modal="modal-medical">Medical Disclaimer</button>
+          <span class="footer__policy-sep">&middot;</span>
+          <button class="footer__policy-link" data-modal="modal-terms">Terms &amp; Conditions</button>
+          <span class="footer__policy-sep">&middot;</span>
+          <button class="footer__policy-link" data-modal="modal-privacy">Privacy Policy</button>
+        </div>
+      </div>
+      <!-- ===== END LEGAL ===== -->
+
+      <div class="footer__bottom">
+        <span>&copy; 2026 Vats &amp; Param. All rights reserved.</span>
+        <span>Dentistry, Reconnected to the Body</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== POLICY MODALS ===== -->
+  <div class="policy-modal" id="modal-medical" role="dialog" aria-modal="true" aria-labelledby="modal-medical-title">
+    <div class="policy-modal__card">
+      <button class="policy-modal__close" aria-label="Close">&times;</button>
+      <h3 class="policy-modal__title" id="modal-medical-title">Medical Disclaimer</h3>
+      <p class="policy-modal__body">The content on this website is provided for educational and informational purposes only and does not constitute medical, dental, or healthcare advice. No doctor-patient relationship is created by viewing this website. Treatment recommendations, risks, benefits, alternatives, costs, timelines, maintenance requirements and outcomes vary between individuals. No guarantee or warranty is expressed or implied regarding treatment outcomes, longevity, aesthetics, comfort, symptom resolution, or future oral health.</p>
+    </div>
+  </div>
+
+  <div class="policy-modal" id="modal-terms" role="dialog" aria-modal="true" aria-labelledby="modal-terms-title">
+    <div class="policy-modal__card">
+      <button class="policy-modal__close" aria-label="Close">&times;</button>
+      <h3 class="policy-modal__title" id="modal-terms-title">Terms &amp; Conditions</h3>
+      <p class="policy-modal__body">Use of this website constitutes acceptance of these terms. Content is provided for informational purposes only. Users should not rely on website content as a substitute for professional advice, diagnosis or treatment. Vats &amp; Param &#8211; The Dentists reserves the right to modify website content without notice.</p>
+    </div>
+  </div>
+
+  <div class="policy-modal" id="modal-privacy" role="dialog" aria-modal="true" aria-labelledby="modal-privacy-title">
+    <div class="policy-modal__card">
+      <button class="policy-modal__close" aria-label="Close">&times;</button>
+      <h3 class="policy-modal__title" id="modal-privacy-title">Privacy Policy</h3>
+      <p class="policy-modal__body">We respect your privacy. Information submitted through forms, appointment requests or other communication channels will be handled in accordance with applicable laws. Personal information will not be sold to third parties. Information may be used for appointment scheduling, communication, treatment coordination and service improvement.</p>
+    </div>
+  </div>
+  <!-- ===== END POLICY MODALS ===== -->
+
+  <script>
+    (function(){
+      var modals = document.querySelectorAll('.policy-modal');
+      function openModal(id){ var m = document.getElementById(id); if(m){ m.classList.add('active'); document.body.style.overflow='hidden'; } }
+      function closeAll(){ modals.forEach(function(m){ m.classList.remove('active'); }); document.body.style.overflow=''; }
+      document.querySelectorAll('[data-modal]').forEach(function(btn){
+        btn.addEventListener('click', function(){ openModal(btn.dataset.modal); });
+      });
+      modals.forEach(function(m){
+        m.addEventListener('click', function(e){ if(e.target === m) closeAll(); });
+        m.querySelector('.policy-modal__close').addEventListener('click', closeAll);
+      });
+      document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeAll(); });
+    })();
+  </script>
+
+  <!-- WhatsApp Button -->
+  <a href="https://wa.me/919900114151" target="_blank" class="whatsapp-btn" title="Chat on WhatsApp">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+    </svg>
+  </a>
+
+  <script src="nav.js"></script>
+  <script>
+    function switchInitiativesTab(event) {
+      event.preventDefault();
+      const button = event.target;
+      const tabId = button.getAttribute('data-tab');
+      const tabsContainer = button.closest('.tabs-container');
+
+      if (!tabsContainer) return;
+
+      tabsContainer.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+
+      const section = document.getElementById('page-initiatives');
+      if (section) {
+        section.querySelectorAll(':scope > section > .container > div[id$="-tab"]').forEach(content => content.classList.remove('active'));
+      }
+
+      button.classList.add('active');
+      const targetTab = document.getElementById(tabId);
+      if (targetTab) {
+        targetTab.classList.add('active');
+      }
+
+      if (tabId === 'vatsalya-dento-jungle-tab') initDJCarousel();
+      if (tabId === 'vatsalya-dental-initiatives-tab') initVDCarousel();
+      if (tabId === 'vatsalya-ohf-tab') initVOHFCarousel();
+    }
+
+    let vdInterval;
+    function initVDCarousel() {
+      const track = document.getElementById('vdTrack');
+      const dotsContainer = document.getElementById('vdDots');
+      if (!track) return;
+      if (vdInterval) clearInterval(vdInterval);
+
+      let index = 0;
+      const slides = track.querySelectorAll('.dj-carousel-slide');
+      const total = slides.length;
+
+      function getVisible() {
+        if (window.innerWidth <= 600) return 1;
+        if (window.innerWidth <= 992) return 2;
+        return 3;
+      }
+
+      function buildDots() {
+        if (!dotsContainer) return;
+        dotsContainer.innerHTML = '';
+        const visible = getVisible();
+        const count = total - visible + 1;
+        for (let i = 0; i < count; i++) {
+          const dot = document.createElement('button');
+          dot.className = 'vd-dot' + (i === 0 ? ' active' : '');
+          dot.addEventListener('click', () => { goTo(i); resetInterval(); });
+          dotsContainer.appendChild(dot);
+        }
+      }
+
+      function updateDots() {
+        if (!dotsContainer) return;
+        dotsContainer.querySelectorAll('.vd-dot').forEach((d, i) => {
+          d.classList.toggle('active', i === index);
+        });
+      }
+
+      function goTo(i) {
+        const visible = getVisible();
+        const max = total - visible;
+        index = Math.max(0, Math.min(i, max));
+        track.style.transform = `translateX(-${index * (100 / visible)}%)`;
+        updateDots();
+      }
+
+      function resetInterval() {
+        clearInterval(vdInterval);
+        vdInterval = setInterval(() => {
+          const visible = getVisible();
+          goTo(index + 1 > total - visible ? 0 : index + 1);
+        }, 3000);
+      }
+
+      buildDots();
+      resetInterval();
+    }
+
+    let djInterval;
+    function initDJCarousel() {
+      const track = document.getElementById('djTrack');
+      if (!track) return;
+
+      if (djInterval) clearInterval(djInterval);
+
+      let index = 0;
+      const slides = track.querySelectorAll('.dj-carousel-slide');
+      const total = slides.length;
+
+      function getVisible() {
+        if (window.innerWidth <= 600) return 1;
+        if (window.innerWidth <= 992) return 2;
+        return 3;
+      }
+
+      djInterval = setInterval(() => {
+        const visible = getVisible();
+        index++;
+        if (index > total - visible) {
+          index = 0;
+        }
+        const percentage = index * (100 / visible);
+        track.style.transform = `translateX(-${percentage}%)`;
+      }, 3000);
+    }
+
+    let vohfInterval;
+    function initVOHFCarousel() {
+      const track = document.getElementById('vohfTrack');
+      if (!track) return;
+
+      if (vohfInterval) clearInterval(vohfInterval);
+
+      let index = 0;
+      const slides = track.querySelectorAll('.dj-carousel-slide');
+      const total = slides.length;
+      const dotsContainer = document.getElementById('vohfDots');
+
+      function getVisible() {
+        if (window.innerWidth <= 600) return 1;
+        if (window.innerWidth <= 992) return 2;
+        return 3;
+      }
+
+      function buildDots() {
+        dotsContainer.innerHTML = '';
+        const visible = getVisible();
+        const dotCount = Math.ceil(total / visible);
+        for (let i = 0; i < dotCount; i++) {
+          const dot = document.createElement('span');
+          dot.className = `carousel-dot ${i === 0 ? 'active' : ''}`;
+          dot.addEventListener('click', () => goTo(i * visible));
+          dotsContainer.appendChild(dot);
+        }
+      }
+
+      function updateDots() {
+        const visible = getVisible();
+        const activeDot = Math.floor(index / visible);
+        document.querySelectorAll('#vohfDots .carousel-dot').forEach((dot, i) => {
+          dot.classList.toggle('active', i === activeDot);
+        });
+      }
+
+      function goTo(i) {
+        const visible = getVisible();
+        const max = total - visible;
+        index = Math.max(0, Math.min(i, max));
+        track.style.transform = `translateX(-${index * (100 / visible)}%)`;
+        updateDots();
+      }
+
+      function resetInterval() {
+        clearInterval(vohfInterval);
+        vohfInterval = setInterval(() => {
+          const visible = getVisible();
+          goTo(index + 1 > total - visible ? 0 : index + 1);
+        }, 3000);
+      }
+
+      buildDots();
+      resetInterval();
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      initVDCarousel();
+
+      const tabsContainer = document.getElementById('initiativesTabsContainer');
+      const tabsHint = document.getElementById('initiativesTabsHint');
+      if (tabsContainer && tabsHint) {
+        function updateHint() {
+          const canScroll = tabsContainer.scrollWidth > tabsContainer.clientWidth + 4;
+          const atEnd = tabsContainer.scrollLeft + tabsContainer.clientWidth >= tabsContainer.scrollWidth - 4;
+          tabsHint.classList.toggle('is-hidden', !canScroll || atEnd);
+        }
+        updateHint();
+        tabsContainer.addEventListener('scroll', updateHint);
+        window.addEventListener('resize', updateHint);
+      }
+    });
+  </script>
+</body>
+</html>

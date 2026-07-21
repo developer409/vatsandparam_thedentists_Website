@@ -16,3 +16,14 @@
 
     fadeEls.forEach(function (el) { observer.observe(el); });
 })();
+
+(function () {
+    'use strict';
+
+    // ---- Founder card tap-to-reveal description (mobile has no hover) ----
+    document.querySelectorAll('.lod-founder-card--photo').forEach(function (card) {
+        card.addEventListener('click', function () {
+            card.classList.toggle('is-expanded');
+        });
+    });
+})();

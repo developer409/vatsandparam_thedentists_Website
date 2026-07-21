@@ -4,19 +4,25 @@
     // ---- Splash Screen (Mobile) ----
     var splashScreen = document.getElementById('splashScreen');
 
-    // Word-by-word animation for splash text
-    function wrapWordsInSpans(elementId) {
+    // Word-by-word animation for splash text. Delay is computed per word (baseDelay +
+    // index*step) instead of relying on CSS nth-child rules, so it stays correct regardless
+    // of how many words the text actually splits into (a fixed CSS rule set for e.g. 3 words
+    // left any 4th+ word at the CSS default of 0s delay, popping in immediately/out of order).
+    function wrapWordsInSpans(elementId, baseDelay, step) {
         var element = document.getElementById(elementId);
         if (!element) return;
 
         var text = element.textContent;
         var words = text.split(' ');
-        element.innerHTML = words.map(function (word) { return '<span class="word">' + word + '</span>'; }).join(' ');
+        element.innerHTML = words.map(function (word, i) {
+            var delay = baseDelay + i * step;
+            return '<span class="word" style="animation-delay:' + delay.toFixed(2) + 's">' + word + '</span>';
+        }).join(' ');
     }
 
-    wrapWordsInSpans('splashTitle');
-    wrapWordsInSpans('splashSubtitle');
-    wrapWordsInSpans('splashTagline');
+    wrapWordsInSpans('splashTitle', 0.3, 0.3);
+    wrapWordsInSpans('splashSubtitle', 1.0, 0.3);
+    wrapWordsInSpans('splashTagline', 1.6, 0.3);
 
     if (splashScreen && window.innerWidth <= 768) {
         // Hide splash screen after 3 seconds (to let all animations complete)
@@ -68,7 +74,7 @@
                     observer.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.15 });
+        }, { threshold: 0.15, rootMargin: '0px 0px -30% 0px' });
 
         items.forEach(function (item) { observer.observe(item); });
     }

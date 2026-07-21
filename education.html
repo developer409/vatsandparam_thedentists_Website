@@ -56,6 +56,7 @@
               <a href="education.html" class="dropdown-item active">Education</a>
               <a href="testimonials.html" class="dropdown-item">Testimonials</a>
               <a href="achievements.html" class="dropdown-item">Achievements</a>
+              <a href="initiatives.html" class="dropdown-item">Initiatives</a>
               <a href="blog.html" class="dropdown-item">Blog</a>
             </div>
           </div>
@@ -68,7 +69,8 @@
 
   <!-- ========== EDUCATION PAGE ========== -->
   <section id="page-education">
-    <div class="page-header">
+    <div class="page-header page-header--lod">
+      <div class="page-header__bg" style="background-image: url('assets/education/hero_banner.png');"></div>
       <div class="container">
         <span class="section-label">Education</span>
         <h1>League of Dentists</h1>
@@ -88,36 +90,34 @@
           <span class="section-label">Featured Initiative</span>
           <h2 class="lod-heading">League of Dentists</h2>
           <p class="lod-subheading">Bridging Dental Education and Real-World Clinical Success</p>
-          <p class="lod-intro">
-            The League of Dentists is a structured professional mentorship initiative founded by Dr. Srivats Bharadwaj
-            and co-founded by Dr. Paramjot Kaur. It is dedicated to transforming dental students and early-career
-            practitioners into confident, practice-ready professionals — bridging the gap between academic training and
-            real-world clinical excellence. Through a personalised and structured approach, the League empowers dentists
-            to lead with clarity, communicate with authority, and build careers of lasting impact.
-          </p>
+          <div class="lod-intro-card">
+            <p class="lod-intro">
+              The League of Dentists was founded with a simple belief: exceptional dentists are shaped through
+              mentorship, not just education.
+            </p>
+            <p class="lod-intro">
+              Founded by Dr. Srivats Bharadwaj and co-founded by Dr. Paramjot Kaur, the initiative bridges the gap
+              between dental education and modern clinical practice. Through structured mentorship, real-world
+              learning, and personalised guidance, it equips students and early-career dentists with the confidence,
+              clinical judgment, and communication skills required to build meaningful and successful careers.
+            </p>
+          </div>
         </div>
 
         <!-- LOD: Founder Highlight -->
         <div class="lod-founders fade-in">
-          <div class="lod-founder-card">
-            <div class="lod-founder-img-wrap">
-              <div class="lod-founder-img-placeholder">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"
-                  stroke-linejoin="round">
-                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                  <circle cx="12" cy="7" r="4" />
-                </svg>
-              </div>
-            </div>
+          <div class="lod-founder-card lod-founder-card--photo">
+            <img src="assets/Doctors/Dr_Srivats_B/Dr_Srivats.png" alt="Dr. Srivats Bharadwaj" class="lod-founder-photo">
+            <div class="lod-founder-photo-overlay"></div>
             <div class="lod-founder-info">
-              <span class="lod-founder-role">Founder &amp; Chief Mentor</span>
+              <span class="lod-founder-role">Healthcare Visionary &amp; Entrepreneur</span>
               <h3 class="lod-founder-name">Dr. Srivats Bharadwaj</h3>
               <ul class="lod-founder-points">
                 <li>
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <polyline points="9 18 15 12 9 6" />
                   </svg>
-                  24+ years of clinical and academic experience
+                  30+ years of clinical and academic experience
                 </li>
                 <li>
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -135,16 +135,9 @@
             </div>
           </div>
 
-          <div class="lod-founder-card">
-            <div class="lod-founder-img-wrap">
-              <div class="lod-founder-img-placeholder">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"
-                  stroke-linejoin="round">
-                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                  <circle cx="12" cy="7" r="4" />
-                </svg>
-              </div>
-            </div>
+          <div class="lod-founder-card lod-founder-card--photo">
+            <img src="assets/Doctors/Dr_Paramjot_Kaur/Dr_param.png" alt="Dr. Paramjot Kaur" class="lod-founder-photo">
+            <div class="lod-founder-photo-overlay"></div>
             <div class="lod-founder-info">
               <span class="lod-founder-role">Co-Founder &amp; Business Strategist</span>
               <h3 class="lod-founder-name">Dr. Paramjot Kaur</h3>
@@ -264,45 +257,67 @@
             <h3 class="lod-services-title">Courses Offered by League of Dentists</h3>
             <p class="lod-services-subtitle">Customized programs designed to transform your clinical skills, mindset, and career trajectory.</p>
           </div>
-          <div class="lod-courses-grid">
-            <!-- Featured Programs -->
+          <span class="lod-course-group-label">Signature Programs</span>
+          <div class="lod-courses-grid lod-courses-grid--featured">
             <div class="lod-course-card lod-course-card--featured">
-              <div class="lod-course-badge">Featured</div>
-              <h4 class="lod-course-title">Dental Energizer Program</h4>
-              <p class="lod-course-desc">An exclusive program for dentists and dental students who are demotivated and struggling to find their passion. Rebuild your clinical confidence and reignite your passion for dentistry.</p>
-              <div class="lod-course-meta">
-                <span class="lod-course-type">Mentorship Program</span>
+              <div class="lod-course-img-wrap">
+                <img src="assets/education/clinical_mentorship.png" alt="Dental Energizer Program" class="lod-course-img">
+                <div class="lod-course-badge">Featured</div>
+              </div>
+              <div class="lod-course-body">
+                <h4 class="lod-course-title">Dental Energizer Program</h4>
+                <p class="lod-course-desc">An exclusive program for dentists and dental students who are demotivated and struggling to find their passion. Rebuild your clinical confidence and reignite your passion for dentistry.</p>
+                <div class="lod-course-meta">
+                  <span class="lod-course-type">Mentorship Program</span>
+                </div>
               </div>
             </div>
 
             <div class="lod-course-card lod-course-card--featured">
-              <div class="lod-course-badge">Featured</div>
-              <h4 class="lod-course-title">Innovations in Oral Care</h4>
-              <p class="lod-course-desc">Learn to become a creator of the future rather than a follower. This program encourages dentists to innovate, lead change, and shape the future of dentistry through proactive thinking and strategic planning.</p>
-              <div class="lod-course-meta">
-                <span class="lod-course-type">Innovation Workshop</span>
+              <div class="lod-course-img-wrap">
+                <img src="assets/education/innovations_oralcare.png" alt="Innovations in Oral Care" class="lod-course-img">
+                <div class="lod-course-badge">Featured</div>
+              </div>
+              <div class="lod-course-body">
+                <h4 class="lod-course-title">Innovations in Oral Care</h4>
+                <p class="lod-course-desc">Learn to become a creator of the future rather than a follower. This program encourages dentists to innovate, lead change, and shape the future of dentistry through proactive thinking and strategic planning.</p>
+                <div class="lod-course-meta">
+                  <span class="lod-course-type">Innovation Workshop</span>
+                </div>
               </div>
             </div>
 
             <div class="lod-course-card lod-course-card--featured">
-              <div class="lod-course-badge">Featured</div>
-              <h4 class="lod-course-title">How to Envision a Charitable Dental Initiative</h4>
-              <p class="lod-course-desc">Balance professional advancement with altruistic goals. Learn how to build a charitable dental initiative while maintaining a sustainable, ethical practice that serves your community.</p>
-              <div class="lod-course-meta">
-                <span class="lod-course-type">Community Dentistry</span>
+              <div class="lod-course-img-wrap">
+                <img src="assets/education/community_initiative.png" alt="How to Envision a Charitable Dental Initiative" class="lod-course-img">
+                <div class="lod-course-badge">Featured</div>
+              </div>
+              <div class="lod-course-body">
+                <h4 class="lod-course-title">How to Envision a Charitable Dental Initiative</h4>
+                <p class="lod-course-desc">Balance professional advancement with altruistic goals. Learn how to build a charitable dental initiative while maintaining a sustainable, ethical practice that serves your community.</p>
+                <div class="lod-course-meta">
+                  <span class="lod-course-type">Community Dentistry</span>
+                </div>
               </div>
             </div>
 
             <div class="lod-course-card lod-course-card--featured">
-              <div class="lod-course-badge">Featured</div>
-              <h4 class="lod-course-title">Approach to Pediatric and Special Needs Care</h4>
-              <p class="lod-course-desc">"Children dentistry is the future of dentistry." Master the skills needed to provide exceptional pediatric and special needs dental care with confidence, empathy, and clinical precision.</p>
-              <div class="lod-course-meta">
-                <span class="lod-course-type">Clinical Specialization</span>
+              <div class="lod-course-img-wrap">
+                <img src="assets/education/pediatric_special_needs.png" alt="Approach to Pediatric and Special Needs Care" class="lod-course-img">
+                <div class="lod-course-badge">Featured</div>
+              </div>
+              <div class="lod-course-body">
+                <h4 class="lod-course-title">Approach to Pediatric and Special Needs Care</h4>
+                <p class="lod-course-desc">"Children dentistry is the future of dentistry." Master the skills needed to provide exceptional pediatric and special needs dental care with confidence, empathy, and clinical precision.</p>
+                <div class="lod-course-meta">
+                  <span class="lod-course-type">Clinical Specialization</span>
+                </div>
               </div>
             </div>
+          </div>
 
-            <!-- Workshop-Based Programs -->
+          <span class="lod-course-group-label">Workshops &amp; Group Sessions</span>
+          <div class="lod-courses-grid lod-courses-grid--workshops">
             <div class="lod-course-card">
               <div class="lod-course-badge">Workshop</div>
               <h4 class="lod-course-title">The Culture of Thinking (Group Workshops)</h4>
@@ -518,7 +533,7 @@
   </script>
 
   <!-- WhatsApp Button -->
-  <a href="https://wa.me/919480972337" target="_blank" class="whatsapp-btn" title="Chat on WhatsApp">
+  <a href="https://wa.me/919900114151" target="_blank" class="whatsapp-btn" title="Chat on WhatsApp">
     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
       <path
         d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
