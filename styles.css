@@ -1648,8 +1648,8 @@ p {
   .walkthrough-card li,
   .walkthrough-card .card-header-row h2,
   .walkthrough-card .card-header-row * {
-    color: #000000 !important;
-    text-shadow: none !important;
+    color: #ffffff !important;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.8) !important;
   }
 
   .stats-animation-section {
@@ -3325,9 +3325,14 @@ p {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  /* Footer */
+  /* Footer: Navigation and Resources side by side; Brand and Contact & Timings full-width */
   .footer__grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .footer__grid > div:nth-child(1),
+  .footer__grid > div:nth-child(4) {
+    grid-column: 1 / -1;
   }
 
   .footer__bottom {
@@ -6938,7 +6943,7 @@ p {
 .walkthrough-card .flow-old { color: #ffbbbb !important; }
 .walkthrough-card .flow-new { color: #bbffbb !important; }
 
-/* Mobile: override white text back to black (must come AFTER the base white rules above) */
+/* Mobile: keep the content text white with a shadow for legibility over the card background */
 @media (max-width: 768px) {
   .walkthrough-card .immersive-title,
   .walkthrough-card .immersive-label,
@@ -6951,26 +6956,35 @@ p {
   .walkthrough-card p,
   .walkthrough-card li,
   .walkthrough-card .card-header-row * {
-    color: #000000 !important;
-    text-shadow: none !important;
+    color: #ffffff !important;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.8) !important;
   }
   .walkthrough-card .immersive-label,
   .walkthrough-card .flow-label {
-    color: var(--color-navy) !important;
+    color: #FFD700 !important;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.8) !important;
   }
   /* Traditional approach = golden, Treats symptoms = black */
   .walkthrough-card .traditional-row .comp-label {
-    color: var(--color-gold) !important;
+    color: #FFD700 !important;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.8) !important;
   }
   .walkthrough-card .traditional-row .comp-val {
-    color: #000000 !important;
+    color: #ffffff !important;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.8) !important;
   }
-  /* Our Approach = black, Identifies causes = golden */
+  /* Our Approach = white, Identifies causes = golden */
   .walkthrough-card .ours-row .comp-label {
-    color: #000000 !important;
+    color: #ffffff !important;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.8) !important;
+  }
+  .walkthrough-card .comp-eq {
+    color: #ffffff !important;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.8) !important;
   }
   .walkthrough-card .ours-row .comp-val {
-    color: var(--color-gold) !important;
+    color: #FFD700 !important;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.8) !important;
   }
 }
 
@@ -7068,24 +7082,24 @@ p {
     gap: 0.4rem;
   }
   .comparison-row {
-    flex-wrap: nowrap;
-    white-space: nowrap;
+    flex-wrap: wrap;
+    white-space: normal;
   }
   .traditional-row {
-    font-size: 0.78rem;
+    font-size: 1.05rem;
   }
   .ours-row {
-    font-size: 0.78rem;
+    font-size: 1.05rem;
   }
   .traditional-row .comp-label {
-    color: #9a7d36 !important;
+    color: #FFD700 !important;
   }
   .ours-row .comp-label {
-    color: #9a7d36 !important;
+    color: #ffffff !important;
   }
   .comp-eq,
   .comp-val {
-    color: #000000 !important;
+    color: #ffffff !important;
   }
 }
 
@@ -8336,7 +8350,9 @@ p {
   }
 
   /* ---- Footer ---- */
-  .footer__grid { grid-template-columns: 1fr !important; gap: 2rem; }
+  .footer__grid { grid-template-columns: 1fr 1fr !important; gap: 2rem; }
+  .footer__grid > div:nth-child(1),
+  .footer__grid > div:nth-child(4) { grid-column: 1 / -1 !important; }
   .footer__bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
   .footer__socials { gap: 1rem; }
   .footer__social-icon { width: 36px; height: 36px; }
@@ -9582,7 +9598,7 @@ body:has(#page-about.active) {
     position: absolute !important;
     inset: 0 !important;
     margin: auto !important;
-    width: 100% !important;
+    width: calc(100% - 2.5rem) !important;
     max-width: 460px !important;
     height: fit-content !important;
     max-height: 72vh !important;
@@ -9633,7 +9649,7 @@ body:has(#page-about.active) {
 
   .walkthrough-card .immersive-title {
     display: block !important;
-    font-size: 1.4rem !important;
+    font-size: 1.65rem !important;
     font-weight: 700 !important;
     line-height: 1.28 !important;
     margin: 0 0 0.75rem !important;
@@ -9643,7 +9659,7 @@ body:has(#page-about.active) {
   .walkthrough-card .card-list li,
   .walkthrough-card .card-note,
   .walkthrough-card p {
-    font-size: 0.92rem !important;
+    font-size: 1.05rem !important;
     line-height: 1.6 !important;
   }
 
