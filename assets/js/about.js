@@ -52,11 +52,10 @@
         }
     }
 
-    if (document.readyState === 'complete') {
-        revealHeroCards();
-    } else {
-        window.addEventListener('load', revealHeroCards);
-    }
+    // Run as soon as the DOM is ready — don't wait for window 'load', which
+    // only fires once every resource (including the large hero video) has
+    // finished downloading. The paragraph shouldn't be stuck behind that.
+    revealHeroCards();
 })();
 
 // ---- Word reveal animation ----

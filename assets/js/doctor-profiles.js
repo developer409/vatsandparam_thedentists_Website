@@ -5,7 +5,7 @@
 const doctorData = {
     'vats': {
         name: 'Prof. Dr. Srivats Bharadwaj',
-        role: 'Healthcare Entrepreneur & Mentor',
+        role: 'Healthcare Visionary & Entrepreneur',
         specialization: 'Functional & Integrative Dentist',
         image: 'assets/Doctors/Dr_Srivats_B/Dr_Srivats.png',
         education: 'BDS, MDS, FADI',
@@ -15,7 +15,7 @@ const doctorData = {
         locationFull: 'Ground floor, 363, Bannerghatta Main Road, Hulimavu, Bengaluru - 560076',
         tags: [
             { label: 'BDS, MDS, FADI', gold: true },
-            { label: 'Healthcare Entrepreneur', gold: false },
+            { label: 'Healthcare Visionary', gold: false },
             { label: '30+ Years Experience', gold: false },
         ],
         overview: [
@@ -79,10 +79,10 @@ const doctorData = {
         tags: [
             { label: 'Periodontics', gold: false },
             { label: 'BDS, MDS', gold: true },
-            { label: '18+ Years Experience', gold: false },
+            { label: '20+ Years Experience', gold: false },
         ],
         overview: [
-            '<strong>Specialist Periodontist | 18+ Years Experience</strong>',
+            '<strong>Specialist Periodontist | 20+ Years Experience</strong>',
             '<strong>Methodical Approach</strong>: Known for her precise clinical skill and focus on long-term oral health and preservation.',
             '<strong>Specialist-Led Assessment</strong>: Detailed evaluation of periodontal health, risk factors, and disease progression.',
             '<strong>Calm and Reassuring Environment</strong>: A composed clinical approach that prioritises patient comfort and confidence.',
