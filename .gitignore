@@ -61,6 +61,10 @@ package-lock.json
 !assets/our_clinic_logo/**/*.jpg
 !assets/our_clinic_logo/**/*.jpeg
 !assets/our_clinic_logo/**/*.JPG
+!assets/education/**/*.png
+!assets/education/**/*.jpg
+!assets/education/**/*.jpeg
+!assets/education/**/*.JPG
 read_log.js
 check_diff.js
 rebuild_original_css.js
