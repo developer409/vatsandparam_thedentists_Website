@@ -1,6 +1,49 @@
 (function () {
     'use strict';
 
+    // ---- Intro loader (mobile only) ----
+    // Fixed-duration overlay, not tied to any load event, so it can never hang
+    // waiting on the hero video or other resources — it just gives the video a
+    // short head start to buffer while the quote is on screen.
+    var introLoader = document.getElementById('aboutIntroLoader');
+    var introQuote = document.getElementById('aboutIntroQuote');
+
+    if (introQuote) {
+        var words = introQuote.textContent.split(' ');
+        introQuote.innerHTML = words.map(function (word, i) {
+            var delay = (0.1 + i * 0.12).toFixed(2);
+            return '<span class="about-intro-word" style="animation-delay:' + delay + 's">' + word + '</span>';
+        }).join(' ');
+    }
+
+    if (introLoader) {
+        if (window.innerWidth <= 768) {
+            document.body.style.overflow = 'hidden';
+            setTimeout(function () {
+                introLoader.classList.add('hidden');
+                document.body.style.overflow = '';
+            }, 2600);
+        } else {
+            introLoader.classList.add('hidden');
+        }
+    }
+})();
+
+(function () {
+    'use strict';
+
+    // ---- Hero scroll hint: fade out once the user starts scrolling ----
+    var heroHint = document.getElementById('aboutHeroScrollHint');
+    if (heroHint) {
+        window.addEventListener('scroll', function () {
+            heroHint.style.opacity = window.scrollY > 80 ? '0' : '';
+        }, { passive: true });
+    }
+})();
+
+(function () {
+    'use strict';
+
     // ---- Hero word animation (mobile only) - preserves bold tags ----
     if (window.innerWidth <= 768) {
         var globalIndex = 0;
@@ -152,7 +195,7 @@
     if (!window.matchMedia('(max-width: 768px)').matches) return;
 
     var mainVideo = document.querySelector('#walkthroughSection .walkthrough-video');
-    if (mainVideo) mainVideo.poster = 'assets/Technology/about-us-mobile-poster.jpg';
+    if (mainVideo) mainVideo.poster = 'assets/Technology/aboutus_mobile.jpeg';
 
     if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
 

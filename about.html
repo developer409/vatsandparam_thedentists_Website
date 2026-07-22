@@ -27,6 +27,12 @@
 
 <body>
 
+  <!-- ========== INTRO LOADER (Mobile Only) ========== -->
+  <div class="about-intro-loader" id="aboutIntroLoader">
+    <p class="about-intro-quote" id="aboutIntroQuote">Longevity begins with a healthy smile.</p>
+    <div class="about-intro-spinner"></div>
+  </div>
+
   <!-- ========== NAVIGATION ========== -->
   <nav class="nav" id="mainNav">
     <div class="nav__inner">
@@ -76,7 +82,7 @@
     <!-- SECTION 1: HERO -->
     <section class="immersive-video-section" data-nav="dark">
       <div class="immersive-bg">
-        <video autoplay muted loop playsinline poster="assets/Technology/about-us-mobile-poster.jpg" class="immersive-video">
+        <video autoplay muted loop playsinline poster="assets/Technology/aboutus_mobile.jpeg" class="immersive-video">
           <source src="assets/videos/homepage_website.mp4" type="video/mp4" media="(max-width: 768px)">
           <source src="assets/videos/homepage_video_v3.mp4" type="video/mp4">
         </video>
@@ -85,7 +91,18 @@
       <div class="hero-bottom-cards">
         <div class="hero-rect hero-rect--1">
           <p class="hero-word-animate hero-reveal-text">Oral health is inseparable from overall health, influencing immunity, inflammation, nutrition, and healthy ageing.</p>
-          <p class="hero-reveal-text hero-mobile-sub">The condition of the mouth often reflects and affects the condition of the body.<br>By understanding these connections, care can move beyond treatment alone to support long-term health and prevention.</p>
+          <p class="hero-reveal-text hero-mobile-sub">The condition of the mouth often reflects and affects the condition of the body.<span class="hero-mobile-sub__line2">By understanding these connections, care can move beyond treatment alone to support long-term health, prevention, and lasting well-being.</span></p>
+        </div>
+      </div>
+
+      <!-- Scroll indicator -->
+      <div class="scroll-hint" id="aboutHeroScrollHint">
+        <span>Scroll to Explore</span>
+        <div class="hint-mouse">
+          <div class="hint-wheel"></div>
+        </div>
+        <div class="hint-arrows">
+          <i></i><i></i><i></i>
         </div>
       </div>
     </section>
@@ -501,8 +518,8 @@
             <div class="founder-video-overlay"></div>
           </div>
           <div class="founder-info glass-panel">
-            <h3 class="founder-name">Dr. Srivats Bharadwaj</h3>
-            <p class="founder-title">Health care thought leader entrepreneur</p>
+            <h3 class="founder-name">Prof. Dr. Srivats Bharadwaj</h3>
+            <p class="founder-title">Healthcare Visionary & Entrepreneur</p>
             <p class="founder-bio">30+ years of diagnostic-driven dentistry focused on root-cause analysis and whole-body wellness integration. Visionary pioneer in systems-based dental care.</p>
             <a href="doctor-profile.html?dr=vats" class="founder-link">View Full Profile →</a>
           </div>

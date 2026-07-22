@@ -39,4 +39,12 @@
 
         items.forEach(function (item) { observer.observe(item); });
     }
+
+    // ---- Hero scroll hint: fade out once the user starts scrolling ----
+    var heroHint = document.getElementById('approachHeroScrollHint');
+    if (heroHint) {
+        window.addEventListener('scroll', function () {
+            heroHint.style.opacity = window.scrollY > 80 ? '0' : '';
+        }, { passive: true });
+    }
 })();
