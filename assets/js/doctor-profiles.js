@@ -68,7 +68,7 @@ const doctorData = {
 
     'param': {
         name: 'Dr. Paramjot Kaur',
-        role: 'Lead Dentist & Co-Founder',
+        role: 'Healthcare Entrepreneur',
         specialization: 'Specialist Periodontist',
         image: 'assets/Doctors/Dr_Paramjot_Kaur/Dr_param.png',
         education: 'BDS, MDS (Periodontics)',
