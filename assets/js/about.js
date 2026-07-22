@@ -312,6 +312,16 @@
     foundersObserver.observe(foundersSection);
 })();
 
+// ---- Founder card tap-to-reveal bio (mobile has no hover) ----
+(function () {
+    document.querySelectorAll('.founder-block').forEach(function (block) {
+        block.addEventListener('click', function (e) {
+            if (e.target.closest('.founder-link')) return;
+            block.classList.toggle('is-expanded');
+        });
+    });
+})();
+
 // ---- Fade-in on scroll ----
 (function () {
     var items = document.querySelectorAll('.fade-in-scroll:not(.visible)');

@@ -5691,7 +5691,7 @@ p {
     position: relative !important;
     flex-direction: column !important;
     gap: 0.75rem !important;
-    margin-top: -2rem !important;
+    margin-top: 1.5rem !important;
     padding: 1rem !important;
     bottom: auto !important;
     left: auto !important;
@@ -6232,7 +6232,11 @@ p {
   font-size: 0.95rem;
   line-height: 1.7;
   color: rgba(255, 255, 255, 0.85);
-  margin-bottom: 1.5rem;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  margin-bottom: 0;
+  transition: max-height 0.45s ease, opacity 0.35s ease, margin-bottom 0.45s ease;
 }
 
 .founder-link {
@@ -6243,12 +6247,34 @@ p {
   padding: 0.5rem 1rem;
   border: 1px solid var(--color-gold);
   border-radius: 6px;
-  transition: all 0.3s ease;
+  transition: opacity 0.35s ease, max-height 0.45s ease, background 0.3s ease, color 0.3s ease;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
 }
 
 .founder-link:hover {
   background: var(--color-gold);
   color: #1a1a1a;
+}
+
+/* Bio + link stay hidden until the card is hovered (desktop) or tapped (mobile,
+   via .is-expanded toggled in about.js) — name/role stay visible at all times. */
+.founder-block:hover .founder-bio,
+.founder-block.is-expanded .founder-bio {
+  max-height: 220px;
+  opacity: 1;
+  margin-bottom: 1.5rem;
+}
+
+.founder-block:hover .founder-link,
+.founder-block.is-expanded .founder-link {
+  max-height: 60px;
+  opacity: 1;
+}
+
+.founder-block {
+  cursor: pointer;
 }
 
 /* ENTRANCE ANIMATIONS */
@@ -9986,19 +10012,24 @@ body:has(#page-about.active) {
     filter: none !important;
   }
 
-  .walkthrough-card .immersive-label {
+  .walkthrough-card .immersive-label:not(.desktop-only) {
     display: block !important;
     font-size: 0.75rem !important;
     letter-spacing: 0.16em !important;
     margin-bottom: 0.6rem !important;
   }
 
-  .walkthrough-card .immersive-title {
+  .walkthrough-card .immersive-title:not(.desktop-only) {
     display: block !important;
     font-size: 1.65rem !important;
     font-weight: 700 !important;
     line-height: 1.28 !important;
     margin: 0 0 0.75rem !important;
+  }
+
+  .walkthrough-card .immersive-label.desktop-only,
+  .walkthrough-card .immersive-title.desktop-only {
+    display: none !important;
   }
 
   .walkthrough-card .immersive-body,

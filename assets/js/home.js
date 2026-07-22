@@ -81,6 +81,14 @@
 
     observeFadeInScroll();
 
+    // ---- Hero scroll hint: fade out once the user starts scrolling ----
+    var heroHint = document.getElementById('homeHeroScrollHint');
+    if (heroHint) {
+        window.addEventListener('scroll', function () {
+            heroHint.style.opacity = window.scrollY > 80 ? '0' : '';
+        }, { passive: true });
+    }
+
     // ---- Impact stats counter ----
     function animateNumber(el) {
         var target = parseInt(el.dataset.target, 10);
