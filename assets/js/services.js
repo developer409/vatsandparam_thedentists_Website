@@ -49,4 +49,16 @@
     }
 
     runServicesAnimation();
+
+    /* ---- Mobile click-to-reveal (Assessments & Diagnostics card) ---- */
+    document.querySelectorAll('.svc-reveal-trigger').forEach(function (trigger) {
+        trigger.addEventListener('click', function () {
+            var panel = document.getElementById(trigger.getAttribute('aria-controls'));
+            var isOpen = trigger.getAttribute('aria-expanded') === 'true';
+            trigger.setAttribute('aria-expanded', String(!isOpen));
+            if (panel) panel.classList.toggle('active', !isOpen);
+            var label = trigger.querySelector('.svc-reveal-trigger__label');
+            if (label) label.textContent = isOpen ? 'Click to view services provided' : 'Hide services provided';
+        });
+    });
 })();

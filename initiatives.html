@@ -105,6 +105,25 @@
     .tab-content.active {
       display: block;
     }
+    /* Mobile: no tab-switching — show every initiative stacked, one below another,
+       instead of hiding all but the active one. */
+    @media (max-width: 768px) {
+      .tabs-scroll-wrap {
+        display: none;
+      }
+      .tab-content {
+        display: block !important;
+      }
+      /* .tab-content isn't the literal first <div> among its siblings (the hidden
+         .tabs-scroll-wrap div precedes it), so :first-of-type never matches any of
+         them — target every section that has a preceding .tab-content sibling instead,
+         which correctly excludes just the first one regardless of what else is around it. */
+      .tab-content ~ .tab-content {
+        padding-top: var(--space-xl);
+        border-top: 2px solid var(--color-border);
+        margin-top: var(--space-xl);
+      }
+    }
     .initiatives-gallery {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -329,6 +348,7 @@
           <a href="careers.html" class="nav__link">Careers</a>
           <a href="contact.html" class="nav__link">Contact</a>
         </div>
+        <a href="contact.html" class="btn btn--primary btn--sm nav__cta">Book Consultation</a>
       </div>
     </div>
   </nav>
@@ -352,6 +372,10 @@
               <button class="tab-button" data-tab="vatsalya-dento-jungle-tab" onclick="switchInitiativesTab(event)">Vatsalya Dento Jungle</button>
               <button class="tab-button" data-tab="vatsalya-ohf-tab" onclick="switchInitiativesTab(event)">Vatsalya Oral Health Foundation</button>
               <button class="tab-button" data-tab="home-dental-care-tab" onclick="switchInitiativesTab(event)">Home Dental Care Initiative</button>
+              <button class="tab-button" data-tab="league-of-dentists-initiative-tab" onclick="switchInitiativesTab(event)">League of Dentists</button>
+              <button class="tab-button" data-tab="wheelchair-dental-chair-tab" onclick="switchInitiativesTab(event)">Dental Chair for Disabled</button>
+              <button class="tab-button" data-tab="hcg-cancer-clinic-tab" onclick="switchInitiativesTab(event)">Dental Clinic for Cancer Patients</button>
+              <button class="tab-button" data-tab="oral-health-education-tab" onclick="switchInitiativesTab(event)">Oral Health Educational Initiatives</button>
             </div>
             <div class="tabs-scroll-hint" id="initiativesTabsHint" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
@@ -586,6 +610,119 @@
             </div>
           </div>
 
+          <!-- League of Dentists -->
+          <div id="league-of-dentists-initiative-tab" class="tab-content">
+            <div class="dento-jungle-content">
+
+              <div class="dj-header">
+                <div class="dj-intro">
+                  <div class="dj-title" style="color: var(--color-navy);">
+                    <span class="dj-title-icon" style="background: var(--color-navy);">&#10095;</span>
+                    League of Dentists
+                  </div>
+                  <p>League of Dentists is an organization that started in 2020 with the aim of mentoring practicing dental professionals and dental students about the art of dentistry. The venture is continuously evolving, and its goal is to provide valuable mentorship to those who are passionate about the field of dentistry.</p>
+                </div>
+                <div class="dj-logo" style="text-align: center; padding: 2rem; background: linear-gradient(135deg, rgba(92, 10, 10, 0.05) 0%, rgba(198, 167, 94, 0.05) 100%); border-radius: 8px;">
+                  <p style="font-size: 3rem; margin: 0;">&#127891;</p>
+                  <p style="margin: 1rem 0 0 0; font-size: 1.1rem; color: #5C0A0A; font-weight: 700;">Mentoring Since 2020</p>
+                </div>
+              </div>
+
+              <div class="dj-middle">
+                <div class="dj-secondary-text" style="grid-column: 1 / -1;">
+                  <p>The League of Dentists has had a significant impact on the careers of many aspiring dentists. By providing mentorship, it has helped to guide dental students and practicing professionals towards success. The mentorship covers a range of topics, including clinical skills, communication skills, and business skills.</p>
+                  <p style="margin-top: 1rem;">One of the key objectives of the League of Dentists is to create a community of dental professionals who can support and learn from one another — fostering a culture of continuous learning and improvement among dental professionals.</p>
+                  <p style="margin-top: 1rem;">Mentorship is provided through various channels, including online workshops, seminars, and one-on-one coaching sessions, led by experienced dental professionals like Dr. Srivats Bharadwaj and Dr. Paramjot Kaur.</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Dental Chair for Disabled -->
+          <div id="wheelchair-dental-chair-tab" class="tab-content">
+            <div class="dento-jungle-content">
+
+              <div class="dj-header">
+                <div class="dj-intro">
+                  <div class="dj-title" style="color: var(--color-navy);">
+                    <span class="dj-title-icon" style="background: var(--color-navy);">&#10095;</span>
+                    Dental Chair for Disabled
+                  </div>
+                  <p>At our clinics, we understand that dental care is important for everyone, regardless of their physical abilities. That is why we are proud to offer a wheelchair recliner dental chair for disabled people, designed to allow patients to receive dental treatment while remaining comfortably seated in their wheelchair.</p>
+                </div>
+                <div class="dj-logo" style="text-align: center; padding: 2rem; background: linear-gradient(135deg, rgba(92, 10, 10, 0.05) 0%, rgba(198, 167, 94, 0.05) 100%); border-radius: 8px;">
+                  <p style="font-size: 3rem; margin: 0;">&#9855;</p>
+                  <p style="margin: 1rem 0 0 0; font-size: 1.1rem; color: #5C0A0A; font-weight: 700;">Accessible Care for All</p>
+                </div>
+              </div>
+
+              <div class="dj-middle">
+                <div class="dj-secondary-text" style="grid-column: 1 / -1;">
+                  <p>Our wheelchair recliner dental chair is equipped with specialized features that ensure the safety and comfort of disabled patients during dental procedures. The chair reclines to a comfortable position, allowing patients to receive dental treatment while remaining in their wheelchair. The chair also features adjustable headrests and armrests, ensuring that patients are properly supported throughout the procedure.</p>
+                  <p style="margin-top: 1rem;">Our wheelchair recliner dental chair is an important part of our commitment to providing accessible and inclusive dental care to all of our patients. Whether you are disabled or able-bodied, we believe that everyone deserves access to quality dental care, and we are proud to offer specialized solutions to meet the unique needs of our patients.</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Dental Clinic for Cancer Patients at HCG -->
+          <div id="hcg-cancer-clinic-tab" class="tab-content">
+            <div class="dento-jungle-content">
+
+              <div class="dj-header">
+                <div class="dj-intro">
+                  <div class="dj-title" style="color: var(--color-navy);">
+                    <span class="dj-title-icon" style="background: var(--color-navy);">&#10095;</span>
+                    Dental Clinic for Cancer Patients at HCG
+                  </div>
+                  <p>As part of our ongoing efforts to support individuals with unique healthcare needs, we have established a dedicated dental clinic for cancer patients at HCG. The clinic is designed to provide specialized dental care to patients undergoing cancer treatment, as these individuals often face unique oral health challenges.</p>
+                </div>
+                <div class="dj-logo" style="text-align: center; padding: 2rem; background: linear-gradient(135deg, rgba(92, 10, 10, 0.05) 0%, rgba(198, 167, 94, 0.05) 100%); border-radius: 8px;">
+                  <p style="font-size: 3rem; margin: 0;">&#127973;</p>
+                  <p style="margin: 1rem 0 0 0; font-size: 1.1rem; color: #5C0A0A; font-weight: 700;">Specialised Oncology Dental Care</p>
+                </div>
+              </div>
+
+              <div class="dj-middle">
+                <div class="dj-secondary-text" style="grid-column: 1 / -1;">
+                  <p>The dental clinic for cancer patients at HCG is staffed by experienced dental professionals who have received specialized training in providing care to patients undergoing cancer treatment. These professionals are equipped with the knowledge and tools necessary to address the unique oral health challenges faced by cancer patients, such as dry mouth, mouth sores, and gum disease.</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Oral Health Educational Initiatives -->
+          <div id="oral-health-education-tab" class="tab-content">
+            <div class="dento-jungle-content">
+
+              <div class="dj-header">
+                <div class="dj-intro">
+                  <div class="dj-title" style="color: var(--color-navy);">
+                    <span class="dj-title-icon" style="background: var(--color-navy);">&#10095;</span>
+                    Oral Health Educational Initiatives
+                  </div>
+                  <p>We believe that education is the key to promoting good oral health and preventing dental problems. As part of our commitment to educating the community about oral health, we had organized several seminars, conferences, and mock treatments to educate children from various schools and colleges.</p>
+                </div>
+                <div class="dj-logo" style="text-align: center; padding: 2rem; background: linear-gradient(135deg, rgba(92, 10, 10, 0.05) 0%, rgba(198, 167, 94, 0.05) 100%); border-radius: 8px;">
+                  <p style="font-size: 3rem; margin: 0;">&#128218;</p>
+                  <p style="margin: 1rem 0 0 0; font-size: 1.1rem; color: #5C0A0A; font-weight: 700;">Education for All</p>
+                </div>
+              </div>
+
+              <div class="dj-middle">
+                <div class="dj-secondary-text" style="grid-column: 1 / -1;">
+                  <p>Our team of experienced dental professionals like Dr. Srivats Bharadwaj and Dr. Paramjot Kaur had conducted online seminars during the COVID-19 pandemic to educate people about the importance of oral health. We understand that the pandemic made it difficult for people to access dental care, and we wanted to ensure that people have the knowledge they need to maintain good oral health at home.</p>
+                  <p style="margin-top: 1rem;">We have also conducted seminars at schools located in remote parts of Karnataka to educate children and their families about the importance of oral health. We believe that everyone, regardless of their location or socioeconomic status, deserves access to quality dental care and education.</p>
+                  <p style="margin-top: 1rem;">Our seminars cover a wide range of topics, including proper brushing and flossing techniques, the importance of regular dental checkups, and the effects of diet and lifestyle on oral health. We use interactive and engaging methods to ensure that our audience stays engaged and retains the information they learn.</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
         </div>
       </section>
     </section>
@@ -632,9 +769,9 @@
           <h4 class="footer__heading">Contact &amp; Timings</h4>
           <p class="footer__link"><a href="mailto:happytohelp@vatsandparam.com" style="color: inherit; text-decoration: none;">happytohelp@vatsandparam.com</a></p>
           <p class="footer__link"><a href="tel:+919900114151" style="color: inherit; text-decoration: none;">+91 9900114151</a></p>
-          <p class="footer__link">Mon &#8211; Sun: 10:00 AM &#8211; 7:00 PM</p>
-          <p class="footer__link">Thursday: Closed</p>
-          <p class="footer__link">Bengaluru: <a href="https://maps.google.com/?q=363,Bannerghatta+Rd,opposite+Reliance+Digital,Pai+Layout,Hulimavu,Bengaluru,Karnataka+560076" target="_blank" style="color:inherit;text-decoration:underline;">Hulimavu</a> | <a href="https://maps.google.com/?q=WH4P%2B95Q,KR+Layout,2nd+Phase,JP+Nagar,Bengaluru,Karnataka+560078" target="_blank" style="color:inherit;text-decoration:underline;">J.P Nagar</a> | <a href="https://maps.google.com/?q=83,6th+Cross+Rd,Arekere+MICO+Layout+2nd+stage,Araka+Mico+Layout,Arekere,Bengaluru,Karnataka+560076" target="_blank" style="color:inherit;text-decoration:underline;">Arekere</a></p>
+          <p class="footer__link">Mon &#8211; Sat: 10:00 AM &#8211; 7:00 PM.</p>
+          <p class="footer__link">Sunday: 10:00 AM &#8211; 1:00 PM.</p>
+          <p class="footer__link">Thursday: Holiday.</p>
         </div>
       </div>
       <div class="footer__socials">
@@ -894,6 +1031,13 @@
 
     document.addEventListener('DOMContentLoaded', () => {
       initVDCarousel();
+
+      // Mobile shows every initiative stacked at once (no tabs), so every
+      // carousel needs to run from the start instead of waiting on a tab click.
+      if (window.matchMedia('(max-width: 768px)').matches) {
+        initDJCarousel();
+        initVOHFCarousel();
+      }
 
       const tabsContainer = document.getElementById('initiativesTabsContainer');
       const tabsHint = document.getElementById('initiativesTabsHint');

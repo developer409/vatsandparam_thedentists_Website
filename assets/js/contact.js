@@ -33,19 +33,17 @@
         });
     }
 
-    // ---- Location Switcher ----
+    // ---- Location selector (highlight active card; "Click to view in Maps"
+    //      link on each card handles actually opening the location) ----
     var locationItems = document.querySelectorAll('.location-item');
-    var mapIframe = document.getElementById('contactMap');
 
-    if (locationItems.length && mapIframe) {
+    if (locationItems.length) {
         locationItems.forEach(function (item) {
-            item.addEventListener('click', function () {
+            item.addEventListener('click', function (e) {
+                if (e.target.closest('a')) return;
+
                 locationItems.forEach(function (i) { i.classList.remove('active'); });
                 item.classList.add('active');
-                var newMapUrl = item.dataset.map;
-                if (newMapUrl) {
-                    mapIframe.src = newMapUrl;
-                }
             });
         });
     }

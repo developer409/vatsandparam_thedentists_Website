@@ -64,6 +64,7 @@
           <a href="careers.html" class="nav__link">Careers</a>
           <a href="contact.html" class="nav__link">Contact</a>
         </div>
+        <a href="contact.html" class="btn btn--primary btn--sm nav__cta">Book Consultation</a>
       </div>
     </div>
   </nav>
@@ -94,26 +95,56 @@
   <div class="svc-vcards services-cards-reveal">
 
     <!-- CARD A: ASSESSMENTS & DIAGNOSTICS -->
-    <div class="svc-vcard">
-      <video autoplay muted loop playsinline class="svc-vcard__video">
-        <source src="assets/videos/A_Comprehensive_treatment_v2.mp4" type="video/mp4">
-      </video>
-      <div class="svc-vcard__overlay"></div>
-      <div class="svc-vcard__content">
-        <div class="svc-vcard__header">
+    <div class="svc-vcard svc-vcard--expandable">
+
+      <!-- Desktop: original full-video overlay design -->
+      <div class="svc-vcard__desktop-view">
+        <video autoplay muted loop playsinline class="svc-vcard__video">
+          <source src="assets/videos/A_Comprehensive_treatment_v2.mp4" type="video/mp4">
+        </video>
+        <div class="svc-vcard__overlay"></div>
+        <div class="svc-vcard__content">
+          <div class="svc-vcard__header">
+            <span class="svc-vcard__tag">A</span>
+            <h2 class="svc-vcard__title">Assessments &amp; Diagnostics</h2>
+          </div>
+          <p class="svc-vcard__desc">Identifying risks, conditions, and opportunities for prevention before problems develop.</p>
+          <div class="svc-vcard__pills">
+            <a href="comprehensive-oral-assessment.html" class="svc-pill">Comprehensive Oral Health Assessment</a>
+            <a href="preventive-longevity-dentistry.html" class="svc-pill">Preventive &amp; Longevity Dentistry</a>
+            <a href="oral-microbiome-diagnostics.html" class="svc-pill">Oral Microbiome &amp; Saliva Diagnostics</a>
+            <a href="oral-medicine-centre.html" class="svc-pill">Oral Medicine &amp; Oral Disease</a>
+            <a href="tobacco-cessation.html" class="svc-pill">Tobacco Cessation &amp; Oral Cancer Prevention</a>
+          </div>
+        </div>
+        <div class="svc-vcard__scroll-hint"><span></span></div>
+      </div>
+
+      <!-- Mobile: title separated from video, click-to-reveal services -->
+      <div class="svc-vcard__mobile-view">
+        <div class="svc-mobile-header">
           <span class="svc-vcard__tag">A</span>
           <h2 class="svc-vcard__title">Assessments &amp; Diagnostics</h2>
         </div>
-        <p class="svc-vcard__desc">Identifying risks, conditions, and opportunities for prevention before problems develop.</p>
-        <div class="svc-vcard__pills">
-          <a href="comprehensive-oral-assessment.html" class="svc-pill">Comprehensive Oral Health Assessment</a>
-          <a href="preventive-longevity-dentistry.html" class="svc-pill">Preventive &amp; Longevity Dentistry</a>
-          <a href="oral-microbiome-diagnostics.html" class="svc-pill">Oral Microbiome &amp; Saliva Diagnostics</a>
-          <a href="oral-medicine-centre.html" class="svc-pill">Oral Medicine &amp; Oral Disease</a>
-          <a href="tobacco-cessation.html" class="svc-pill">Tobacco Cessation &amp; Oral Cancer Prevention</a>
+        <video autoplay muted loop playsinline class="svc-mobile-video">
+          <source src="assets/videos/A_Comprehensive_treatment_v2.mp4" type="video/mp4">
+        </video>
+        <button class="svc-reveal-trigger" type="button" aria-expanded="false" aria-controls="svc-reveal-a">
+          <span class="svc-reveal-trigger__label">Click to view services provided</span>
+          <svg class="svc-reveal-trigger__chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="svc-reveal" id="svc-reveal-a">
+          <p class="svc-vcard__desc">Identifying risks, conditions, and opportunities for prevention before problems develop.</p>
+          <div class="svc-vcard__pills">
+            <a href="comprehensive-oral-assessment.html" class="svc-pill">Comprehensive Oral Health Assessment</a>
+            <a href="preventive-longevity-dentistry.html" class="svc-pill">Preventive &amp; Longevity Dentistry</a>
+            <a href="oral-microbiome-diagnostics.html" class="svc-pill">Oral Microbiome &amp; Saliva Diagnostics</a>
+            <a href="oral-medicine-centre.html" class="svc-pill">Oral Medicine &amp; Oral Disease</a>
+            <a href="tobacco-cessation.html" class="svc-pill">Tobacco Cessation &amp; Oral Cancer Prevention</a>
+          </div>
         </div>
       </div>
-      <div class="svc-vcard__scroll-hint"><span></span></div>
+
     </div>
 
     <!-- CARD B: CLINICAL TREATMENT SPECIALTIES -->
@@ -229,9 +260,9 @@
           <h4 class="footer__heading">Contact &amp; Timings</h4>
           <p class="footer__link"><a href="mailto:happytohelp@vatsandparam.com" style="color: inherit; text-decoration: none;">happytohelp@vatsandparam.com</a></p>
           <p class="footer__link"><a href="tel:+919900114151" style="color: inherit; text-decoration: none;">+91 9900114151</a></p>
-          <p class="footer__link">Mon – Sun: 10:00 AM – 7:00 PM</p>
-          <p class="footer__link">Thursday: Closed</p>
-          <p class="footer__link">Bengaluru: <a href="https://maps.google.com/?q=363,Bannerghatta+Rd,opposite+Reliance+Digital,Pai+Layout,Hulimavu,Bengaluru,Karnataka+560076" target="_blank" style="color:inherit;text-decoration:underline;">Hulimavu</a> | <a href="https://maps.google.com/?q=WH4P%2B95Q,KR+Layout,2nd+Phase,JP+Nagar,Bengaluru,Karnataka+560078" target="_blank" style="color:inherit;text-decoration:underline;">J.P Nagar</a> | <a href="https://maps.google.com/?q=83,6th+Cross+Rd,Arekere+MICO+Layout+2nd+stage,Araka+Mico+Layout,Arekere,Bengaluru,Karnataka+560076" target="_blank" style="color:inherit;text-decoration:underline;">Arekere</a></p>
+          <p class="footer__link">Mon &#8211; Sat: 10:00 AM &#8211; 7:00 PM.</p>
+          <p class="footer__link">Sunday: 10:00 AM &#8211; 1:00 PM.</p>
+          <p class="footer__link">Thursday: Holiday.</p>
         </div>
       </div>
       <div class="footer__socials">

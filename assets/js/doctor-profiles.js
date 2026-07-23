@@ -658,20 +658,6 @@ document.addEventListener('DOMContentLoaded', () => {
         `<div class="dp-spec-item"><div class="dp-spec-item__icon">${s.icon}</div><div class="dp-spec-item__label">${s.label}</div></div>`
     ).join('');
 
-    /* --- Treatments --- */
-    const treatEl = document.getElementById('doctor-treatments');
-    treatEl.innerHTML = (doctor.treatments || []).map(t => {
-        if (t.image) {
-            return `<div class="dp-treatment-card">
-                        <img src="${t.image}" alt="${t.label}" class="dp-treatment-card__img">
-                        <div class="dp-treatment-card__overlay">
-                            <span class="dp-treatment-card__text">${t.label}</span>
-                        </div>
-                    </div>`;
-        }
-        return `<div class="dp-spec-item"><div class="dp-spec-item__icon">${t.icon}</div><div class="dp-spec-item__label">${t.label}</div></div>`;
-    }).join('');
-
     /* --- Memberships --- */
     const membersEl = document.getElementById('doctor-memberships');
     membersEl.innerHTML = (doctor.memberships || []).map(m =>
