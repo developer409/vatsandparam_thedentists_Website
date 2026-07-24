@@ -5,17 +5,17 @@
 const doctorData = {
     'vats': {
         name: 'Prof. Dr. Srivats Bharadwaj',
-        role: 'Healthcare Visionary & Entrepreneur',
+        role: 'Health Care Entrepreneur & Mentor',
         specialization: 'Functional & Integrative Dentist',
         image: 'assets/Doctors/Dr_Srivats_B/Dr_Srivats.png',
-        education: 'BDS, MDS, FADI',
+        education: 'BDS, MDS, FADI (USA)',
         experience: '30+ Years Clinical Practice',
         languages: 'English, Hindi, Kannada, Telugu, Nepali',
         location: 'Hulimavu Clinic, Bengaluru',
         locationFull: 'Ground floor, 363, Bannerghatta Main Road, Hulimavu, Bengaluru - 560076',
         tags: [
-            { label: 'BDS, MDS, FADI', gold: true },
-            { label: 'Healthcare Visionary', gold: false },
+            { label: 'BDS, MDS, FADI (USA)', gold: true },
+            { label: 'Pediatric, Preventive & Special Needs Dental Surgeon', gold: false },
             { label: '30+ Years Experience', gold: false },
         ],
         overview: [
@@ -25,7 +25,7 @@ const doctorData = {
             '<strong>Functional Rehabilitation Focus:</strong> Specialises in occlusion and functional rehabilitation while promoting early intervention and patient education.',
         ],
         intro: `Prof. Dr. Srivats Bharadwaj is one of India's foremost voices in functional and integrative dentistry, with over 30 years of clinical practice spanning diagnosis-led care, occlusal rehabilitation, and oral-systemic health. His work is built on a foundational belief that dentistry must look beyond the tooth — understanding the patient's whole biology, lifestyle, and systemic health before arriving at a treatment plan.`,
-        introExtra: `Over three decades, he has developed a clinical framework that integrates bite dynamics, airway evaluation, oral microbiome assessment, and jaw function into a unified diagnostic approach. Internationally recognised through affiliations with NASA's GeneLab Microbiome AWG, the Holomedicine Association (Belgium), and Special Olympics International, Dr. Srivats brings a global perspective to every patient interaction. He is the founder of Vats & Param – The Dentists, Vatsalya Oral Health Foundation, and The League of Dentists — each reflecting his commitment to elevating standards of care across clinical practice, education, and public health.`,
+        introExtra: `Over three decades, he has developed a clinical framework that integrates bite dynamics, airway evaluation, oral microbiome assessment, and jaw function into a unified diagnostic approach. Internationally recognised through affiliations with NASA's GeneLab Microbiome AWG, the Holomedicine Association (Belgium), and Special Olympics International, Dr. Srivats brings a global perspective to every patient interaction. He is the founder of Vats & Param – The Dentists, Vatsalya Dental, Vatsalya Oral Health Foundation, and The League of Dentists — each reflecting his commitment to elevating standards of care across clinical practice, education, and public health.`,
         philosophy: [
             `Dr. Srivats always says — the best dental treatment is the one you never need again. His goal is to find the cause, fix it properly, and give you the tools to stay healthy.`,
             `In 30 years, Dr. Srivats has learned that patients who understand what's happening in their mouth make far better decisions. He spends real time explaining things — not rushing through it.`,
@@ -53,14 +53,17 @@ const doctorData = {
             { image: 'assets/Doctors/Dr_Srivats_B/wheelchair_accessible_dental_chair_1776855221440.png', label: 'Wheelchair Accessible Dentistry' },
             { image: 'assets/Doctors/Dr_Srivats_B/home_care_dentistry_visit_1776861146255.png', label: 'Home Care Dentistry' },
         ],
-        memberships: [
+        leadership: [
             { icon: '🏥', label: 'Founder — Vats & Param – The Dentists' },
+            { icon: '🦷', label: 'Founder & Chief Mentor — The League of Dentists' },
+            { icon: '🦷', label: 'Founder — Vatsalya Dental' },
             { icon: '🇮🇳', label: 'Founder — Vatsalya Oral Health Foundation (India)' },
-            { icon: '🦷', label: 'Founder — The League Of Dentists' },
-            { icon: '🇧🇪', label: 'Founding Member — The Holomedicine Association (Belgium)' },
             { icon: '🏅', label: 'Clinical Director — Special Olympics International (USA)' },
-            { icon: '🇺🇸', label: 'Former Council Member — IADH (USA)' },
-            { icon: '🇬🇧', label: 'Founding Committee Member — ACAMH (UK)' },
+        ],
+        memberships: [
+            { icon: '🇧🇪', label: 'Founding Member — The Holomedicine Association (Belgium)' },
+            { icon: '🌍', label: 'Former Council Member — International Association for Disability and Oral Health' },
+            { icon: '🇬🇧', label: 'Founding Committee Member (India) — The Association for Child and Adolescent Mental Health (UK)' },
             { icon: '📰', label: 'Editorial Board Member — Global Healthcare Journal' },
             { icon: '🚀', label: 'Member — NASA GeneLab Microbiome AWG (USA)' },
         ],
@@ -114,12 +117,15 @@ const doctorData = {
             { image: 'assets/Doctors/Dr_Paramjot_Kaur/plaque_disclosure_param_1776407269257.png', label: 'Plaque Disclosure & Biofilm Control Protocols' },
             { image: 'assets/Doctors/Dr_Paramjot_Kaur/disease_prevention_param_1776407284316.png', label: 'Early Intervention & Disease Prevention' },
         ],
+        leadership: [
+            { icon: '🏥', label: 'Founder — Vats & Param – The Dentists' },
+            { icon: '👨‍🏫', label: 'Founder & Business Strategist — The League of Dentists' },
+            { icon: '🇮🇳', label: 'Trustee — Vatsalya Oral Health Foundation (India)' },
+            { icon: '🦷', label: 'Former Clinical Director — Vatsalya Dental' },
+        ],
         memberships: [
             { icon: '🚀', label: 'Entrepreneur & Mentor' },
             { icon: '🦷', label: 'Periodontist' },
-            { icon: '🏥', label: 'Founder — Vats & Param – The Dentists' },
-            { icon: '🇮🇳', label: 'Founder — Vatsalya Oral Health Foundation (India)' },
-            { icon: '👨‍🏫', label: 'Founder — The League Of Dentists' },
             { icon: '🇧🇪', label: 'Founding Member — The Holomedicine Association (Belgium)' },
         ],
     },
@@ -521,46 +527,50 @@ const doctorData = {
     },
 
     'prithvi': {
-        name: 'Dr. Prithvi',
-        role: 'Oral Extraction Specialist',
-        specialization: 'Oral Surgery',
+        name: 'Dr. Prithvi Bachalli',
+        role: 'Oral & Maxillofacial Surgeon',
+        specialization: 'Oral & Maxillofacial Surgery',
         image: 'assets/CONSULTING/pruthvi.png',
-        education: 'BDS, MDS',
-        experience: '10+ Years Clinical Practice',
+        education: 'BDS, MDS (OMFS), FIBCSOMS',
+        experience: '15+ Years Clinical Practice',
         languages: 'English, Hindi, Kannada',
         location: 'Hulimavu Clinic, Bengaluru',
         locationFull: 'Ground floor, 363, Bannerghatta Main Road, Hulimavu, Bengaluru - 560076',
         tags: [
-            { label: 'Oral Surgery', gold: false },
-            { label: 'BDS, MDS', gold: true },
-            { label: '10+ Years Experience', gold: false },
+            { label: 'Oral & Maxillofacial Surgery', gold: false },
+            { label: 'BDS, MDS (OMFS), FIBCSOMS', gold: true },
+            { label: '15+ Years Experience', gold: false },
         ],
         overview: [
-            '<strong>Oral Extraction Specialist:</strong> Specialist in oral extractions and surgical dentistry.',
-            '<strong>Complex Extractions:</strong> Experienced in complex tooth extractions, including impacted teeth.',
-            '<strong>Patient Comfort:</strong> Emphasis on comfort and rapid healing throughout every procedure.',
-            '<strong>Surgical Precision:</strong> Combines surgical accuracy with careful post-operative care.',
+            '<strong>Oral & Maxillofacial Surgeon:</strong> Trained and based in Bangalore, with close to 15 years of experience in the field, including a training stint in the U.K.',
+            '<strong>Fellowship:</strong> Holds a Fellowship from the International Association of Oral and Maxillofacial Surgeons.',
+            '<strong>Cleft Surgery:</strong> Spent a year associated with SmileTrain training in cleft surgery, an area of interest he retains even today.',
+            '<strong>Paediatric & Special Needs Care:</strong> Areas of interest include managing paediatric cases, especially those with special needs, in hospital and under general anesthesia.',
+            '<strong>Complex Medical Cases:</strong> Significant experience caring for patients with complex medical issues.',
+            '<strong>Salivary Gland Pathology:</strong> Special interest in salivary gland pathology and sialendoscopy.',
         ],
-        intro: `Dr. Prithvi is an Oral Extraction Specialist with 10+ years of experience in surgical dentistry. His practice focuses on complex tooth extractions, delivered with an emphasis on patient comfort and rapid recovery.`,
-        introExtra: `Dr. Prithvi brings surgical precision to every extraction, from routine procedures to complex and impacted cases. His approach prioritises minimising patient discomfort and supporting a smooth, well-managed healing process after surgery.`,
+        intro: `Dr. Prithvi Bachalli is an Oral & Maxillofacial Surgeon trained and based in Bangalore. He has close to 15 years of experience in the field including a training stint in the U.K. and a Fellowship from the International Association of Oral and Maxillofacial Surgeons.`,
+        introExtra: `Following his basic training, he spent a year associated with SmileTrain training in cleft surgery, an area of interest which he retains even today. His areas of interest include managing paediatric cases, especially those with special needs, in hospital and under general anesthesia. He also has significant experience caring for patients with complex medical issues, and a special interest in salivary gland pathology and sialendoscopy.`,
         philosophy: [
-            'Dr. Prithvi believes surgical extractions should be as comfortable and predictable as possible for every patient.',
-            'He is committed to careful case assessment before any surgical procedure.',
+            'Dr. Prithvi believes complex surgical cases deserve the same careful, compassionate approach as routine ones, especially for paediatric and special-needs patients.',
+            'He is committed to careful case assessment before any surgical procedure, particularly for medically complex patients.',
             'For Dr. Prithvi, good post-operative care is as important as the procedure itself.',
         ],
         specializations: [
-            { icon: '🦷', label: 'Oral & Surgical Extractions' },
-            { icon: '🩺', label: 'Impacted Tooth Management' },
-            { icon: '💊', label: 'Pain Management' },
-            { icon: '🩹', label: 'Post-Surgical Care' },
+            { icon: '🦷', label: 'Oral & Maxillofacial Surgery' },
+            { icon: '👶', label: 'Paediatric & Special Needs Surgery' },
+            { icon: '🩺', label: 'Cleft Surgery' },
+            { icon: '💉', label: 'Salivary Gland Pathology & Sialendoscopy' },
         ],
         treatments: [
-            { icon: '🦷', label: 'Tooth Extractions' },
-            { icon: '⚙️', label: 'Impacted Tooth Removal' },
-            { icon: '🩹', label: 'Surgical Extractions' },
-            { icon: '💊', label: 'Post-Operative Care' },
+            { icon: '🦷', label: 'Surgical & Impacted Tooth Extractions' },
+            { icon: '👶', label: 'Paediatric & Special Needs Surgery (Hospital / GA)' },
+            { icon: '🩺', label: 'Cleft Surgery' },
+            { icon: '💉', label: 'Salivary Gland Pathology & Sialendoscopy' },
         ],
         memberships: [
+            { icon: '🏛️', label: 'International Association of Oral and Maxillofacial Surgeons (Fellow)' },
+            { icon: '🩺', label: 'SmileTrain (Cleft Surgery Training)' },
             { icon: '🏛️', label: 'Indian Dental Association (IDA)' },
             { icon: '🩺', label: 'State Dental Council' },
         ],
@@ -657,6 +667,17 @@ document.addEventListener('DOMContentLoaded', () => {
     specEl.innerHTML = (doctor.specializations || []).map(s =>
         `<div class="dp-spec-item"><div class="dp-spec-item__icon">${s.icon}</div><div class="dp-spec-item__label">${s.label}</div></div>`
     ).join('');
+
+    /* --- Leadership & Founding Roles (only doctors with founder/trustee-type roles have this tab) --- */
+    const leadershipTabBtn = document.getElementById('tab-btn-leadership');
+    if (doctor.leadership && doctor.leadership.length) {
+        const leadershipEl = document.getElementById('doctor-leadership');
+        leadershipEl.innerHTML = doctor.leadership.map(l =>
+            `<div class="dp-spec-item"><div class="dp-spec-item__icon">${l.icon}</div><div class="dp-spec-item__label">${l.label}</div></div>`
+        ).join('');
+    } else if (leadershipTabBtn) {
+        leadershipTabBtn.style.display = 'none';
+    }
 
     /* --- Memberships --- */
     const membersEl = document.getElementById('doctor-memberships');

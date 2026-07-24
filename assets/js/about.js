@@ -145,7 +145,7 @@
     els.forEach(function (el) { obs.observe(el); });
 })();
 
-// ---- Walkthrough sticky scroll — rAF-throttled (desktop only; mobile uses GSAP ScrollTrigger below) ----
+// ---- Walkthrough sticky scroll — rAF-throttled (desktop only; mobile uses the swipe carousel below) ----
 (function () {
     if (window.matchMedia('(max-width: 768px)').matches) return;
 
@@ -186,18 +186,15 @@
     updateCard();
 })();
 
-// ---- Walkthrough mobile pin — GSAP ScrollTrigger ----
-// This site's `body{overflow-x:hidden}` makes the browser's scroll-container detection
-// ambiguous, which otherwise breaks the pin. Explicitly pointing ScrollTrigger at
-// <html> as the scroller fixes that without touching real scroll physics/feel anywhere
-// else on the page.
+// ---- Walkthrough mobile carousel — horizontal swipe, native scroll-snap ----
+// Cards sit in a horizontally-scrollable row (CSS `scroll-snap-type: x`); this just
+// tracks which card is centered to drive the dot pagination, and fades the swipe
+// hint out once the user starts swiping.
 (function () {
     if (!window.matchMedia('(max-width: 768px)').matches) return;
 
     var mainVideo = document.querySelector('#walkthroughSection .walkthrough-video');
     if (mainVideo) mainVideo.poster = 'assets/Technology/aboutus_mobile.jpeg';
-
-    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
 
     // The blurred fill layer is desktop-only (hidden via CSS on mobile) but was still
     // fetching/decoding the same multi-MB clip a second time in the background. Drop it
@@ -205,34 +202,39 @@
     var bgVideo = document.querySelector('#walkthroughSection .walkthrough-video-bg');
     if (bgVideo) bgVideo.remove();
 
-    gsap.registerPlugin(ScrollTrigger);
+    var track = document.querySelector('#walkthroughSection .walkthrough-cards');
+    var cards = document.querySelectorAll('#walkthroughSection .walkthrough-card');
+    var dots = document.querySelectorAll('#walkthroughSwipeDots .swipe-dot');
+    var hint = document.getElementById('walkthroughSwipeHint');
+    if (!track || !cards.length) return;
 
-    var sticky = document.querySelector('#walkthroughSection .walkthrough-sticky');
-    var cards = gsap.utils.toArray('#walkthroughSection .walkthrough-card');
-    if (!sticky || !cards.length) return;
+    function updateActiveDot() {
+        var trackRect = track.getBoundingClientRect();
+        var center = trackRect.left + trackRect.width / 2;
+        var closest = 0;
+        var closestDist = Infinity;
+        cards.forEach(function (card, i) {
+            var r = card.getBoundingClientRect();
+            var dist = Math.abs((r.left + r.width / 2) - center);
+            if (dist < closestDist) {
+                closestDist = dist;
+                closest = i;
+            }
+        });
+        dots.forEach(function (dot, i) { dot.classList.toggle('active', i === closest); });
+    }
 
-    gsap.set(cards, { opacity: 0 });
-    gsap.set(cards[0], { opacity: 1 });
-
-    var tl = gsap.timeline({
-        scrollTrigger: {
-            trigger: sticky,
-            scroller: document.documentElement,
-            start: 'top top',
-            end: function () { return '+=' + (window.innerHeight * cards.length); },
-            scrub: true,
-            pin: true,
-            anticipatePin: 1,
-            invalidateOnRefresh: true
+    var ticking = false;
+    track.addEventListener('scroll', function () {
+        if (hint) hint.style.opacity = '0';
+        if (!ticking) {
+            requestAnimationFrame(function () {
+                updateActiveDot();
+                ticking = false;
+            });
+            ticking = true;
         }
-    });
-
-    cards.forEach(function (card, i) {
-        if (i === 0) return;
-        var holdEnd = (i - 1) + 0.6;
-        tl.to(cards[i - 1], { opacity: 0, duration: 0.4, ease: 'power1.inOut' }, holdEnd);
-        tl.to(card, { opacity: 1, duration: 0.4, ease: 'power1.inOut' }, holdEnd);
-    });
+    }, { passive: true });
 })();
 
 // ---- Stats counters (desktop pill row + mobile pill row) ----

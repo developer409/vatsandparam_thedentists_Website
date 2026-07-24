@@ -797,9 +797,10 @@
                         <span>The Dentists</span>
                         <span class="logo-line"></span>
                     </div>
+                    <p class="nav__logo-tagline">Longevity &amp; Whole-Body Focused Dentistry.</p>
                 </div>
             </a>
-            <div class="nav__toggle" id="navToggle"><span></span><span></span><span></span></div>
+            <a href="contact.html" class="nav__cta-mobile" aria-label="Book Consultation">Book Consultation</a><div class="nav__toggle" id="navToggle"><span></span><span></span><span></span></div>
             <div class="nav__menu" id="navMenu">
                 <div class="nav__links">
                     <a href="index.html#home" class="nav__link">About Us</a>
@@ -890,6 +891,7 @@
                     <button class="dp-tab active" role="tab" onclick="switchTab('overview')">Overview</button>
                     <button class="dp-tab" role="tab" onclick="switchTab('specializations')">Areas of Expertise</button>
                     <button class="dp-tab" role="tab" onclick="switchTab('philosophy')">Philosophy</button>
+                    <button class="dp-tab" role="tab" id="tab-btn-leadership" onclick="switchTab('leadership')">Leadership</button>
                     <button class="dp-tab" role="tab" onclick="switchTab('memberships')">Memberships</button>
                 </div>
 
@@ -938,6 +940,21 @@
                             Clinical Philosophy
                         </div>
                         <div class="dp-section-card__text" id="doctor-philosophy-full"></div>
+                    </div>
+                </div>
+
+                <!-- Tab: Leadership & Founding Roles -->
+                <div class="dp-tab-panel" id="panel-leadership">
+                    <div class="dp-card dp-section-card">
+                        <div class="dp-section-card__title" style="margin-bottom:20px;">
+                            <div class="dp-section-card__title-icon">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.4 7.2H22l-6 4.6 2.3 7.2-6.3-4.6-6.3 4.6 2.3-7.2-6-4.6h7.6z"/></svg>
+                            </div>
+                            Leadership &amp; Founding Roles
+                        </div>
+                        <div class="dp-spec-grid" id="doctor-leadership">
+                            <!-- Populated by JS -->
+                        </div>
                     </div>
                 </div>
 
@@ -1003,7 +1020,7 @@
         /* ===== TAB SWITCHING ===== */
         function switchTab(tabId) {
             document.querySelectorAll('.dp-tab').forEach((t, i) => {
-                const panels = ['overview', 'specializations', 'philosophy', 'memberships'];
+                const panels = ['overview', 'specializations', 'philosophy', 'leadership', 'memberships'];
                 t.classList.toggle('active', panels[i] === tabId);
             });
             document.querySelectorAll('.dp-tab-panel').forEach(p => {

@@ -191,11 +191,11 @@
 .about-intro-quote {
   font-family: var(--font-heading);
   font-style: italic;
-  font-size: 1.75rem;
-  line-height: 1.3;
+  font-size: 1.4rem;
+  line-height: 1.35;
   color: var(--color-navy);
   text-align: center;
-  max-width: 320px;
+  max-width: 380px;
   margin: 0;
   padding: 0 2rem;
 }
@@ -571,6 +571,28 @@ p {
     pointer-events: auto !important;
   }
 
+  /* Compact "Book" CTA next to the hamburger, always visible on mobile */
+  .nav__cta-mobile {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: 0.5rem;
+    padding: 0.45rem 0.6rem;
+    background-color: #802929;
+    color: #fff !important;
+    font-family: var(--font-body);
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 6px;
+    white-space: nowrap;
+    z-index: 6000;
+    position: relative;
+  }
+
   .nav__toggle span {
     background-color: var(--color-navy) !important;
     display: block !important;
@@ -930,8 +952,6 @@ p {
   }
 
   .section,
-  .immersive-video-section,
-  .stats-animation-section,
   .approach-bridge-section,
   .understand-section,
   .founders-section,
@@ -941,6 +961,14 @@ p {
     margin-left: 0 !important;
     margin-right: 0 !important;
     padding: var(--space-lg) var(--space-md) !important;
+  }
+
+  /* Section 1 (hero video) and 1.5 (stats) are skipped on mobile — the intro
+     loader now carries the hero's message, so mobile goes straight from the
+     loader into the clinic walkthrough. */
+  .immersive-video-section,
+  .stats-animation-section {
+    display: none !important;
   }
 
   .container {
@@ -1064,8 +1092,7 @@ p {
 
   /* Remove extra padding on mobile */
   .hero,
-  .treat-hero,
-  .immersive-video-section {
+  .treat-hero {
     padding-left: 0 !important;
     padding-right: 0 !important;
     padding-bottom: 0.5rem !important;
@@ -1121,7 +1148,7 @@ p {
 }
 
 .nav__logo-text {
-  color: #c0392b;
+  color: #802929;
 }
 
 .nav__logo-subtitle {
@@ -1196,7 +1223,7 @@ p {
   font-family: var(--font-heading);
   font-size: 1.3rem;
   font-weight: 700;
-  color: #c0392b;
+  color: #802929;
   line-height: 1.1;
 }
 
@@ -1370,6 +1397,12 @@ p {
 
 .nav__cta {
   margin-left: 1rem;
+}
+
+/* Compact CTA shown next to the hamburger icon on mobile, so it's visible
+   without opening the menu. Hidden on desktop — .nav__cta in the menu covers it. */
+.nav__cta-mobile {
+  display: none;
 }
 
 /* Mobile menu toggle */
@@ -1768,7 +1801,6 @@ p {
 
   /* Floating animation on home page buttons */
   .understand-btn,
-  .doc-view-btn,
   .hero-rect .btn,
   .walkthrough-section .btn,
   .understand-section .btn,
@@ -2113,20 +2145,6 @@ p {
   opacity: 1;
 }
 
-.doc-view-btn {
-  margin-top: var(--space-md);
-  transform: translateY(20px);
-  opacity: 0;
-  transition: all var(--transition-base) 0.2s;
-  padding: 0.6rem 1.5rem;
-  font-size: 0.75rem;
-}
-
-.doc-profile:hover .doc-view-btn {
-  transform: translateY(0);
-  opacity: 1;
-}
-
 .doc-profile:hover .doc-img {
   transform: scale(1.05);
 }
@@ -2213,6 +2231,22 @@ p {
   color: var(--color-gold);
   font-weight: 500;
   margin-bottom: 0;
+}
+
+.doc-view-link {
+  display: inline-block;
+  margin-top: 0.5rem;
+  color: var(--color-navy);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--transition-base), color var(--transition-base);
+}
+
+.doc-view-link:hover {
+  color: var(--color-gold);
+  border-bottom-color: var(--color-gold);
 }
 
 @media (max-width: 768px) {
@@ -2782,7 +2816,7 @@ p {
 
 .footer__grid {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
   gap: var(--space-lg);
   padding-bottom: var(--space-md);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -3331,11 +3365,9 @@ p {
     display: none;
   }
 
+  /* Redundant on mobile — .nav__cta-mobile next to the hamburger already covers booking */
   .nav__cta {
-    margin-left: 0;
-    margin-top: var(--space-md);
-    width: 100%;
-    text-align: center;
+    display: none !important;
   }
 
   /* Grid */
@@ -3389,12 +3421,6 @@ p {
     margin-bottom: 0.5rem !important;
   }
 
-  .doc-view-btn {
-    padding: 0.5rem 1.2rem !important;
-    font-size: 0.7rem !important;
-    margin-top: 0.5rem !important;
-  }
-
   /* Contact */
   .contact-grid {
     grid-template-columns: 1fr;
@@ -3425,13 +3451,13 @@ p {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  /* Footer: Navigation and Resources side by side; Brand and Contact & Timings full-width */
+  /* Footer: Navigation/Resources/Initiatives side by side in pairs; Brand and Contact & Timings full-width */
   .footer__grid {
     grid-template-columns: 1fr 1fr;
   }
 
   .footer__grid > div:nth-child(1),
-  .footer__grid > div:nth-child(4) {
+  .footer__grid > div:nth-child(5) {
     grid-column: 1 / -1;
   }
 
@@ -5556,7 +5582,7 @@ p {
   border-bottom: 1px solid rgba(198,167,94,0.3) !important;
   box-shadow: 0 4px 20px rgba(0,0,0,0.06) !important;
 }
-.nav.nav--over-light .nav__logo-text { color: #c0392b !important; }
+.nav.nav--over-light .nav__logo-text { color: #802929 !important; }
 .nav.nav--over-light .nav__link { color: var(--color-text-light) !important; }
 .nav.nav--over-light .nav__link:hover,
 .nav.nav--over-light .nav__link.active { color: var(--color-gold) !important; }
@@ -5571,7 +5597,7 @@ p {
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08) !important;
 }
 .nav.nav--transparent.scrolled .nav__logo-text {
-  color: #c0392b !important;
+  color: #802929 !important;
 }
 .nav.nav--transparent.scrolled .nav__logo-subtitle,
 .nav.nav--transparent.scrolled .nav__link {
@@ -7002,6 +7028,8 @@ p {
    â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 
 .walkthrough-mobile-title { display: none; }
+.walkthrough-swipe-hint { display: none; }
+.walkthrough-swipe-dots { display: none; }
 
 .walkthrough-section {
   /* 5 cards Ã— 100vh each = 500vh total scroll distance */
@@ -8735,7 +8763,7 @@ p {
   /* ---- Footer ---- */
   .footer__grid { grid-template-columns: 1fr 1fr !important; gap: 2rem; }
   .footer__grid > div:nth-child(1),
-  .footer__grid > div:nth-child(4) { grid-column: 1 / -1 !important; }
+  .footer__grid > div:nth-child(5) { grid-column: 1 / -1 !important; }
   .footer__bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
   .footer__socials { gap: 1rem; }
   .footer__social-icon { width: 36px; height: 36px; }
@@ -9589,40 +9617,72 @@ body:has(#page-about.active) {
     pointer-events: none;
   }
 
-  .walkthrough-mobile-title,
+  .walkthrough-mobile-title {
+    display: block !important;
+    position: absolute;
+    top: 11%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    width: 90%;
+    text-align: center;
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.6);
+    margin: 0;
+    pointer-events: none;
+  }
+
   .walkthrough-scroll-hint {
     display: none !important;
   }
 
+  /* Horizontal swipe carousel — one row of cards, native scroll-snap. Users swipe
+     through all 5 before continuing the normal vertical page scroll below. */
   .walkthrough-cards {
     position: absolute !important;
     inset: 0 !important;
     height: auto !important;
     display: flex !important;
+    flex-direction: row !important;
     align-items: center !important;
-    justify-content: center !important;
-    padding: 0 1.25rem !important;
+    justify-content: flex-start !important;
+    gap: 1rem !important;
+    padding: 0 9vw !important;
     background: transparent !important;
     z-index: 20 !important;
-    pointer-events: none !important;
+    pointer-events: auto !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
   }
 
-  /* Base state — GSAP drives `opacity` inline per scroll position, so it must stay un-important here */
+  .walkthrough-cards::-webkit-scrollbar {
+    display: none !important;
+  }
+
   .walkthrough-card {
-    position: absolute !important;
-    inset: 0 !important;
-    margin: auto !important;
-    width: calc(100% - 2.5rem) !important;
-    max-width: 460px !important;
+    position: relative !important;
+    inset: auto !important;
+    margin: 0 !important;
+    flex: 0 0 82vw !important;
+    width: 82vw !important;
+    max-width: 420px !important;
     height: fit-content !important;
     max-height: 72vh !important;
     overflow-y: auto !important;
+    scroll-snap-align: center !important;
     scrollbar-width: none !important;
     -ms-overflow-style: none !important;
-    opacity: 0;
-    transform: translate3d(0, 0, 0) !important;
+    opacity: 1 !important;
+    transform: none !important;
     transition: none !important;
-    pointer-events: none !important;
+    pointer-events: auto !important;
     background: rgba(255, 255, 255, 0.16) !important;
     backdrop-filter: blur(18px) !important;
     -webkit-backdrop-filter: blur(18px) !important;
@@ -9631,20 +9691,63 @@ body:has(#page-about.active) {
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35) !important;
     padding: 2.25rem 1.75rem !important;
     box-sizing: border-box !important;
-    will-change: opacity;
   }
 
   .walkthrough-card::-webkit-scrollbar {
     display: none;
   }
 
-  /* First card ("Our Clinic") starts visible immediately instead of waiting on
-     assets/js/about.js + GSAP to set it via gsap.set(cards[0], {opacity:1}) — avoids a
-     blank card if those scripts are slow to load/execute. Same specificity as the base
-     .walkthrough-card rule above, placed after it, and also left un-important so GSAP can
-     still take over opacity once it does load (harmless no-op flash, not a conflict). */
-  .walkthrough-card--clinic {
-    opacity: 1;
+  .walkthrough-swipe-hint {
+    display: flex !important;
+    align-items: center;
+    gap: 0.5rem;
+    position: absolute;
+    bottom: 6%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 21;
+    color: #fff;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+  }
+
+  .walkthrough-swipe-hint__arrow {
+    display: inline-block;
+    animation: walkthroughSwipeArrow 1.4s ease-in-out infinite;
+  }
+
+  @keyframes walkthroughSwipeArrow {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(6px); }
+  }
+
+  .walkthrough-swipe-dots {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    position: absolute;
+    bottom: 2.5%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 21;
+  }
+
+  .swipe-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.4);
+    transition: background 0.3s ease, transform 0.3s ease;
+  }
+
+  .swipe-dot.active {
+    background: #fff;
+    transform: scale(1.3);
   }
 
   .walkthrough-card .card-header-row {

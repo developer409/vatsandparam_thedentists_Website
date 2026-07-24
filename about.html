@@ -16,12 +16,12 @@
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
   <style>
     /* #page-about's background is only made transparent while it's the active SPA page in
        index.html (body:has(#page-about.active) in styles.css); here it's always the page. */
-    body { background-color: transparent !important; }
+    body {
+      background-color: transparent !important;
+    }
   </style>
 </head>
 
@@ -29,7 +29,8 @@
 
   <!-- ========== INTRO LOADER (Mobile Only) ========== -->
   <div class="about-intro-loader" id="aboutIntroLoader">
-    <p class="about-intro-quote" id="aboutIntroQuote">Longevity begins with a healthy smile.</p>
+    <p class="about-intro-quote" id="aboutIntroQuote">Oral health is inseparable from overall health, influencing
+      immunity, inflammation, nutrition, and healthy ageing.</p>
     <div class="about-intro-spinner"></div>
   </div>
 
@@ -47,8 +48,10 @@
             <span>The Dentists</span>
             <span class="logo-line"></span>
           </div>
+          <p class="nav__logo-tagline">Longevity &amp; Whole-Body Focused Dentistry.</p>
         </div>
       </a>
+      <a href="contact.html" class="nav__cta-mobile" aria-label="Book Consultation">Book Consultation</a>
       <div class="nav__toggle" id="navToggle"><span></span><span></span><span></span></div>
       <div class="nav__menu" id="navMenu">
         <div class="nav__links">
@@ -91,8 +94,11 @@
       <!-- Two long rectangles pinned to the bottom of the hero video -->
       <div class="hero-bottom-cards">
         <div class="hero-rect hero-rect--1">
-          <p class="hero-word-animate hero-reveal-text">Oral health is inseparable from overall health, influencing immunity, inflammation, nutrition, and healthy ageing.</p>
-          <p class="hero-reveal-text hero-mobile-sub">The condition of the mouth often reflects and affects the condition of the body.<span class="hero-mobile-sub__line2">By understanding these connections, care can move beyond treatment alone to support long-term health, prevention, and lasting well-being.</span></p>
+          <p class="hero-word-animate hero-reveal-text">Oral health is inseparable from overall health, influencing
+            immunity, inflammation, nutrition, and healthy ageing.</p>
+          <p class="hero-reveal-text hero-mobile-sub">The condition of the mouth often reflects and affects the
+            condition of the body.<span class="hero-mobile-sub__line2">By understanding these connections, care can move
+              beyond treatment alone to support long-term health, prevention, and lasting well-being.</span></p>
         </div>
       </div>
 
@@ -119,7 +125,7 @@
           <div class="stat-pill-divider"></div>
           <div class="stat-pill-item">
             <div class="stat-value counter" data-target="100000">0</div>
-            <div class="stat-text">Persons Treated</div>
+            <div class="stat-text">People Treated</div>
           </div>
           <div class="stat-pill-divider"></div>
           <div class="stat-pill-item">
@@ -138,7 +144,8 @@
         <!-- Blurred background fill to eliminate black bars (desktop only — gated by the
              source's own media query, evaluated before any JS runs, so mobile never fetches
              it at all. about.js also removes the element outright on mobile as a backup. -->
-        <video autoplay muted loop playsinline preload="auto" poster="assets/videos/walkthrough-poster.jpg" class="walkthrough-video-bg">
+        <video autoplay muted loop playsinline preload="auto" poster="assets/videos/walkthrough-poster.jpg"
+          class="walkthrough-video-bg">
           <source src="assets/videos/walkthroughclinic.mp4" type="video/mp4" media="(min-width: 769px)">
         </video>
         <!-- Main video with full content visible. Mobile gets its own source (matched via
@@ -146,7 +153,8 @@
              The poster below is the desktop frame; the mobile-only script swaps it to the
              matching mobile frame so there's never a black flash while either clip buffers
              (iOS Safari in particular is slow/conservative about preloading video). -->
-        <video autoplay muted loop playsinline preload="auto" poster="assets/videos/walkthrough-poster.jpg" class="walkthrough-video">
+        <video autoplay muted loop playsinline preload="auto" poster="assets/videos/walkthrough-poster.jpg"
+          class="walkthrough-video">
           <source src="assets/mobile_view/about_us_mobile.mp4" type="video/mp4" media="(max-width: 768px)">
           <source src="assets/videos/walkthroughclinic.mp4" type="video/mp4">
         </video>
@@ -158,7 +166,8 @@
           <div class="walkthrough-card glass-panel walkthrough-card--clinic" data-index="0">
             <span class="immersive-label">Experience</span>
             <h2 class="immersive-title">Our Clinic</h2>
-            <p class="immersive-body">More than dentistry, an environment designed to support comfort, prevention, and lifelong health.</p>
+            <p class="immersive-body">More than dentistry, an environment designed to support comfort, prevention, and
+              lifelong health.</p>
           </div>
 
           <div class="walkthrough-card glass-panel" data-index="1">
@@ -168,7 +177,8 @@
             </div>
             <span class="immersive-label desktop-only">Philosophy</span>
             <h2 class="immersive-title desktop-only">Dentistry Beyond Teeth</h2>
-            <p class="immersive-body desktop-only">We look beyond the tooth to understand the whole person. Your oral health is a window into your systemic health and we use it as one.</p>
+            <p class="immersive-body desktop-only">We look beyond the tooth to understand the whole person. Your oral
+              health is a window into your systemic health and we use it as one.</p>
             <div class="approach-comparison">
               <div class="comparison-row traditional-row">
                 <span class="comp-label">Traditional approach</span>
@@ -198,7 +208,7 @@
               <li><strong>Thought:</strong> Comprehensive diagnostics support accurate decisions.</li>
               <li><strong>Trust:</strong> Clear guidance helps you understand every step.</li>
             </ul>
-             </div>
+          </div>
 
           <div class="walkthrough-card glass-panel" data-index="3">
             <div class="card-header-row">
@@ -210,7 +220,8 @@
             </div>
             <span class="immersive-label desktop-only">Environment</span>
             <h2 class="immersive-title desktop-only">Built for Safety. Designed for Care.</h2>
-            <p class="immersive-body desktop-only">Our clinic is designed to the highest standards of infection control and safety for every person because a clean environment is the foundation of good care.</p>
+            <p class="immersive-body desktop-only">Our clinic is designed to the highest standards of infection control
+              and safety for every person because a clean environment is the foundation of good care.</p>
             <ul class="card-list">
               <li>- Hygienic atmosphere</li>
               <li>- Strict infection control</li>
@@ -237,6 +248,19 @@
           </div>
 
         </div><!-- end walkthrough-cards -->
+
+        <!-- Swipe indicator (mobile only) -->
+        <div class="walkthrough-swipe-hint" id="walkthroughSwipeHint">
+          <span>Swipe to explore</span>
+          <span class="walkthrough-swipe-hint__arrow">&#8594;</span>
+        </div>
+        <div class="walkthrough-swipe-dots" id="walkthroughSwipeDots">
+          <span class="swipe-dot active" data-index="0"></span>
+          <span class="swipe-dot" data-index="1"></span>
+          <span class="swipe-dot" data-index="2"></span>
+          <span class="swipe-dot" data-index="3"></span>
+          <span class="swipe-dot" data-index="4"></span>
+        </div>
 
         <!-- Scroll indicator -->
         <div class="walkthrough-scroll-hint" id="walkthroughHint">
@@ -273,7 +297,8 @@
         </div>
 
         <!-- Mobile Image Fallback -->
-        <img src="assets/our_clinic_logo/Medical_infographic.jpeg" alt="Mouth-Body Connection Infographic" class="wb-mobile-image">
+        <img src="assets/our_clinic_logo/Medical_infographic.jpeg" alt="Mouth-Body Connection Infographic"
+          class="wb-mobile-image">
 
         <!-- Video layers — stacked, JS drives parallax translateY transitions -->
         <div class="wb-video-stack">
@@ -334,7 +359,9 @@
             <span class="wb-organ-num">01 &nbsp;/&nbsp; 09</span>
             <h3 class="wb-organ-name">Brain</h3>
             <p class="wb-organ-headline">Your mouth shapes your mind</p>
-            <p class="wb-organ-body">Oral infections release inflammatory cytokines that cross the blood-brain barrier, directly affecting cognition, mood, and neural clarity. Chronic periodontal disease has been linked to accelerated cognitive decline.</p>
+            <p class="wb-organ-body">Oral infections release inflammatory cytokines that cross the blood-brain barrier,
+              directly affecting cognition, mood, and neural clarity. Chronic periodontal disease has been linked to
+              accelerated cognitive decline.</p>
             <ul class="wb-organ-facts">
               <li>Linked to Alzheimer's and dementia risk</li>
               <li>Affects concentration and mental clarity</li>
@@ -346,7 +373,9 @@
             <span class="wb-organ-num">02 &nbsp;/&nbsp; 09</span>
             <h3 class="wb-organ-name">Lungs</h3>
             <p class="wb-organ-headline">Every breath carries what your mouth holds</p>
-            <p class="wb-organ-body">Oral bacteria can be aspirated into the lower respiratory tract, triggering infections and worsening conditions like COPD and pneumonia. Poor oral hygiene dramatically increases pulmonary infection risk.</p>
+            <p class="wb-organ-body">Oral bacteria can be aspirated into the lower respiratory tract, triggering
+              infections and worsening conditions like COPD and pneumonia. Poor oral hygiene dramatically increases
+              pulmonary infection risk.</p>
             <ul class="wb-organ-facts">
               <li>Aspiration pneumonia risk increases 3x</li>
               <li>Worsens asthma and COPD</li>
@@ -358,7 +387,9 @@
             <span class="wb-organ-num">03 &nbsp;/&nbsp; 09</span>
             <h3 class="wb-organ-name">Heart</h3>
             <p class="wb-organ-headline">Gum disease and your cardiovascular system</p>
-            <p class="wb-organ-body">Periodontal bacteria enter the bloodstream, attaching to arterial plaques and triggering inflammatory responses that narrow vessels. Studies show gum disease patients face nearly twice the risk of heart disease.</p>
+            <p class="wb-organ-body">Periodontal bacteria enter the bloodstream, attaching to arterial plaques and
+              triggering inflammatory responses that narrow vessels. Studies show gum disease patients face nearly twice
+              the risk of heart disease.</p>
             <ul class="wb-organ-facts">
               <li>Doubles the risk of heart attack</li>
               <li>Elevates blood pressure and arterial stiffness</li>
@@ -370,7 +401,9 @@
             <span class="wb-organ-num">04 &nbsp;/&nbsp; 09</span>
             <h3 class="wb-organ-name">Gut</h3>
             <p class="wb-organ-headline">Digestion begins in the mouth</p>
-            <p class="wb-organ-body">The oral microbiome is the gateway to your gut. Imbalanced oral bacteria disrupt the digestive ecosystem, while compromised chewing reduces nutrient absorption and burdens the entire digestive system.</p>
+            <p class="wb-organ-body">The oral microbiome is the gateway to your gut. Imbalanced oral bacteria disrupt
+              the digestive ecosystem, while compromised chewing reduces nutrient absorption and burdens the entire
+              digestive system.</p>
             <ul class="wb-organ-facts">
               <li>Oral bacteria colonise the gut lining</li>
               <li>Poor chewing reduces nutrient absorption by up to 40%</li>
@@ -382,7 +415,9 @@
             <span class="wb-organ-num">05 &nbsp;/&nbsp; 09</span>
             <h3 class="wb-organ-name">Joints</h3>
             <p class="wb-organ-headline">Your bite shapes your skeleton</p>
-            <p class="wb-organ-body">Bite imbalance and jaw misalignment create compensatory postural patterns throughout the body. Periodontal inflammation also mimics and worsens rheumatoid arthritis the same immune pathways are activated.</p>
+            <p class="wb-organ-body">Bite imbalance and jaw misalignment create compensatory postural patterns
+              throughout the body. Periodontal inflammation also mimics and worsens rheumatoid arthritis the same immune
+              pathways are activated.</p>
             <ul class="wb-organ-facts">
               <li>Jaw dysfunction causes neck and back pain</li>
               <li>Periodontal bacteria trigger joint inflammation</li>
@@ -393,8 +428,10 @@
           <div class="wb-organ-info" data-organ="muscle">
             <span class="wb-organ-num">06 &nbsp;/&nbsp; 09</span>
             <h3 class="wb-organ-name">Skeletal Muscle Health</h3>
-            <p class="wb-organ-headline">Muscle function impacts metabolism, posture, airway patency, and overall resilience</p>
-            <p class="wb-organ-body">Muscle function impacts metabolism, posture, airway patency, and overall resilience.</p>
+            <p class="wb-organ-headline">Muscle function impacts metabolism, posture, airway patency, and overall
+              resilience</p>
+            <p class="wb-organ-body">Muscle function impacts metabolism, posture, airway patency, and overall
+              resilience.</p>
             <ul class="wb-organ-facts">
               <li>Supports metabolism and energy production</li>
               <li>Maintains airway patency and breathing function</li>
@@ -406,7 +443,10 @@
             <span class="wb-organ-num">07 &nbsp;/&nbsp; 09</span>
             <h3 class="wb-organ-name">Pregnancy</h3>
             <p class="wb-organ-headline">A critical window for mother and baby</p>
-            <p class="wb-organ-body">Hormonal shifts during pregnancy amplify gum inflammation and periodontal disease risk. Untreated gum disease during pregnancy increases the risk of premature birth, low birth weight, and gestational complications. Regular dental care during pregnancy protects both mother and developing child.</p>
+            <p class="wb-organ-body">Hormonal shifts during pregnancy amplify gum inflammation and periodontal disease
+              risk. Untreated gum disease during pregnancy increases the risk of premature birth, low birth weight, and
+              gestational complications. Regular dental care during pregnancy protects both mother and developing child.
+            </p>
             <ul class="wb-organ-facts">
               <li>Pregnancy gingivitis affects up to 75% of expectant mothers</li>
               <li>Untreated gum disease increases premature birth risk by 7×</li>
@@ -417,8 +457,10 @@
           <div class="wb-organ-info" data-organ="glycemic">
             <span class="wb-organ-num">08 &nbsp;/&nbsp; 09</span>
             <h3 class="wb-organ-name">Glycemic Control</h3>
-            <p class="wb-organ-headline">Blood sugar dysregulation impairs immune response and accelerates periodontal destruction</p>
-            <p class="wb-organ-body">Blood sugar dysregulation impairs immune response and accelerates periodontal destruction.</p>
+            <p class="wb-organ-headline">Blood sugar dysregulation impairs immune response and accelerates periodontal
+              destruction</p>
+            <p class="wb-organ-body">Blood sugar dysregulation impairs immune response and accelerates periodontal
+              destruction.</p>
             <ul class="wb-organ-facts">
               <li>Weakens immune defense against oral bacteria</li>
               <li>Accelerates gum disease progression</li>
@@ -429,8 +471,10 @@
           <div class="wb-organ-info" data-organ="sleep">
             <span class="wb-organ-num">09 &nbsp;/&nbsp; 09</span>
             <h3 class="wb-organ-name">Sleep Disruption</h3>
-            <p class="wb-organ-headline">Poor sleep quality elevates inflammatory markers and impairs tissue healing and immune function</p>
-            <p class="wb-organ-body">Poor sleep quality elevates inflammatory markers and impairs tissue healing and immune function.</p>
+            <p class="wb-organ-headline">Poor sleep quality elevates inflammatory markers and impairs tissue healing and
+              immune function</p>
+            <p class="wb-organ-body">Poor sleep quality elevates inflammatory markers and impairs tissue healing and
+              immune function.</p>
             <ul class="wb-organ-facts">
               <li>Increases systemic inflammation</li>
               <li>Impairs immune response and healing</li>
@@ -474,11 +518,16 @@
     <section class="understand-section" data-nav="light">
       <div class="understand-inner">
         <h2 class="understand-heading fade-in-scroll fade-in-delay-1">Understand More About Our Approach</h2>
-        <p class="understand-desc fade-in-scroll fade-in-delay-2">We believe dentistry goes beyond teeth. The Vats & Param Method is a systematic, evidence-based approach that combines deep diagnostic discovery with root-cause analysis to ensure comprehensive care.</p>
+        <p class="understand-desc fade-in-scroll fade-in-delay-2">We believe dentistry goes beyond teeth. The Vats &
+          Param Method is a systematic, evidence-based approach that combines deep diagnostic discovery with root-cause
+          analysis to ensure comprehensive care.</p>
         <div class="understand-btns fade-in-scroll fade-in-delay-4">
           <a href="approach.html" class="understand-btn understand-btn--outline">
             <span>Our Approach</span>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
           </a>
         </div>
       </div>
@@ -521,7 +570,8 @@
           <div class="founder-info glass-panel">
             <h3 class="founder-name">Prof. Dr. Srivats Bharadwaj</h3>
             <p class="founder-title">Healthcare Visionary & Entrepreneur</p>
-            <p class="founder-bio">30+ years of diagnostic-driven dentistry focused on root-cause analysis and whole-body wellness integration. Visionary pioneer in systems-based dental care.</p>
+            <p class="founder-bio">30+ years of diagnostic-driven dentistry focused on root-cause analysis and
+              whole-body wellness integration. Visionary pioneer in systems-based dental care.</p>
             <a href="doctor-profile.html?dr=vats" class="founder-link">View Full Profile →</a>
           </div>
         </div>
@@ -538,7 +588,8 @@
           <div class="founder-info glass-panel">
             <h3 class="founder-name">Dr. Paramjot Kaur</h3>
             <p class="founder-title">Health care entrepreneur</p>
-            <p class="founder-bio">20+ years specialist in periodontics with a systems-thinking approach. Expert in long-term oral health preservation and strategic practice management.</p>
+            <p class="founder-bio">20+ years specialist in periodontics with a systems-thinking approach. Expert in
+              long-term oral health preservation and strategic practice management.</p>
             <a href="doctor-profile.html?dr=param" class="founder-link">View Full Profile →</a>
           </div>
         </div>
@@ -555,7 +606,8 @@
           <a href="home.html" class="nav__logo nav__logo--footer"
             style="margin-bottom:var(--space-sm);display:inline-flex;">
             <div class="nav__logo-icon-container">
-              <img src="assets/logo_teeth.png" alt="Vats &amp; Param logo" class="nav__logo-img" style="width:70px;height:70px;">
+              <img src="assets/logo_teeth.png" alt="Vats &amp; Param logo" class="nav__logo-img"
+                style="width:70px;height:70px;">
             </div>
             <div class="nav__logo-text" style="color:#fff;">
               Vats &amp; Param
@@ -585,31 +637,43 @@
           <a href="contact.html" class="footer__link">Contact</a>
         </div>
         <div>
+          <h4 class="footer__heading">Initiatives</h4>
+          <a href="achievements.html" class="footer__link">Achievements</a>
+          <a href="blog.html" class="footer__link">Blog</a>
+          <a href="initiatives.html" class="footer__link">Initiatives</a>
+        </div>
+        <div>
           <h4 class="footer__heading">Contact &amp; Timings</h4>
-          <p class="footer__link"><a href="mailto:happytohelp@vatsandparam.com" style="color: inherit; text-decoration: none;">happytohelp@vatsandparam.com</a></p>
-          <p class="footer__link"><a href="tel:+919900114151" style="color: inherit; text-decoration: none;">+91 9900114151</a></p>
+          <p class="footer__link"><a href="mailto:happytohelp@vatsandparam.com"
+              style="color: inherit; text-decoration: none;">happytohelp@vatsandparam.com</a></p>
+          <p class="footer__link"><a href="tel:+919900114151" style="color: inherit; text-decoration: none;">+91
+              9900114151</a></p>
           <p class="footer__link">Mon &#8211; Sat: 10:00 AM &#8211; 7:00 PM.</p>
           <p class="footer__link">Sunday: 10:00 AM &#8211; 1:00 PM.</p>
           <p class="footer__link">Thursday: Holiday.</p>
         </div>
       </div>
       <div class="footer__socials">
-        <a href="https://www.instagram.com/vatsandparam_thedentists?igsh=OGl5YW4yaHpsdzhm" target="_blank" class="footer__social-icon" title="Instagram">
+        <a href="https://www.instagram.com/vatsandparam_thedentists?igsh=OGl5YW4yaHpsdzhm" target="_blank"
+          class="footer__social-icon" title="Instagram">
           <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <rect x="2" y="2" width="20" height="20" rx="5" fill="none" stroke="currentColor" stroke-width="2"/>
-            <circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="2"/>
-            <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"/>
+            <rect x="2" y="2" width="20" height="20" rx="5" fill="none" stroke="currentColor" stroke-width="2" />
+            <circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="2" />
+            <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" />
           </svg>
         </a>
         <a href="https://www.youtube.com/@ScrubGuru-un3wu" target="_blank" class="footer__social-icon" title="YouTube">
           <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+            <path
+              d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
           </svg>
         </a>
       </div>
       <!-- ===== LEGAL LINKS ===== -->
       <div class="footer__disclaimers">
-        <p class="footer__legal-notice">Educational information only. Individual treatment needs and outcomes vary. No guarantee or warranty is provided regarding treatment outcomes, timelines or longevity. Consultation required before treatment recommendations can be made.</p>
+        <p class="footer__legal-notice">Educational information only. Individual treatment needs and outcomes vary. No
+          guarantee or warranty is provided regarding treatment outcomes, timelines or longevity. Consultation required
+          before treatment recommendations can be made.</p>
         <div class="footer__policy-links">
           <button class="footer__policy-link" data-modal="modal-medical">Medical Disclaimer</button>
           <span class="footer__policy-sep">&middot;</span>
@@ -632,7 +696,11 @@
     <div class="policy-modal__card">
       <button class="policy-modal__close" aria-label="Close">&times;</button>
       <h3 class="policy-modal__title" id="modal-medical-title">Medical Disclaimer</h3>
-      <p class="policy-modal__body">The content on this website is provided for educational and informational purposes only and does not constitute medical, dental, or healthcare advice. No doctor-patient relationship is created by viewing this website. Treatment recommendations, risks, benefits, alternatives, costs, timelines, maintenance requirements and outcomes vary between individuals. No guarantee or warranty is expressed or implied regarding treatment outcomes, longevity, aesthetics, comfort, symptom resolution, or future oral health.</p>
+      <p class="policy-modal__body">The content on this website is provided for educational and informational purposes
+        only and does not constitute medical, dental, or healthcare advice. No doctor-patient relationship is created by
+        viewing this website. Treatment recommendations, risks, benefits, alternatives, costs, timelines, maintenance
+        requirements and outcomes vary between individuals. No guarantee or warranty is expressed or implied regarding
+        treatment outcomes, longevity, aesthetics, comfort, symptom resolution, or future oral health.</p>
     </div>
   </div>
 
@@ -640,7 +708,10 @@
     <div class="policy-modal__card">
       <button class="policy-modal__close" aria-label="Close">&times;</button>
       <h3 class="policy-modal__title" id="modal-terms-title">Terms &amp; Conditions</h3>
-      <p class="policy-modal__body">Use of this website constitutes acceptance of these terms. Content is provided for informational purposes only. Users should not rely on website content as a substitute for professional advice, diagnosis or treatment. Vats &amp; Param – The Dentists reserves the right to modify website content without notice.</p>
+      <p class="policy-modal__body">Use of this website constitutes acceptance of these terms. Content is provided for
+        informational purposes only. Users should not rely on website content as a substitute for professional advice,
+        diagnosis or treatment. Vats &amp; Param – The Dentists reserves the right to modify website content without
+        notice.</p>
     </div>
   </div>
 
@@ -648,24 +719,27 @@
     <div class="policy-modal__card">
       <button class="policy-modal__close" aria-label="Close">&times;</button>
       <h3 class="policy-modal__title" id="modal-privacy-title">Privacy Policy</h3>
-      <p class="policy-modal__body">We respect your privacy. Information submitted through forms, appointment requests or other communication channels will be handled in accordance with applicable laws. Personal information will not be sold to third parties. Information may be used for appointment scheduling, communication, treatment coordination and service improvement.</p>
+      <p class="policy-modal__body">We respect your privacy. Information submitted through forms, appointment requests
+        or other communication channels will be handled in accordance with applicable laws. Personal information will
+        not be sold to third parties. Information may be used for appointment scheduling, communication, treatment
+        coordination and service improvement.</p>
     </div>
   </div>
   <!-- ===== END POLICY MODALS ===== -->
 
   <script>
-    (function(){
+    (function () {
       var modals = document.querySelectorAll('.policy-modal');
-      function openModal(id){ var m = document.getElementById(id); if(m){ m.classList.add('active'); document.body.style.overflow='hidden'; } }
-      function closeAll(){ modals.forEach(function(m){ m.classList.remove('active'); }); document.body.style.overflow=''; }
-      document.querySelectorAll('[data-modal]').forEach(function(btn){
-        btn.addEventListener('click', function(){ openModal(btn.dataset.modal); });
+      function openModal(id) { var m = document.getElementById(id); if (m) { m.classList.add('active'); document.body.style.overflow = 'hidden'; } }
+      function closeAll() { modals.forEach(function (m) { m.classList.remove('active'); }); document.body.style.overflow = ''; }
+      document.querySelectorAll('[data-modal]').forEach(function (btn) {
+        btn.addEventListener('click', function () { openModal(btn.dataset.modal); });
       });
-      modals.forEach(function(m){
-        m.addEventListener('click', function(e){ if(e.target === m) closeAll(); });
+      modals.forEach(function (m) {
+        m.addEventListener('click', function (e) { if (e.target === m) closeAll(); });
         m.querySelector('.policy-modal__close').addEventListener('click', closeAll);
       });
-      document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeAll(); });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeAll(); });
     })();
   </script>
 
@@ -680,4 +754,5 @@
   <script src="nav.js" defer></script>
   <script src="assets/js/about.js" defer></script>
 </body>
+
 </html>
