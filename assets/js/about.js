@@ -2,27 +2,37 @@
     'use strict';
 
     // ---- Intro loader (mobile only) ----
-    // Fixed-duration overlay, not tied to any load event, so it can never hang
-    // waiting on the hero video or other resources — it just gives the video a
-    // short head start to buffer while the quote is on screen.
+    // Duration is computed from the quote's own word count (base delay + stagger step
+    // per word + fade-in duration + a 3s hold once fully readable), so it always gives
+    // the user enough time to actually read the line before hiding — not a fixed
+    // guess that would go stale if the quote text changes length later.
     var introLoader = document.getElementById('aboutIntroLoader');
     var introQuote = document.getElementById('aboutIntroQuote');
 
+    var WORD_BASE_DELAY = 0.15;   // seconds before the first word starts fading in
+    var WORD_STEP = 0.2;          // seconds between each word's start
+    var WORD_ANIM_DURATION = 0.6; // seconds each word takes to fade in
+    var HOLD_AFTER_TEXT = 3000;   // ms to hold once the full line is readable
+
+    var wordCount = 0;
     if (introQuote) {
         var words = introQuote.textContent.split(' ');
+        wordCount = words.length;
         introQuote.innerHTML = words.map(function (word, i) {
-            var delay = (0.1 + i * 0.12).toFixed(2);
-            return '<span class="about-intro-word" style="animation-delay:' + delay + 's">' + word + '</span>';
+            var delay = (WORD_BASE_DELAY + i * WORD_STEP).toFixed(2);
+            return '<span class="about-intro-word" style="animation-delay:' + delay + 's; animation-duration:' + WORD_ANIM_DURATION + 's;">' + word + '</span>';
         }).join(' ');
     }
 
     if (introLoader) {
         if (window.innerWidth <= 768) {
             document.body.style.overflow = 'hidden';
+            var lastWordDelay = WORD_BASE_DELAY + Math.max(0, wordCount - 1) * WORD_STEP;
+            var totalMs = (lastWordDelay + WORD_ANIM_DURATION) * 1000 + HOLD_AFTER_TEXT;
             setTimeout(function () {
                 introLoader.classList.add('hidden');
                 document.body.style.overflow = '';
-            }, 2600);
+            }, totalMs);
         } else {
             introLoader.classList.add('hidden');
         }

@@ -105,7 +105,7 @@
   font-family: var(--font-heading);
   font-size: 2rem;
   font-weight: 700;
-  color: #c0392b;
+  color: #802929;
   margin: 0;
   letter-spacing: 0.5px;
 }
@@ -204,7 +204,10 @@
   display: inline-block;
   opacity: 0;
   transform: translateY(10px);
-  animation: aboutIntroWordFadeIn 0.5s ease-out forwards;
+  animation-name: aboutIntroWordFadeIn;
+  animation-duration: 0.6s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
 }
 
 @keyframes aboutIntroWordFadeIn {
@@ -3196,6 +3199,26 @@ p {
     max-width: 100% !important;
     border-radius: 0 !important;
     left: 0 !important;
+  }
+
+  /* Compact logo so "Vats & Param" fits on one line and doesn't push the nav
+     bar taller than --nav-height */
+  .nav__logo {
+    gap: 0.5rem;
+  }
+
+  .nav__logo-img {
+    width: 34px;
+    height: 34px;
+  }
+
+  .nav__logo-text {
+    font-size: 0.95rem;
+  }
+
+  .nav__logo-subtitle {
+    font-size: 0.5rem;
+    margin-top: 1px;
   }
 
   .nav__inner {
@@ -9619,24 +9642,6 @@ body:has(#page-about.active) {
     inset: 0;
     background: linear-gradient(180deg, rgba(0,0,0,0.22) 0%, rgba(0,0,0,0.12) 45%, rgba(0,0,0,0.4) 100%);
     z-index: 5;
-    pointer-events: none;
-  }
-
-  .walkthrough-mobile-title {
-    display: block !important;
-    position: absolute;
-    top: 11%;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 10;
-    width: 90%;
-    text-align: center;
-    font-family: var(--font-heading);
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: #fff;
-    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.6);
-    margin: 0;
     pointer-events: none;
   }
 
