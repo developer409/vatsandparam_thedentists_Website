@@ -561,6 +561,11 @@ p {
 
 /* ========== MOBILE FEATURES - ABOUT PAGE ONLY ========== */
 @media (max-width: 768px) {
+  /* Tagline under the logo is desktop-only — no room for it in the compact mobile bar */
+  .nav__logo-tagline {
+    display: none !important;
+  }
+
   /* ---- Mobile Burger Menu ---- */
   .nav__toggle {
     display: flex !important;

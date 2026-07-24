@@ -34,6 +34,8 @@ const doctorData = {
         ],
         specializations: [
             { icon: '🌿', label: 'Functional & Integrative Dentistry' },
+            { icon: '👶', label: 'Pediatric Care' },
+            { icon: '🌱', label: 'Preventive Care' },
             { icon: '🦷', label: 'Occlusal Rehab & Bite Dynamics' },
             { icon: '🛡️', label: 'Tooth Wear & Bruxism Management' },
             { icon: '🧬', label: 'Oral-Systemic Health Interface' },
