@@ -45,7 +45,8 @@
       </a>
       <a href="contact.html" class="nav__cta-mobile" aria-label="Book Consultation">Book Consultation</a><div class="nav__toggle" id="navToggle"><span></span><span></span><span></span></div>
       <div class="nav__menu" id="navMenu">
-        <div class="nav__links">
+<a href="contact.html" class="btn btn--primary btn--sm nav__cta">Book Consultation</a>
+                <div class="nav__links">
           <a href="home.html" class="nav__link">Home</a>
           <a href="about.html" class="nav__link">About Us</a>
           <a href="approach.html" class="nav__link">Our Approach</a>
@@ -65,7 +66,6 @@
           <a href="careers.html" class="nav__link">Careers</a>
           <a href="contact.html" class="nav__link">Contact</a>
         </div>
-        <a href="contact.html" class="btn btn--primary btn--sm nav__cta">Book Consultation</a>
       </div>
     </div>
   </nav>
@@ -121,7 +121,7 @@
         <div class="svc-vcard__scroll-hint"><span></span></div>
       </div>
 
-      <!-- Mobile: title separated from video, click-to-reveal services -->
+      <!-- Mobile: compact header + video, description and services shown directly -->
       <div class="svc-vcard__mobile-view">
         <div class="svc-mobile-header">
           <span class="svc-vcard__tag">A</span>
@@ -130,11 +130,7 @@
         <video autoplay muted loop playsinline class="svc-mobile-video">
           <source src="assets/videos/A_Comprehensive_treatment_v2.mp4" type="video/mp4">
         </video>
-        <button class="svc-reveal-trigger" type="button" aria-expanded="false" aria-controls="svc-reveal-a">
-          <span class="svc-reveal-trigger__label">Click to view services provided</span>
-          <svg class="svc-reveal-trigger__chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
-        </button>
-        <div class="svc-reveal" id="svc-reveal-a">
+        <div class="svc-reveal" id="svc-reveal-a" style="max-height:none;overflow:visible;">
           <p class="svc-vcard__desc">Identifying risks, conditions, and opportunities for prevention before problems develop.</p>
           <div class="svc-vcard__pills">
             <a href="comprehensive-oral-assessment.html" class="svc-pill">Comprehensive Oral Health Assessment</a>
@@ -149,72 +145,151 @@
     </div>
 
     <!-- CARD B: CLINICAL TREATMENT SPECIALTIES -->
-    <div class="svc-vcard">
-      <video autoplay muted loop playsinline class="svc-vcard__video">
-        <source src="assets/videos/B_Clinical_Treatment_Specialities.mp4" type="video/mp4">
-      </video>
-      <div class="svc-vcard__overlay"></div>
-      <div class="svc-vcard__content">
-        <div class="svc-vcard__header">
+    <div class="svc-vcard svc-vcard--expandable">
+
+      <!-- Desktop: original full-video overlay design -->
+      <div class="svc-vcard__desktop-view">
+        <video autoplay muted loop playsinline class="svc-vcard__video">
+          <source src="assets/videos/B_Clinical_Treatment_Specialities.mp4" type="video/mp4">
+        </video>
+        <div class="svc-vcard__overlay"></div>
+        <div class="svc-vcard__content">
+          <div class="svc-vcard__header">
+            <span class="svc-vcard__tag">B</span>
+            <h2 class="svc-vcard__title">Clinical Treatment Specialties</h2>
+          </div>
+          <p class="svc-vcard__desc">Precision dental treatments and rehabilitation for lasting structural health.</p>
+          <div class="svc-vcard__pills">
+            <a href="gum-treatment.html" class="svc-pill">Gum Health &amp; Periodontal Care</a>
+            <a href="orthodontics-bite-development.html" class="svc-pill">Orthodontics &amp; Bite Development</a>
+            <a href="restorative-dentistry-rehabilitation.html" class="svc-pill">Restorative &amp; Rehabilitative Dentistry</a>
+            <a href="endodontics-root-canal.html" class="svc-pill">Endodontics &amp; Root Canal Therapy</a>
+            <a href="dental-implants-replacement.html" class="svc-pill">Dental Implants &amp; Tooth Replacement</a>
+            <a href="smile-design-aesthetic.html" class="svc-pill">Smile Design &amp; Aesthetic Dentistry</a>
+          </div>
+        </div>
+        <div class="svc-vcard__scroll-hint"><span></span></div>
+      </div>
+
+      <!-- Mobile: compact header + video, description and services shown directly -->
+      <div class="svc-vcard__mobile-view">
+        <div class="svc-mobile-header">
           <span class="svc-vcard__tag">B</span>
           <h2 class="svc-vcard__title">Clinical Treatment Specialties</h2>
         </div>
-        <p class="svc-vcard__desc">Precision dental treatments and rehabilitation for lasting structural health.</p>
-        <div class="svc-vcard__pills">
-          <a href="gum-treatment.html" class="svc-pill">Gum Health &amp; Periodontal Care</a>
-          <a href="orthodontics-bite-development.html" class="svc-pill">Orthodontics &amp; Bite Development</a>
-          <a href="restorative-dentistry-rehabilitation.html" class="svc-pill">Restorative &amp; Rehabilitative Dentistry</a>
-          <a href="endodontics-root-canal.html" class="svc-pill">Endodontics &amp; Root Canal Therapy</a>
-          <a href="dental-implants-replacement.html" class="svc-pill">Dental Implants &amp; Tooth Replacement</a>
-          <a href="smile-design-aesthetic.html" class="svc-pill">Smile Design &amp; Aesthetic Dentistry</a>
+        <video autoplay muted loop playsinline class="svc-mobile-video">
+          <source src="assets/videos/B_Clinical_Treatment_Specialities.mp4" type="video/mp4">
+        </video>
+        <div class="svc-reveal" id="svc-reveal-b" style="max-height:none;overflow:visible;">
+          <p class="svc-vcard__desc">Precision dental treatments and rehabilitation for lasting structural health.</p>
+          <div class="svc-vcard__pills">
+            <a href="gum-treatment.html" class="svc-pill">Gum Health &amp; Periodontal Care</a>
+            <a href="orthodontics-bite-development.html" class="svc-pill">Orthodontics &amp; Bite Development</a>
+            <a href="restorative-dentistry-rehabilitation.html" class="svc-pill">Restorative &amp; Rehabilitative Dentistry</a>
+            <a href="endodontics-root-canal.html" class="svc-pill">Endodontics &amp; Root Canal Therapy</a>
+            <a href="dental-implants-replacement.html" class="svc-pill">Dental Implants &amp; Tooth Replacement</a>
+            <a href="smile-design-aesthetic.html" class="svc-pill">Smile Design &amp; Aesthetic Dentistry</a>
+          </div>
         </div>
       </div>
-      <div class="svc-vcard__scroll-hint"><span></span></div>
+
     </div>
 
     <!-- CARD C: FUNCTIONAL & WHOLE-BODY HEALTH -->
-    <div class="svc-vcard">
-      <video autoplay muted loop playsinline class="svc-vcard__video">
-        <source src="assets/videos/C_Functional_Whole_Body_Health.mp4" type="video/mp4">
-      </video>
-      <div class="svc-vcard__overlay"></div>
-      <div class="svc-vcard__content">
-        <div class="svc-vcard__header">
+    <div class="svc-vcard svc-vcard--expandable">
+
+      <!-- Desktop: original full-video overlay design -->
+      <div class="svc-vcard__desktop-view">
+        <video autoplay muted loop playsinline class="svc-vcard__video">
+          <source src="assets/videos/C_Functional_Whole_Body_Health.mp4" type="video/mp4">
+        </video>
+        <div class="svc-vcard__overlay"></div>
+        <div class="svc-vcard__content">
+          <div class="svc-vcard__header">
+            <span class="svc-vcard__tag">C</span>
+            <h2 class="svc-vcard__title">Functional &amp; Whole-Body Health</h2>
+          </div>
+          <p class="svc-vcard__desc">Where oral health connects to the whole body, affecting function, breathing, and systemic wellbeing.</p>
+          <div class="svc-vcard__pills">
+            <a href="bite-tmj-functional-dentistry.html" class="svc-pill">Bite, TMJ &amp; Functional Dentistry</a>
+            <a href="airway-breathing-sleep-health.html" class="svc-pill">Airway, Breathing &amp; Sleep Health</a>
+            <a href="womens-oral-health.html" class="svc-pill">Women&apos;s Oral Health</a>
+            <a href="sports-dentistry.html" class="svc-pill">Sports Dentistry &amp; Performance</a>
+            <a href="complex-medical-dentistry.html" class="svc-pill">Complex Medical &amp; Medically Integrated Dentistry</a>
+          </div>
+        </div>
+        <div class="svc-vcard__scroll-hint"><span></span></div>
+      </div>
+
+      <!-- Mobile: compact header + video, description and services shown directly -->
+      <div class="svc-vcard__mobile-view">
+        <div class="svc-mobile-header">
           <span class="svc-vcard__tag">C</span>
           <h2 class="svc-vcard__title">Functional &amp; Whole-Body Health</h2>
         </div>
-        <p class="svc-vcard__desc">Where oral health connects to the whole body, affecting function, breathing, and systemic wellbeing.</p>
-        <div class="svc-vcard__pills">
-          <a href="bite-tmj-functional-dentistry.html" class="svc-pill">Bite, TMJ &amp; Functional Dentistry</a>
-          <a href="airway-breathing-sleep-health.html" class="svc-pill">Airway, Breathing &amp; Sleep Health</a>
-          <a href="womens-oral-health.html" class="svc-pill">Women&apos;s Oral Health</a>
-          <a href="sports-dentistry.html" class="svc-pill">Sports Dentistry &amp; Performance</a>
-          <a href="complex-medical-dentistry.html" class="svc-pill">Complex Medical &amp; Medically Integrated Dentistry</a>
+        <video autoplay muted loop playsinline class="svc-mobile-video">
+          <source src="assets/videos/C_Functional_Whole_Body_Health.mp4" type="video/mp4">
+        </video>
+        <div class="svc-reveal" id="svc-reveal-c" style="max-height:none;overflow:visible;">
+          <p class="svc-vcard__desc">Where oral health connects to the whole body, affecting function, breathing, and systemic wellbeing.</p>
+          <div class="svc-vcard__pills">
+            <a href="bite-tmj-functional-dentistry.html" class="svc-pill">Bite, TMJ &amp; Functional Dentistry</a>
+            <a href="airway-breathing-sleep-health.html" class="svc-pill">Airway, Breathing &amp; Sleep Health</a>
+            <a href="womens-oral-health.html" class="svc-pill">Women&apos;s Oral Health</a>
+            <a href="sports-dentistry.html" class="svc-pill">Sports Dentistry &amp; Performance</a>
+            <a href="complex-medical-dentistry.html" class="svc-pill">Complex Medical &amp; Medically Integrated Dentistry</a>
+          </div>
         </div>
       </div>
-      <div class="svc-vcard__scroll-hint"><span></span></div>
+
     </div>
 
     <!-- CARD D: POPULATION-BASED CARE -->
-    <div class="svc-vcard">
-      <video autoplay muted loop playsinline class="svc-vcard__video">
-        <source src="assets/videos/D_Population_Based_Care.mp4" type="video/mp4">
-      </video>
-      <div class="svc-vcard__overlay"></div>
-      <div class="svc-vcard__content">
-        <div class="svc-vcard__header">
+    <div class="svc-vcard svc-vcard--expandable">
+
+      <!-- Desktop: original full-video overlay design -->
+      <div class="svc-vcard__desktop-view">
+        <video autoplay muted loop playsinline class="svc-vcard__video">
+          <source src="assets/videos/D_Population_Based_Care.mp4" type="video/mp4">
+        </video>
+        <div class="svc-vcard__overlay"></div>
+        <div class="svc-vcard__content">
+          <div class="svc-vcard__header">
+            <span class="svc-vcard__tag">D</span>
+            <h2 class="svc-vcard__title">Population-Based Care</h2>
+          </div>
+          <p class="svc-vcard__desc">Tailored care for every life stage, ability, and community need.</p>
+          <div class="svc-vcard__pills">
+            <a href="pediatric-dentistry.html" class="svc-pill">Children&apos;s Oral Health &amp; Development</a>
+            <a href="specially-abled-dentistry.html" class="svc-pill">Special Needs Dentistry</a>
+            <a href="senior-oral-health.html" class="svc-pill">Senior Oral Health &amp; Healthy Ageing</a>
+            <a href="home-care-dentistry.html" class="svc-pill">Home Dental Care Services</a>
+            <a href="community-oral-health.html" class="svc-pill">Community Oral Health &amp; Education Programs</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile: compact header + video, description and services shown directly -->
+      <div class="svc-vcard__mobile-view">
+        <div class="svc-mobile-header">
           <span class="svc-vcard__tag">D</span>
           <h2 class="svc-vcard__title">Population-Based Care</h2>
         </div>
-        <p class="svc-vcard__desc">Tailored care for every life stage, ability, and community need.</p>
-        <div class="svc-vcard__pills">
-          <a href="pediatric-dentistry.html" class="svc-pill">Children&apos;s Oral Health &amp; Development</a>
-          <a href="specially-abled-dentistry.html" class="svc-pill">Special Needs Dentistry</a>
-          <a href="senior-oral-health.html" class="svc-pill">Senior Oral Health &amp; Healthy Ageing</a>
-          <a href="home-care-dentistry.html" class="svc-pill">Home Dental Care Services</a>
-          <a href="community-oral-health.html" class="svc-pill">Community Oral Health &amp; Education Programs</a>
+        <video autoplay muted loop playsinline class="svc-mobile-video">
+          <source src="assets/videos/D_Population_Based_Care.mp4" type="video/mp4">
+        </video>
+        <div class="svc-reveal" id="svc-reveal-d" style="max-height:none;overflow:visible;">
+          <p class="svc-vcard__desc">Tailored care for every life stage, ability, and community need.</p>
+          <div class="svc-vcard__pills">
+            <a href="pediatric-dentistry.html" class="svc-pill">Children&apos;s Oral Health &amp; Development</a>
+            <a href="specially-abled-dentistry.html" class="svc-pill">Special Needs Dentistry</a>
+            <a href="senior-oral-health.html" class="svc-pill">Senior Oral Health &amp; Healthy Ageing</a>
+            <a href="home-care-dentistry.html" class="svc-pill">Home Dental Care Services</a>
+            <a href="community-oral-health.html" class="svc-pill">Community Oral Health &amp; Education Programs</a>
+          </div>
         </div>
       </div>
+
     </div>
 
   </div><!-- /svc-vcards -->

@@ -931,7 +931,7 @@ p, li, span, h1, h2, h3, h4, h5, h6 {
   .treat-carousel-wrap { margin: var(--space-lg) 0 0; padding: 0; overflow: hidden; }
   .treat-carousel { overflow: hidden; width: 100%; }
   .treat-carousel__track { gap: 0; }
-  .treat-svc-card { flex: 0 0 100%; width: 100%; box-sizing: border-box; }
+  .treat-svc-card { flex: 0 0 100%; width: 100%; box-sizing: border-box; border-radius: 20px; }
 }
 
 /* ===== DOCTOR CARD ===== */

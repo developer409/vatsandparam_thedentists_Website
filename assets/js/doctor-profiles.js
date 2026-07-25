@@ -11,7 +11,7 @@ const doctorData = {
         education: 'BDS, MDS, FADI (USA)',
         experience: '30+ Years Clinical Practice',
         languages: 'English, Hindi, Kannada, Telugu, Nepali',
-        location: 'Hulimavu Clinic, Bengaluru',
+        location: 'Hulimavu Centre, Bengaluru',
         locationFull: 'Ground floor, 363, Bannerghatta Main Road, Hulimavu, Bengaluru - 560076',
         tags: [
             { label: 'BDS, MDS, FADI (USA)', gold: true },
@@ -79,8 +79,8 @@ const doctorData = {
         education: 'BDS, MDS (Periodontics)',
         experience: '20+ Years Clinical Practice',
         languages: 'English, Hindi, Punjabi',
-        location: 'J.P Nagar Branch, Bengaluru',
-        locationFull: 'KR Layout, 2nd Phase, J. P. Nagar, Bengaluru - 560078',
+        location: 'Hulimavu Centre, Bengaluru',
+        locationFull: '363, 1st floor, Above HDFC Bank, Bannerghatta Main Road, Hulimavu, Bengaluru - 560076',
         tags: [
             { label: 'Periodontics', gold: false },
             { label: 'BDS, MDS', gold: true },
@@ -141,8 +141,8 @@ const doctorData = {
         education: 'BDS',
         experience: '13+ Years Clinical Practice',
         languages: 'English, Hindi',
-        location: 'Arekere Clinic, Bengaluru',
-        locationFull: '83, 6th Cross Rd, Arekere MICO Layout 2nd Stage, Bengaluru - 560076',
+        location: 'Hulimavu Centre, Bengaluru',
+        locationFull: '363, 1st floor, Above HDFC Bank, Bannerghatta Main Road, Hulimavu, Bengaluru - 560076',
         tags: [
             { label: 'BDS', gold: true },
             { label: 'IDA Member', gold: false },
@@ -195,8 +195,8 @@ const doctorData = {
         education: 'BDS',
         experience: '6+ Years Clinical Practice',
         languages: 'English, Kannada, Telugu',
-        location: 'J.P Nagar Branch, Bengaluru',
-        locationFull: 'KR Layout, 2nd Phase, J. P. Nagar, Bengaluru - 560078',
+        location: 'Hulimavu Centre, Bengaluru',
+        locationFull: '363, 1st floor, Above HDFC Bank, Bannerghatta Main Road, Hulimavu, Bengaluru - 560076',
         tags: [
             { label: 'Restorative Dentistry', gold: false },
             { label: 'BDS', gold: true },
@@ -244,22 +244,22 @@ const doctorData = {
         image: 'assets/Doctors/Dr_dhijila/Dhijila.png',
         education: 'BDS',
         experience: 'Clinical Professional',
-        languages: 'English, Hindi, Kannada, Malayalam',
-        location: 'Hulimavu Clinic, Bengaluru',
-        locationFull: 'Ground floor, 363, Bannerghatta Main Road, Hulimavu, Bengaluru - 560076',
+        languages: 'English, Hindi, Malayalam, Kannada',
+        location: 'JP Nagar Centre, Bengaluru',
+        locationFull: 'KR Layout, 2nd Phase, J. P. Nagar, Bengaluru - 560078',
         tags: [
             { label: 'General Dentistry', gold: false },
             { label: 'BDS', gold: true },
             { label: 'Center Head', gold: false },
         ],
         overview: [
-            '<strong>Patient-Centered Care</strong>: Built on empathy, trust, and integrity.',
-            '<strong>Transparent Communication</strong>: Empowering patients with clear information on options and costs.',
-            '<strong>Comprehensive Strategy</strong>: Focus on improving overall health through preventive and restorative care.',
-            '<strong>Well-being First</strong>: Prioritizing patient health over commercial interests.',
+            '<strong>Patient-Centered Care:</strong> Built on empathy, trust, and integrity.',
+            '<strong>Transparent Communication:</strong> Empowering patients with clear information on options and costs.',
+            '<strong>Comprehensive Strategy:</strong> Focus on improving overall health through preventive and restorative care.',
+            '<strong>Well-being First:</strong> Prioritizing patient health over commercial interests.',
         ],
-        intro: `Dr. Dhijila Dinesh is a general dentist and Center Head whose practice is defined by a clear set of values — empathy, transparency, and a genuine commitment to patient well-being over commercial interest. She brings both clinical competence and a deeply human approach to every patient interaction, creating an environment where people feel informed, respected, and at ease.`,
-        introExtra: `As Center Head at the Hulimavu branch, Dr. Dhijila oversees the day-to-day clinical and patient experience, ensuring that every individual who walks in receives consistent, high-quality care. Her clinical focus spans general dentistry, laser treatment, preventive care, and full mouth rehabilitation. She is known for her transparency — taking time to clearly explain diagnoses, treatment options, and costs so that patients can make decisions that are right for them, not just clinically, but practically.`,
+        intro: `Dr. Dhijila Dinesh is a general dentist and Center Head (JP Nagar) whose practice is defined by a clear set of values — empathy, transparency, and a genuine commitment to patient well-being over commercial interest. She brings both clinical competence and a deeply human approach to every patient interaction, creating an environment where people feel informed, respected, and at ease.`,
+        introExtra: `As Center Head at the JP Nagar branch, Dr. Dhijila oversees the day-to-day clinical and patient experience, ensuring that every individual who walks in receives consistent, high-quality care. Her clinical focus spans general dentistry, laser treatment, preventive care, and full mouth rehabilitation. She is known for her transparency — taking time to clearly explain diagnoses, treatment options, and costs so that patients can make decisions that are right for them, not just clinically, but practically.`,
         philosophy: [
             'Dr. Dhijila practices a patient-centered approach built on empathy, trust, and integrity.',
             'For Dr. Dhijila, transparency is fundamental to empowering patients in their health journey.',
@@ -333,53 +333,7 @@ const doctorData = {
         ],
     },
 
-    'rakshitha': {
-        name: 'Dr. Rakshitha',
-        role: 'Clinical Head and Senior Consultant',
-        specialization: 'Orthodontist',
-        image: 'assets/Doctors/Dr_rakshitha.png',
-        education: 'BDS, MDS (Orthodontics)',
-        experience: '8+ Years Clinical Practice',
-        languages: 'English, Kannada, Hindi',
-        location: 'J.P Nagar Branch, Bengaluru',
-        locationFull: 'KR Layout, 2nd Phase, J. P. Nagar, Bengaluru - 560078',
-        tags: [
-            { label: 'BDS, MDS', gold: true },
-            { label: 'Orthodontist', gold: false },
-            { label: '8+ Years Experience', gold: false },
-        ],
-        overview: [
-            '<strong>Orthodontic Correction:</strong> Expert in structural alignment and malocclusion correction.',
-            '<strong>Clear Aligner Specialist:</strong> Specializes in advanced invisible aligner treatments.',
-            '<strong>Bite Dynamics:</strong> Focuses on functional bite harmony and jaw relationships.',
-            '<strong>Patient-Centered Design:</strong> Designs custom treatment plans for kids, teens, and adults.',
-        ],
-        intro: `Dr. Rakshitha is an expert Orthodontist specializing in <strong>Clear Aligners</strong>, braces, and dentofacial orthopedics. She is dedicated to creating balanced, healthy smiles.`,
-        introExtra: `With over 8 years of clinical experience, Dr. Rakshitha uses state-of-the-art diagnostic and digital tools to design custom orthodontic solutions. She prioritizes both functional bite stability and natural aesthetic alignment, ensuring long-term results.`,
-        philosophy: [
-            'Orthodontics is about more than just straight teeth; it is about functional bite alignment and facial balance.',
-            'Modern digital tools allow us to make orthodontic treatment more comfortable and predictable.',
-            'A healthy, beautiful smile boosts self-confidence at any age.',
-            'Every patient is unique, and their orthodontic treatment plan should reflect their specific goals.',
-        ],
-        specializations: [
-            { icon: '🦷', label: 'Orthodontics & Dentofacial Orthopedics' },
-            { icon: '✨', label: 'Clear Aligner Therapy' },
-            { icon: '⚙️', label: 'Bite Correction & Dynamics' },
-            { icon: '📈', label: 'Growth Modulation Treatments' },
-            { icon: '📋', label: 'Digital Smile Design' },
-        ],
-        treatments: [
-            { icon: '✨', label: 'Clear Aligners' },
-            { icon: '⚙️', label: 'Traditional & Ceramic Braces' },
-            { icon: '👶', label: 'Interceptive Orthodontics' },
-            { icon: '🦷', label: 'Myofunctional Appliances' },
-        ],
-        memberships: [
-            { icon: '🏛️', label: 'Indian Orthodontic Society (IOS)' },
-            { icon: '🇮🇳', label: 'Indian Dental Association (IDA)' },
-        ],
-    },
+    
 
     'vikram': {
         name: 'Dr. Vikram',
@@ -429,7 +383,7 @@ const doctorData = {
     },
 
     'ragunath': {
-        name: 'Prof. Dr. N. Raghunath',
+        name: 'Prof. Dr. Raghunath N.',
         role: 'Professor & Head of Department of Orthodontics',
         specialization: 'Orthodontist',
         image: 'assets/CONSULTING/Raghunath_1.png',
@@ -483,7 +437,7 @@ const doctorData = {
     },
 
     'madhukiran': {
-        name: 'Dr. Madhukiran',
+        name: 'Dr. Madhukiran M.K',
         role: 'Root Canal Specialist',
         specialization: 'Endodontics',
         image: 'assets/final_photos/madhukiran_black.png',
@@ -534,25 +488,24 @@ const doctorData = {
         specialization: 'Oral & Maxillofacial Surgery',
         image: 'assets/CONSULTING/pruthvi.png',
         education: 'BDS, MDS (OMFS), FIBCSOMS',
-        experience: '15+ Years Clinical Practice',
-        languages: 'English, Hindi, Kannada',
+        experience: '20+ Years Clinical Practice',
+        languages: 'English, Kannada, Hindi',
         location: 'Hulimavu Clinic, Bengaluru',
         locationFull: 'Ground floor, 363, Bannerghatta Main Road, Hulimavu, Bengaluru - 560076',
         tags: [
             { label: 'Oral & Maxillofacial Surgery', gold: false },
             { label: 'BDS, MDS (OMFS), FIBCSOMS', gold: true },
-            { label: '15+ Years Experience', gold: false },
+            { label: '20+ Years Experience', gold: false },
         ],
         overview: [
-            '<strong>Oral & Maxillofacial Surgeon:</strong> Trained and based in Bangalore, with close to 15 years of experience in the field, including a training stint in the U.K.',
+            '<strong>Oral & Maxillofacial Surgeon:</strong> Trained and based in Bangalore, with over 20 years of experience in the field, including a training stint in the U.K.',
             '<strong>Fellowship:</strong> Holds a Fellowship from the International Association of Oral and Maxillofacial Surgeons.',
-            '<strong>Cleft Surgery:</strong> Spent a year associated with SmileTrain training in cleft surgery, an area of interest he retains even today.',
             '<strong>Paediatric & Special Needs Care:</strong> Areas of interest include managing paediatric cases, especially those with special needs, in hospital and under general anesthesia.',
             '<strong>Complex Medical Cases:</strong> Significant experience caring for patients with complex medical issues.',
             '<strong>Salivary Gland Pathology:</strong> Special interest in salivary gland pathology and sialendoscopy.',
         ],
-        intro: `Dr. Prithvi Bachalli is an Oral & Maxillofacial Surgeon trained and based in Bangalore. He has close to 15 years of experience in the field including a training stint in the U.K. and a Fellowship from the International Association of Oral and Maxillofacial Surgeons.`,
-        introExtra: `Following his basic training, he spent a year associated with SmileTrain training in cleft surgery, an area of interest which he retains even today. His areas of interest include managing paediatric cases, especially those with special needs, in hospital and under general anesthesia. He also has significant experience caring for patients with complex medical issues, and a special interest in salivary gland pathology and sialendoscopy.`,
+        intro: `Dr. Prithvi Bachalli is an Oral & Maxillofacial Surgeon trained and based in Bangalore. He has over 20 years of experience in the field including a training stint in the U.K. and a Fellowship from the International Association of Oral and Maxillofacial Surgeons.`,
+        introExtra: `His areas of interest include managing paediatric cases, especially those with special needs, in hospital and under general anesthesia. He also has significant experience caring for patients with complex medical issues, and a special interest in salivary gland pathology and sialendoscopy.`,
         philosophy: [
             'Dr. Prithvi believes complex surgical cases deserve the same careful, compassionate approach as routine ones, especially for paediatric and special-needs patients.',
             'He is committed to careful case assessment before any surgical procedure, particularly for medically complex patients.',
@@ -560,21 +513,20 @@ const doctorData = {
         ],
         specializations: [
             { icon: '🦷', label: 'Oral & Maxillofacial Surgery' },
-            { icon: '👶', label: 'Paediatric & Special Needs Surgery' },
-            { icon: '🩺', label: 'Cleft Surgery' },
             { icon: '💉', label: 'Salivary Gland Pathology & Sialendoscopy' },
+            { icon: '👶', label: 'Paediatric & Special Needs Surgery' },
         ],
         treatments: [
             { icon: '🦷', label: 'Surgical & Impacted Tooth Extractions' },
             { icon: '👶', label: 'Paediatric & Special Needs Surgery (Hospital / GA)' },
-            { icon: '🩺', label: 'Cleft Surgery' },
             { icon: '💉', label: 'Salivary Gland Pathology & Sialendoscopy' },
         ],
         memberships: [
-            { icon: '🏛️', label: 'International Association of Oral and Maxillofacial Surgeons (Fellow)' },
-            { icon: '🩺', label: 'SmileTrain (Cleft Surgery Training)' },
+            
             { icon: '🏛️', label: 'Indian Dental Association (IDA)' },
             { icon: '🩺', label: 'State Dental Council' },
+            { icon: '🏛️', label: 'Member — SGI' },
+            { icon: '🏛️', label: 'Member — AOMSI' },
         ],
     }
 };
