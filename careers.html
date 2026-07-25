@@ -171,61 +171,92 @@
     <!-- OPEN POSITIONS -->
     <div class="section section--alt" id="open-positions">
       <div class="container">
-        <div class="cpage-positions fade-in">
-          <div class="cpage-positions__text">
-            <h2 class="cpage-section-title" style="margin-bottom: var(--space-lg);">Open positions</h2>
+        <h2 class="cpage-section-title text-center fade-in" style="margin-bottom: 3rem;">Open Positions</h2>
 
-            <!-- Job Listing -->
-            <div class="job-listing" style="background: white; padding: 2rem; border-radius: 8px; border-left: 4px solid var(--color-gold); margin-bottom: 2rem;">
-              <h3 style="color: var(--color-navy); margin: 0 0 0.5rem 0; font-size: 1.3rem;">Dentist — BDS Graduate (2-3 Years Experience)</h3>
-              <p class="cpage-body-text" style="margin: 0 0 1.5rem 0; color: #666; font-weight: 500;">Full-time position</p>
+        <div class="hiring-grid fade-in" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; max-width: 1200px; margin: 0 auto;">
 
-              <div style="margin-bottom: 1.5rem;">
-                <h4 style="color: var(--color-navy); margin: 0 0 0.8rem 0; font-weight: 600;">Who is this for?</h4>
-                <p class="cpage-body-text" style="margin: 0;">BDS graduates with 2-3 years of clinical experience who are ready to grow beyond traditional dentistry. You've completed your foundational training and are looking for a practice that values diagnosis over procedure targets, mentorship, and meaningful patient care.</p>
-              </div>
-
-              <div style="margin-bottom: 1.5rem;">
-                <h4 style="color: var(--color-navy); margin: 0 0 0.8rem 0; font-weight: 600;">What we are looking for:</h4>
-                <ul style="margin: 0; padding-left: 1.5rem; color: #333;">
-                  <li style="margin-bottom: 0.6rem;">A dentist committed to honest, thoughtful diagnosis and root-cause thinking</li>
-                  <li style="margin-bottom: 0.6rem;">Strong communication skills and genuine interest in patient education</li>
-                  <li style="margin-bottom: 0.6rem;">Openness to feedback and a growth mindset</li>
-                  <li style="margin-bottom: 0.6rem;">Genuine interest in oral-systemic connections and whole-body health</li>
-                  <li style="margin-bottom: 0.6rem;">Attention to detail, good documentation practices, and clinical discipline</li>
-                  <li>Ability to work collaboratively in a small, focused team</li>
-                </ul>
-              </div>
-
-              <div style="margin-bottom: 1.5rem;">
-                <h4 style="color: var(--color-navy); margin: 0 0 0.8rem 0; font-weight: 600;">What you'll get:</h4>
-                <ul style="margin: 0; padding-left: 1.5rem; color: #333;">
-                  <li style="margin-bottom: 0.6rem;">Direct mentorship from experienced dentists</li>
-                  <li style="margin-bottom: 0.6rem;">Structured feedback and professional development</li>
-                  <li style="margin-bottom: 0.6rem;">A culture that values learning over procedure targets</li>
-                  <li style="margin-bottom: 0.6rem;">Exposure to diagnostic-driven, whole-body focused dentistry</li>
-                  <li>The opportunity to be part of a practice redefining thoughtful, ethical dental care</li>
-                </ul>
-              </div>
-
-              <p class="cpage-body-text" style="color: #666; font-style: italic;">Ready to apply? Submit your profile and CV using the contact details below.</p>
+          <!-- Hiring Card -->
+          <div class="hiring-card" style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 16px rgba(0,0,0,0.08); transition: all 0.3s ease; border: 1px solid #f0f0f0;">
+            <div style="background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-navy-light) 100%); padding: 2rem; color: white;">
+              <span style="display: inline-block; background: var(--color-gold); color: #000; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; margin-bottom: 1rem;">OPEN POSITION</span>
+              <h3 style="margin: 0 0 0.5rem 0; font-size: 1.4rem; font-family: 'Playfair Display', serif;">Dentist</h3>
+              <p style="margin: 0; font-size: 0.95rem; opacity: 0.9;">BDS Graduate (2-3 Years Experience)</p>
             </div>
 
+            <div style="padding: 2rem;">
+              <div style="margin-bottom: 1.5rem;">
+                <p style="margin: 0; color: #666; font-size: 0.95rem; line-height: 1.6;">
+                  <strong style="color: var(--color-navy);">Full-time position</strong> — Join our team as a clinical dentist ready to grow beyond traditional practice.
+                </p>
+              </div>
+
+              <div style="background: #f9f7f5; padding: 1.2rem; border-radius: 8px; margin-bottom: 1.5rem;">
+                <h4 style="margin: 0 0 0.8rem 0; color: var(--color-navy); font-size: 0.95rem; font-weight: 600;">Who is this for?</h4>
+                <p style="margin: 0; color: #666; font-size: 0.9rem; line-height: 1.6;">BDS graduates with 2-3 years of clinical experience seeking mentorship, meaningful patient care, and growth in a diagnosis-driven practice.</p>
+              </div>
+
+              <button class="hiring-card__toggle" onclick="toggleJobDetails(this)" style="width: 100%; padding: 12px 16px; background: var(--color-gold); color: #000; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; font-size: 0.95rem; transition: all 0.3s ease; margin-bottom: 1rem;">
+                View What We're Looking For
+              </button>
+
+              <!-- Hidden Details -->
+              <div class="job-details" style="max-height: 0; overflow: hidden; transition: max-height 0.4s ease;">
+                <div style="padding-top: 1rem; border-top: 1px solid #eee;">
+                  <h4 style="margin: 1rem 0 0.8rem 0; color: var(--color-navy); font-size: 0.95rem; font-weight: 600;">What we're looking for:</h4>
+                  <ul style="margin: 0; padding-left: 1.3rem; color: #666; font-size: 0.9rem;">
+                    <li style="margin-bottom: 0.6rem; line-height: 1.5;">Commitment to honest, thoughtful diagnosis and root-cause thinking</li>
+                    <li style="margin-bottom: 0.6rem; line-height: 1.5;">Strong communication and genuine interest in patient education</li>
+                    <li style="margin-bottom: 0.6rem; line-height: 1.5;">Openness to feedback and genuine growth mindset</li>
+                    <li style="margin-bottom: 0.6rem; line-height: 1.5;">Interest in oral-systemic connections and whole-body health</li>
+                    <li style="margin-bottom: 0.6rem; line-height: 1.5;">Attention to detail and excellent documentation practices</li>
+                    <li style="line-height: 1.5;">Ability to collaborate in a focused, purpose-driven team</li>
+                  </ul>
+
+                  <h4 style="margin: 1.5rem 0 0.8rem 0; color: var(--color-navy); font-size: 0.95rem; font-weight: 600;">What you'll get:</h4>
+                  <ul style="margin: 0; padding-left: 1.3rem; color: #666; font-size: 0.9rem;">
+                    <li style="margin-bottom: 0.6rem; line-height: 1.5;">Direct mentorship from experienced dentists</li>
+                    <li style="margin-bottom: 0.6rem; line-height: 1.5;">Structured feedback and professional development</li>
+                    <li style="margin-bottom: 0.6rem; line-height: 1.5;">Culture that values learning over procedure targets</li>
+                    <li style="margin-bottom: 0.6rem; line-height: 1.5;">Exposure to diagnostic-driven, whole-body focused dentistry</li>
+                    <li style="line-height: 1.5;">Opportunity to reshape how dentistry is practiced</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div style="border-top: 1px solid #eee; padding-top: 1.5rem; margin-top: 1rem;">
+                <p style="margin: 0 0 0.8rem 0; color: #666; font-size: 0.9rem;"><strong>Ready to apply?</strong></p>
+                <p style="margin: 0; font-size: 0.9rem;">
+                  <a href="mailto:happytohelp@vatsandparam.com" style="color: var(--color-gold); text-decoration: none; font-weight: 600;">happytohelp@vatsandparam.com</a>
+                  <span style="color: #ccc; margin: 0 0.5rem;">•</span>
+                  <a href="tel:+919900114151" style="color: var(--color-gold); text-decoration: none; font-weight: 600;">+91 9900114151</a>
+                </p>
+              </div>
+            </div>
           </div>
-          <div class="cpage-positions__visual" aria-hidden="true">
-            <svg viewBox="0 0 200 160" fill="none">
-              <ellipse cx="100" cy="145" rx="70" ry="10" fill="var(--color-section-alt)"/>
-              <rect x="55" y="60" width="14" height="70" rx="3" fill="var(--color-gold)"/>
-              <rect x="30" y="35" width="70" height="45" rx="10" fill="var(--color-bg)" stroke="var(--color-navy)" stroke-width="3"/>
-              <rect x="40" y="50" width="35" height="6" rx="3" fill="var(--color-navy)"/>
-              <circle cx="95" cy="20" r="3" fill="var(--color-gold)"/>
-              <circle cx="110" cy="30" r="2" fill="var(--color-gold)"/>
-              <circle cx="85" cy="10" r="2" fill="var(--color-gold)"/>
-            </svg>
-          </div>
+
         </div>
       </div>
     </div>
+
+    <script>
+      function toggleJobDetails(button) {
+        const card = button.closest('.hiring-card');
+        const details = card.querySelector('.job-details');
+        const isOpen = details.style.maxHeight && details.style.maxHeight !== '0px';
+
+        if (isOpen) {
+          details.style.maxHeight = '0px';
+          button.textContent = 'View What We\'re Looking For';
+          button.style.background = 'var(--color-gold)';
+          button.style.color = '#000';
+        } else {
+          details.style.maxHeight = details.scrollHeight + 'px';
+          button.textContent = 'Hide Details';
+          button.style.background = 'var(--color-navy)';
+          button.style.color = '#fff';
+        }
+      }
+    </script>
 
   </section>
 
