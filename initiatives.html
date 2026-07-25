@@ -15,12 +15,43 @@
        which no standalone page carries anymore, so it's added directly here. */
     #page-initiatives { padding-top: var(--nav-height); }
 
+    .tabs-scroll-wrap {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      width: 100%;
+      min-width: 0;
+    }
     .tabs-container {
       display: flex;
-      flex-wrap: wrap;
+      flex: 1;
+      width: 100%;
+      min-width: 0;
       border-bottom: 2px solid var(--color-border);
       margin-bottom: var(--space-xl);
       gap: var(--space-lg);
+      box-sizing: border-box;
+    }
+    .tabs-container::-webkit-scrollbar {
+      display: none;
+    }
+    /* Desktop only: keep the tab strip on a single row and scroll horizontally
+       instead of wrapping to multiple lines when the labels don't all fit.
+       width/min-width above are required for overflow-x to actually clip+scroll
+       here instead of the flex row growing past the page and being silently cut
+       off by the site-wide body{overflow-x:hidden}. */
+    @media (min-width: 769px) {
+      .tabs-container {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+      }
+      .tab-button {
+        flex: 0 0 auto;
+        white-space: nowrap;
+      }
     }
     .tab-button {
       padding: var(--space-md) var(--space-lg);
@@ -48,56 +79,56 @@
       height: 2px;
       background: var(--color-gold);
     }
-    .tabs-scroll-hint {
+    .tabs-nav-btn {
       display: none;
     }
-    @media (max-width: 768px) {
-      .tabs-container {
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-        gap: var(--space-md);
-        scrollbar-width: none;
+    /* Desktop only — real clickable controls so mouse users (no trackpad swipe,
+       no visible scrollbar since it's hidden above) can actually reach every
+       tab instead of being stuck with whatever fits in the first view. */
+    @media (min-width: 769px) {
+      .tabs-nav-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        width: 32px;
+        height: 32px;
+        margin-bottom: var(--space-xl);
+        border-radius: 50%;
+        border: 1px solid var(--color-border);
+        background: #fff;
+        color: var(--color-gold);
+        cursor: pointer;
+        transition: background var(--transition-base), color var(--transition-base), opacity var(--transition-base);
       }
-      .tabs-container::-webkit-scrollbar {
+      .tabs-nav-btn:hover {
+        background: var(--color-gold);
+        color: #fff;
+      }
+      .tabs-nav-btn:disabled {
+        opacity: 0.3;
+        cursor: default;
+        pointer-events: none;
+      }
+      .tabs-nav-btn svg {
+        width: 16px;
+        height: 16px;
+      }
+    }
+    @media (max-width: 768px) {
+      .tabs-scroll-wrap {
         display: none;
       }
+      .tabs-container {
+        gap: var(--space-md);
+      }
       .tab-button {
-        flex: 0 0 auto;
-        white-space: nowrap;
         padding: var(--space-sm) var(--space-xs);
         font-size: 0.9rem;
       }
-      .tabs-scroll-wrap {
-        position: relative;
+      .tab-content {
+        display: block !important;
       }
-      .tabs-scroll-hint {
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 2px;
-        width: 44px;
-        pointer-events: none;
-        background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,0.95) 60%);
-        color: var(--color-gold);
-        opacity: 1;
-        transition: opacity 0.25s ease;
-      }
-      .tabs-scroll-hint svg {
-        width: 18px;
-        height: 18px;
-        animation: tabsScrollHintNudge 1.4s ease-in-out infinite;
-      }
-      .tabs-scroll-hint.is-hidden {
-        opacity: 0;
-      }
-    }
-    @keyframes tabsScrollHintNudge {
-      0%, 100% { transform: translateX(0); }
-      50% { transform: translateX(4px); }
     }
     .tab-content {
       display: none;
@@ -105,23 +136,10 @@
     .tab-content.active {
       display: block;
     }
-    /* Mobile: no tab-switching — show every initiative stacked, one below another,
-       instead of hiding all but the active one. */
+    /* Mobile tab styling adjustments */
     @media (max-width: 768px) {
-      .tabs-scroll-wrap {
-        display: none;
-      }
-      .tab-content {
-        display: block !important;
-      }
-      /* .tab-content isn't the literal first <div> among its siblings (the hidden
-         .tabs-scroll-wrap div precedes it), so :first-of-type never matches any of
-         them — target every section that has a preceding .tab-content sibling instead,
-         which correctly excludes just the first one regardless of what else is around it. */
-      .tab-content ~ .tab-content {
-        padding-top: var(--space-xl);
-        border-top: 2px solid var(--color-border);
-        margin-top: var(--space-xl);
+      .tab-content.active {
+        display: block;
       }
     }
     .initiatives-gallery {
@@ -247,15 +265,29 @@
     }
     .dj-middle {
       display: grid;
-      grid-template-columns: 1fr 1.2fr;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
       gap: var(--space-xl);
       align-items: flex-start;
       margin-bottom: var(--space-xl);
     }
+    .dj-main-img {
+      min-width: 0;
+    }
     .dj-main-img img {
+      display: block;
       width: 100%;
+      max-width: 100%;
+      height: auto;
       border-radius: var(--radius-md);
       box-shadow: var(--shadow-lg);
+    }
+    .dj-secondary-text--full {
+      grid-column: 1 / -1;
+    }
+    @media (min-width: 769px) {
+      .dj-secondary-text--full {
+        max-width: 760px;
+      }
     }
     .dj-secondary-text p {
       font-size: 1.1rem;
@@ -329,7 +361,8 @@
       </a>
       <a href="contact.html" class="nav__cta-mobile" aria-label="Book Consultation">Book Consultation</a><div class="nav__toggle" id="navToggle"><span></span><span></span><span></span></div>
       <div class="nav__menu" id="navMenu">
-        <div class="nav__links">
+<a href="contact.html" class="btn btn--primary btn--sm nav__cta">Book Consultation</a>
+                <div class="nav__links">
           <a href="home.html" class="nav__link">Home</a>
           <a href="about.html" class="nav__link">About Us</a>
           <a href="approach.html" class="nav__link">Our Approach</a>
@@ -349,7 +382,6 @@
           <a href="careers.html" class="nav__link">Careers</a>
           <a href="contact.html" class="nav__link">Contact</a>
         </div>
-        <a href="contact.html" class="btn btn--primary btn--sm nav__cta">Book Consultation</a>
       </div>
     </div>
   </nav>
@@ -368,6 +400,9 @@
         <div class="container">
 
           <div class="tabs-scroll-wrap">
+            <button class="tabs-nav-btn tabs-nav-btn--prev" id="tabsPrevBtn" type="button" aria-label="Scroll tabs left">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </button>
             <div class="tabs-container" id="initiativesTabsContainer">
               <button class="tab-button active" data-tab="vatsalya-dental-initiatives-tab" onclick="switchInitiativesTab(event)">Vatsalya Dental</button>
               <button class="tab-button" data-tab="vatsalya-dento-jungle-tab" onclick="switchInitiativesTab(event)">Vatsalya Dento Jungle</button>
@@ -378,9 +413,9 @@
               <button class="tab-button" data-tab="hcg-cancer-clinic-tab" onclick="switchInitiativesTab(event)">Dental Clinic for Cancer Patients</button>
               <button class="tab-button" data-tab="oral-health-education-tab" onclick="switchInitiativesTab(event)">Oral Health Educational Initiatives</button>
             </div>
-            <div class="tabs-scroll-hint" id="initiativesTabsHint" aria-hidden="true">
+            <button class="tabs-nav-btn tabs-nav-btn--next" id="tabsNextBtn" type="button" aria-label="Scroll tabs right">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-            </div>
+            </button>
           </div>
 
           <div id="vatsalya-dental-initiatives-tab" class="tab-content active">
@@ -426,7 +461,7 @@
             </div><!-- end dento-jungle-content -->
 
             <!-- General gallery -->
-            <div class="initiatives-gallery">
+            <!--<div class="initiatives-gallery">
               <div class="gallery-item"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.07.21 PM (1).jpeg" alt="Vatsalya Dental"></div>
               <div class="gallery-item"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.07.21 PM.jpeg" alt="Vatsalya Dental"></div>
               <div class="gallery-item"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.07.22 PM (1).jpeg" alt="Vatsalya Dental"></div>
@@ -460,16 +495,15 @@
               <div class="gallery-item"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.08.03 PM (8).jpeg" alt="Vatsalya Dental"></div>
               <div class="gallery-item"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.08.03 PM (9).jpeg" alt="Vatsalya Dental"></div>
               <div class="gallery-item"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.08.03 PM.jpeg" alt="Vatsalya Dental"></div>
-              <div class="gallery-item"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.08.04 PM.jpeg" alt="Vatsalya Dental"></div>
-            </div>
+            </div> -->
           </div>
 
           <div id="vatsalya-dento-jungle-tab" class="tab-content">
             <div class="dento-jungle-content">
               <div class="dj-header">
                 <div class="dj-intro">
-                  <div class="dj-title">
-                    <span class="dj-title-icon">&#10095;</span>
+                  <div class="dj-title" style="color: var(--color-navy);">
+                    <span class="dj-title-icon" style="background: var(--color-navy);">&#10095;</span>
                     Vatsalya Dento Jungle
                   </div>
                   <p>We understand that many children experience anxiety and fear when it comes to visiting the dentist. That's why we had created Vatsalya Dento Jungle, a theme-based dental clinic specially designed to make dental visits fun and fearless for kids.</p>
@@ -535,7 +569,7 @@
               </div>
 
               <div class="dj-middle">
-                <div class="dj-secondary-text" style="grid-column: 1 / -1;">
+                <div class="dj-secondary-text dj-secondary-text--full">
                   <p>The foundation's mission is to make dental care accessible to everyone, regardless of their socioeconomic status. By offering free dental treatments and education, Vatsalya Oral Health Foundation is working towards creating a healthier society with better oral health.</p>
                 </div>
               </div>
@@ -577,7 +611,7 @@
               </div>
 
               <div class="dj-middle">
-                <div class="dj-secondary-text" style="grid-column: 1 / -1;">
+                <div class="dj-secondary-text dj-secondary-text--full">
                   <p style="font-size: 1.1rem;"><strong style="color: #5C0A0A;">We understand that dental emergencies can happen at any time.</strong> With our Emergency Home dental care services, you can rest assured that you will receive prompt and professional care, no matter when a dental emergency strikes.</p>
                   <p style="font-size: 1.1rem; margin-top: 1rem;"><strong style="color: #5C0A0A;">Accessible & Convenient Care:</strong> We believe that everyone deserves access to quality dental care, and we are proud to offer innovative solutions that make dental care more accessible and convenient than ever before.</p>
                 </div>
@@ -630,7 +664,7 @@
               </div>
 
               <div class="dj-middle">
-                <div class="dj-secondary-text" style="grid-column: 1 / -1;">
+                <div class="dj-secondary-text dj-secondary-text--full">
                   <p>The League of Dentists has had a significant impact on the careers of many aspiring dentists. By providing mentorship, it has helped to guide dental students and practicing professionals towards success. The mentorship covers a range of topics, including clinical skills, communication skills, and business skills.</p>
                   <p style="margin-top: 1rem;">One of the key objectives of the League of Dentists is to create a community of dental professionals who can support and learn from one another — fostering a culture of continuous learning and improvement among dental professionals.</p>
                   <p style="margin-top: 1rem;">Mentorship is provided through various channels, including online workshops, seminars, and one-on-one coaching sessions, led by experienced dental professionals like Dr. Srivats Bharadwaj and Dr. Paramjot Kaur.</p>
@@ -659,7 +693,7 @@
               </div>
 
               <div class="dj-middle">
-                <div class="dj-secondary-text" style="grid-column: 1 / -1;">
+                <div class="dj-secondary-text dj-secondary-text--full">
                   <p>Our wheelchair recliner dental chair is equipped with specialized features that ensure the safety and comfort of disabled patients during dental procedures. The chair reclines to a comfortable position, allowing patients to receive dental treatment while remaining in their wheelchair. The chair also features adjustable headrests and armrests, ensuring that patients are properly supported throughout the procedure.</p>
                   <p style="margin-top: 1rem;">Our wheelchair recliner dental chair is an important part of our commitment to providing accessible and inclusive dental care to all of our patients. Whether you are disabled or able-bodied, we believe that everyone deserves access to quality dental care, and we are proud to offer specialized solutions to meet the unique needs of our patients.</p>
                 </div>
@@ -687,7 +721,7 @@
               </div>
 
               <div class="dj-middle">
-                <div class="dj-secondary-text" style="grid-column: 1 / -1;">
+                <div class="dj-secondary-text dj-secondary-text--full">
                   <p>The dental clinic for cancer patients at HCG is staffed by experienced dental professionals who have received specialized training in providing care to patients undergoing cancer treatment. These professionals are equipped with the knowledge and tools necessary to address the unique oral health challenges faced by cancer patients, such as dry mouth, mouth sores, and gum disease.</p>
                 </div>
               </div>
@@ -714,7 +748,7 @@
               </div>
 
               <div class="dj-middle">
-                <div class="dj-secondary-text" style="grid-column: 1 / -1;">
+                <div class="dj-secondary-text dj-secondary-text--full">
                   <p>Our team of experienced dental professionals like Dr. Srivats Bharadwaj and Dr. Paramjot Kaur had conducted online seminars during the COVID-19 pandemic to educate people about the importance of oral health. We understand that the pandemic made it difficult for people to access dental care, and we wanted to ensure that people have the knowledge they need to maintain good oral health at home.</p>
                   <p style="margin-top: 1rem;">We have also conducted seminars at schools located in remote parts of Karnataka to educate children and their families about the importance of oral health. We believe that everyone, regardless of their location or socioeconomic status, deserves access to quality dental care and education.</p>
                   <p style="margin-top: 1rem;">Our seminars cover a wide range of topics, including proper brushing and flossing techniques, the importance of regular dental checkups, and the effects of diet and lifestyle on oral health. We use interactive and engaging methods to ensure that our audience stays engaged and retains the information they learn.</p>
@@ -869,17 +903,17 @@
   <script>
     function switchInitiativesTab(event) {
       event.preventDefault();
-      const button = event.target;
+      const button = event.currentTarget;
       const tabId = button.getAttribute('data-tab');
       const tabsContainer = button.closest('.tabs-container');
 
-      if (!tabsContainer) return;
+      if (!tabsContainer || !tabId) return;
 
       tabsContainer.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
 
       const section = document.getElementById('page-initiatives');
       if (section) {
-        section.querySelectorAll(':scope > section > .container > div[id$="-tab"]').forEach(content => content.classList.remove('active'));
+        section.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
       }
 
       button.classList.add('active');
@@ -1047,16 +1081,23 @@
       }
 
       const tabsContainer = document.getElementById('initiativesTabsContainer');
-      const tabsHint = document.getElementById('initiativesTabsHint');
-      if (tabsContainer && tabsHint) {
-        function updateHint() {
-          const canScroll = tabsContainer.scrollWidth > tabsContainer.clientWidth + 4;
+      const tabsPrevBtn = document.getElementById('tabsPrevBtn');
+      const tabsNextBtn = document.getElementById('tabsNextBtn');
+      if (tabsContainer && tabsPrevBtn && tabsNextBtn) {
+        function updateNavButtons() {
+          const atStart = tabsContainer.scrollLeft <= 4;
           const atEnd = tabsContainer.scrollLeft + tabsContainer.clientWidth >= tabsContainer.scrollWidth - 4;
-          tabsHint.classList.toggle('is-hidden', !canScroll || atEnd);
+          tabsPrevBtn.disabled = atStart;
+          tabsNextBtn.disabled = atEnd;
         }
-        updateHint();
-        tabsContainer.addEventListener('scroll', updateHint);
-        window.addEventListener('resize', updateHint);
+        function scrollTabs(direction) {
+          tabsContainer.scrollBy({ left: direction * tabsContainer.clientWidth * 0.7, behavior: 'smooth' });
+        }
+        tabsPrevBtn.addEventListener('click', function () { scrollTabs(-1); });
+        tabsNextBtn.addEventListener('click', function () { scrollTabs(1); });
+        updateNavButtons();
+        tabsContainer.addEventListener('scroll', updateNavButtons);
+        window.addEventListener('resize', updateNavButtons);
       }
     });
   </script>
