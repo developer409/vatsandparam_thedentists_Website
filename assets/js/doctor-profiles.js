@@ -261,10 +261,11 @@ const doctorData = {
         intro: `Dr. Dhijila Dinesh is a general dentist and Center Head (JP Nagar) whose practice is defined by a clear set of values — empathy, transparency, and a genuine commitment to patient well-being over commercial interest. She brings both clinical competence and a deeply human approach to every patient interaction, creating an environment where people feel informed, respected, and at ease.`,
         introExtra: `As Center Head at the JP Nagar branch, Dr. Dhijila oversees the day-to-day clinical and patient experience, ensuring that every individual who walks in receives consistent, high-quality care. Her clinical focus spans general dentistry, laser treatment, preventive care, and full mouth rehabilitation. She is known for her transparency — taking time to clearly explain diagnoses, treatment options, and costs so that patients can make decisions that are right for them, not just clinically, but practically.`,
         philosophy: [
-            'Dr. Dhijila practices a patient-centered approach built on empathy, trust, and integrity.',
-            'For Dr. Dhijila, transparency is fundamental to empowering patients in their health journey.',
-            'Dr. Dhijila believes in treating the cause, not just the symptoms, through long-term care strategies.',
-            'Dr. Dhijila prioritizes patient well-being over commercial interests.',
+            'At the heart of my practice is a patient-centered philosophy rooted in empathy, trust, and integrity. I believe that dental care extends far beyond treating teeth—it\'s about caring for the whole person and understanding how oral health impacts their overall well-being.',
+            'My commitment is to transparency at every step of your care journey. I want you to understand your diagnosis, your options, and why I\'m recommending specific treatment paths. Informed patients make better decisions, and I take the time to explain things clearly, never rushing through complexity or using language that leaves you confused.',
+            'Comprehensive oral health requires looking beyond individual symptoms. I focus on identifying and treating the root causes of dental problems—whether it\'s addressing biomechanical issues, dietary factors, or systemic connections to your overall health. This approach means you\'re not just getting treatment today; you\'re getting strategies for lifelong oral health.',
+            'Clinical excellence paired with genuine patient experience means precision in diagnosis and treatment, delivered with a calm, reassuring approach. Every patient deserves both expert clinical care and the comfort of knowing they\'re in capable, compassionate hands.',
+            'Above all, I practice with one unwavering principle: your well-being comes first. I never prioritize commercial interests over what\'s actually best for you. My goal is to help you achieve lifelong oral and overall health with confidence.',
         ],
         specializations: [
             { icon: '🦷', label: 'General Dentistry' },
