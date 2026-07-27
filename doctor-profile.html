@@ -891,8 +891,7 @@
                     <button class="dp-tab active" role="tab" onclick="switchTab('overview')">Overview</button>
                     <button class="dp-tab" role="tab" onclick="switchTab('specializations')">Areas of Expertise</button>
                     <button class="dp-tab" role="tab" onclick="switchTab('philosophy')">Philosophy</button>
-                    <button class="dp-tab" role="tab" id="tab-btn-leadership" onclick="switchTab('leadership')">Leadership</button>
-                    <button class="dp-tab" role="tab" onclick="switchTab('memberships')">Memberships</button>
+                    <button class="dp-tab" role="tab" id="tab-btn-leadership" onclick="switchTab('leadership')">Professional Associations</button>
                 </div>
 
                 <!-- Tab: Overview -->
@@ -943,30 +942,21 @@
                     </div>
                 </div>
 
-                <!-- Tab: Leadership & Founding Roles -->
+                <!-- Tab: Professional Associations (Combined Leadership + Memberships) -->
                 <div class="dp-tab-panel" id="panel-leadership">
                     <div class="dp-card dp-section-card">
                         <div class="dp-section-card__title" style="margin-bottom:20px;">
                             <div class="dp-section-card__title-icon">
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.4 7.2H22l-6 4.6 2.3 7.2-6.3-4.6-6.3 4.6 2.3-7.2-6-4.6h7.6z"/></svg>
                             </div>
-                            Leadership &amp; Founding Roles
+                            Professional Associations
                         </div>
                         <div class="dp-spec-grid" id="doctor-leadership">
                             <!-- Populated by JS -->
                         </div>
                     </div>
-                </div>
 
-                <!-- Tab: Memberships -->
-                <div class="dp-tab-panel" id="panel-memberships">
                     <div class="dp-card dp-section-card">
-                        <div class="dp-section-card__title" style="margin-bottom:20px;">
-                            <div class="dp-section-card__title-icon">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
-                            </div>
-                            Professional Memberships
-                        </div>
                         <div class="dp-spec-grid" id="doctor-memberships">
                             <!-- Populated by JS -->
                         </div>
@@ -1020,7 +1010,7 @@
         /* ===== TAB SWITCHING ===== */
         function switchTab(tabId) {
             document.querySelectorAll('.dp-tab').forEach((t, i) => {
-                const panels = ['overview', 'specializations', 'philosophy', 'leadership', 'memberships'];
+                const panels = ['overview', 'specializations', 'philosophy', 'leadership'];
                 t.classList.toggle('active', panels[i] === tabId);
             });
             document.querySelectorAll('.dp-tab-panel').forEach(p => {

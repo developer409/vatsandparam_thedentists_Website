@@ -16,6 +16,18 @@
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <style>
+    @media (max-width: 768px) {
+      .cpage-submit-profile__contact {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      .cpage-submit-profile__sep {
+        display: none;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -173,17 +185,17 @@
       <div class="container">
         <h2 class="cpage-section-title text-center fade-in" style="margin-bottom: 3rem;">Open Positions</h2>
 
-        <div class="hiring-grid fade-in" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; max-width: 1200px; margin: 0 auto;">
+        <div class="hiring-grid fade-in" style="display: grid; grid-template-columns: 1fr; gap: 2rem; max-width: 600px; margin: 0 auto;">
 
           <!-- Hiring Card -->
-          <div class="hiring-card" style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 16px rgba(0,0,0,0.08); transition: all 0.3s ease; border: 1px solid #f0f0f0;">
+          <div class="hiring-card" style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 16px rgba(0,0,0,0.08); transition: all 0.3s ease; border: 1px solid #f0f0f0; display: flex; flex-direction: column;">
             <div style="background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-navy-light) 100%); padding: 2rem; color: white;">
               <span style="display: inline-block; background: var(--color-gold); color: #000; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; margin-bottom: 1rem;">OPEN POSITION</span>
-              <h3 style="margin: 0 0 0.5rem 0; font-size: 1.4rem; font-family: 'Playfair Display', serif;">Dentist</h3>
-              <p style="margin: 0; font-size: 0.95rem; opacity: 0.9;">BDS Graduate (2-3 Years Experience)</p>
+              <h3 style="margin: 0 0 0.5rem 0; font-size: 1.4rem; font-family: 'Playfair Display', serif; color: white;">General Dentistry</h3>
+              <p style="margin: 0; font-size: 0.95rem; color: white;">BDS Graduate (2-3 Years Experience)</p>
             </div>
 
-            <div style="padding: 2rem;">
+            <div style="padding: 2rem; flex: 1; overflow-y: auto; display: flex; flex-direction: column; max-height: 500px;">
               <div style="margin-bottom: 1.5rem;">
                 <p style="margin: 0; color: #666; font-size: 0.95rem; line-height: 1.6;">
                   <strong style="color: var(--color-navy);">Full-time position</strong> — Join our team as a clinical dentist ready to grow beyond traditional practice.
@@ -195,33 +207,9 @@
                 <p style="margin: 0; color: #666; font-size: 0.9rem; line-height: 1.6;">BDS graduates with 2-3 years of clinical experience seeking mentorship, meaningful patient care, and growth in a diagnosis-driven practice.</p>
               </div>
 
-              <button class="hiring-card__toggle" onclick="toggleJobDetails(this)" style="width: 100%; padding: 12px 16px; background: var(--color-gold); color: #000; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; font-size: 0.95rem; transition: all 0.3s ease; margin-bottom: 1rem;">
+              <button class="hiring-card__toggle" onclick="openJobModal()" style="width: 100%; padding: 12px 16px; background: var(--color-gold); color: #000; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; font-size: 0.95rem; transition: all 0.3s ease; margin-bottom: 1rem;">
                 View What We're Looking For
               </button>
-
-              <!-- Hidden Details -->
-              <div class="job-details" style="max-height: 0; overflow: hidden; transition: max-height 0.4s ease;">
-                <div style="padding-top: 1rem; border-top: 1px solid #eee;">
-                  <h4 style="margin: 1rem 0 0.8rem 0; color: var(--color-navy); font-size: 0.95rem; font-weight: 600;">What we're looking for:</h4>
-                  <ul style="margin: 0; padding-left: 1.3rem; color: #666; font-size: 0.9rem;">
-                    <li style="margin-bottom: 0.6rem; line-height: 1.5;">Commitment to honest, thoughtful diagnosis and root-cause thinking</li>
-                    <li style="margin-bottom: 0.6rem; line-height: 1.5;">Strong communication and genuine interest in patient education</li>
-                    <li style="margin-bottom: 0.6rem; line-height: 1.5;">Openness to feedback and genuine growth mindset</li>
-                    <li style="margin-bottom: 0.6rem; line-height: 1.5;">Interest in oral-systemic connections and whole-body health</li>
-                    <li style="margin-bottom: 0.6rem; line-height: 1.5;">Attention to detail and excellent documentation practices</li>
-                    <li style="line-height: 1.5;">Ability to collaborate in a focused, purpose-driven team</li>
-                  </ul>
-
-                  <h4 style="margin: 1.5rem 0 0.8rem 0; color: var(--color-navy); font-size: 0.95rem; font-weight: 600;">What you'll get:</h4>
-                  <ul style="margin: 0; padding-left: 1.3rem; color: #666; font-size: 0.9rem;">
-                    <li style="margin-bottom: 0.6rem; line-height: 1.5;">Direct mentorship from experienced dentists</li>
-                    <li style="margin-bottom: 0.6rem; line-height: 1.5;">Structured feedback and professional development</li>
-                    <li style="margin-bottom: 0.6rem; line-height: 1.5;">Culture that values learning over procedure targets</li>
-                    <li style="margin-bottom: 0.6rem; line-height: 1.5;">Exposure to diagnostic-driven, whole-body focused dentistry</li>
-                    <li style="line-height: 1.5;">Opportunity to reshape how dentistry is practiced</li>
-                  </ul>
-                </div>
-              </div>
 
               <div style="border-top: 1px solid #eee; padding-top: 1.5rem; margin-top: 1rem;">
                 <p style="margin: 0 0 0.8rem 0; color: #666; font-size: 0.9rem;"><strong>Ready to apply?</strong></p>
@@ -238,24 +226,91 @@
       </div>
     </div>
 
-    <script>
-      function toggleJobDetails(button) {
-        const card = button.closest('.hiring-card');
-        const details = card.querySelector('.job-details');
-        const isOpen = details.style.maxHeight && details.style.maxHeight !== '0px';
+    <!-- Job Details Modal -->
+    <div class="policy-modal" id="modal-job-details" role="dialog" aria-modal="true" aria-labelledby="modal-job-details-title">
+      <div class="policy-modal__card" style="max-height: 90vh; overflow-y: auto; display: flex; flex-direction: column;">
+        <button class="policy-modal__close" aria-label="Close">&times;</button>
+        <h3 class="policy-modal__title" id="modal-job-details-title" style="flex-shrink: 0;">What We're Looking For</h3>
 
-        if (isOpen) {
-          details.style.maxHeight = '0px';
-          button.textContent = 'View What We\'re Looking For';
-          button.style.background = 'var(--color-gold)';
-          button.style.color = '#000';
-        } else {
-          details.style.maxHeight = details.scrollHeight + 'px';
-          button.textContent = 'Hide Details';
-          button.style.background = 'var(--color-navy)';
-          button.style.color = '#fff';
+        <div style="flex: 1; overflow-y: auto; padding-right: 1rem; padding-left: 1.5rem;">
+          <div style="margin-bottom: 2.5rem; text-align: left;">
+          <ul style="margin: 0; padding-left: 2rem; color: #333; line-height: 2; list-style-type: disc; text-align: left;">
+            <li style="margin-bottom: 0.8rem; padding-left: 0.5rem;">Commitment to honest, thoughtful diagnosis and root-cause thinking</li>
+            <li style="margin-bottom: 0.8rem; padding-left: 0.5rem;">Strong communication and genuine interest in patient education</li>
+            <li style="margin-bottom: 0.8rem; padding-left: 0.5rem;">Openness to feedback and genuine growth mindset</li>
+            <li style="margin-bottom: 0.8rem; padding-left: 0.5rem;">Interest in oral-systemic connections and whole-body health</li>
+            <li style="margin-bottom: 0.8rem; padding-left: 0.5rem;">Attention to detail and excellent documentation practices</li>
+            <li style="padding-left: 0.5rem;">Ability to collaborate in a focused, purpose-driven team</li>
+          </ul>
+        </div>
+
+        <div style="margin-bottom: 2.5rem; text-align: left;">
+          <h4 style="margin: 0 0 1.5rem 0; color: var(--color-navy); font-weight: 700; font-size: 1.15rem;">What you'll get:</h4>
+          <ul style="margin: 0; padding-left: 2rem; color: #333; line-height: 2; list-style-type: disc; text-align: left;">
+            <li style="margin-bottom: 0.8rem; padding-left: 0.5rem;">Direct mentorship from experienced dentists</li>
+            <li style="margin-bottom: 0.8rem; padding-left: 0.5rem;">Structured feedback and professional development</li>
+            <li style="margin-bottom: 0.8rem; padding-left: 0.5rem;">Culture that values learning over procedure targets</li>
+            <li style="margin-bottom: 0.8rem; padding-left: 0.5rem;">Exposure to diagnostic-driven, whole-body focused dentistry</li>
+            <li style="padding-left: 0.5rem;">Opportunity to reshape how dentistry is practiced</li>
+          </ul>
+        </div>
+
+          <div style="background: #f9f7f5; padding: 2rem; border-radius: 8px; text-align: center; margin-top: 2rem;">
+            <p style="margin: 0 0 1rem 0; color: var(--color-navy); font-weight: 600; font-size: 1rem;">Ready to apply?</p>
+            <div style="display: flex; justify-content: center; align-items: center; gap: 0.8rem; flex-wrap: wrap; font-size: 0.95rem;">
+              <a href="mailto:happytohelp@vatsandparam.com" style="color: var(--color-gold); text-decoration: none; font-weight: 600;">happytohelp@vatsandparam.com</a>
+              <span style="color: #aaa;">•</span>
+              <a href="tel:+919900114151" style="color: var(--color-gold); text-decoration: none; font-weight: 600;">+91 9900114151</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function openJobModal() {
+        const modal = document.getElementById('modal-job-details');
+        if (modal) {
+          modal.classList.add('active');
+          document.body.style.overflow = 'hidden';
         }
       }
+
+      // Close modal when close button is clicked
+      const closeJobModal = function() {
+        const modal = document.getElementById('modal-job-details');
+        if (modal) {
+          modal.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+      };
+
+      // Setup modal close button
+      document.addEventListener('DOMContentLoaded', function() {
+        const jobModal = document.getElementById('modal-job-details');
+        if (jobModal) {
+          const closeBtn = jobModal.querySelector('.policy-modal__close');
+          if (closeBtn) {
+            closeBtn.addEventListener('click', closeJobModal);
+          }
+          // Close when clicking outside the card
+          jobModal.addEventListener('click', function(e) {
+            if (e.target === jobModal) {
+              closeJobModal();
+            }
+          });
+        }
+      });
+
+      // Close with Escape key
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+          const jobModal = document.getElementById('modal-job-details');
+          if (jobModal && jobModal.classList.contains('active')) {
+            closeJobModal();
+          }
+        }
+      });
     </script>
 
   </section>
