@@ -1,5 +1,5 @@
-/* ============================================
-   VATS & PARAM â€” Design System
+﻿/* ============================================
+   VATS & PARAM Ã¢â‚¬â€ Design System
    Premium Holistic Dentistry Website
    ============================================ */
 
@@ -563,7 +563,7 @@ p {
 /* Will be overridden to display: flex in mobile media query */
 
 /* ========== MOBILE FEATURES - ABOUT PAGE ONLY ========== */
-@media (max-width: 768px) {
+@media (max-width: 820px) {
   .nav__logo-tagline {
     display: block !important;
     font-size: 0.52rem !important;
@@ -579,7 +579,7 @@ p {
     pointer-events: auto !important;
   }
 
-  /* Moved back inside the burger menu — see .nav__cta above */
+  /* Moved back inside the burger menu â€” see .nav__cta above */
   .nav__cta-mobile {
     display: none !important;
   }
@@ -649,7 +649,7 @@ p {
   }
 
   /* Clears the hamburger/X toggle (fixed at the top of the bar) so the first
-     item inside the panel — the Book Consultation button — doesn't sit flush
+     item inside the panel â€” the Book Consultation button â€” doesn't sit flush
      against the very top edge or collide with it. */
   .nav__menu {
     padding-top: 4.5rem !important;
@@ -960,7 +960,7 @@ p {
     padding: var(--space-lg) var(--space-md) !important;
   }
 
-  /* Section 1 (hero video) and 1.5 (stats) are skipped on mobile — the intro
+  /* Section 1 (hero video) and 1.5 (stats) are skipped on mobile â€” the intro
      loader now carries the hero's message, so mobile goes straight from the
      loader into the clinic walkthrough. */
   .immersive-video-section,
@@ -1373,7 +1373,7 @@ p {
 }
 
 .dropdown-toggle::after {
-  content: '▾';
+  content: 'â–¾';
   font-size: 0.7rem;
   transition: transform 0.3s ease;
   position: static;
@@ -1681,7 +1681,7 @@ p {
   z-index: 3;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 820px) {
   .systems-tree {
     padding: 1.5rem 0.5rem !important; /* Adjust padding from inline styles */
   }
@@ -2246,7 +2246,7 @@ p {
   border-bottom-color: var(--color-gold);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 820px) {
   .doc-profile {
     flex: 0 0 280px;
   }
@@ -2341,7 +2341,7 @@ p {
 }
 
 .category-card__list li::before {
-  content: "â€º";
+  content: "Ã¢â‚¬Âº";
   color: var(--color-gold);
   position: absolute;
   left: 0;
@@ -2668,7 +2668,7 @@ p {
 }
 
 /* contact.html dropped the embedded map preview, leaving .locations-list as the
-   only grid child — span the full width instead of sitting in the first of two
+   only grid child â€” span the full width instead of sitting in the first of two
    columns. index.html's legacy contact section still has both, so it's untouched. */
 #page-contact .contact-grid {
   grid-template-columns: 1fr;
@@ -3015,7 +3015,7 @@ p {
   align-self: center;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 820px) {
   .about-vision-container {
     grid-template-columns: 1fr;
     padding: var(--space-lg);
@@ -3167,7 +3167,7 @@ p {
 }
 
 /* Mobile */
-@media (max-width: 768px) {
+@media (max-width: 820px) {
   :root {
     --nav-height: 76px;
     --space-3xl: 5rem;
@@ -3180,7 +3180,7 @@ p {
     box-sizing: border-box;
   }
 
-  /* Nav Mobile â€” full width, flush to top */
+  /* Nav Mobile Ã¢â‚¬â€ full width, flush to top */
   .nav {
     top: 0 !important;
     height: 76px;
@@ -3577,7 +3577,7 @@ p {
 }
 
 /* ============================================================
-   LEAGUE OF DENTISTS â€“ Professional Mentorship Initiative
+   LEAGUE OF DENTISTS Ã¢â‚¬â€œ Professional Mentorship Initiative
    Modular CSS module. Class prefix: .lod-
    All values use existing design system custom properties.
    ============================================================ */
@@ -3742,7 +3742,7 @@ p {
   margin-top: var(--space-sm);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 820px) {
   .lod-founder-card.lod-founder-card--photo {
     min-height: 400px;
     flex-direction: row;
@@ -3949,7 +3949,7 @@ p {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 820px) {
   .lod-courses-grid--featured,
   .lod-courses-grid--workshops {
     grid-template-columns: 1fr;
@@ -4057,7 +4057,7 @@ p {
   font-size: var(--fs-small);
 }
 
-/* ----- How It Works â€“ Process Strip ----- */
+/* ----- How It Works Ã¢â‚¬â€œ Process Strip ----- */
 .lod-process {
   margin-bottom: var(--space-3xl);
 }
@@ -4190,7 +4190,7 @@ p {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 820px) {
   .lod-founders {
     grid-template-columns: 1fr;
   }
@@ -4247,7 +4247,7 @@ p {
 }
 
 /* ============================================================
-   DOCTOR PROFILE PAGE â€” Rich Layout & Interactive Components
+   DOCTOR PROFILE PAGE Ã¢â‚¬â€ Rich Layout & Interactive Components
    ============================================================ */
 
 .prof-container {
@@ -4451,7 +4451,7 @@ p {
 
 /* Highlighted words playing icon hint */
 .prof-text strong::before {
-  content: 'â–¶';
+  content: 'Ã¢â€“Â¶';
   font-size: 0.6rem;
   position: absolute;
   top: -10px;
@@ -4576,7 +4576,7 @@ p {
   }
 }
 
-/* ---------- Article Modal â€” compact top-left corner card ---------- */
+/* ---------- Article Modal Ã¢â‚¬â€ compact top-left corner card ---------- */
 .modal-overlay {
   position: fixed;
   top: 84px;
@@ -4903,7 +4903,7 @@ p {
   pointer-events: auto;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 820px) {
   .perspective-grid { grid-template-columns: 1fr; }
   .perspective-content { padding-right: 0; text-align: center; order: 2; }
   .perspective-image-wrapper { order: 1; height: 40vh; }
@@ -5282,7 +5282,7 @@ p {
   margin: 0;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 820px) {
   .discovery-wide-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -5332,7 +5332,7 @@ p {
   margin: 0;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 820px) {
   .discovery-item--right {
     justify-content: center;
     padding: 0 5%;
@@ -5389,7 +5389,7 @@ p {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 820px) {
   .comparison-grid { grid-template-columns: 1fr; height: auto; }
   .immersive-content h2 { font-size: 2.2rem; }
   .discovery-item { justify-content: center; padding: 0 5%; }
@@ -5577,7 +5577,7 @@ p {
   box-shadow: none !important;
 }
 
-/* Adaptive nav â€” over dark sections â€” frosted dark glass */
+/* Adaptive nav Ã¢â‚¬â€ over dark sections Ã¢â‚¬â€ frosted dark glass */
 .nav.nav--over-dark {
   background: rgba(0, 0, 0, 0.30) !important;
   backdrop-filter: blur(14px) !important;
@@ -5593,7 +5593,7 @@ p {
 .nav.nav--over-dark .nav__toggle span { background-color: #fff !important; }
 .nav.nav--over-dark .logo-line { background-color: var(--color-gold) !important; }
 
-/* Adaptive nav â€” over light sections */
+/* Adaptive nav Ã¢â‚¬â€ over light sections */
 .nav.nav--over-light {
   background: rgba(255,255,255,0.92) !important;
   backdrop-filter: blur(20px) !important;
@@ -5660,9 +5660,9 @@ p {
   background-color: #fff !important;
 }
 
-/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+/* Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â
    HOME PAGE: IMMERSIVE VIDEO LAYOUT WITH TRANSPARENT TEXT OVERLAYS
-   â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+   Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â */
 
 /* IMMERSIVE VIDEO SECTIONS */
 .immersive-video-section {
@@ -5765,7 +5765,7 @@ p {
   opacity: 1;
   transform: translateY(0);
 }
-@media (max-width: 768px) {
+@media (max-width: 820px) {
   .hero-bottom-cards {
     position: relative !important;
     flex-direction: column !important;
@@ -5855,7 +5855,7 @@ p {
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 820px) {
   .walkthrough-card--clinic {
     border: 1.5px solid #000000 !important;
   }
@@ -6017,7 +6017,7 @@ p {
   display: none;
 }
 
-/* Mobile stats section â€” hidden on desktop */
+/* Mobile stats section Ã¢â‚¬â€ hidden on desktop */
 .mobile-stats-section {
   display: none;
   padding: 1.5rem 1rem;
@@ -6075,8 +6075,8 @@ p {
   display: block;
 }
 
-/* Mobile only â€” hide desktop-only elements */
-@media (max-width: 768px) {
+/* Mobile only Ã¢â‚¬â€ hide desktop-only elements */
+@media (max-width: 820px) {
   .desktop-only {
     display: none !important;
   }
@@ -6204,7 +6204,7 @@ p {
 }
 
 /* Mobile: show photo, hide video */
-@media (max-width: 768px) {
+@media (max-width: 820px) {
   .founder-block {
     min-height: 520px;
   }
@@ -6335,7 +6335,7 @@ p {
 }
 
 /* Bio stays hidden until the card is hovered (desktop) or tapped (mobile, via
-   .is-expanded toggled in about.js) — name/role/link stay visible at all times. */
+   .is-expanded toggled in about.js) â€” name/role/link stay visible at all times. */
 .founder-block:hover .founder-bio,
 .founder-block.is-expanded .founder-bio {
   max-height: 220px;
@@ -6348,7 +6348,7 @@ p {
 }
 
 /* ENTRANCE ANIMATIONS */
-/* Dr. Srivats: enters from right â†’ slides left into place */
+/* Dr. Srivats: enters from right Ã¢â€ â€™ slides left into place */
 .founder-block--srivats {
   transform: translateX(120vw);
   opacity: 0;
@@ -6360,7 +6360,7 @@ p {
   opacity: 1;
 }
 
-/* Dr. Param: enters from bottom â†’ slides up, delayed until after Srivats settles */
+/* Dr. Param: enters from bottom Ã¢â€ â€™ slides up, delayed until after Srivats settles */
 .founder-block--param {
   transform: translateY(80px);
   opacity: 0;
@@ -6377,7 +6377,7 @@ p {
    if the IntersectionObserver that adds .in-view doesn't fire at the exact right scroll
    moment, leaving the card visibly offset from the heading above it. Keep it simple and
    reliable there: cards sit correctly in place by default, with just a fade-in. */
-@media (max-width: 768px) {
+@media (max-width: 820px) {
   .founder-block--srivats,
   .founder-block--param {
     transform: none;
@@ -6469,7 +6469,7 @@ p {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 820px) {
   .immersive-video-section {
     min-height: 80vh;
   }
@@ -6945,7 +6945,7 @@ p {
 }
 
 /* MOBILE RESPONSIVE OVERRIDES */
-@media (max-width: 768px) {
+@media (max-width: 820px) {
   .hero-headline {
     font-size: 2rem;
   }
@@ -7012,9 +7012,9 @@ p {
   }
 }
 
-/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+/* Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â
    SCROLL-TRIGGERED TEXT ANIMATIONS
-   â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+   Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â */
 
 /* Text fade-in animations */
 .text-animate-left {
@@ -7042,16 +7042,16 @@ p {
   transform: translate(0, 0);
 }
 
-/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+/* Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â
    HOME PAGE: STICKY SCROLL WALKTHROUGH SECTION
-   â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+   Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â */
 
 .walkthrough-mobile-title { display: none; }
 .walkthrough-swipe-hint { display: none; }
 .walkthrough-swipe-dots { display: none; }
 
 .walkthrough-section {
-  /* 5 cards Ã— 100vh each = 500vh total scroll distance */
+  /* 5 cards Ãƒâ€” 100vh each = 500vh total scroll distance */
   height: 500vh;
   position: relative;
   background-color: #121212;
@@ -7219,7 +7219,7 @@ p {
 
 /* ----- Generic hero scroll hint (about.html / approach.html) -----
    Same visual component as .walkthrough-scroll-hint, reusing its keyframes,
-   but not tied to a pinned/sticky section — just fades out on first scroll. */
+   but not tied to a pinned/sticky section â€” just fades out on first scroll. */
 .scroll-hint {
   position: absolute;
   bottom: 2.5rem;
@@ -7290,7 +7290,7 @@ p {
 
 /* about.html's hero has a large intro-text block that fills nearly the entire width
    and height of the bottom of the video, so there's no empty spot to tuck a hint into
-   — instead of chasing free space, pin this one to the viewport with its own blurred
+   â€” instead of chasing free space, pin this one to the viewport with its own blurred
    backdrop (same treatment as the video pause button) so it stays legible no matter
    what's behind it, and drop the text label to keep its footprint small. */
 #aboutHeroScrollHint {
@@ -7307,7 +7307,7 @@ p {
   display: none;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 820px) {
   #aboutHeroScrollHint {
     bottom: 0.75rem;
     padding: 0.5rem 0.7rem;
@@ -7372,7 +7372,7 @@ p {
 .walkthrough-card .flow-new { color: #bbffbb !important; }
 
 /* Mobile: keep the content text white with a shadow for legibility over the card background */
-@media (max-width: 768px) {
+@media (max-width: 820px) {
   .walkthrough-card .immersive-title,
   .walkthrough-card .immersive-label,
   .walkthrough-card .immersive-body,
@@ -7504,7 +7504,7 @@ p {
   color: #ffffff !important;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 820px) {
   .approach-comparison {
     margin: 0.6rem 0;
     gap: 0.4rem;
@@ -7555,7 +7555,7 @@ p {
 }
 
 .card-list--checkmark li::before {
-  content: '✓';
+  content: 'âœ“';
   color: var(--color-gold);
   font-weight: bold;
 }
@@ -7588,9 +7588,9 @@ p {
   text-align: center;
 }
 
-/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+/* Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â
    HOME PAGE: CONTENT SECTIONS (REMOVED - NOW IN SCROLLABLE CLINIC SECTION)
-   â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+   Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â */
 
 .content-section {
   padding: 6rem 0;
@@ -7752,7 +7752,7 @@ p {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 820px) {
   .content-section {
     padding: 4rem 0;
   }
@@ -7791,7 +7791,7 @@ p {
   padding: 6rem 0;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 820px) {
   .understand-section {
     background: #ffefef !important;
   }
@@ -7913,7 +7913,7 @@ p {
   background: var(--color-navy);
   color: #fff;
 }
-@media (max-width: 768px) {
+@media (max-width: 820px) {
   .understand-heading { font-size: 1.8rem; }
   .understand-pillars { grid-template-columns: 1fr; }
 }
@@ -7986,7 +7986,7 @@ p {
   height: 100%;
 }
 
-/* â”€â”€ Footer brand logo replacement â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ Footer brand logo replacement Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
 .footer-brand-logo {
   height: 28px;
   width: auto;
@@ -7996,7 +7996,7 @@ p {
   opacity: 0.9;
 }
 
-/* â”€â”€ Word Reveal Animation â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ Word Reveal Animation Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
 .word-reveal-wrapper {
   display: inline;
 }
@@ -8014,12 +8014,12 @@ p {
 }
 
 /* ============================================================
-   WHOLE BODY CONNECTION â€” PARALLAX SCROLL SECTION
+   WHOLE BODY CONNECTION Ã¢â‚¬â€ PARALLAX SCROLL SECTION
    ============================================================ */
 
 .wb-section {
   position: relative;
-  /* title(1Ã—vh) + 9 organs(1.2Ã—vh each) + outro(0.5Ã—vh) = 12.3Ã—vh */
+  /* title(1Ãƒâ€”vh) + 9 organs(1.2Ãƒâ€”vh each) + outro(0.5Ãƒâ€”vh) = 12.3Ãƒâ€”vh */
   height: 1230vh;
   background: #000;
 }
@@ -8442,11 +8442,11 @@ p {
 }
 
 /* ================================================================
-   MOBILE RESPONSIVE â€” full site overhaul
+   MOBILE RESPONSIVE Ã¢â‚¬â€ full site overhaul
    Breakpoints: 768px (tablet/mobile), 480px (small mobile)
    ================================================================ */
 
-@media (max-width: 768px) {
+@media (max-width: 820px) {
 
   /* ---- Base typography ---- */
   :root {
@@ -8844,7 +8844,7 @@ p {
 
 }
 
-/* ---- Small mobile (≤480px) ---- */
+/* ---- Small mobile (â‰¤480px) ---- */
 @media (max-width: 480px) {
 
   .hero-rect--1 h1 { font-size: 1.1rem; }
@@ -8928,7 +8928,7 @@ p {
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 820px) {
   .hero-rect p.hero-reveal-text {
     font-size: 1.1rem !important;
   }
@@ -9037,7 +9037,7 @@ p {
   padding: 80px 56px 56px;
 }
 
-/* ---- Static (no-video) card variant — concept prototype ---- */
+/* ---- Static (no-video) card variant â€” concept prototype ---- */
 .svc-vcard--static {
   background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-navy-light) 100%);
   align-items: center;
@@ -9049,7 +9049,7 @@ p {
   margin: 0 auto;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 820px) {
   .svc-vcard--static.svc-vcard {
     flex: 0 0 84vw;
     width: 84vw;
@@ -9172,8 +9172,8 @@ p {
 }
 
 /* ---- Responsive ---- */
-@media (max-width: 768px) {
-  /* Horizontal swipe carousel instead of a vertical stack — each card is a
+@media (max-width: 820px) {
+  /* Horizontal swipe carousel instead of a vertical stack â€” each card is a
      fixed-width scroll-snap item (see .svc-vcard--expandable below). */
   .svc-vcards {
     flex-direction: row;
@@ -9201,7 +9201,7 @@ p {
 /* ---- Expandable mobile-only card (Assessments & Diagnostics) ---- */
 .svc-vcard__mobile-view { display: none; }
 
-@media (max-width: 768px) {
+@media (max-width: 820px) {
   .svc-vcard--expandable.svc-vcard {
     height: auto;
     display: block;
@@ -9283,7 +9283,7 @@ p {
 }
 
 /* ===================================================
-   SERVICES CONCEPT 2 — single loop video hero + full
+   SERVICES CONCEPT 2 â€” single loop video hero + full
    treatment directory grouped by category (prototype)
    =================================================== */
 .svc2-hero {
@@ -9380,7 +9380,7 @@ p {
   transform: translateY(-2px);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 820px) {
   .svc2-hero { height: 70vh; }
   .svc2-directory { padding: 40px 0; }
   .svc2-category__header { gap: 12px; }
@@ -9746,7 +9746,7 @@ body:has(#page-about.active) {
 }
 
 /* Mobile View Walkthrough - Hide Custom Mobile Styling */
-@media (max-width: 768px) {
+@media (max-width: 820px) {
   .walkthrough-sticky .mobile-view-video {
     display: none !important;
   }
@@ -9759,12 +9759,12 @@ body:has(#page-about.active) {
 }
 
 /* ============================================================
-   MOBILE WALKTHROUGH — pinned-video storytelling (GSAP driven)
+   MOBILE WALKTHROUGH â€” pinned-video storytelling (GSAP driven)
    Mobile only (<=768px). Desktop walkthrough is untouched.
    ============================================================ */
-@media (max-width: 768px) {
+@media (max-width: 820px) {
   /* GSAP ScrollTrigger (pin: true) creates its own spacer to reserve scroll room
-     for .walkthrough-sticky, so the section itself must be auto height — the
+     for .walkthrough-sticky, so the section itself must be auto height â€” the
      desktop-only 500vh belongs to the desktop sticky+vanilla-JS implementation. */
   .walkthrough-section {
     height: auto !important;
@@ -9798,7 +9798,7 @@ body:has(#page-about.active) {
     display: none !important;
   }
 
-  /* Horizontal swipe carousel — one row of cards, native scroll-snap. Users swipe
+  /* Horizontal swipe carousel â€” one row of cards, native scroll-snap. Users swipe
      through all 5 before continuing the normal vertical page scroll below. */
   .walkthrough-cards {
     position: absolute !important;
@@ -10007,7 +10007,7 @@ body:has(#page-about.active) {
   gap: 2rem;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 820px) {
   .lod-courses-grid--featured {
     grid-template-columns: 1fr;
     gap: 1.5rem;
@@ -10359,5 +10359,6 @@ body:has(#page-about.active) {
     order: -1;
   }
 }
+
 
 
