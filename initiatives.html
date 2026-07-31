@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -82,7 +82,7 @@
     .tabs-nav-btn {
       display: none;
     }
-    /* Desktop only — real clickable controls so mouse users (no trackpad swipe,
+    /* Desktop only â€” real clickable controls so mouse users (no trackpad swipe,
        no visible scrollbar since it's hidden above) can actually reach every
        tab instead of being stuck with whatever fits in the first view. */
     @media (min-width: 769px) {
@@ -372,9 +372,13 @@
           <div class="nav__item dropdown">
             <a href="#" class="nav__link dropdown-toggle">Resources</a>
             <div class="dropdown-menu">
-              <a href="education.html" class="dropdown-item">League of Dentists</a>
               <a href="testimonials.html" class="dropdown-item">Testimonials</a>
-              <a href="achievements.html" class="dropdown-item">Achievements</a>
+              <div class="nav__item dropdown-submenu">
+                <a href="achievements.html" class="dropdown-item dropdown-toggle">Achievements</a>
+                <div class="dropdown-menu">
+                  <a href="education.html" class="dropdown-item">League of Dentists</a>
+                </div>
+              </div>
               <a href="initiatives.html" class="dropdown-item active">Initiatives</a>
               <a href="blog.html" class="dropdown-item">Blog</a>
             </div>
@@ -674,7 +678,7 @@
               <div class="dj-middle">
                 <div class="dj-secondary-text dj-secondary-text--full">
                   <p>The League of Dentists has had a significant impact on the careers of many aspiring dentists. By providing mentorship, it has helped to guide dental students and practicing professionals towards success. The mentorship covers a range of topics, including clinical skills, communication skills, and business skills.</p>
-                  <p style="margin-top: 1rem;">One of the key objectives of the League of Dentists is to create a community of dental professionals who can support and learn from one another — fostering a culture of continuous learning and improvement among dental professionals.</p>
+                  <p style="margin-top: 1rem;">One of the key objectives of the League of Dentists is to create a community of dental professionals who can support and learn from one another â€” fostering a culture of continuous learning and improvement among dental professionals.</p>
                   <p style="margin-top: 1rem;">Mentorship is provided through various channels, including online workshops, seminars, and one-on-one coaching sessions, led by experienced dental professionals like Dr. Srivats Bharadwaj and Dr. Paramjot Kaur.</p>
                 </div>
               </div>
@@ -1121,3 +1125,4 @@
   </script>
 </body>
 </html>
+

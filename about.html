@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -65,9 +65,13 @@
           <div class="nav__item dropdown">
             <a href="#" class="nav__link dropdown-toggle">Resources</a>
             <div class="dropdown-menu">
-              <a href="education.html" class="dropdown-item">League of Dentists</a>
               <a href="testimonials.html" class="dropdown-item">Testimonials</a>
-              <a href="achievements.html" class="dropdown-item">Achievements</a>
+              <div class="nav__item dropdown-submenu">
+                <a href="achievements.html" class="dropdown-item dropdown-toggle">Achievements</a>
+                <div class="dropdown-menu">
+                  <a href="education.html" class="dropdown-item">League of Dentists</a>
+                </div>
+              </div>
               <a href="initiatives.html" class="dropdown-item">Initiatives</a>
               <a href="blog.html" class="dropdown-item">Blog</a>
             </div>
@@ -136,7 +140,7 @@
 
       <!-- Sticky container that pins while user scrolls -->
       <div class="walkthrough-sticky">
-        <!-- Blurred background fill to eliminate black bars (desktop only — gated by the
+        <!-- Blurred background fill to eliminate black bars (desktop only â€” gated by the
              source's own media query, evaluated before any JS runs, so mobile never fetches
              it at all. about.js also removes the element outright on mobile as a backup. -->
         <video autoplay muted loop playsinline preload="auto" poster="assets/videos/walkthrough-poster.jpg"
@@ -271,11 +275,11 @@
       </div><!-- end walkthrough-sticky -->
     </section>
 
-    <!-- SECTION 3: WHOLE BODY CONNECTION — PARALLAX SCROLL -->
+    <!-- SECTION 3: WHOLE BODY CONNECTION â€” PARALLAX SCROLL -->
     <section class="wb-section" id="wholeBodySection" data-nav="dark">
       <div class="wb-sticky">
 
-        <!-- Title screen — visible on entry, fades as user scrolls -->
+        <!-- Title screen â€” visible on entry, fades as user scrolls -->
         <div class="wb-title-screen" id="wbTitleScreen">
           <video autoplay muted loop playsinline class="wb-title-video">
             <source src="assets/videos/MOUTH_BODY_16x9_video.mp4" type="video/mp4">
@@ -295,7 +299,7 @@
         <img src="assets/our_clinic_logo/Medical_infographic.jpeg" alt="Mouth-Body Connection Infographic"
           class="wb-mobile-image">
 
-        <!-- Video layers — stacked, JS drives parallax translateY transitions -->
+        <!-- Video layers â€” stacked, JS drives parallax translateY transitions -->
         <div class="wb-video-stack">
           <div class="wb-video-layer" data-organ="brain">
             <video autoplay muted loop playsinline preload="auto">
@@ -347,7 +351,7 @@
         <!-- Dark gradient overlay for text legibility -->
         <div class="wb-overlay"></div>
 
-        <!-- Info panels — one per organ, JS controls opacity + child reveals -->
+        <!-- Info panels â€” one per organ, JS controls opacity + child reveals -->
         <div class="wb-info-panel">
 
           <div class="wb-organ-info" data-organ="brain">
@@ -416,7 +420,7 @@
             <ul class="wb-organ-facts">
               <li>Jaw dysfunction causes neck and back pain</li>
               <li>Periodontal bacteria trigger joint inflammation</li>
-              <li>RA patients have 8× higher rates of gum disease</li>
+              <li>RA patients have 8Ã— higher rates of gum disease</li>
             </ul>
           </div>
 
@@ -444,7 +448,7 @@
             </p>
             <ul class="wb-organ-facts">
               <li>Pregnancy gingivitis affects up to 75% of expectant mothers</li>
-              <li>Untreated gum disease increases premature birth risk by 7×</li>
+              <li>Untreated gum disease increases premature birth risk by 7Ã—</li>
               <li>Oral bacteria can cross the placental barrier affecting fetal development</li>
             </ul>
           </div>
@@ -528,7 +532,7 @@
       </div>
     </section>
 
-    <!-- MOBILE STATS — shown only on mobile, above Led by Expertise -->
+    <!-- MOBILE STATS â€” shown only on mobile, above Led by Expertise -->
     <section class="mobile-stats-section">
       <div class="mobile-stats-pills">
         <div class="mobile-stat-pill">
@@ -566,7 +570,7 @@
             <p class="founder-title">Health care entrepreneur</p>
             <p class="founder-bio">20+ years specialist in periodontics with a systems-thinking approach. Expert in
               long-term oral health preservation and strategic practice management.</p>
-            <a href="doctor-profile.html?dr=param" class="founder-link">View Full Profile →</a>
+            <a href="doctor-profile.html?dr=param" class="founder-link">View Full Profile â†’</a>
           </div>
         </div>
 
@@ -583,7 +587,7 @@
             <p class="founder-title">Healthcare Visionary & Entrepreneur</p>
             <p class="founder-bio">30+ years of diagnostic-driven dentistry focused on root-cause analysis and
               whole-body wellness integration. Visionary pioneer in systems-based dental care.</p>
-            <a href="doctor-profile.html?dr=vats" class="founder-link">View Full Profile →</a>
+            <a href="doctor-profile.html?dr=vats" class="founder-link">View Full Profile â†’</a>
           </div>
         </div>
       </div>
@@ -703,7 +707,7 @@
       <h3 class="policy-modal__title" id="modal-terms-title">Terms &amp; Conditions</h3>
       <p class="policy-modal__body">Use of this website constitutes acceptance of these terms. Content is provided for
         informational purposes only. Users should not rely on website content as a substitute for professional advice,
-        diagnosis or treatment. Vats &amp; Param – The Dentists reserves the right to modify website content without
+        diagnosis or treatment. Vats &amp; Param â€“ The Dentists reserves the right to modify website content without
         notice.</p>
     </div>
   </div>

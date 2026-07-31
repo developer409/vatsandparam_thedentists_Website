@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -18,7 +18,7 @@
   <link rel="stylesheet" href="styles.css">
   <style>
     /* Unlike the video-hero pages (Home/About/Approach), this page isn't full-bleed behind
-       the nav — it relied on the SPA's base `.page { padding-top: var(--nav-height) }` rule,
+       the nav â€” it relied on the SPA's base `.page { padding-top: var(--nav-height) }` rule,
        which doesn't apply here since this page doesn't use the `.page` class. */
     #page-treatments { padding-top: var(--nav-height); }
   </style>
@@ -55,9 +55,13 @@
           <div class="nav__item dropdown">
             <a href="#" class="nav__link dropdown-toggle">Resources</a>
             <div class="dropdown-menu">
-              <a href="education.html" class="dropdown-item">League of Dentists</a>
               <a href="testimonials.html" class="dropdown-item">Testimonials</a>
-              <a href="achievements.html" class="dropdown-item">Achievements</a>
+              <div class="nav__item dropdown-submenu">
+                <a href="achievements.html" class="dropdown-item dropdown-toggle">Achievements</a>
+                <div class="dropdown-menu">
+                  <a href="education.html" class="dropdown-item">League of Dentists</a>
+                </div>
+              </div>
               <a href="initiatives.html" class="dropdown-item">Initiatives</a>
               <a href="blog.html" class="dropdown-item">Blog</a>
             </div>
@@ -278,7 +282,7 @@
     <div class="policy-modal__card">
       <button class="policy-modal__close" aria-label="Close">&times;</button>
       <h3 class="policy-modal__title" id="modal-terms-title">Terms &amp; Conditions</h3>
-      <p class="policy-modal__body">Use of this website constitutes acceptance of these terms. Content is provided for informational purposes only. Users should not rely on website content as a substitute for professional advice, diagnosis or treatment. Vats &amp; Param – The Dentists reserves the right to modify website content without notice.</p>
+      <p class="policy-modal__body">Use of this website constitutes acceptance of these terms. Content is provided for informational purposes only. Users should not rely on website content as a substitute for professional advice, diagnosis or treatment. Vats &amp; Param â€“ The Dentists reserves the right to modify website content without notice.</p>
     </div>
   </div>
 
@@ -319,3 +323,4 @@
   <script src="assets/js/services.js"></script>
 </body>
 </html>
+

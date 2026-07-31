@@ -1388,6 +1388,26 @@ p {
   transform: rotate(180deg);
 }
 
+/* Nested Dropdown Support */
+.dropdown-submenu {
+  position: relative;
+}
+
+.dropdown-submenu .dropdown-menu {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  margin-left: 0;
+  min-width: 200px;
+}
+
+.dropdown-submenu:hover > .dropdown-menu,
+.dropdown-submenu.active > .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
+}
+
 .nav .nav__inner {
   padding: 0 2rem;
 }
