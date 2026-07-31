@@ -1273,7 +1273,8 @@ p {
 .nav__links {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 1rem;
+  flex-wrap: nowrap;
 }
 
 .nav__item {
@@ -1396,7 +1397,8 @@ p {
 .dropdown-submenu .dropdown-menu {
   position: absolute;
   top: 0;
-  left: 100%;
+  left: calc(100% + 10px);
+  transform: none !important;
   margin-left: 0;
   min-width: 200px;
 }
@@ -1405,7 +1407,7 @@ p {
 .dropdown-submenu.active > .dropdown-menu {
   opacity: 1;
   visibility: visible;
-  transform: translateX(0);
+  transform: none !important;
 }
 
 .nav .nav__inner {
