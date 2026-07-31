@@ -1273,7 +1273,7 @@ p {
 .nav__links {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 0.3rem;
   flex-wrap: nowrap;
 }
 
@@ -1282,7 +1282,7 @@ p {
 }
 
 .nav__link {
-  padding: 0.6rem 0.85rem;
+  padding: 0.6rem 0.6rem;
   font-size: 0.82rem;
   font-weight: 500;
   color: var(--color-text-light);
@@ -1359,6 +1359,11 @@ p {
   font-weight: 500;
   transition: all 0.25s ease;
   white-space: nowrap;
+  position: relative;
+}
+
+.dropdown-submenu .dropdown-item.dropdown-toggle {
+  padding-right: 2.5rem;
 }
 
 .dropdown-item:hover {
@@ -1374,14 +1379,16 @@ p {
 }
 
 .dropdown-toggle::after {
-  content: 'â–¾';
-  font-size: 0.7rem;
+  content: '▾';
+  font-size: 0.8rem;
   transition: transform 0.3s ease;
   position: static;
   width: auto;
   height: auto;
   background: none;
   transform: none;
+  color: inherit;
+  margin-left: 0.3rem;
 }
 
 .nav__item:hover .dropdown-toggle::after,
@@ -1389,26 +1396,6 @@ p {
   transform: rotate(180deg);
 }
 
-/* Nested Dropdown Support */
-.dropdown-submenu {
-  position: relative;
-}
-
-.dropdown-submenu .dropdown-menu {
-  position: absolute;
-  top: 0;
-  left: calc(100% + 10px);
-  transform: none !important;
-  margin-left: 0;
-  min-width: 200px;
-}
-
-.dropdown-submenu:hover > .dropdown-menu,
-.dropdown-submenu.active > .dropdown-menu {
-  opacity: 1;
-  visibility: visible;
-  transform: none !important;
-}
 
 .nav .nav__inner {
   padding: 0 2rem;
@@ -1416,6 +1403,8 @@ p {
 
 .nav__cta {
   margin-left: 1rem;
+  padding: 0.5rem 1rem !important;
+  font-size: 0.75rem !important;
 }
 
 /* Was a compact CTA next to the hamburger on mobile; moved back inside the
