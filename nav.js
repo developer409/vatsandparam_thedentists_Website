@@ -29,13 +29,8 @@
             const dropdown = this.closest('.nav__item');
             if (!dropdown) return;
 
-            // For nested dropdowns, only close siblings
-            const parentDropdown = dropdown.closest('.dropdown-submenu') || dropdown.closest('.dropdown');
-            const siblingDropdowns = parentDropdown ?
-                parentDropdown.querySelectorAll(':scope > .nav__item.dropdown.active') :
-                document.querySelectorAll('.nav__item.dropdown.active:not(.dropdown-submenu .nav__item.dropdown.active)');
-
-            siblingDropdowns.forEach(item => {
+            // Close all other dropdowns
+            document.querySelectorAll('.nav__item.dropdown.active').forEach(item => {
                 if (item !== dropdown) {
                     item.classList.remove('active');
                 }
