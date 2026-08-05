@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -17,14 +17,14 @@
 
     .tabs-scroll-wrap {
       position: relative;
-      display: flex;
+      display: none;
       align-items: center;
       gap: 6px;
       width: 100%;
       min-width: 0;
     }
     .tabs-container {
-      display: flex;
+      display: none;
       flex: 1;
       width: 100%;
       min-width: 0;
@@ -35,6 +35,17 @@
     }
     .tabs-container::-webkit-scrollbar {
       display: none;
+    }
+    /* Desktop only: the tab strip (and its scroll arrows) is hidden by default
+       above so mobile's stacked layout never renders it; this turns it back on
+       for anything wider than the mobile breakpoint used below. */
+    @media (min-width: 821px) {
+      .tabs-scroll-wrap {
+        display: flex;
+      }
+      .tabs-container {
+        display: flex;
+      }
     }
     /* Desktop only: keep the tab strip on a single row and scroll horizontally
        instead of wrapping to multiple lines when the labels don't all fit.
@@ -131,7 +142,12 @@
       }
     }
     .tab-content {
-      display: none;
+      display: block;
+      margin-bottom: var(--space-xl);
+      margin-top: 0;
+    }
+    .tab-content:first-of-type {
+      margin-top: 0;
     }
     .tab-content.active {
       display: block;
@@ -147,6 +163,50 @@
       grid-template-columns: repeat(3, 1fr);
       gap: var(--space-md);
       margin-top: var(--space-xl);
+    }
+    .vatsalya-featured {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-xl);
+      margin-bottom: var(--space-xl);
+    }
+    .featured-item {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+    .featured-item img {
+      width: 100%;
+      height: auto;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-lg);
+    }
+    .featured-description {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: var(--color-text);
+    }
+    .carousel-container {
+      overflow-x: auto;
+      padding: var(--space-md) 0;
+      margin-top: var(--space-xl);
+    }
+    .carousel-track {
+      display: flex;
+      gap: var(--space-md);
+      padding-bottom: var(--space-md);
+    }
+    .carousel-item {
+      flex: 0 0 250px;
+      border: 4px solid #c41e3a;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+    }
+    .carousel-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
     }
     .vatsalya-oral-gallery {
       display: grid;
@@ -205,7 +265,8 @@
       display: flex;
       justify-content: center;
       gap: 8px;
-      margin-top: var(--space-md);
+      margin-top: -2rem;
+      margin-bottom: 3rem;
     }
     .vd-dot {
       width: 10px;
@@ -220,6 +281,100 @@
     .vd-dot.active {
       background: var(--color-navy);
     }
+    .dj-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: -2rem;
+      margin-bottom: 3rem;
+    }
+    .dj-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      border: 2px solid var(--color-navy);
+      background: transparent;
+      cursor: pointer;
+      transition: background 0.2s;
+      padding: 0;
+    }
+    .dj-dot.active {
+      background: var(--color-navy);
+    }
+    .vohf-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: -2rem;
+      margin-bottom: 3rem;
+    }
+    .carousel-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      border: 2px solid var(--color-navy);
+      background: transparent;
+      cursor: pointer;
+      transition: background 0.2s;
+      padding: 0;
+    }
+    .carousel-dot.active {
+      background: var(--color-navy);
+    }
+    .hdc-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: -2rem;
+      margin-bottom: 3rem;
+    }
+    .hdc-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      border: 2px solid var(--color-navy);
+      background: transparent;
+      cursor: pointer;
+      transition: background 0.2s;
+      padding: 0;
+    }
+    .hdc-dot.active {
+      background: var(--color-navy);
+    }
+    .ohec-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: -2rem;
+      margin-bottom: 3rem;
+    }
+    .ohec-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      border: 2px solid var(--color-navy);
+      background: transparent;
+      cursor: pointer;
+      transition: background 0.2s;
+      padding: 0;
+    }
+    .ohec-dot.active {
+      background: var(--color-navy);
+    }
+    .dj-header {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-xl);
+    }
+
+    .dj-intro {
+      flex: 1;
+    }
+
+    .dj-logo {
+      flex: 1;
+    }
+
     .dento-jungle-content {
       padding: var(--space-xl) 0;
     }
@@ -229,6 +384,63 @@
       gap: var(--space-xl);
       align-items: center;
       margin-bottom: var(--space-xl);
+    }
+
+    .dento-jungle-content {
+      display: flex;
+      flex-direction: column;
+    }
+
+    @media (max-width: 768px) {
+      .dj-header {
+        grid-template-columns: 1fr;
+        display: contents;
+      }
+      .dj-intro {
+        display: contents;
+      }
+      .dj-title {
+        order: 1;
+        width: 100%;
+      }
+      #league-of-dentists-initiative-tab .gallery-item {
+        order: 2 !important;
+      }
+      #wheelchair-dental-chair-tab .dj-logo {
+        order: 2 !important;
+      }
+      #oral-health-education-tab .gallery-item {
+        order: 2 !important;
+      }
+      #hcg-cancer-clinic-tab .gallery-item {
+        order: 2 !important;
+      }
+      .dj-logo {
+        order: 2;
+      }
+      .dj-intro > p {
+        order: 3;
+      }
+      .dj-middle {
+        order: 4;
+        display: contents;
+      }
+      .dj-main-img {
+        order: 4;
+      }
+      .dj-secondary-text {
+        order: 5;
+      }
+      .dj-carousel {
+        order: 6;
+      }
+      .vd-dots,
+      .dj-dots,
+      .vohf-dots,
+      .hdc-dots,
+      .ohec-dots {
+        order: 7;
+      }
     }
     .dj-title {
       display: flex;
@@ -267,7 +479,7 @@
       display: grid;
       grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
       gap: var(--space-xl);
-      align-items: flex-start;
+      align-items: center;
       margin-bottom: var(--space-xl);
     }
     .dj-main-img {
@@ -277,7 +489,8 @@
       display: block;
       width: 100%;
       max-width: 100%;
-      height: auto;
+      height: 300px;
+      object-fit: cover;
       border-radius: var(--radius-md);
       box-shadow: var(--shadow-lg);
     }
@@ -286,7 +499,7 @@
     }
     @media (min-width: 769px) {
       .dj-secondary-text--full {
-        max-width: 760px;
+        max-width: none;
       }
     }
     .dj-secondary-text p {
@@ -299,10 +512,17 @@
       grid-template-columns: repeat(3, 1fr);
       gap: var(--space-md);
     }
+    .dj-carousel-outer {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: var(--space-xl);
+    }
     .dj-carousel {
       position: relative;
       overflow: hidden;
-      margin-top: var(--space-xl);
+      flex: 1;
+      min-width: 0;
       border-radius: var(--radius-md);
       background: #fcfbf8;
       padding: var(--space-md) 0;
@@ -311,6 +531,29 @@
       display: flex;
       transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
     }
+    .dj-carousel-arrow {
+      flex-shrink: 0;
+      z-index: 3;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid var(--color-border);
+      background: #fff;
+      color: var(--color-gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: var(--shadow-sm);
+      transition: background var(--transition-base), color var(--transition-base);
+    }
+    .dj-carousel-arrow:hover { background: var(--color-gold); color: #fff; }
+    .dj-carousel-arrow svg { width: 18px; height: 18px; }
+    @media (max-width: 600px) {
+      .dj-carousel-outer { gap: 8px; }
+      .dj-carousel-arrow { width: 30px; height: 30px; }
+      .dj-carousel-arrow svg { width: 14px; height: 14px; }
+    }
     .dj-carousel-slide {
       flex: 0 0 33.333%;
       padding: 0 var(--space-sm);
@@ -318,11 +561,29 @@
     }
     .dj-carousel-img {
       width: 100%;
-      height: 300px;
+      height: 150px;
       object-fit: cover;
       border-radius: var(--radius-sm);
-      border: 6px solid white;
+      border: 4px solid #c41e3a;
       box-shadow: var(--shadow-sm);
+    }
+    #hdcTrack .dj-carousel-img {
+      height: 280px;
+      object-fit: contain;
+    }
+    #ohecTrack .dj-carousel-img {
+      height: 280px;
+      object-fit: contain;
+    }
+    .dj-carousel-img--square {
+      aspect-ratio: 1 / 1;
+      height: auto;
+      object-fit: cover;
+    }
+    #hdcTrack .dj-carousel-img--square,
+    #ohecTrack .dj-carousel-img--square {
+      height: auto;
+      object-fit: cover;
     }
     @media (max-width: 992px) {
       .dj-carousel-slide { flex: 0 0 50%; }
@@ -331,7 +592,6 @@
       .dj-header, .dj-middle {
         grid-template-columns: 1fr;
       }
-      .dj-logo { order: -1; }
       .dj-gallery-grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 600px) {
@@ -434,13 +694,13 @@
                   <p>Vatsalya Dental is a dental clinic chain founded in 2003 by Dr Srivats Bharadwaj with a mission to provide knowledge and education to people about dentistry. With a team of experienced and skilled dental professionals, Vatsalya Dental is committed to delivering high-quality dental care services to patients in a friendly and comfortable environment.</p>
                 </div>
                 <div class="dj-logo">
-                  <img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.07.22 PM (10).jpeg" alt="Vatsalya Dental">
+                  <img src="assets/Selected/Selected_Square/vatsalya_final.png" alt="vatsalya dental" style="width: 100%; height: auto; max-width: 500px; border-radius: var(--radius-md); box-shadow: var(--shadow-lg);">
                 </div>
               </div>
 
               <div class="dj-middle">
                 <div class="dj-main-img">
-                  <img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.07.22 PM (6).jpeg" alt="Vatsalya Dental Clinic">
+                  <img src="assets/Initiatives/Vatsalya_Dental/WhatsApp Image 2026-05-01 at 6.07.22 PM (6).jpeg" alt="Vatsalya Dental Clinic">
                 </div>
                 <div class="dj-secondary-text">
                   <p>Over the years, Vatsalya Dental has expanded its reach and established itself as a prominent player in the dental industry. The chain of clinics has been recognized as <strong style="color: var(--color-gold);">one of the top 5 dental clinics in the world</strong> by the Global Clinic Rating (GCR). This recognition is a testament to the quality of dental care services offered by Vatsalya Dental.</p>
@@ -448,30 +708,40 @@
               </div>
 
               <!-- Carousel -->
-              <div class="dj-carousel">
+              <div class="dj-carousel-outer">
+                <button class="dj-carousel-arrow dj-carousel-arrow--prev" id="vdPrevBtn" type="button" aria-label="Previous photo">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                </button>
+                <div class="dj-carousel">
                 <div class="dj-carousel-track" id="vdTrack">
-                  <div class="dj-carousel-slide"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.07.22 PM (11).jpeg" alt="Vatsalya Dental" class="dj-carousel-img"></div>
-                  <div class="dj-carousel-slide"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.07.22 PM (7).jpeg" alt="Vatsalya Dental" class="dj-carousel-img"></div>
-                  <div class="dj-carousel-slide"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.07.22 PM (8).jpeg" alt="Vatsalya Dental" class="dj-carousel-img"></div>
-                  <div class="dj-carousel-slide"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.07.22 PM (9).jpeg" alt="Vatsalya Dental" class="dj-carousel-img"></div>
-                  
-                  <div class="dj-carousel-slide"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.08.03 PM (5).jpeg" alt="Vatsalya Dental" class="dj-carousel-img"></div>
-                  <div class="dj-carousel-slide"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.08.03 PM (7).jpeg" alt="Vatsalya Dental" class="dj-carousel-img"></div>
+
+                  <div class="dj-carousel-slide"><img src="assets/Initiatives/ini_2/Vatsalya dental/29.png" alt="Vatsalya Dental" class="dj-carousel-img dj-carousel-img--square"></div>
+                  <div class="dj-carousel-slide"><img src="assets/Initiatives/ini_2/Vatsalya dental/30.png" alt="Vatsalya Dental" class="dj-carousel-img dj-carousel-img--square"></div>
+                  <div class="dj-carousel-slide"><img src="assets/Initiatives/ini_2/Vatsalya dental/31.png" alt="Vatsalya Dental" class="dj-carousel-img dj-carousel-img--square"></div>
+                  <div class="dj-carousel-slide"><img src="assets/Initiatives/ini_2/Vatsalya dental/32.png" alt="Vatsalya Dental" class="dj-carousel-img dj-carousel-img--square"></div>
+                  <div class="dj-carousel-slide"><img src="assets/Initiatives/ini_2/Vatsalya dental/33.png" alt="Vatsalya Dental" class="dj-carousel-img dj-carousel-img--square"></div>
+                  <div class="dj-carousel-slide"><img src="assets/Initiatives/ini_2/Vatsalya dental/34.png" alt="Vatsalya Dental" class="dj-carousel-img dj-carousel-img--square"></div>
+                  <div class="dj-carousel-slide"><img src="assets/Initiatives/ini_2/Vatsalya dental/35.png" alt="Vatsalya Dental" class="dj-carousel-img dj-carousel-img--square"></div>
+
                 </div>
+                </div>
+                <button class="dj-carousel-arrow dj-carousel-arrow--next" id="vdNextBtn" type="button" aria-label="Next photo">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
               </div>
               <!-- Dots -->
               <div class="vd-dots" id="vdDots"></div>
 
             </div><!-- end dento-jungle-content -->
 
-            <!-- General gallery -->
+            <!-- General gallery
             <div class="initiatives-gallery">
               <div class="gallery-item"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.07.21 PM (1).jpeg" alt="Vatsalya Dental"></div>
-  
-              <div class="gallery-item"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.07.22 PM (1).jpeg" alt="Vatsalya Dental">oral</div>
+
+              <div class="gallery-item"><img src="assets/Initiatives/Oral_Health_Educational/WhatsApp Image 2026-05-01 at 6.07.22 PM (1).jpeg" alt="Vatsalya Dental">h1</div>
               <div class="gallery-item"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.07.22 PM (2).jpeg" alt="Vatsalya Dental"></div>
               <div class="gallery-item"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.07.22 PM (3).jpeg" alt="Vatsalya Dental"></div>
-              <div class="gallery-item"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.07.22 PM (4).jpeg" alt="Vatsalya Dental"></div>
+              <div class="gallery-item"><img src="assets/Initiatives/Vatsalya_Oral_Health_Foundation/WhatsApp Image 2026-05-01 at 6.07.22 PM (4).jpeg" alt="Vatsalya Dental"></div>
               <div class="gallery-item"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.07.22 PM (5).jpeg" alt="Vatsalya Dental"></div>
               <div class="gallery-item"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.07.23 PM (1).jpeg" alt="Vatsalya Dental"></div>
               <div class="gallery-item"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.07.23 PM (2).jpeg" alt="Vatsalya Dental"></div>
@@ -488,7 +758,7 @@
               <div class="gallery-item"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.08.02 PM.jpeg" alt="Vatsalya Dental"></div>
               <div class="gallery-item"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.08.03 PM (1).jpeg" alt="Vatsalya Dental"></div>
               <div class="gallery-item"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.08.03 PM (10).jpeg" alt="Vatsalya Dental"></div>
-              <div class="gallery-item"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.08.03 PM (11).jpeg" alt="Vatsalya Dental">oral</div>
+              <div class="gallery-item"><img src="assets/Initiatives/Vatsalya_Oral_Health_Foundation/WhatsApp Image 2026-05-01 at 6.08.03 PM (11).jpeg" alt="Vatsalya Dental">oral</div>
               <div class="gallery-item"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.08.03 PM (12).jpeg" alt="Vatsalya Dental"></div>
               <div class="gallery-item"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.08.03 PM (13).jpeg" alt="Vatsalya Dental"></div>
               <div class="gallery-item"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.08.03 PM (14).jpeg" alt="Vatsalya Dental"></div>
@@ -497,10 +767,36 @@
 
               <div class="gallery-item"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.08.03 PM (4).jpeg" alt="Vatsalya Dental"></div>
               <div class="gallery-item"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.08.03 PM (8).jpeg" alt="Vatsalya Dental"></div>
-              <div class="gallery-item"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.08.03 PM (9).jpeg" alt="Vatsalya Dental">oral</div>
+              <div class="gallery-item"><img src="assets/Initiatives/Vatsalya_Oral_Health_Foundation/WhatsApp Image 2026-05-01 at 6.08.03 PM (9).jpeg" alt="Vatsalya Dental">oral</div>
               <div class="gallery-item"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.08.03 PM.jpeg" alt="Vatsalya Dental"></div>
+              
+              <div class="gallery-item"><img src="assets/Initiatives/bfcf05e2-093d-416b-a84c-e89f3c1a7275.jpg" alt="Vatsalya Dental"></div>
+              <div class="gallery-item"><img src="assets/Initiatives/d0582eb2-2159-4b53-927d-2d2fa3b19056.jpg" alt="Vatsalya Dental"></div>
+              <div class="gallery-item"><img src="assets/Initiatives/Oral_Health_Educational/e4c0ae95-0a60-45bc-8d84-d1aebc581a57.jpg" alt="Vatsalya Dental">health</div>
+              
+
+              <div class="gallery-item"><img src="assets/Initiatives/Vatsalya_Oral_Health_Foundation/IMG_20170725_121456.jpg" alt="Vatsalya Dental">oral</div>
+              <div class="gallery-item"><img src="assets/Initiatives/Vatsalya_Oral_Health_Foundation/IMG_20170725_144733.jpg" alt="Vatsalya Dental">oral</div>
+              <div class="gallery-item"><img src="assets/Initiatives/Home_Dental_Care/IMG_5654.JPG" alt="Vatsalya Dental">home</div>
+              <div class="gallery-item"><img src="assets/Initiatives/Home_Dental_Care/IMG-20170820-WA0009.jpg" alt="Vatsalya Dental">home</div>
+              <div class="gallery-item"><img src="assets/Initiatives/Home_Dental_Care/17836163-c7f5-4692-94cb-06111b2308a0.jpg" alt="Vatsalya Dental">home</div>
+              <div class="gallery-item"><img src="assets/Initiatives/Home_Dental_Care/f7e77c80-eb88-4ea3-b563-991a56caf428.jpg" alt="Vatsalya Dental">home</div>
+              <div class="gallery-item"><img src="assets/Initiatives/Home_Dental_Care/79c1cc15-b710-4c92-9979-88c4431fb552.jpg" alt="Vatsalya Dental">home</div>
+              <div class="gallery-item"><img src="assets/Initiatives/Home_Dental_Care/7caf87e5-edf6-4e58-a6ee-29dcbf466eb9.jpg" alt="Vatsalya Dental">home</div>
+              <div class="gallery-item"><img src="assets/Initiatives/Oral_Health_Educational/IMG-20170726-WA0089.jpg" alt="Vatsalya Dental">health</div>
+              <div class="gallery-item"><img src="assets/Initiatives/Oral_Health_Educational/IMG-20170726-WA0091.jpg" alt="Vatsalya Dental">health</div>
+              <div class="gallery-item"><img src="assets/Initiatives/Oral_Health_Educational/IMG-20170726-WA0101.jpg" alt="Vatsalya Dental">health</div>
+
+              <div class="gallery-item"><img src="assets/Initiatives/Oral_Health_Educational/IMG-20170726-WA0095.jpg" alt="Vatsalya Dental">health</div>
+              <div class="gallery-item"><img src="assets/Initiatives/Oral_Health_Educational/IMG-20170726-WA0083.jpg" alt="Vatsalya Dental">health</div>
+
+
+              <div class="gallery-item"><img src="assets/Initiatives/Oral_Health_Educational/IMG-20170820-WA0010.jpg" alt="Vatsalya Dental">health</div>
+              <div class="gallery-item"><img src="assets/Initiatives/Vatsalya_Oral_Health_Foundation/IMG-20170726-WA0191.jpg" alt="Vatsalya Dental">oral</div>
+              <div class="gallery-item"><img src="assets/Initiatives/Vatsalya_Oral_Health_Foundation/IMG-20170726-WA0192.jpg" alt="Vatsalya Dental">oral</div>
+             
             </div>
-          </div>
+          </div> -->
 
           <div id="vatsalya-dento-jungle-tab" class="tab-content">
             <div class="dento-jungle-content">
@@ -514,13 +810,13 @@
                   <p>Our jungle-themed dental clinic is filled with colorful decorations, friendly animal characters, and interactive games and activities to create a welcoming and engaging environment for children.</p>
                 </div>
                 <div class="dj-logo">
-                  <img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.07.59 PM (2).jpeg" alt="Vatsalya Dento Jungle Logo">
+                  <img src="assets/Initiatives/Dento_Jungle/WhatsApp Image 2026-05-01 at 6.07.59 PM (2).jpeg" alt="Vatsalya Dento Jungle Logo">
                 </div>
               </div>
 
               <div class="dj-middle">
                 <div class="dj-main-img">
-                  <img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.07.59 PM (3).jpeg" alt="Jungle Themed Treatment Room">
+                  <img src="assets/Initiatives/Dento_Jungle/WhatsApp Image 2026-05-01 at 6.07.59 PM (3).jpeg" alt="Jungle Themed Treatment Room">
                 </div>
                 <div class="dj-secondary-text">
                   <p>We believe that by creating a positive and fun atmosphere, we can help children feel more comfortable and at ease during their dental appointments.</p>
@@ -528,20 +824,32 @@
                 </div>
               </div>
 
-              <div class="dj-carousel">
+              <div class="dj-carousel-outer">
+                <button class="dj-carousel-arrow dj-carousel-arrow--prev" id="djPrevBtn" type="button" aria-label="Previous photo">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                </button>
+                <div class="dj-carousel">
                 <div class="dj-carousel-track" id="djTrack">
-                  <div class="dj-carousel-slide"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.08.00 PM (1).jpeg" alt="Dento Jungle 1" class="dj-carousel-img"></div>
-                  <div class="dj-carousel-slide"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.08.00 PM (2).jpeg" alt="Dento Jungle 2" class="dj-carousel-img"></div>
-                  <div class="dj-carousel-slide"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.08.00 PM (3).jpeg" alt="Dento Jungle 3" class="dj-carousel-img"></div>
-                  <div class="dj-carousel-slide"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.08.00 PM (4).jpeg" alt="Dento Jungle 4" class="dj-carousel-img"></div>
-                  <div class="dj-carousel-slide"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.08.00 PM (5).jpeg" alt="Dento Jungle 5" class="dj-carousel-img"></div>
-                  <div class="dj-carousel-slide"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.08.00 PM.jpeg" alt="Dento Jungle 6" class="dj-carousel-img"></div>
-                  <div class="dj-carousel-slide"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.08.01 PM (1).jpeg" alt="Dento Jungle 7" class="dj-carousel-img"></div>
-                  <div class="dj-carousel-slide"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.08.01 PM (2).jpeg" alt="Dento Jungle 8" class="dj-carousel-img"></div>
-                  <div class="dj-carousel-slide"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.08.01 PM (3).jpeg" alt="Dento Jungle 9" class="dj-carousel-img"></div>
-                  <div class="dj-carousel-slide"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.08.01 PM.jpeg" alt="Dento Jungle 10" class="dj-carousel-img"></div>
+                  <div class="dj-carousel-slide"><img src="assets/Initiatives/ini_2/Dento jungle/1.png" alt="Dento Jungle 11" class="dj-carousel-img dj-carousel-img--square"></div>
+                  <div class="dj-carousel-slide"><img src="assets/Initiatives/ini_2/Dento jungle/2.png" alt="Dento Jungle 12" class="dj-carousel-img dj-carousel-img--square"></div>
+                  <div class="dj-carousel-slide"><img src="assets/Initiatives/ini_2/Dento jungle/3.png" alt="Dento Jungle 13" class="dj-carousel-img dj-carousel-img--square"></div>
+                  <div class="dj-carousel-slide"><img src="assets/Initiatives/ini_2/Dento jungle/4.png" alt="Dento Jungle 14" class="dj-carousel-img dj-carousel-img--square"></div>
+                  <div class="dj-carousel-slide"><img src="assets/Initiatives/ini_2/Dento jungle/5.png" alt="Dento Jungle 15" class="dj-carousel-img dj-carousel-img--square"></div>
+                  <div class="dj-carousel-slide"><img src="assets/Initiatives/ini_2/Dento jungle/6.png" alt="Dento Jungle 16" class="dj-carousel-img dj-carousel-img--square"></div>
+                  <div class="dj-carousel-slide"><img src="assets/Initiatives/ini_2/Dento jungle/7.png" alt="Dento Jungle 17" class="dj-carousel-img dj-carousel-img--square"></div>
+                  <div class="dj-carousel-slide"><img src="assets/Initiatives/ini_2/Dento jungle/8.png" alt="Dento Jungle 18" class="dj-carousel-img dj-carousel-img--square"></div>
+                  <div class="dj-carousel-slide"><img src="assets/Initiatives/ini_2/Dento jungle/9.png" alt="Dento Jungle 19" class="dj-carousel-img dj-carousel-img--square"></div>
+                  <div class="dj-carousel-slide"><img src="assets/Initiatives/ini_2/Dento jungle/10.png" alt="Dento Jungle 20" class="dj-carousel-img dj-carousel-img--square"></div>
+                  <div class="dj-carousel-slide"><img src="assets/Initiatives/ini_2/Dento jungle/11.png" alt="Dento Jungle 21" class="dj-carousel-img dj-carousel-img--square"></div>
+                  <div class="dj-carousel-slide"><img src="assets/Initiatives/ini_2/Dento jungle/12.png" alt="Dento Jungle 22" class="dj-carousel-img dj-carousel-img--square"></div>
                 </div>
+                </div>
+                <button class="dj-carousel-arrow dj-carousel-arrow--next" id="djNextBtn" type="button" aria-label="Next photo">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
               </div>
+              <!-- Dots for Dento Jungle carousel -->
+              <div class="dj-dots" id="djDots"></div>
             </div>
           </div>
 
@@ -558,13 +866,13 @@
                   <p>In addition to offering dental treatments, Vatsalya Oral Health Foundation organizes free dental camps in various parts of Karnataka to reach out to people who live in remote areas and have limited access to dental care. These camps provide a platform for people to receive dental check-ups, treatments, and oral health education from experienced dental professionals.</p>
                 </div>
                 <div class="dj-logo">
-                  <img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.07.22 PM (1).jpeg" alt="Vatsalya Oral Health Foundation">
+                  <img src="assets/Initiatives/Oral_Health_Educational/WhatsApp Image 2026-05-01 at 6.07.22 PM (1).jpeg" alt="Vatsalya Oral Health Foundation">
                 </div>
               </div>
 
               <div class="dj-middle">
                 <div class="dj-main-img">
-                  <img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.08.03 PM (9).jpeg" alt="Vatsalya Oral Health Foundation Dental Camp">
+                  <img src="assets/Initiatives/Vatsalya_Oral_Health_Foundation/WhatsApp Image 2026-05-01 at 6.08.03 PM (9).jpeg" alt="Vatsalya Oral Health Foundation Dental Camp">
                 </div>
                 <div class="dj-secondary-text">
                   <p>One of the key objectives of the foundation is to raise awareness about the importance of oral hygiene and dental care in preventing dental problems. The foundation provides education on oral hygiene to patients, schools, and communities through various programs and initiatives.</p>
@@ -579,15 +887,24 @@
               </div>
 
               <!-- Carousel for Vatsalya Oral Health Foundation -->
-              <div class="dj-carousel">
+              <div class="dj-carousel-outer">
+                <button class="dj-carousel-arrow dj-carousel-arrow--prev" id="vohfPrevBtn" type="button" aria-label="Previous photo">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                </button>
+                <div class="dj-carousel">
                 <div class="dj-carousel-track" id="vohfTrack">
-                  <div class="dj-carousel-slide"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.07.22 PM (2).jpeg" alt="Vatsalya Oral Health Foundation" class="dj-carousel-img"></div>
-                  <div class="dj-carousel-slide"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.07.22 PM (3).jpeg" alt="Vatsalya Oral Health Foundation" class="dj-carousel-img"></div>
-                  <div class="dj-carousel-slide"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.07.22 PM (4).jpeg" alt="Vatsalya Oral Health Foundation" class="dj-carousel-img">oral</div>
-                  <div class="dj-carousel-slide"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.07.23 PM (2).jpeg" alt="Vatsalya Oral Health Foundation" class="dj-carousel-img"></div>
-                  <div class="dj-carousel-slide"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.08.03 PM (9).jpeg" alt="Vatsalya Oral Health Foundation" class="dj-carousel-img">oral</div>
-                  <div class="dj-carousel-slide"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.08.03 PM (10).jpeg" alt="Vatsalya Oral Health Foundation" class="dj-carousel-img"></div>
+                  <div class="dj-carousel-slide"><img src="assets/Initiatives/ini_2/Vatsalya oral health foundation/36.png" alt="Vatsalya Oral Health Foundation" class="dj-carousel-img dj-carousel-img--square"></div>
+                  <div class="dj-carousel-slide"><img src="assets/Initiatives/ini_2/Vatsalya oral health foundation/37.png" alt="Vatsalya Oral Health Foundation" class="dj-carousel-img dj-carousel-img--square"></div>
+                  <div class="dj-carousel-slide"><img src="assets/Initiatives/ini_2/Vatsalya oral health foundation/38.png" alt="Vatsalya Oral Health Foundation" class="dj-carousel-img dj-carousel-img--square"></div>
+                  <div class="dj-carousel-slide"><img src="assets/Initiatives/ini_2/Vatsalya oral health foundation/39.png" alt="Vatsalya Oral Health Foundation" class="dj-carousel-img dj-carousel-img--square"></div>
+                  <div class="dj-carousel-slide"><img src="assets/Initiatives/ini_2/Vatsalya oral health foundation/40.png" alt="Vatsalya Oral Health Foundation" class="dj-carousel-img dj-carousel-img--square"></div>
+                  <div class="dj-carousel-slide"><img src="assets/Initiatives/ini_2/Vatsalya oral health foundation/41.png" alt="Vatsalya Oral Health Foundation" class="dj-carousel-img dj-carousel-img--square"></div>
+                  <div class="dj-carousel-slide"><img src="assets/Initiatives/ini_2/Vatsalya oral health foundation/42.png" alt="Vatsalya Oral Health Foundation" class="dj-carousel-img dj-carousel-img--square"></div>
                 </div>
+                </div>
+                <button class="dj-carousel-arrow dj-carousel-arrow--next" id="vohfNextBtn" type="button" aria-label="Next photo">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
               </div>
               <!-- Dots for carousel navigation -->
               <div class="vohf-dots" id="vohfDots"></div>
@@ -609,13 +926,13 @@
                   <p>Our team of highly qualified experts is equipped with world-class technology to provide dental care services round the clock and attend to any oral emergencies at your doorstep.</p>
                 </div>
                 <div class="dj-logo">
-                  <img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.07.21 PM.jpeg" alt="Home Dental Care Initiative" style="width: 100%; border-radius: var(--radius-md); box-shadow: var(--shadow-lg);">
+                  <img src="assets/Initiatives/Home_Dental_Care/WhatsApp Image 2026-05-01 at 6.07.21 PM.jpeg" alt="Home Dental Care Initiative" style="width: 100%; border-radius: var(--radius-md); box-shadow: var(--shadow-lg);">
                 </div>
               </div>
 
               <div class="dj-middle">
                 <div class="dj-main-img">
-                  <img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.08.03 PM (25).jpeg" alt="Home Dental Care Service" style="width: 100%; border-radius: var(--radius-md); box-shadow: var(--shadow-lg);">
+                  <img src="assets/Initiatives/Home_Dental_Care/WhatsApp Image 2026-05-01 at 6.08.03 PM (25).jpeg" alt="Home Dental Care Service" style="width: 100%; border-radius: var(--radius-md); box-shadow: var(--shadow-lg);">
                 </div>
                 <div class="dj-secondary-text">
                   <p style="font-size: 1.1rem;"><strong style="color: #5C0A0A;">We understand that dental emergencies can happen at any time.</strong> With our Emergency Home dental care services, you can rest assured that you will receive prompt and professional care, no matter when a dental emergency strikes.</p>
@@ -624,7 +941,7 @@
               </div>
 
               <!-- Service Cards -->
-              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin: 2rem 0;">
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin: 2rem 0; order: 5;">
                 <div style="background: #fff; border-radius: 8px; padding: 1.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.08); border-left: 4px solid var(--color-gold);">
                   <h3 style="margin: 0 0 1rem 0; color: #5C0A0A; font-size: 1.1rem; font-weight: 700;">Emergency Response</h3>
                   <p style="margin: 0; color: #666; line-height: 1.6; font-size: 0.95rem;">Prompt and professional care available round the clock to address any oral emergencies at your doorstep.</p>
@@ -639,7 +956,7 @@
                 </div>
               </div>
 
-              <div style="background: linear-gradient(135deg, rgba(92, 10, 10, 0.08) 0%, rgba(198, 167, 94, 0.05) 100%); border-left: 4px solid var(--color-gold); border-radius: 8px; padding: 2rem; margin-top: 2rem;">
+              <div style="background: linear-gradient(135deg, rgba(92, 10, 10, 0.08) 0%, rgba(198, 167, 94, 0.05) 100%); border-left: 4px solid var(--color-gold); border-radius: 8px; padding: 2rem; margin-top: 2rem; order: 6;">
                 <p style="margin: 0 0 1rem 0; color: #333; font-size: 0.95rem; line-height: 1.8;">
                   <strong style="color: #5C0A0A;">Our Commitment:</strong> As part of our ongoing commitment to providing accessible and convenient dental care, our Emergency Home dental care services are an important part of our mission. With prompt and professional care available no matter when a dental emergency strikes, you can have peace of mind knowing that expert dental help is just a call away.
                 </p>
@@ -648,12 +965,29 @@
                 </p>
               </div>
 
-              <!-- Gallery for Home Dental Care Initiative -->
-              <div class="initiatives-gallery" style="margin-top: var(--space-xl);">
-                <div class="gallery-item"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.07.21 PM.jpeg" alt="Home Dental Care"></div>
-                <div class="gallery-item"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.08.03 PM (25).jpeg" alt="Home Dental Care"></div>
-                <div class="gallery-item"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.07.22 PM.jpeg" alt="Home Dental Care"></div>
+              <!-- Carousel for Home Dental Care Initiative -->
+              <div class="dj-carousel-outer" style="order: 7; display: flex;">
+                <button class="dj-carousel-arrow dj-carousel-arrow--prev" id="hdcPrevBtn" type="button" aria-label="Previous photo">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                </button>
+                <div class="dj-carousel">
+                <div class="dj-carousel-track" id="hdcTrack">
+                  <div class="dj-carousel-slide"><img src="assets/Initiatives/ini_2/Home dental care/13.png" alt="Home Dental Care" class="dj-carousel-img dj-carousel-img--square"></div>
+                  <div class="dj-carousel-slide"><img src="assets/Initiatives/ini_2/Home dental care/14.png" alt="Home Dental Care" class="dj-carousel-img dj-carousel-img--square"></div>
+                  <div class="dj-carousel-slide"><img src="assets/Initiatives/ini_2/Home dental care/15.png" alt="Home Dental Care" class="dj-carousel-img dj-carousel-img--square"></div>
+                  <div class="dj-carousel-slide"><img src="assets/Initiatives/ini_2/Home dental care/16.png" alt="Home Dental Care" class="dj-carousel-img dj-carousel-img--square"></div>
+                  <div class="dj-carousel-slide"><img src="assets/Initiatives/ini_2/Home dental care/17.png" alt="Home Dental Care" class="dj-carousel-img dj-carousel-img--square"></div>
+                  <div class="dj-carousel-slide"><img src="assets/Initiatives/ini_2/Home dental care/18.png" alt="Home Dental Care" class="dj-carousel-img dj-carousel-img--square"></div>
+                  <div class="dj-carousel-slide"><img src="assets/Initiatives/ini_2/Home dental care/19.png" alt="Home Dental Care" class="dj-carousel-img dj-carousel-img--square"></div>
+                  <div class="dj-carousel-slide"><img src="assets/Initiatives/ini_2/Home dental care/20.png" alt="Home Dental Care" class="dj-carousel-img dj-carousel-img--square"></div>
+                </div>
+                </div>
+                <button class="dj-carousel-arrow dj-carousel-arrow--next" id="hdcNextBtn" type="button" aria-label="Next photo">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
               </div>
+              <!-- Dots for Home Dental Care carousel -->
+              <div class="hdc-dots" id="hdcDots"></div>
             </div>
           </div>
 
@@ -669,10 +1003,7 @@
                   </div>
                   <p>League of Dentists is an organization that started in 2020 with the aim of mentoring practicing dental professionals and dental students about the art of dentistry. The venture is continuously evolving, and its goal is to provide valuable mentorship to those who are passionate about the field of dentistry.</p>
                 </div>
-                <div class="dj-logo" style="text-align: center; padding: 2rem; background: linear-gradient(135deg, rgba(92, 10, 10, 0.05) 0%, rgba(198, 167, 94, 0.05) 100%); border-radius: 8px;">
-                  <p style="font-size: 3rem; margin: 0;">&#127891;</p>
-                  <p style="margin: 1rem 0 0 0; font-size: 1.1rem; color: #5C0A0A; font-weight: 700;">Mentoring Since 2020</p>
-                </div>
+                <div class="gallery-item" style="order: 2;"><img src="assets/Selected/Selected_Square/lod.png" alt="league of dentists"></div>
               </div>
 
               <div class="dj-middle">
@@ -726,10 +1057,7 @@
                   </div>
                   <p>As part of our ongoing efforts to support individuals with unique healthcare needs, we have established a dedicated dental clinic for cancer patients at HCG. The clinic is designed to provide specialized dental care to patients undergoing cancer treatment, as these individuals often face unique oral health challenges.</p>
                 </div>
-                <div class="dj-logo" style="text-align: center; padding: 2rem; background: linear-gradient(135deg, rgba(92, 10, 10, 0.05) 0%, rgba(198, 167, 94, 0.05) 100%); border-radius: 8px;">
-                  <p style="font-size: 3rem; margin: 0;">&#127973;</p>
-                  <p style="margin: 1rem 0 0 0; font-size: 1.1rem; color: #5C0A0A; font-weight: 700;">Specialised Oncology Dental Care</p>
-                </div>
+                <div class="gallery-item"><img src="assets/Selected/Selected_Square/hcg_final.png" alt="Education for All"></div>
               </div>
 
               <div class="dj-middle">
@@ -753,10 +1081,7 @@
                   </div>
                   <p>We believe that education is the key to promoting good oral health and preventing dental problems. As part of our commitment to educating the community about oral health, we had organized several seminars, conferences, and mock treatments to educate children from various schools and colleges.</p>
                 </div>
-                <div class="dj-logo" style="text-align: center; padding: 2rem; background: linear-gradient(135deg, rgba(92, 10, 10, 0.05) 0%, rgba(198, 167, 94, 0.05) 100%); border-radius: 8px;">
-                  <p style="font-size: 3rem; margin: 0;">&#128218;</p>
-                  <p style="margin: 1rem 0 0 0; font-size: 1.1rem; color: #5C0A0A; font-weight: 700;">Education for All</p>
-                </div>
+                <div class="gallery-item"><img src="assets/Initiatives/Oral_Health_Educational/WhatsApp Image 2026-05-01 at 6.07.22 PM (1).jpeg" alt="Oral Health Educational Initiatives"></div>
               </div>
 
               <div class="dj-middle">
@@ -767,15 +1092,29 @@
                 </div>
               </div>
 
-              <!-- Gallery for Oral Health Educational Initiatives -->
-              <div class="initiatives-gallery" style="margin-top: var(--space-xl);">
-                <div class="gallery-item"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.07.22 PM (1).jpeg" alt="Oral Health Education"></div>
-                <div class="gallery-item"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.07.23 PM (3).jpeg" alt="Oral Health Education"></div>
-                <div class="gallery-item"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.07.23 PM (5).jpeg" alt="Oral Health Education"></div>
-                <div class="gallery-item"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.08.03 PM (11).jpeg" alt="Oral Health Education"></div>
-                <div class="gallery-item"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.08.03 PM (9).jpeg" alt="Oral Health Education"></div>
-                <div class="gallery-item"><img src="assets/Initiatives/WhatsApp Image 2026-05-01 at 6.07.22 PM (4).jpeg" alt="Oral Health Education"></div>
+              <!-- Carousel for Oral Health Educational Initiatives -->
+              <div class="dj-carousel-outer">
+                <button class="dj-carousel-arrow dj-carousel-arrow--prev" id="ohecPrevBtn" type="button" aria-label="Previous photo">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                </button>
+                <div class="dj-carousel">
+                <div class="dj-carousel-track" id="ohecTrack">
+                  <div class="dj-carousel-slide"><img src="assets/Initiatives/ini_2/Oral health educational/21.png" alt="Oral Health Education" class="dj-carousel-img dj-carousel-img--square"></div>
+                  <div class="dj-carousel-slide"><img src="assets/Initiatives/ini_2/Oral health educational/22.png" alt="Oral Health Education" class="dj-carousel-img dj-carousel-img--square"></div>
+                  <div class="dj-carousel-slide"><img src="assets/Initiatives/ini_2/Oral health educational/23.png" alt="Oral Health Education" class="dj-carousel-img dj-carousel-img--square"></div>
+                  <div class="dj-carousel-slide"><img src="assets/Initiatives/ini_2/Oral health educational/24.png" alt="Oral Health Education" class="dj-carousel-img dj-carousel-img--square"></div>
+                  <div class="dj-carousel-slide"><img src="assets/Initiatives/ini_2/Oral health educational/25.png" alt="Oral Health Education" class="dj-carousel-img dj-carousel-img--square"></div>
+                  <div class="dj-carousel-slide"><img src="assets/Initiatives/ini_2/Oral health educational/26.png" alt="Oral Health Education" class="dj-carousel-img dj-carousel-img--square"></div>
+                  <div class="dj-carousel-slide"><img src="assets/Initiatives/ini_2/Oral health educational/27.png" alt="Oral Health Education" class="dj-carousel-img dj-carousel-img--square"></div>
+                  <div class="dj-carousel-slide"><img src="assets/Initiatives/ini_2/Oral health educational/28.png" alt="Oral Health Education" class="dj-carousel-img dj-carousel-img--square"></div>
+                </div>
+                </div>
+                <button class="dj-carousel-arrow dj-carousel-arrow--next" id="ohecNextBtn" type="button" aria-label="Next photo">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
               </div>
+              <!-- Dots for Oral Health Educational Initiatives carousel -->
+              <div class="ohec-dots" id="ohecDots"></div>
 
             </div>
           </div>
@@ -947,14 +1286,16 @@
       if (tabId === 'vatsalya-dento-jungle-tab') initDJCarousel();
       if (tabId === 'vatsalya-dental-initiatives-tab') initVDCarousel();
       if (tabId === 'vatsalya-ohf-tab') initVOHFCarousel();
+      if (tabId === 'home-dental-care-tab') initHDCCarousel();
+      if (tabId === 'oral-health-education-tab') initOHECCarousel();
     }
 
-    let vdInterval;
     function initVDCarousel() {
       const track = document.getElementById('vdTrack');
       const dotsContainer = document.getElementById('vdDots');
+      const prevBtn = document.getElementById('vdPrevBtn');
+      const nextBtn = document.getElementById('vdNextBtn');
       if (!track) return;
-      if (vdInterval) clearInterval(vdInterval);
 
       let index = 0;
       const slides = track.querySelectorAll('.dj-carousel-slide');
@@ -974,7 +1315,7 @@
         for (let i = 0; i < count; i++) {
           const dot = document.createElement('button');
           dot.className = 'vd-dot' + (i === 0 ? ' active' : '');
-          dot.addEventListener('click', () => { goTo(i); resetInterval(); });
+          dot.addEventListener('click', () => goTo(i));
           dotsContainer.appendChild(dot);
         }
       }
@@ -994,28 +1335,31 @@
         updateDots();
       }
 
-      function resetInterval() {
-        clearInterval(vdInterval);
-        vdInterval = setInterval(() => {
-          const visible = getVisible();
-          goTo(index + 1 > total - visible ? 0 : index + 1);
-        }, 3000);
-      }
+      if (prevBtn) prevBtn.onclick = () => {
+        const visible = getVisible();
+        const max = total - visible;
+        goTo(index - 1 < 0 ? max : index - 1);
+      };
+      if (nextBtn) nextBtn.onclick = () => {
+        const visible = getVisible();
+        const max = total - visible;
+        goTo(index + 1 > max ? 0 : index + 1);
+      };
 
       buildDots();
-      resetInterval();
+      goTo(0);
     }
 
-    let djInterval;
     function initDJCarousel() {
       const track = document.getElementById('djTrack');
       if (!track) return;
 
-      if (djInterval) clearInterval(djInterval);
-
       let index = 0;
       const slides = track.querySelectorAll('.dj-carousel-slide');
       const total = slides.length;
+      const dotsContainer = document.getElementById('djDots');
+      const prevBtn = document.getElementById('djPrevBtn');
+      const nextBtn = document.getElementById('djNextBtn');
 
       function getVisible() {
         if (window.innerWidth <= 600) return 1;
@@ -1023,28 +1367,58 @@
         return 3;
       }
 
-      djInterval = setInterval(() => {
+      function buildDots() {
+        dotsContainer.innerHTML = '';
         const visible = getVisible();
-        index++;
-        if (index > total - visible) {
-          index = 0;
+        const dotCount = total - visible + 1;
+        for (let i = 0; i < dotCount; i++) {
+          const dot = document.createElement('button');
+          dot.className = `dj-dot ${i === 0 ? 'active' : ''}`;
+          dot.addEventListener('click', () => goTo(i));
+          dotsContainer.appendChild(dot);
         }
-        const percentage = index * (100 / visible);
-        track.style.transform = `translateX(-${percentage}%)`;
-      }, 3000);
+      }
+
+      function updateDots() {
+        const dots = dotsContainer.querySelectorAll('.dj-dot');
+        dots.forEach((dot, i) => {
+          dot.classList.toggle('active', i === index);
+        });
+      }
+
+      function goTo(i) {
+        const visible = getVisible();
+        const max = total - visible;
+        index = Math.max(0, Math.min(i, max));
+        track.style.transform = `translateX(-${index * (100 / visible)}%)`;
+        updateDots();
+      }
+
+      if (prevBtn) prevBtn.onclick = () => {
+        const visible = getVisible();
+        const max = total - visible;
+        goTo(index - 1 < 0 ? max : index - 1);
+      };
+      if (nextBtn) nextBtn.onclick = () => {
+        const visible = getVisible();
+        const max = total - visible;
+        goTo(index + 1 > max ? 0 : index + 1);
+      };
+
+      buildDots();
+      goTo(0);
     }
 
-    let vohfInterval;
     function initVOHFCarousel() {
       const track = document.getElementById('vohfTrack');
       if (!track) return;
-
-      if (vohfInterval) clearInterval(vohfInterval);
 
       let index = 0;
       const slides = track.querySelectorAll('.dj-carousel-slide');
       const total = slides.length;
       const dotsContainer = document.getElementById('vohfDots');
+      const prevBtn = document.getElementById('vohfPrevBtn');
+      const nextBtn = document.getElementById('vohfNextBtn');
 
       function getVisible() {
         if (window.innerWidth <= 600) return 1;
@@ -1080,27 +1454,149 @@
         updateDots();
       }
 
-      function resetInterval() {
-        clearInterval(vohfInterval);
-        vohfInterval = setInterval(() => {
-          const visible = getVisible();
-          goTo(index + 1 > total - visible ? 0 : index + 1);
-        }, 3000);
-      }
+      if (prevBtn) prevBtn.onclick = () => {
+        const visible = getVisible();
+        const max = total - visible;
+        goTo(index - 1 < 0 ? max : index - 1);
+      };
+      if (nextBtn) nextBtn.onclick = () => {
+        const visible = getVisible();
+        const max = total - visible;
+        goTo(index + 1 > max ? 0 : index + 1);
+      };
 
       buildDots();
-      resetInterval();
+      goTo(0);
+    }
+
+    function initHDCCarousel() {
+      const track = document.getElementById('hdcTrack');
+      if (!track) return;
+
+      let index = 0;
+      const slides = track.querySelectorAll('.dj-carousel-slide');
+      const total = slides.length;
+      const dotsContainer = document.getElementById('hdcDots');
+      const prevBtn = document.getElementById('hdcPrevBtn');
+      const nextBtn = document.getElementById('hdcNextBtn');
+
+      function getVisible() {
+        if (window.innerWidth <= 600) return 1;
+        if (window.innerWidth <= 992) return 2;
+        return 3;
+      }
+
+      function buildDots() {
+        dotsContainer.innerHTML = '';
+        const visible = getVisible();
+        const dotCount = total - visible + 1;
+        for (let i = 0; i < dotCount; i++) {
+          const dot = document.createElement('button');
+          dot.className = `hdc-dot ${i === 0 ? 'active' : ''}`;
+          dot.addEventListener('click', () => goTo(i));
+          dotsContainer.appendChild(dot);
+        }
+      }
+
+      function updateDots() {
+        const dots = dotsContainer.querySelectorAll('.hdc-dot');
+        dots.forEach((dot, i) => {
+          dot.classList.toggle('active', i === index);
+        });
+      }
+
+      function goTo(i) {
+        const visible = getVisible();
+        const max = total - visible;
+        index = Math.max(0, Math.min(i, max));
+        track.style.transform = `translateX(-${index * (100 / visible)}%)`;
+        updateDots();
+      }
+
+      if (prevBtn) prevBtn.onclick = () => {
+        const visible = getVisible();
+        const max = total - visible;
+        goTo(index - 1 < 0 ? max : index - 1);
+      };
+      if (nextBtn) nextBtn.onclick = () => {
+        const visible = getVisible();
+        const max = total - visible;
+        goTo(index + 1 > max ? 0 : index + 1);
+      };
+
+      buildDots();
+      goTo(0);
+    }
+
+    function initOHECCarousel() {
+      const track = document.getElementById('ohecTrack');
+      if (!track) return;
+
+      let index = 0;
+      const slides = track.querySelectorAll('.dj-carousel-slide');
+      const total = slides.length;
+      const dotsContainer = document.getElementById('ohecDots');
+      const prevBtn = document.getElementById('ohecPrevBtn');
+      const nextBtn = document.getElementById('ohecNextBtn');
+
+      function getVisible() {
+        if (window.innerWidth <= 600) return 1;
+        if (window.innerWidth <= 992) return 2;
+        return 3;
+      }
+
+      function buildDots() {
+        dotsContainer.innerHTML = '';
+        const visible = getVisible();
+        const dotCount = total - visible + 1;
+        for (let i = 0; i < dotCount; i++) {
+          const dot = document.createElement('button');
+          dot.className = `ohec-dot ${i === 0 ? 'active' : ''}`;
+          dot.addEventListener('click', () => goTo(i));
+          dotsContainer.appendChild(dot);
+        }
+      }
+
+      function updateDots() {
+        const dots = dotsContainer.querySelectorAll('.ohec-dot');
+        dots.forEach((dot, i) => {
+          dot.classList.toggle('active', i === index);
+        });
+      }
+
+      function goTo(i) {
+        const visible = getVisible();
+        const max = total - visible;
+        index = Math.max(0, Math.min(i, max));
+        track.style.transform = `translateX(-${index * (100 / visible)}%)`;
+        updateDots();
+      }
+
+      if (prevBtn) prevBtn.onclick = () => {
+        const visible = getVisible();
+        const max = total - visible;
+        goTo(index - 1 < 0 ? max : index - 1);
+      };
+      if (nextBtn) nextBtn.onclick = () => {
+        const visible = getVisible();
+        const max = total - visible;
+        goTo(index + 1 > max ? 0 : index + 1);
+      };
+
+      buildDots();
+      goTo(0);
     }
 
     document.addEventListener('DOMContentLoaded', () => {
+      // Every initiative's section is visible on the page at once (there's no
+      // CSS that hides an inactive .tab-content), so every carousel needs its
+      // arrows wired up from the start instead of waiting on a tab click that
+      // a user scrolling straight down the page may never make.
       initVDCarousel();
-
-      // Mobile shows every initiative stacked at once (no tabs), so every
-      // carousel needs to run from the start instead of waiting on a tab click.
-      if (window.matchMedia('(max-width: 768px)').matches) {
-        initDJCarousel();
-        initVOHFCarousel();
-      }
+      initDJCarousel();
+      initVOHFCarousel();
+      initHDCCarousel();
+      initOHECCarousel();
 
       const tabsContainer = document.getElementById('initiativesTabsContainer');
       const tabsPrevBtn = document.getElementById('tabsPrevBtn');
