@@ -16,20 +16,52 @@
         fadeEls.forEach(function (el) { observer.observe(el); });
     }
 
-    // ---- Contact Form ----
+    // ---- Contact Form (submits to Web3Forms) ----
     var form = document.getElementById('contactForm');
     var formSuccess = document.getElementById('formSuccess');
+    var formError = document.getElementById('formError');
 
     if (form) {
+        var submitBtn = form.querySelector('button[type="submit"]');
+
         form.addEventListener('submit', function (e) {
             e.preventDefault();
-            form.style.display = 'none';
-            if (formSuccess) formSuccess.classList.add('visible');
-            setTimeout(function () {
-                form.reset();
-                form.style.display = 'block';
-                if (formSuccess) formSuccess.classList.remove('visible');
-            }, 4000);
+            if (formError) formError.classList.remove('visible');
+
+            var originalBtnText = submitBtn ? submitBtn.textContent : '';
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Sending...';
+            }
+
+            fetch(form.action, {
+                method: 'POST',
+                headers: { 'Accept': 'application/json' },
+                body: new FormData(form)
+            })
+                .then(function (res) { return res.json(); })
+                .then(function (data) {
+                    if (!data.success) throw new Error(data.message || 'Submission failed');
+
+                    form.style.display = 'none';
+                    if (formSuccess) formSuccess.classList.add('visible');
+                    setTimeout(function () {
+                        form.reset();
+                        form.style.display = 'block';
+                        if (formSuccess) formSuccess.classList.remove('visible');
+                        if (submitBtn) {
+                            submitBtn.disabled = false;
+                            submitBtn.textContent = originalBtnText;
+                        }
+                    }, 4000);
+                })
+                .catch(function () {
+                    if (formError) formError.classList.add('visible');
+                    if (submitBtn) {
+                        submitBtn.disabled = false;
+                        submitBtn.textContent = originalBtnText;
+                    }
+                });
         });
     }
 

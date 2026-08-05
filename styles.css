@@ -2634,6 +2634,27 @@ p {
   margin: 0 auto var(--space-md);
 }
 
+.form-error {
+  display: none;
+  text-align: center;
+  padding: var(--space-lg);
+  margin-top: var(--space-md);
+  border: 1px solid rgba(92, 10, 10, 0.25);
+  border-radius: var(--radius-sm);
+  background: rgba(92, 10, 10, 0.05);
+  color: var(--color-navy);
+  font-size: var(--fs-small);
+}
+
+.form-error.visible {
+  display: block;
+}
+
+.form-error a {
+  color: var(--color-navy);
+  font-weight: 600;
+}
+
 /* ---------- Contact Info & Map ---------- */
 .contact-grid {
   display: grid;

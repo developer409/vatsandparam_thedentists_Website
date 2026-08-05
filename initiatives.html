@@ -36,17 +36,6 @@
     .tabs-container::-webkit-scrollbar {
       display: none;
     }
-    /* Desktop only: the tab strip (and its scroll arrows) is hidden by default
-       above so mobile's stacked layout never renders it; this turns it back on
-       for anything wider than the mobile breakpoint used below. */
-    @media (min-width: 821px) {
-      .tabs-scroll-wrap {
-        display: flex;
-      }
-      .tabs-container {
-        display: flex;
-      }
-    }
     /* Desktop only: keep the tab strip on a single row and scroll horizontally
        instead of wrapping to multiple lines when the labels don't all fit.
        width/min-width above are required for overflow-x to actually clip+scroll
@@ -632,13 +621,9 @@
           <div class="nav__item dropdown">
             <a href="#" class="nav__link dropdown-toggle">Resources</a>
             <div class="dropdown-menu">
+              <a href="education.html" class="dropdown-item">League of Dentists</a>
               <a href="testimonials.html" class="dropdown-item">Testimonials</a>
-              <div class="nav__item dropdown-submenu">
-                <a href="achievements.html" class="dropdown-item dropdown-toggle">Achievements</a>
-                <div class="dropdown-menu">
-                  <a href="education.html" class="dropdown-item">League of Dentists</a>
-                </div>
-              </div>
+              <a href="achievements.html" class="dropdown-item">Achievements</a>
               <a href="initiatives.html" class="dropdown-item active">Initiatives</a>
               <a href="blog.html" class="dropdown-item">Blog</a>
             </div>
