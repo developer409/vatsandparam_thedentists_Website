@@ -1407,6 +1407,33 @@ p {
   font-size: 0.75rem !important;
 }
 
+/* Contact: a small icon button next to Book Consultation instead of a
+   full nav link (Contact is still reachable via footer + this icon). */
+.nav__contact-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1.5px solid var(--color-navy);
+  color: var(--color-navy);
+  margin-left: 1rem;
+  flex-shrink: 0;
+  transition: background var(--transition-base), color var(--transition-base);
+}
+
+.nav__contact-icon:hover,
+.nav__contact-icon.active {
+  background: var(--color-navy);
+  color: #fff;
+}
+
+.nav__contact-icon svg {
+  width: 17px;
+  height: 17px;
+}
+
 /* Was a compact CTA next to the hamburger on mobile; moved back inside the
    burger menu (.nav__cta) instead, so hidden everywhere now. */
 .nav__cta-mobile {
@@ -3421,6 +3448,10 @@ p {
     box-shadow: 0 4px 14px rgba(128, 41, 41, 0.25);
   }
 
+  .nav__contact-icon {
+    margin: 0 auto 0.75rem;
+  }
+
   /* Grid */
   .grid-2,
   .grid-3 {
@@ -5190,6 +5221,15 @@ p {
   min-height: 100vh;
 }
 
+/* Bare section-title panels (e.g. "Our Core Values", "Our Impact") that are
+   immediately followed by their own content panel — don't force a full
+   100vh screen of empty space just to center two lines of text. */
+.discovery-item--title-only {
+  height: auto;
+  min-height: 0;
+  padding: var(--space-2xl) 10% var(--space-md);
+}
+
 /* Panel wrap: title outside box, grid inside bordered box */
 .discovery-panel-wrap {
   max-width: 1000px;
@@ -5690,6 +5730,26 @@ p {
 
 .nav.nav--transparent .nav__toggle span {
   background-color: #fff !important;
+}
+
+/* nav--transparent (top-of-page state) and nav--over-light/nav--over-dark (adaptive
+   theme from [data-nav] sections) can be applied to the nav at the same time on pages
+   whose top section is data-nav="light" (e.g. testimonials.html). Both rule blocks
+   above independently win different properties based on source order alone, which
+   left text white on a white background until the user scrolled. Pin the combined
+   state explicitly so light-hero pages always get light-appropriate (dark) text. */
+.nav.nav--transparent.nav--over-light .nav__logo-text {
+  color: #802929 !important;
+}
+.nav.nav--transparent.nav--over-light .nav__link {
+  color: var(--color-text-light) !important;
+}
+.nav.nav--transparent.nav--over-light .nav__link:hover,
+.nav.nav--transparent.nav--over-light .nav__link.active {
+  color: var(--color-gold) !important;
+}
+.nav.nav--transparent.nav--over-light .nav__toggle span {
+  background-color: var(--color-navy) !important;
 }
 
 /* Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â
@@ -6811,7 +6871,7 @@ p {
 .fade-in-scroll {
   opacity: 0;
   transform: translateY(24px);
-  transition: opacity 0.8s cubic-bezier(0.33, 0.66, 0.66, 1), transform 0.8s cubic-bezier(0.33, 0.66, 0.66, 1);
+  transition: opacity 0.35s cubic-bezier(0.33, 0.66, 0.66, 1), transform 0.35s cubic-bezier(0.33, 0.66, 0.66, 1);
   will-change: opacity, transform;
 }
 
@@ -8778,8 +8838,9 @@ p {
 
   /* ---- Discovery / About / Approach sections ---- */
   .discovery-item { padding: 3rem 1.25rem; }
-  .discovery-item:not(.discovery-item--full):not(.discovery-item--spacer) { height: 75vh; }
+  .discovery-item:not(.discovery-item--full):not(.discovery-item--spacer):not(.discovery-item--title-only) { height: 75vh; }
   .discovery-item--full { height: auto; min-height: 75vh; }
+  .discovery-item--title-only { height: auto; min-height: 0; padding: 2.5rem 1.25rem 0.5rem; }
   .discovery-content:not(.discovery-content--hero) h3 { font-size: 1.4rem; }
   .discovery-content p  { font-size: 0.9rem; }
 
