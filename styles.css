@@ -3428,7 +3428,7 @@ p {
   }
 
   .nav__item.dropdown.active > .dropdown-toggle {
-    border-radius: 999px 999px 0 0;
+    border-radius: 999px 999px 0 0 !important;
   }
 
   .nav__link::after {
@@ -3447,7 +3447,7 @@ p {
     flex-direction: column;
     gap: 0.4rem;
     background: none;
-    border-radius: 0 0 18px 18px;
+    border-radius: 0 0 999px 999px;
     min-width: auto;
     backdrop-filter: none;
     max-height: 0;
