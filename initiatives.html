@@ -542,9 +542,13 @@
     .dj-carousel-arrow:hover { background: var(--color-gold); color: #fff; }
     .dj-carousel-arrow svg { width: 18px; height: 18px; }
     @media (max-width: 600px) {
-      .dj-carousel-outer { gap: 8px; }
-      .dj-carousel-arrow { width: 30px; height: 30px; }
-      .dj-carousel-arrow svg { width: 14px; height: 14px; }
+      .dj-carousel-outer {
+        gap: 6px;
+        margin-left: -20px;
+        margin-right: -20px;
+      }
+      .dj-carousel-arrow { width: 26px; height: 26px; }
+      .dj-carousel-arrow svg { width: 12px; height: 12px; }
     }
     .dj-carousel-slide {
       flex: 0 0 33.333%;
@@ -587,7 +591,7 @@
       .dj-gallery-grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 600px) {
-      .dj-carousel-slide { flex: 0 0 100%; }
+      .dj-carousel-slide { flex: 0 0 100%; padding: 0 4px; }
     }
   </style>
 </head>
