@@ -391,9 +391,12 @@
       .dj-title {
         order: 1;
         width: 100%;
+        font-size: 1.5rem;
+        align-items: flex-start;
       }
-      #league-of-dentists-initiative-tab .gallery-item {
-        order: 2 !important;
+      .dj-title-icon {
+        margin-top: 0.2em;
+        flex-shrink: 0;
       }
       #wheelchair-dental-chair-tab .dj-logo {
         order: 2 !important;
@@ -420,7 +423,7 @@
       .dj-secondary-text {
         order: 5;
       }
-      .dj-carousel {
+      .dj-carousel-outer {
         order: 6;
       }
       .vd-dots,
@@ -988,7 +991,7 @@
                   </div>
                   <p>League of Dentists is an organization that started in 2020 with the aim of mentoring practicing dental professionals and dental students about the art of dentistry. The venture is continuously evolving, and its goal is to provide valuable mentorship to those who are passionate about the field of dentistry.</p>
                 </div>
-                <div class="gallery-item" style="order: 2;"><img src="assets/Selected/Selected_Square/lod.png" alt="league of dentists"></div>
+                <div class="dj-logo"><img src="assets/Selected/Selected_Square/lod.png" alt="League of Dentists Logo"></div>
               </div>
 
               <div class="dj-middle">
@@ -1014,9 +1017,12 @@
                   </div>
                   <p>At our clinics, we understand that dental care is important for everyone, regardless of their physical abilities. That is why we are proud to offer a wheelchair recliner dental chair for disabled people, designed to allow patients to receive dental treatment while remaining comfortably seated in their wheelchair.</p>
                 </div>
-                <div class="dj-logo" style="text-align: center; padding: 2rem; background: linear-gradient(135deg, rgba(92, 10, 10, 0.05) 0%, rgba(198, 167, 94, 0.05) 100%); border-radius: 8px;">
-                  <p style="font-size: 3rem; margin: 0;">&#9855;</p>
-                  <p style="margin: 1rem 0 0 0; font-size: 1.1rem; color: #5C0A0A; font-weight: 700;">Accessible Care for All</p>
+                <div class="dj-logo">
+                  <img src="assets/Initiatives/Dental_Chair_Disabled/dental.png" alt="Dental Chair for Disabled - Accessible Care for All" style="width: 100%; border-radius: var(--radius-md); box-shadow: var(--shadow-lg);" onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='block';">
+                  <div style="display: none; text-align: center; padding: 2rem; background: linear-gradient(135deg, rgba(92, 10, 10, 0.05) 0%, rgba(198, 167, 94, 0.05) 100%); border-radius: 8px;">
+                    <p style="font-size: 3rem; margin: 0;">&#9855;</p>
+                    <p style="margin: 1rem 0 0 0; font-size: 1.1rem; color: #5C0A0A; font-weight: 700;">Accessible Care for All</p>
+                  </div>
                 </div>
               </div>
 
