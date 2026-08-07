@@ -196,26 +196,21 @@
     updateCard();
 })();
 
-// ---- Walkthrough mobile carousel — horizontal swipe, native scroll-snap ----
-// Cards sit in a horizontally-scrollable row (CSS `scroll-snap-type: x`); this just
-// tracks which card is centered to drive the dot pagination, and fades the swipe
-// hint out once the user starts swiping.
+// ---- Walkthrough mobile carousel — horizontal swipe carousel ----
 (function () {
     if (!window.matchMedia('(max-width: 768px)').matches) return;
 
     var mainVideo = document.querySelector('#walkthroughSection .walkthrough-video');
     if (mainVideo) mainVideo.poster = 'assets/Technology/aboutus_mobile.jpeg';
 
-    // The blurred fill layer is desktop-only (hidden via CSS on mobile) but was still
-    // fetching/decoding the same multi-MB clip a second time in the background. Drop it
-    // from the DOM entirely on mobile instead of just hiding it.
     var bgVideo = document.querySelector('#walkthroughSection .walkthrough-video-bg');
     if (bgVideo) bgVideo.remove();
 
     var track = document.querySelector('#walkthroughSection .walkthrough-cards');
     var cards = document.querySelectorAll('#walkthroughSection .walkthrough-card');
     var dots = document.querySelectorAll('#walkthroughSwipeDots .swipe-dot');
-    var hint = document.getElementById('walkthroughSwipeHint');
+    var swipeHint = document.getElementById('walkthroughSwipeHint');
+
     if (!track || !cards.length) return;
 
     function updateActiveDot() {
@@ -236,7 +231,7 @@
 
     var ticking = false;
     track.addEventListener('scroll', function () {
-        if (hint) hint.style.opacity = '0';
+        if (swipeHint) swipeHint.style.opacity = '0';
         if (!ticking) {
             requestAnimationFrame(function () {
                 updateActiveDot();

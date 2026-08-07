@@ -124,7 +124,7 @@
           </div>
           <div class="stat-pill-divider"></div>
           <div class="stat-pill-item">
-            <div class="stat-value counter" data-target="100000">0</div>
+            <div class="stat-value counter" data-target="150000">0</div>
             <div class="stat-text">People Treated</div>
           </div>
         </div>
@@ -148,13 +148,27 @@
              The poster below is the desktop frame; the mobile-only script swaps it to the
              matching mobile frame so there's never a black flash while either clip buffers
              (iOS Safari in particular is slow/conservative about preloading video). -->
-        <video autoplay muted loop playsinline preload="auto" poster="assets/videos/walkthrough-poster.jpg"
-          class="walkthrough-video">
-          <source src="assets/mobile_view/about_us_mobile.mp4" type="video/mp4" media="(max-width: 768px)">
-          <source src="assets/videos/walkthroughclinic.mp4" type="video/mp4">
-        </video>
+        <div class="walkthrough-video-wrap">
+          <video autoplay muted loop playsinline preload="auto" poster="assets/videos/walkthrough-poster.jpg"
+            class="walkthrough-video">
+            <source src="assets/mobile_view/about_us_mobile.mp4" type="video/mp4" media="(max-width: 768px)">
+            <source src="assets/videos/walkthroughclinic.mp4" type="video/mp4">
+          </video>
+
+          <!-- Scroll indicator (mobile: sits over the standalone video) -->
+          <div class="walkthrough-scroll-hint" id="walkthroughHint">
+            <span>Scroll to explore</span>
+            <div class="hint-mouse">
+              <div class="hint-wheel"></div>
+            </div>
+            <div class="hint-arrows">
+              <i></i><i></i><i></i>
+            </div>
+          </div>
+        </div>
 
         <!-- All cards sit inside the sticky viewport, JS toggles which is active -->
+        <div class="walkthrough-cards-wrap">
         <h2 class="walkthrough-mobile-title">At Vats &amp; Param - The Dentists</h2>
         <div class="walkthrough-cards">
 
@@ -256,17 +270,7 @@
           <span class="swipe-dot" data-index="3"></span>
           <span class="swipe-dot" data-index="4"></span>
         </div>
-
-        <!-- Scroll indicator -->
-        <div class="walkthrough-scroll-hint" id="walkthroughHint">
-          <span>Scroll to explore</span>
-          <div class="hint-mouse">
-            <div class="hint-wheel"></div>
-          </div>
-          <div class="hint-arrows">
-            <i></i><i></i><i></i>
-          </div>
-        </div>
+        </div><!-- end walkthrough-cards-wrap -->
 
       </div><!-- end walkthrough-sticky -->
     </section>
@@ -536,7 +540,7 @@
           <div class="stat-text">Years of Experience</div>
         </div>
         <div class="mobile-stat-pill">
-          <div class="stat-value counter" data-target="100000">0</div>
+          <div class="stat-value counter" data-target="150000">0</div>
           <div class="stat-text">Persons Treated</div>
         </div>
       </div>
