@@ -3428,7 +3428,7 @@ p {
   }
 
   .nav__item.dropdown.active > .dropdown-toggle {
-    border-radius: 999px 999px 0 0 !important;
+    border-radius: 999px !important;
   }
 
   .nav__link::after {
