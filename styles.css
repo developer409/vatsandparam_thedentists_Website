@@ -646,6 +646,7 @@ p {
     pointer-events: auto !important;
     z-index: 5999 !important;
     will-change: right !important;
+    border-radius: 20px !important;
   }
 
   /* Clears the hamburger/X toggle (fixed at the top of the bar) so the first
@@ -1379,8 +1380,8 @@ p {
 }
 
 .dropdown-toggle::after {
-  content: '▾';
-  font-size: 0.8rem;
+  content: '▶';
+  font-size: 1.2rem;
   transition: transform 0.3s ease;
   position: static;
   width: auto;
@@ -3346,6 +3347,7 @@ p {
     opacity: 1 !important;
     visibility: visible !important;
     pointer-events: auto !important;
+    border-radius: 20px;
   }
 
   .nav__menu.open {
@@ -3361,21 +3363,28 @@ p {
     flex-direction: column;
     align-items: stretch;
     width: 100%;
+    gap: 0.5rem;
     padding: 0.75rem var(--space-lg) var(--space-lg);
     opacity: 1 !important;
     visibility: visible !important;
+    background: none !important;
+    border-radius: 0 !important;
   }
 
-  /* Force dark black text inside the mobile menu regardless of nav theme */
+  /* Force dark black text inside the mobile menu regardless of nav theme,
+     and render each item as its own pill/chip with a maroon border. */
   .nav__menu .nav__link,
   .nav.nav--transparent .nav__menu .nav__link,
   .nav--over-dark .nav__menu .nav__link,
   .nav--over-light .nav__menu .nav__link,
   .nav__menu .nav__link {
     color: #1A1A1A !important;
-    padding: 0.8rem 0;
-    border-bottom: 1px solid var(--color-border);
+    padding: 0.75rem 1.1rem;
+    border: 1px solid var(--color-navy) !important;
+    background: none;
+    border-radius: 999px;
     font-size: var(--fs-body);
+    text-align: center;
     opacity: 1 !important;
     visibility: visible !important;
     display: block !important;
@@ -3391,13 +3400,34 @@ p {
   .nav.nav--transparent .nav__menu .nav__link.active,
   .nav--over-dark .nav__menu .nav__link.active,
   .nav--over-light .nav__menu .nav__link.active {
-    color: #1A1A1A !important;
+    color: #fff !important;
+    background: var(--color-navy) !important;
+    border: 1px solid var(--color-navy) !important;
+    font-weight: 600;
   }
 
   .nav__menu .dropdown-toggle,
   .nav.nav--transparent .nav__menu .dropdown-toggle,
   .nav--over-dark .nav__menu .dropdown-toggle {
     color: #1A1A1A !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 0.4rem !important;
+    cursor: pointer;
+    position: relative !important;
+    text-align: center !important;
+  }
+
+  .nav__menu .dropdown-toggle::after {
+    position: static !important;
+    margin-left: 0 !important;
+    font-size: 1.1rem !important;
+    color: var(--color-navy) !important;
+  }
+
+  .nav__item.dropdown.active > .dropdown-toggle {
+    border-radius: 999px 999px 0 0;
   }
 
   .nav__link::after {
@@ -3411,11 +3441,21 @@ p {
     visibility: visible;
     box-shadow: none;
     border: none;
-    padding: 0 0 0 1rem;
-    display: block;
-    background: transparent;
+    padding: 0.4rem 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    background: none;
+    border-radius: 0 0 18px 18px;
     min-width: auto;
     backdrop-filter: none;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, border-color 0.3s ease;
+  }
+
+  .nav__item.dropdown.active .dropdown-menu {
+    max-height: 400px;
   }
 
   .dropdown-menu::before {
@@ -3423,13 +3463,15 @@ p {
   }
 
   .dropdown-item {
-    padding: 0.6rem 0.5rem;
+    padding: 0.65rem 1rem;
     font-size: 0.85rem;
-    border-bottom: 1px solid rgba(0,0,0,0.05);
+    border-bottom: none;
+    border-radius: 999px;
     display: block !important;
     visibility: visible !important;
     color: #1A1A1A !important;
     opacity: 1 !important;
+    text-align: center;
   }
 
   .dropdown-item:hover {
@@ -3437,7 +3479,9 @@ p {
   }
 
   .dropdown-toggle::after {
-    display: none;
+    display: inline-block;
+    position: static;
+    margin-left: 0;
   }
 
   .nav__cta {
@@ -5728,6 +5772,15 @@ p {
   background-color: var(--color-gold) !important;
 }
 
+/* The chevron on About/Resources reuses the .nav__link::after pseudo-element
+   (normally an animated underline bar), so it inherits the gold background
+   above. Keep it a plain glyph with no fill, on every nav theme. */
+.nav.nav--transparent .nav__link.dropdown-toggle::after,
+.nav--over-dark .nav__link.dropdown-toggle::after,
+.nav--over-light .nav__link.dropdown-toggle::after {
+  background: none !important;
+}
+
 .nav.nav--transparent .nav__toggle span {
   background-color: #fff !important;
 }
@@ -5750,6 +5803,32 @@ p {
 }
 .nav.nav--transparent.nav--over-light .nav__toggle span {
   background-color: var(--color-navy) !important;
+}
+
+/* Contact icon follows the same adaptive theming as the nav links/logo above:
+   white on dark/transparent hero states, navy once over a light section (the
+   combined transparent+over-light case needs its own override for the same
+   reason as the text rules above it). */
+.nav.nav--over-dark .nav__contact-icon,
+.nav.nav--transparent .nav__contact-icon {
+  border-color: #fff !important;
+  color: #fff !important;
+}
+.nav.nav--over-dark .nav__contact-icon:hover,
+.nav.nav--over-dark .nav__contact-icon.active,
+.nav.nav--transparent .nav__contact-icon:hover,
+.nav.nav--transparent .nav__contact-icon.active {
+  background: #fff !important;
+  color: var(--color-navy) !important;
+}
+.nav.nav--transparent.nav--over-light .nav__contact-icon {
+  border-color: var(--color-navy) !important;
+  color: var(--color-navy) !important;
+}
+.nav.nav--transparent.nav--over-light .nav__contact-icon:hover,
+.nav.nav--transparent.nav--over-light .nav__contact-icon.active {
+  background: var(--color-navy) !important;
+  color: #fff !important;
 }
 
 /* Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â

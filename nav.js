@@ -3,7 +3,9 @@
 
     const navToggle = document.getElementById('navToggle');
     const navMenu = document.getElementById('navMenu');
-    const navLinks = document.querySelectorAll('.nav__link, .dropdown-item');
+    // Excludes .dropdown-toggle: those only expand/collapse their submenu on
+    // mobile (see below) and must not also close the whole menu on tap.
+    const navLinks = document.querySelectorAll('.nav__link:not(.dropdown-toggle), .dropdown-item');
 
     // Toggle Mobile Menu
     if (navToggle && navMenu) {
