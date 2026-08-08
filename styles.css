@@ -5455,6 +5455,14 @@ p {
   .discovery-item--right {
     justify-content: center;
     padding: 0 5%;
+    height: auto;
+    min-height: 60vh;
+  }
+
+  .discovery-item:has(.discovery-content--image-card) {
+    height: auto;
+    min-height: 55vh;
+    padding: 2rem 1.25rem;
   }
 }
 
