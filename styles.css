@@ -8920,7 +8920,7 @@ p {
 
   /* ---- Discovery / About / Approach sections ---- */
   .discovery-item { padding: 3rem 1.25rem; }
-  .discovery-item:not(.discovery-item--full):not(.discovery-item--spacer):not(.discovery-item--title-only) { height: 75vh; }
+  .discovery-item:not(.discovery-item--full):not(.discovery-item--spacer):not(.discovery-item--title-only) { height: 50vh; }
   .discovery-item--full { height: auto; min-height: 75vh; }
   .discovery-item--title-only { height: auto; min-height: 0; padding: 2.5rem 1.25rem 0.5rem; }
   .discovery-content:not(.discovery-content--hero) h3 { font-size: 1.4rem; }
