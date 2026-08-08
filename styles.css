@@ -5461,7 +5461,7 @@ p {
 
   .discovery-item:has(.discovery-content--image-card) {
     height: auto;
-    min-height: 55vh;
+    min-height: 75vh;
     padding: 2rem 1.25rem;
   }
 }
