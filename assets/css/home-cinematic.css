@@ -332,6 +332,9 @@
 .home-cinematic .discovery-wide-card {
   --stagger: 0;
   --ce: clamp(0, calc((var(--enter) - var(--stagger)) / 0.62), 1);
+  /* Cards start light and brighten as they fully resolve, so step 1 is
+     subtle and steps 2-3 are bold. */
+  filter: brightness(calc(0.65 + var(--ce) * 0.35));
 }
 
 .home-cinematic .discovery-wide-grid > .discovery-wide-card:nth-child(1) { --stagger: 0.00; }
