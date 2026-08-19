@@ -5541,7 +5541,14 @@ p {
     flex: 0 0 min(85vw, 340px);
     scroll-snap-align: start;
   }
+}
 
+/* Swipe instruction hint - hide on desktop, show only on mobile */
+.values-swipe-hint {
+  display: none;
+}
+
+@media (max-width: 500px) {
   /* Swipe instruction hint - positioned outside the dark panel */
   .values-swipe-hint {
     position: absolute;
