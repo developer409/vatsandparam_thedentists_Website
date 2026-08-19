@@ -110,7 +110,7 @@
   inset: 0;
   z-index: 2;
   pointer-events: none;
-  opacity: var(--hc-grade-strength);
+  opacity: 0;
   background: radial-gradient(120% 90% at 20% 30%, rgba(92, 10, 10, 0.55), transparent 70%);
   transition: background 1.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 1.4s ease;
 }
