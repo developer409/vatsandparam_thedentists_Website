@@ -939,7 +939,12 @@ p {
   /* ---- Ensure full width on mobile ---- */
   html, body {
     width: 100% !important;
-    overflow-x: hidden !important;
+    /* `clip` rather than `hidden`: both prevent sideways scrolling, but
+       `hidden` makes these elements scroll containers, which silently
+       disables position:sticky for every descendant — that broke the
+       pinned background video and the pinned step row on mobile.
+       `clip` does not establish a scroll container, so sticky works. */
+    overflow-x: clip !important;
     max-width: 100% !important;
   }
 
@@ -5253,9 +5258,111 @@ p {
   padding: 0 10%;
 }
 
+/* Our Story + Our Mission: two cards in one row, joined by a connector
+   line that draws in as the mission card arrives (see home-cinematic.css
+   for the scroll-driven stagger). */
+.discovery-duo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xl);
+  max-width: 1100px;
+  width: 100%;
+}
+
+.discovery-duo-card {
+  /* Overrides display:flex from .discovery-item — the mission card also
+     carries that class (see home.html) purely so the scroll-spy/story-rail
+     can track it as its own chapter; its content must still stack normally. */
+  display: block;
+  height: auto;
+  flex: 1 1 0;
+  max-width: 460px;
+  background: rgba(92, 10, 10, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: var(--space-2xl);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.discovery-duo-card h3 {
+  color: #fff;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+}
+
+.discovery-duo-card p {
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 1.1rem;
+}
+
+/* Connector: a dot that appears with the story card, and a bar that
+   draws out from it afterwards to reach the mission card. Kept as two
+   elements (rather than one line with pseudo-dots) so the dot can stay
+   visible on its own before the line has any length — see the
+   scroll-driven timing in home-cinematic.css. */
+.discovery-duo-connector {
+  position: relative;
+  flex: 0 0 auto;
+  width: 90px;
+  height: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.discovery-duo-dot {
+  flex: 0 0 auto;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-gold);
+  box-shadow: 0 0 0 4px rgba(198, 167, 94, 0.18);
+}
+
+.discovery-duo-line {
+  flex: 1 1 auto;
+  height: 2px;
+  margin-left: 8px;
+  background: var(--color-gold);
+  transform-origin: left center;
+}
+
+@media (max-width: 820px) {
+  .discovery-duo {
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .discovery-duo-card {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .discovery-duo-connector {
+    width: 8px;
+    height: 46px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .discovery-duo-line {
+    width: 2px;
+    height: auto;
+    margin-left: 0;
+    margin-top: 8px;
+    transform-origin: top center;
+  }
+}
+
 .discovery-item--spacer {
   height: 20vh;
   pointer-events: none;
+}
+
+.discovery-item--approach-hero {
+  height: 100vh;
+  min-height: 600px;
+  justify-content: center;
+  padding: 0 10%;
 }
 
 .discovery-item--full {
@@ -7477,6 +7584,116 @@ p {
   animation-delay: 0.4s;
 }
 
+/* ----- Story progress rail (home.html discovery section) -----
+   Replaces a generic "scroll for more" nudge with a rail that tracks which
+   chapter of the home page story the visitor is in: the line fills toward
+   the active dot, and dots are clickable to jump straight to a chapter. */
+.story-rail {
+  position: fixed;
+  right: 28px;
+  top: 50%;
+  z-index: 40;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 220px;
+  opacity: 0;
+  transform: translateY(-50%) translateX(10px);
+  pointer-events: none;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.story-rail.is-visible {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+  pointer-events: auto;
+}
+
+.story-rail__track,
+.story-rail__track-fill {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 1px;
+  transform: translateX(-50%);
+}
+
+.story-rail__track {
+  height: 100%;
+  background: rgba(255, 255, 255, 0.25);
+  z-index: 0;
+}
+
+.story-rail__track-fill {
+  height: 0%;
+  background: var(--color-gold);
+  z-index: 1;
+  transition: height 0.5s ease;
+}
+
+.story-rail__dot {
+  position: relative;
+  z-index: 2;
+  width: 10px;
+  height: 10px;
+  margin: 0;
+  padding: 0;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  background: rgba(0, 0, 0, 0.35);
+  cursor: pointer;
+  transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+}
+
+.story-rail__dot:hover,
+.story-rail__dot:focus-visible {
+  border-color: var(--color-gold);
+  transform: scale(1.25);
+}
+
+.story-rail__dot:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 3px;
+}
+
+.story-rail__dot.is-active {
+  background: var(--color-gold);
+  border-color: var(--color-gold);
+  transform: scale(1.3);
+}
+
+.story-rail__label {
+  position: absolute;
+  right: calc(100% + 14px);
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+}
+
+.story-rail__dot:hover .story-rail__label,
+.story-rail__dot:focus-visible .story-rail__label {
+  opacity: 1;
+  visibility: visible;
+}
+
+@media (max-width: 1024px) {
+  .story-rail {
+    display: none;
+  }
+}
+
 /* about.html's hero has a large intro-text block that fills nearly the entire width
    and height of the bottom of the video, so there's no empty spot to tuck a hint into
    â€” instead of chasing free space, pin this one to the viewport with its own blurred
@@ -8928,7 +9145,8 @@ p {
 
   /* ---- Discovery / About / Approach sections ---- */
   .discovery-item { padding: 3rem 1.25rem; }
-  .discovery-item:not(.discovery-item--full):not(.discovery-item--spacer):not(.discovery-item--title-only) { height: 50vh; }
+  .discovery-item:not(.discovery-item--full):not(.discovery-item--spacer):not(.discovery-item--title-only):not(.discovery-item--approach-hero):not(.discovery-duo-card) { height: 50vh; }
+  .discovery-item--approach-hero { height: 100vh; min-height: 520px; padding: 3rem 1.25rem; }
   .discovery-item--full { height: auto; min-height: 75vh; }
   .discovery-item--title-only { height: auto; min-height: 0; padding: 2.5rem 1.25rem 0.5rem; }
   .discovery-content:not(.discovery-content--hero) h3 { font-size: 1.4rem; }

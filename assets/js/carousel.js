@@ -13,11 +13,11 @@
     var cards = Array.from(track.children);
     var currentIndex = 0;
 
-    function isMobile() { return window.innerWidth <= 540; }
+    function isMobile() { return window.innerWidth <= 820; }
 
     function getVisible() {
-      if (window.innerWidth <= 540) return 1;
-      if (window.innerWidth <= 900) return 2;
+      if (window.innerWidth <= 820) return 1;
+      if (window.innerWidth <= 1024) return 2;
       return 3;
     }
 

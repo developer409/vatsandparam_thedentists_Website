@@ -16,6 +16,8 @@
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="assets/css/cards.css">
+  <link rel="stylesheet" href="assets/css/home-cinematic.css">
 </head>
 
 <body>
@@ -83,16 +85,32 @@
 
   <!-- ========== HOME PAGE ========== -->
   <section id="page-home">
-    <section class="discovery-section" data-nav="dark">
+    <!-- Story progress rail: fills in gold as the visitor moves through the sections below -->
+    <nav class="story-rail" id="storyRail" aria-label="Page section progress">
+      <span class="story-rail__track"></span>
+      <span class="story-rail__track-fill" id="storyRailFill"></span>
+      <button class="story-rail__dot" data-target="chapter-story" aria-label="Jump to Our Story"><span class="story-rail__label">Our Story</span></button>
+      <button class="story-rail__dot" data-target="chapter-mission" aria-label="Jump to Our Mission"><span class="story-rail__label">Our Mission</span></button>
+      <button class="story-rail__dot" data-target="chapter-values" aria-label="Jump to Our Core Values"><span class="story-rail__label">Core Values</span></button>
+      <button class="story-rail__dot" data-target="chapter-impact" aria-label="Jump to Our Impact"><span class="story-rail__label">Our Impact</span></button>
+      <button class="story-rail__dot" data-target="chapter-cta" aria-label="Jump to end"><span class="story-rail__label">Continue</span></button>
+    </nav>
+    <section class="discovery-section home-cinematic fx-cards" data-nav="dark" data-chapter="story">
       <div class="immersive-bg">
         <video autoplay muted loop playsinline preload="metadata" class="discovery-video" id="aboutVideo"></video>
+        <!-- Layers over the pinned video: per-chapter colour grade, vignette
+             for text contrast, and fine grain for a filmic surface. -->
+        <div class="hc-grade" aria-hidden="true"></div>
+        <div class="hc-vignette" aria-hidden="true"></div>
+        <div class="hc-grain" aria-hidden="true"></div>
         <button class="discovery-video-pause" id="aboutVideoPause" aria-label="Pause background video">⏸</button>
       </div>
 
       <!-- Hero panel: visible on load -->
       <div class="discovery-item discovery-item--centered">
         <div class="discovery-content discovery-content--hero discovery-content--visible">
-          <h3>A New Standard in Dental Care</h3>
+          <h3 class="hc-words">A New Standard in Dental Care</h3>
+          <span class="hc-rule" aria-hidden="true"></span>
           <p>Founded on the belief that oral health is inseparable from overall wellness, Vats &amp; Param delivers comprehensive, personalized care with diagnostic precision for every individual.</p>
         </div>
 
@@ -108,34 +126,43 @@
         </div>
       </div>
 
-      <!-- Our Story -->
-      <div class="discovery-item fade-in-scroll">
-        <div class="discovery-content">
-          <span class="section-label">Our Story</span>
-          <h3>Where It All Began</h3>
-          <p>Vats &amp; Param was established with a singular vision: to transform how dentistry is practiced. With over 50 years of combined clinical experience, we treat the whole person, not isolated symptoms. We are trained under standardized global protocols and continuously update our methods with the latest evidence-based research.</p>
-        </div>
-      </div>
-
-      <!-- Our Mission -->
-      <div class="discovery-item fade-in-scroll discovery-item--right">
-        <div class="discovery-content">
-          <span class="section-label">Our Mission</span>
-          <h3>Root-Cause, Not Quick-Fix</h3>
-          <p>To provide diagnostic-first, root-cause focused dental care that treats the whole person delivering lasting health, not temporary relief.</p>
+      <!-- Our Story & Our Mission — story swings in first with just a gold
+           dot beside it; once story has fully settled the line draws out
+           from that dot, and only once the line is nearly drawn does the
+           mission card arrive from the right, so mission never appears
+           until the connection has visibly been made. -->
+      <div class="discovery-item discovery-item--full fade-in-scroll" id="chapter-story" data-chapter="story">
+        <div class="discovery-duo">
+          <div class="discovery-duo-card discovery-duo-card--story">
+            <span class="section-label">Our Story</span>
+            <span class="hc-rule" aria-hidden="true"></span>
+            <h3 class="hc-words">Where It All Began</h3>
+            <p>Vats &amp; Param was founded to transform how dentistry is practiced. With over 50 years of combined clinical experience, we treat the whole person, not isolated symptoms, guided by standardized, evidence-based protocols.</p>
+          </div>
+          <span class="discovery-duo-connector" aria-hidden="true">
+            <span class="discovery-duo-dot"></span>
+            <span class="discovery-duo-line"></span>
+          </span>
+          <div class="discovery-item discovery-duo-card discovery-duo-card--mission" id="chapter-mission" data-chapter="mission">
+            <span class="section-label">Our Mission</span>
+            <span class="hc-rule" aria-hidden="true"></span>
+            <h3 class="hc-words">Root-Cause, Not Quick-Fix</h3>
+            <p>To provide diagnostic-first, root-cause focused dental care that treats the whole person delivering lasting health, not temporary relief.</p>
+          </div>
         </div>
       </div>
 
       <!-- Core Values title -->
-      <div class="discovery-item discovery-item--centered discovery-item--title-only fade-in-scroll">
+      <div class="discovery-item discovery-item--centered discovery-item--title-only fade-in-scroll" id="chapter-values" data-chapter="values">
         <div class="discovery-content discovery-content--hero">
           <span class="section-label">What Defines Us</span>
-          <h3>Our Core Values</h3>
+          <h3 class="hc-words">Our Core Values</h3>
+          <span class="hc-rule" aria-hidden="true"></span>
         </div>
       </div>
 
       <!-- Core Values cards -->
-      <div class="discovery-item discovery-item--full fade-in-scroll">
+      <div class="discovery-item discovery-item--full fade-in-scroll" data-chapter="values">
         <div class="discovery-panel-wrap">
           <div class="discovery-panel-box">
             <div class="discovery-wide-grid">
@@ -160,29 +187,30 @@
       </div>
 
       <!-- Impact title -->
-      <div class="discovery-item discovery-item--centered discovery-item--title-only fade-in-scroll">
+      <div class="discovery-item discovery-item--centered discovery-item--title-only fade-in-scroll" id="chapter-impact" data-chapter="impact">
         <div class="discovery-content discovery-content--hero">
           <span class="section-label">By the Numbers</span>
-          <h3>Our Impact</h3>
+          <h3 class="hc-words">Our Impact</h3>
+          <span class="hc-rule" aria-hidden="true"></span>
         </div>
       </div>
 
       <!-- Impact stats -->
-      <div class="discovery-item discovery-item--full fade-in-scroll">
+      <div class="discovery-item discovery-item--full fade-in-scroll" data-chapter="impact">
         <div class="discovery-panel-wrap">
           <div class="discovery-panel-box">
             <div class="discovery-wide-grid" id="impact-stats">
-              <div class="discovery-wide-card" style="text-align:center;">
-                <div style="font-family:var(--font-heading);font-size:2.8rem;color:var(--color-gold);line-height:1;margin-bottom:var(--space-xs);"><span class="counter-val" data-target="50">0</span>+</div>
-                <div style="font-size:var(--fs-small);color:rgba(255,255,255,0.7);">Years Clinical Experience</div>
+              <div class="discovery-wide-card hc-stat">
+                <div class="hc-stat__num"><span class="counter-val" data-target="50">0</span>+</div>
+                <div class="hc-stat__label">Years Clinical Experience</div>
               </div>
-              <div class="discovery-wide-card" style="text-align:center;">
-                <div style="font-family:var(--font-heading);font-size:2.8rem;color:var(--color-gold);line-height:1;margin-bottom:var(--space-xs);"><span class="counter-val" data-target="150">0</span>K+</div>
-                <div style="font-size:var(--fs-small);color:rgba(255,255,255,0.7);">Persons Treated</div>
+              <div class="discovery-wide-card hc-stat">
+                <div class="hc-stat__num"><span class="counter-val" data-target="150">0</span>K+</div>
+                <div class="hc-stat__label">Persons Treated</div>
               </div>
-              <div class="discovery-wide-card" style="text-align:center;">
-                <div style="font-family:var(--font-heading);font-size:2.8rem;color:var(--color-gold);line-height:1;margin-bottom:var(--space-xs);"><span class="counter-val" data-target="20">0</span>+</div>
-                <div style="font-size:var(--fs-small);color:rgba(255,255,255,0.7);">Advanced Certifications</div>
+              <div class="discovery-wide-card hc-stat">
+                <div class="hc-stat__num"><span class="counter-val" data-target="20">0</span>+</div>
+                <div class="hc-stat__label">Advanced Certifications</div>
               </div>
             </div>
           </div>
@@ -190,12 +218,12 @@
       </div>
 
       <!-- Final CTA Item inside discovery-section to play video in background -->
-      <div class="discovery-item discovery-item--centered fade-in-scroll">
+      <div class="discovery-item discovery-item--centered fade-in-scroll" id="chapter-cta" data-chapter="cta">
         <div class="discovery-content" style="text-align: center; max-width: 600px;">
           <span class="section-label">Continue Exploring</span>
-          <h3 style="margin-bottom: var(--space-sm);">Want to Know More About Us?</h3>
+          <h3 class="hc-words" style="margin-bottom: var(--space-sm);">Want to Know More About Us?</h3>
           <p style="margin-bottom: var(--space-lg); color: rgba(255, 255, 255, 0.85);">Discover the philosophy, people, and whole-body approach behind Vats &amp; Param — and see what makes our care different.</p>
-          <a href="about.html" class="btn btn--gold-solid">About Us</a>
+          <a href="about.html" class="btn btn--gold-solid hc-cta-btn fx-magnetic">About Us</a>
         </div>
       </div>
 
@@ -339,6 +367,7 @@
   </a>
 
   <script src="nav.js"></script>
+  <script src="assets/js/cards.js"></script>
   <script src="assets/js/home.js"></script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -16,6 +16,8 @@
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="assets/css/cards.css">
+  <link rel="stylesheet" href="assets/css/hsteps.css">
   <style>
     /* #page-approach's background is only made transparent while it's the active SPA page in
        index.html (body:has(#page-approach.active) in styles.css); here it's always the page. */
@@ -79,14 +81,14 @@
   <!-- ========== APPROACH PAGE ========== -->
   <section id="page-approach">
     <!-- Scroll Discovery "Our Methodology" -->
-    <section class="discovery-section" data-nav="dark">
+    <section class="discovery-section fx-cards" data-nav="dark">
       <div class="immersive-bg">
         <video autoplay muted loop playsinline preload="metadata" class="discovery-video" id="approachVideo"></video>
-        <button class="discovery-video-pause" id="approachVideoPause" aria-label="Pause background video">â¸</button>
+        <button class="discovery-video-pause" id="approachVideoPause" aria-label="Pause background video">⏸</button>
       </div>
 
       <!-- Methodology intro panel: visible on load, centered over video -->
-      <div class="discovery-item discovery-item--centered">
+      <div class="discovery-item discovery-item--centered discovery-item--approach-hero">
         <div class="discovery-content discovery-content--hero discovery-content--visible">
           <span class="section-label">Our Methodology</span>
           <h3>The Vats &amp; Param Method</h3>
@@ -105,73 +107,134 @@
         </div>
       </div>
 
-      <!-- Extra spacer to push Step 01 further down -->
-      <div class="discovery-item discovery-item--spacer"></div>
+      <!-- ===== Method steps: horizontal pinned row =====
+           The section pins while vertical scroll is translated into
+           horizontal travel. The next card is always already on screen
+           at the right edge, and off-focus cards dim rather than
+           disappear, so advancing never leaves a blank frame.
+           Driven by assets/js/hsteps.js + assets/css/hsteps.css. -->
+      <div class="hsteps" id="methodSteps">
+        <div class="hsteps__sticky">
 
-      <div class="discovery-item fade-in-scroll">
-        <div class="discovery-content">
-          <span class="section-label">Step 01</span>
-          <h3>Deep Diagnostic Discovery</h3>
-          <p>We don't just "check" your teeth. We map your entire biological state using 3D imaging and systemic analysis.</p>
-        </div>
-      </div>
-
-      <div class="discovery-item fade-in-scroll">
-        <div class="discovery-content">
-          <span class="section-label">Step 02</span>
-          <h3>Analytical Root Cause Analysis</h3>
-          <p>Our doctors spend hours analyzing the "why" behind your symptoms to ensure we're not just patching a problem.</p>
-        </div>
-      </div>
-
-      <div class="discovery-item fade-in-scroll">
-        <div class="discovery-content">
-          <span class="section-label">Step 03</span>
-          <h3>Expert Case Review</h3>
-          <p>Every complex case is reviewed by our inter-disciplinary team to design a robust, long-term health roadmap.</p>
-        </div>
-      </div>
-
-      <!-- Centred title before Assessment image cards -->
-      <div class="discovery-item discovery-item--centered fade-in-scroll">
-        <div class="discovery-content discovery-content--hero">
-          <span class="section-label">The Assessment</span>
-          <h3>A Journey of Clarity</h3>
-          <p>See how we build your personalized health blueprint through visual precision.</p>
-        </div>
-      </div>
-
-      <!-- The Assessment panels as scroll discovery items with images -->
-      <div class="discovery-item fade-in-scroll discovery-item--right">
-        <div class="discovery-content discovery-content--image-card">
-          <img src="assets/diagnostic_doctor_view_1777895615895.png" alt="Diagnostic Mapping" class="discovery-card-img">
-          <div class="discovery-card-text">
-            <span class="section-label">The Assessment</span>
-            <h3>01. Systemic Mapping</h3>
-            <p>Connecting oral findings to whole-body systems.</p>
+          <div class="hsteps__head hsteps__head--center">
+            <span class="section-label">The Method</span>
+            <h3>Three Steps to the Root Cause</h3>
+            <div class="hsteps__rail">
+              <button class="hsteps__dot is-active" aria-label="Step 01: Deep Diagnostic Discovery">01</button>
+              <span class="hsteps__rail-seg" aria-hidden="true"></span>
+              <button class="hsteps__dot" aria-label="Step 02: Analytical Root Cause Analysis">02</button>
+              <span class="hsteps__rail-seg" aria-hidden="true"></span>
+              <button class="hsteps__dot" aria-label="Step 03: Expert Case Review">03</button>
+            </div>
           </div>
+
+          <div class="hsteps__viewport">
+            <div class="hsteps__track">
+
+              <article class="hstep-card">
+                <span class="hstep-card__ghost" aria-hidden="true">01</span>
+                <span class="hstep-card__label">Step 01</span>
+                <h4>Deep Diagnostic Discovery</h4>
+                <p>We don't just "check" your teeth. We map your entire biological state using 3D imaging and systemic analysis.</p>
+              </article>
+
+              <button class="hstep-arrow" data-to="1" aria-label="Go to step 02">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </button>
+
+              <article class="hstep-card">
+                <span class="hstep-card__ghost" aria-hidden="true">02</span>
+                <span class="hstep-card__label">Step 02</span>
+                <h4>Analytical Root Cause Analysis</h4>
+                <p>Our doctors spend hours analyzing the "why" behind your symptoms to ensure we're not just patching a problem.</p>
+              </article>
+
+              <button class="hstep-arrow" data-to="2" aria-label="Go to step 03">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </button>
+
+              <article class="hstep-card">
+                <span class="hstep-card__ghost" aria-hidden="true">03</span>
+                <span class="hstep-card__label">Step 03</span>
+                <h4>Expert Case Review</h4>
+                <p>Every complex case is reviewed by our inter-disciplinary team to design a robust, long-term health roadmap.</p>
+              </article>
+
+            </div>
+          </div>
+
+          <div class="hsteps__hint" aria-hidden="true">
+            <span>Keep scrolling</span><i></i>
+          </div>
+
         </div>
       </div>
 
-      <div class="discovery-item fade-in-scroll">
-        <div class="discovery-content discovery-content--image-card">
-          <img src="assets/assessment_visual_sequence_1777895884507.png" alt="Functional Analysis" class="discovery-card-img">
-          <div class="discovery-card-text">
-            <span class="section-label">The Assessment</span>
-            <h3>02. Functional Analysis</h3>
-            <p>Evaluating jaw structure, airway, and bite dynamics.</p>
-          </div>
-        </div>
-      </div>
+      <!-- ===== The Assessment: horizontal pinned row =====
+           Same engine as the Method Steps row above (assets/js/hsteps.js
+           is generic over every .hsteps on the page), with image cards
+           instead of text-only ones via the .hstep-card--media modifier. -->
+      <div class="hsteps hsteps--center-start" id="assessmentSteps">
+        <div class="hsteps__sticky">
 
-      <div class="discovery-item fade-in-scroll discovery-item--right">
-        <div class="discovery-content discovery-content--image-card">
-          <img src="assets/holistic_relief_smile_1777895539965.png" alt="The Solution" class="discovery-card-img">
-          <div class="discovery-card-text">
+          <div class="hsteps__head hsteps__head--center">
             <span class="section-label">The Assessment</span>
-            <h3>03. Long-Term Health</h3>
-            <p>Designing the roadmap to lasting whole-body wellness.</p>
+            <h3>A Journey of Clarity</h3>
+            <p>See how we build your personalized health blueprint through visual precision.</p>
+            <div class="hsteps__rail">
+              <button class="hsteps__dot is-active" aria-label="01: Systemic Mapping">01</button>
+              <span class="hsteps__rail-seg" aria-hidden="true"></span>
+              <button class="hsteps__dot" aria-label="02: Functional Analysis">02</button>
+              <span class="hsteps__rail-seg" aria-hidden="true"></span>
+              <button class="hsteps__dot" aria-label="03: Long-Term Health">03</button>
+            </div>
           </div>
+
+          <div class="hsteps__viewport">
+            <div class="hsteps__track">
+
+              <article class="hstep-card hstep-card--media">
+                <img src="assets/diagnostic_doctor_view_1777895615895.png" alt="Diagnostic Mapping" class="hstep-card__img">
+                <div class="hstep-card__body">
+                  <span class="hstep-card__label">Step 01</span>
+                  <h4>Systemic Mapping</h4>
+                  <p>Connecting oral findings to whole-body systems.</p>
+                </div>
+              </article>
+
+              <button class="hstep-arrow" data-to="1" aria-label="Go to step 02">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </button>
+
+              <article class="hstep-card hstep-card--media">
+                <img src="assets/assessment_visual_sequence_1777895884507.png" alt="Functional Analysis" class="hstep-card__img">
+                <div class="hstep-card__body">
+                  <span class="hstep-card__label">Step 02</span>
+                  <h4>Functional Analysis</h4>
+                  <p>Evaluating jaw structure, airway, and bite dynamics.</p>
+                </div>
+              </article>
+
+              <button class="hstep-arrow" data-to="2" aria-label="Go to step 03">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </button>
+
+              <article class="hstep-card hstep-card--media">
+                <img src="assets/holistic_relief_smile_1777895539965.png" alt="The Solution" class="hstep-card__img">
+                <div class="hstep-card__body">
+                  <span class="hstep-card__label">Step 03</span>
+                  <h4>Long-Term Health</h4>
+                  <p>Designing the roadmap to lasting whole-body wellness.</p>
+                </div>
+              </article>
+
+            </div>
+          </div>
+
+          <div class="hsteps__hint" aria-hidden="true">
+            <span>Keep scrolling</span><i></i>
+          </div>
+
         </div>
       </div>
 
@@ -453,6 +516,8 @@
   </a>
 
   <script src="nav.js"></script>
+  <script src="assets/js/cards.js"></script>
+  <script src="assets/js/hsteps.js"></script>
   <script src="assets/js/approach.js"></script>
 </body>
 </html>

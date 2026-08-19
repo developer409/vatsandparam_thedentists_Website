@@ -1,0 +1,463 @@
+/* ============================================================
+   HORIZONTAL PINNED STEPS — approach.html, Method Steps 01–03
+
+   The section is taller than the viewport; an inner wrapper pins
+   with position:sticky, and vertical scroll inside that range is
+   translated into horizontal travel of the card track.
+
+   The brief was that advancing must never leave the screen feeling
+   blank. Three things enforce that:
+     1. Cards are narrower than the viewport, so the next one is
+        always already on screen, peeking in at the right edge.
+     2. Off-focus cards stay fully rendered — dimmed and scaled
+        down via --near, never hidden.
+     3. A connector line runs continuously behind the whole track,
+        so the row reads as one journey rather than separate slides.
+
+   assets/js/hsteps.js writes:
+     --i      float    current position in the row (0 .. n-1)
+     --near   0 -> 1   per card, 1 when it is the focused card
+     --prog   0 -> 1   overall progress, drives the rail fill
+   ============================================================ */
+
+@property --near {
+  syntax: '<number>';
+  inherits: true;
+  initial-value: 1;
+}
+
+/* Set on #methodSteps (.hsteps) itself but read on .hsteps__hint, a
+   descendant several levels down — must inherit or the hint never
+   sees updates and sits stuck at the initial value. */
+@property --prog {
+  syntax: '<number>';
+  inherits: true;
+  initial-value: 0;
+}
+
+.hsteps {
+  --hs-card-w: min(460px, 62vw);
+  --hs-gap: 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.hsteps__sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* ---------- Heading + progress rail ---------- */
+
+.hsteps__head {
+  padding: 0 clamp(1.25rem, 8vw, 10%);
+  margin-bottom: var(--space-md);
+}
+
+.hsteps__head h3 {
+  color: #fff;
+  /* Matches .discovery-content--hero h3 — every other section title on
+     the site (including the page's own hero) uses this size. The
+     Assessment row ("A Journey of Clarity") keeps this full size; the
+     Method row is scaled back down below since it reads better small. */
+  font-size: clamp(2.6rem, 5vw, 4rem);
+  margin: var(--space-xs) 0 var(--space-sm);
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.6);
+}
+
+.hsteps__head p {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: var(--fs-small);
+  max-width: 460px;
+  margin: 0 0 var(--space-sm);
+}
+
+/* Method Steps head ("Three Steps to the Root Cause"): scaled back
+   down from the shared .hsteps__head h3 size above — it reads better
+   small and centred (via the --center modifier below) than at the
+   Assessment row's full size. */
+#methodSteps .hsteps__head h3 {
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+}
+
+/* Centred variant — used by both rows' heads. Scoped to this modifier
+   rather than the base .hsteps__head so it stays opt-in. */
+.hsteps__head--center {
+  text-align: center;
+}
+
+.hsteps__head--center p {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hsteps__head--center .hsteps__rail {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hsteps__rail {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  max-width: 420px;
+}
+
+.hsteps__dot {
+  position: relative;
+  flex-shrink: 0;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: rgba(0, 0, 0, 0.35);
+  color: rgba(255, 255, 255, 0.6);
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    color 0.4s ease,
+    border-color 0.4s ease,
+    background 0.4s ease,
+    box-shadow 0.4s ease,
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.hsteps__dot:hover {
+  border-color: rgba(198, 167, 94, 0.7);
+  color: #fff;
+}
+
+.hsteps__dot.is-active {
+  color: var(--color-navy);
+  background: var(--color-gold);
+  border-color: var(--color-gold);
+  transform: scale(1.12);
+  box-shadow: 0 0 0 6px rgba(198, 167, 94, 0.16);
+}
+
+/* Completed steps stay gold-outlined, so progress is legible at a glance. */
+.hsteps__dot.is-done {
+  border-color: rgba(198, 167, 94, 0.8);
+  color: var(--color-gold);
+}
+
+.hsteps__rail-seg {
+  position: relative;
+  flex: 1;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.2);
+  overflow: hidden;
+}
+
+.hsteps__rail-seg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--color-gold);
+  transform: scaleX(var(--seg, 0));
+  transform-origin: left center;
+  transition: transform 0.25s linear;
+}
+
+/* ---------- Track ---------- */
+
+.hsteps__viewport {
+  position: relative;
+  overflow: hidden;
+  padding: 0 clamp(1.25rem, 8vw, 10%);
+}
+
+/* The continuous line the cards sit on — this is what stops the row
+   reading as disconnected slides. */
+.hsteps__viewport::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(198, 167, 94, 0.28) 12%,
+    rgba(198, 167, 94, 0.28) 88%,
+    transparent
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* The track's transform is written by hsteps.js, which measures the
+   real card-to-card distance from layout rather than recomputing it
+   from width + gap — the inline arrows sit in the flex flow, so a
+   computed value would drift from what is actually on screen. */
+.hsteps__track {
+  display: flex;
+  gap: var(--hs-gap);
+  align-items: stretch;
+  will-change: transform;
+}
+
+/* ---------- Card ---------- */
+
+.hstep-card {
+  --near: 1;
+  position: relative;
+  flex: 0 0 var(--hs-card-w);
+  width: var(--hs-card-w);
+  min-height: 340px;
+  padding: var(--space-xl);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(255, 255, 255, calc(0.12 + var(--near) * 0.22));
+  background: rgba(92, 10, 10, calc(0.30 + var(--near) * 0.28));
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  /* Off-focus cards stay visible — dimmed, never gone. */
+  opacity: calc(0.34 + var(--near) * 0.66);
+  /* --rx/--ry are the cursor tilt written by assets/js/cards.js and
+     registered in cards.css; they rest at 0deg, so folding them in
+     here is inert until the pointer is actually over the card. */
+  transform:
+    perspective(1000px)
+    scale(calc(0.90 + var(--near) * 0.10))
+    rotateX(var(--rx))
+    rotateY(var(--ry));
+  box-shadow: 0 24px 60px rgba(0, 0, 0, calc(var(--near) * 0.45));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 1;
+}
+
+.hstep-card__label {
+  font-family: var(--font-body);
+  font-size: var(--fs-caption);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--color-gold);
+  margin-bottom: var(--space-sm);
+}
+
+.hstep-card h4 {
+  color: #fff;
+  font-family: var(--font-heading);
+  font-size: clamp(1.3rem, 2.2vw, 1.75rem);
+  line-height: 1.25;
+  margin-bottom: var(--space-sm);
+}
+
+.hstep-card p {
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 1.02rem;
+  margin: 0;
+}
+
+/* ---------- Card: media variant (image + text body) ----------
+   Same .hstep-card base (near-based dim/scale/shadow, hover tilt from
+   cards.css) — this just replaces the centred text layout with an
+   image up top and a padded text block below, edge to edge. */
+
+.hstep-card--media {
+  padding: 0;
+  overflow: hidden;
+  justify-content: flex-start;
+}
+
+.hstep-card__img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+  flex-shrink: 0;
+}
+
+.hstep-card__body {
+  padding: var(--space-lg);
+}
+
+/* Oversized ghost numeral, brightening as the card takes focus. */
+.hstep-card__ghost {
+  position: absolute;
+  right: var(--space-md);
+  bottom: -0.18em;
+  font-family: var(--font-heading);
+  font-size: 8rem;
+  font-weight: 700;
+  line-height: 1;
+  color: rgba(198, 167, 94, calc(0.06 + var(--near) * 0.12));
+  pointer-events: none;
+  user-select: none;
+  z-index: -1;
+}
+
+/* Arrow sitting in the gap, pointing at the next card. Doubles as a
+   click target for advancing. */
+.hstep-arrow {
+  flex: 0 0 auto;
+  align-self: center;
+  width: 38px;
+  height: 38px;
+  /* Negative margins cancel the arrow's own footprint so it floats in
+     the gap instead of pushing the cards apart. */
+  margin: 0 calc((var(--hs-gap) + 38px) / -2);
+  border-radius: 50%;
+  border: 1px solid rgba(198, 167, 94, 0.4);
+  background: rgba(0, 0, 0, 0.45);
+  color: var(--color-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 3;
+  transition: background 0.35s ease, transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.35s ease;
+}
+
+.hstep-arrow svg {
+  width: 16px;
+  height: 16px;
+}
+
+.hstep-arrow:hover {
+  background: var(--color-gold);
+  border-color: var(--color-gold);
+  color: var(--color-navy);
+  transform: scale(1.14);
+}
+
+/* ---------- Scroll affordance ---------- */
+
+.hsteps__hint {
+  position: absolute;
+  left: 50%;
+  bottom: 4vh;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: var(--fs-caption);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+  pointer-events: none;
+  /* Valley curve: full strength at step 01 (invites the first scroll),
+     dims through the middle transition, then returns to full strength
+     right as step 03 locks into focus — so there is still a "keep
+     scrolling" cue telling the visitor to continue past this section
+     instead of the hint vanishing before the row is even finished. */
+  opacity: calc(1 - 4 * var(--prog) * (1 - var(--prog)));
+}
+
+.hsteps__hint i {
+  display: block;
+  width: 26px;
+  height: 1px;
+  background: rgba(198, 167, 94, 0.7);
+  animation: hs-nudge 1.9s ease-in-out infinite;
+}
+
+@keyframes hs-nudge {
+  0%, 100% { transform: translateX(0); opacity: 0.5; }
+  50%      { transform: translateX(7px); opacity: 1; }
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 820px) {
+  .hsteps {
+    --hs-card-w: 78vw;
+    --hs-gap: 1rem;
+  }
+
+  .hstep-card {
+    min-height: 300px;
+    padding: var(--space-lg);
+  }
+
+  .hstep-card__ghost {
+    font-size: 5.5rem;
+  }
+
+  .hstep-card__img {
+    height: 150px;
+  }
+
+  .hstep-card--media .hstep-card__body {
+    padding: var(--space-md);
+  }
+
+  .hsteps__head {
+    padding: 0 1.25rem;
+  }
+
+  .hsteps__head p {
+    display: none;
+  }
+
+  .hsteps__viewport {
+    padding: 0 1.25rem;
+  }
+
+  .hsteps__dot {
+    width: 36px;
+    height: 36px;
+    font-size: 0.8rem;
+  }
+
+  /* The arrows are a pointer affordance; on touch the row is driven by
+     scrolling and the dots remain tappable. */
+  .hstep-arrow {
+    display: none;
+  }
+}
+
+/* ---------- Reduced motion ----------
+   Fall back to a plain stacked list: no pinning, no horizontal
+   travel, every card at full strength. */
+
+@media (prefers-reduced-motion: reduce) {
+  .hsteps__sticky {
+    position: static;
+    height: auto;
+    overflow: visible;
+    padding: var(--space-2xl) 0;
+  }
+
+  .hsteps {
+    height: auto !important;
+  }
+
+  .hsteps__track {
+    flex-direction: column;
+    transform: none !important;
+  }
+
+  .hstep-card {
+    flex-basis: auto;
+    width: 100%;
+    max-width: 640px;
+    opacity: 1 !important;
+    transform: none !important;
+    min-height: 0;
+  }
+
+  .hsteps__viewport::before,
+  .hsteps__hint,
+  .hstep-arrow {
+    display: none;
+  }
+
+  .hsteps__hint i {
+    animation: none;
+  }
+}
