@@ -9145,8 +9145,16 @@ p {
 
   /* ---- Discovery / About / Approach sections ---- */
   .discovery-item { padding: 3rem 1.25rem; }
-  .discovery-item:not(.discovery-item--full):not(.discovery-item--spacer):not(.discovery-item--title-only):not(.discovery-item--approach-hero):not(.discovery-duo-card) { height: 50vh; }
+  .discovery-item:not(.discovery-item--full):not(.discovery-item--spacer):not(.discovery-item--title-only):not(.discovery-item--approach-hero):not(.discovery-item--home-hero):not(.discovery-duo-card) { height: 50vh; }
   .discovery-item--approach-hero { height: 100vh; min-height: 520px; padding: 3rem 1.25rem; }
+  /* Home hero: squishing this to 50vh (like a generic panel) left too
+     little room for the title + paragraph + scroll hint, so the hint
+     overlapped the paragraph text. Give it the same full-height
+     treatment as the approach page's hero. Bottom padding is larger
+     than top on purpose — it shifts the flex-centred content up a
+     little, off dead-centre, leaving more breathing room above the
+     scroll hint. */
+  .discovery-item--home-hero { height: 100vh; min-height: 560px; padding: 2rem 1.25rem 6rem; }
   .discovery-item--full { height: auto; min-height: 75vh; }
   .discovery-item--title-only { height: auto; min-height: 0; padding: 2.5rem 1.25rem 0.5rem; }
   .discovery-content:not(.discovery-content--hero) h3 { font-size: 1.4rem; }

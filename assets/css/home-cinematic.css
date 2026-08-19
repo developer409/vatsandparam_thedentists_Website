@@ -189,6 +189,10 @@
   transition: none;
   opacity: calc(var(--enter) * (1 - var(--exit)));
   will-change: transform, opacity;
+  /* Darken cards as they scroll into full view — 0% darker when
+     entering, 22% darker at full --enter. Creates a sense of
+     presence/emphasis as a chapter comes into focus. */
+  filter: brightness(calc(1 - var(--enter) * 0.22));
 }
 
 /* -- Default: rise + settle, with continuous parallax drift so
@@ -225,6 +229,10 @@
   transition: none;
   opacity: calc(var(--ce) * (1 - var(--exit)));
   will-change: transform, opacity;
+  /* Darken duo cards as they reveal — same 22% darkening as other
+     cards, but tied to the card's own --ce (per-card reveal timing)
+     instead of the shared panel --enter. */
+  filter: brightness(calc(1 - var(--ce) * 0.22));
 }
 
 .home-cinematic.hc-ready .discovery-duo-card--story {
@@ -486,8 +494,8 @@
 }
 
 @keyframes hc-bob {
-  0%, 100% { transform: translateY(0); }
-  50%      { transform: translateY(9px); }
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50%      { transform: translateX(-50%) translateY(9px); }
 }
 
 /* ============================================================
