@@ -5386,6 +5386,7 @@ p {
 .discovery-panel-wrap {
   max-width: 1000px;
   width: 100%;
+  position: relative;
 }
 
 .discovery-panel-wrap--narrow {
@@ -5541,15 +5542,19 @@ p {
     scroll-snap-align: start;
   }
 
-  /* Swipe instruction hint */
+  /* Swipe instruction hint - positioned outside the dark panel */
   .values-swipe-hint {
+    position: absolute;
+    bottom: -3rem;
+    left: 50%;
+    transform: translateX(-50%);
     font-size: 0.8rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: rgba(255, 255, 255, 0.6);
     text-align: center;
-    margin-top: 1.5rem;
     pointer-events: none;
+    white-space: nowrap;
   }
 }
 
