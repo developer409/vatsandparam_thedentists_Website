@@ -5524,6 +5524,22 @@ p {
     grid-template-columns: 1fr;
     gap: var(--space-sm);
   }
+
+  /* Core values: horizontal scroll on mobile instead of grid */
+  .discovery-wide-grid--scroll {
+    display: flex;
+    grid-template-columns: auto;
+    gap: 1rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-right: 1.25rem;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .discovery-wide-grid--scroll .discovery-wide-card {
+    flex: 0 0 min(85vw, 340px);
+    scroll-snap-align: start;
+  }
 }
 
 .discovery-content--image-card {
