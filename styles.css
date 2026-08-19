@@ -5540,6 +5540,17 @@ p {
     flex: 0 0 min(85vw, 340px);
     scroll-snap-align: start;
   }
+
+  /* Swipe instruction hint */
+  .values-swipe-hint {
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.6);
+    text-align: center;
+    margin-top: 1.5rem;
+    pointer-events: none;
+  }
 }
 
 .discovery-content--image-card {
