@@ -9155,7 +9155,7 @@ p {
      little, off dead-centre, leaving more breathing room above the
      scroll hint. */
   .discovery-item--home-hero { height: 100vh; min-height: 560px; padding: 2rem 1.25rem 6rem; }
-  .discovery-item--full { height: auto; min-height: 75vh; }
+  .discovery-item--full { height: auto; min-height: 75vh; padding-top: 0.5rem; justify-content: flex-start; }
   .discovery-item--title-only { height: auto; min-height: 0; padding: 2.5rem 1.25rem 0.5rem; }
   .discovery-content:not(.discovery-content--hero) h3 { font-size: 1.4rem; }
   .discovery-content p  { font-size: 0.9rem; }
