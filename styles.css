@@ -8976,6 +8976,10 @@ p {
     width: 100% !important;
     box-sizing: border-box !important;
     background: transparent !important;
+    /* base rule sets overflow:hidden for desktop's video clipping; that turns
+       this into a scroll container on mobile too, which silently disables
+       position:sticky on any descendant (see mbc-mobile's sticky stage). */
+    overflow: visible !important;
   }
 
   .wb-title-screen {
@@ -10220,6 +10224,7 @@ body:has(#page-about.active) {
    ============================================================ */
 @media (max-width: 820px) {
   .walkthrough-section {
+    display: none !important;
     height: auto !important;
     position: relative !important;
     overflow: hidden !important;

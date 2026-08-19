@@ -16,6 +16,7 @@
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="assets/css/mbc-connection.css">
   <style>
     /* #page-about's background is only made transparent while it's the active SPA page in
        index.html (body:has(#page-about.active) in styles.css); here it's always the page. */
@@ -302,7 +303,7 @@
           </div>
         </div>
 
-        <!-- Mobile Image Fallback -->
+        <!-- Original fallback markup (hidden by mbc-connection.js once the interactive version below builds) -->
         <img src="assets/our_clinic_logo/Medical_infographic.jpeg" alt="Mouth-Body Connection Infographic"
           class="wb-mobile-image">
 
@@ -519,6 +520,12 @@
 
       </div><!-- end wb-sticky -->
     </section>
+
+    <!-- Interactive Mouth-Body Connection, desktop + mobile (built by assets/js/mbc-connection.js).
+         A sibling of wholeBodySection, not nested inside it: it builds its own tall scroll track
+         with its own sticky stage, which needs room to pin independently rather than being
+         squeezed inside wb-sticky's already-pinned 100vh box. -->
+    <div class="mbc-connection" id="mbcConnection" aria-hidden="true"></div>
 
     <!-- UNDERSTAND MORE ABOUT US (kept for spacing/nav) -->
     <section class="understand-section" data-nav="light">
@@ -757,6 +764,7 @@
 
   <script src="nav.js" defer></script>
   <script src="assets/js/about.js" defer></script>
+  <script src="assets/js/mbc-connection.js" defer></script>
 </body>
 
 </html>

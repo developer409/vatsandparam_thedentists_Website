@@ -1,0 +1,226 @@
+/* ============================================================
+   MOUTH–BODY CONNECTION — Interactive Experience (desktop + mobile)
+   Progressive enhancement over about.html's original video-parallax
+   Whole Body Connection section. Built by assets/js/mbc-connection.js,
+   which only marks this .is-ready and hides the old markup (video
+   stack, title screen, static mobile image, etc.) once it has
+   actually finished building — a JS failure leaves the original
+   section fully intact instead of a blank one.
+   ============================================================ */
+
+.mbc-connection { display: none; }
+
+.mbc-connection.is-ready {
+  display: block;
+  position: relative;
+  /* html has a global #000 background (for the old video sections);
+     this module paints its own so it isn't relying on that showing
+     through — matches the #ffefef used by .understand-section on mobile
+     for visual continuity there, and reads fine on desktop too. */
+  background: #ffefef;
+  color: var(--color-navy, #5C0A0A);
+  font-family: var(--font-body, 'Inter', sans-serif);
+  -webkit-font-smoothing: antialiased;
+}
+
+.mbcc-track {
+  position: relative;
+  height: 900vh;
+}
+
+.mbcc-stage {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+/* progress bar */
+.mbcc-progress {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: rgba(92, 10, 10, 0.08);
+  z-index: 6;
+}
+.mbcc-progress-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--color-gold, #C6A75E);
+  opacity: 0.85;
+}
+
+/* figure column */
+.mbcc-figure-col {
+  box-sizing: border-box;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mbcc-svg { display: block; overflow: hidden; }
+
+/* content column */
+.mbcc-content-col {
+  box-sizing: border-box;
+  min-width: 0;
+  position: relative;
+}
+.mbcc-eyebrow {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(92, 10, 10, 0.5);
+  margin: 0 0 clamp(10px, 2vh, 24px);
+}
+
+.mbcc-panelbox { position: relative; }
+
+.mbcc-layer {
+  position: absolute;
+  inset: 0;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.mbcc-layer::-webkit-scrollbar { display: none; }
+
+.mbcc-intro-title,
+.mbcc-final-title {
+  font-family: var(--font-heading, 'Playfair Display', serif);
+  font-weight: 600;
+  font-size: clamp(1.7rem, 3.6vw, 3.1rem);
+  line-height: 1.1;
+  margin: 0 0 18px;
+}
+.mbcc-intro-title em,
+.mbcc-final-title em { font-style: italic; color: var(--color-gold-dark, #a8894a); }
+
+.mbcc-intro-text,
+.mbcc-final-text {
+  font-size: clamp(0.92rem, 1.1vw, 1.05rem);
+  line-height: 1.7;
+  color: rgba(26, 26, 26, 0.68);
+  max-width: 44ch;
+  margin: 0;
+}
+
+.mbcc-hint {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 18px;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(92, 10, 10, 0.42);
+}
+.mbcc-hint span.line { display: block; width: 22px; height: 1px; background: rgba(92, 10, 10, 0.3); }
+
+.mbcc-panel-num-row {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin-bottom: 12px;
+}
+.mbcc-panel-num { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; }
+.mbcc-panel-label { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(92, 10, 10, 0.45); }
+
+.mbcc-panel-title {
+  font-family: var(--font-heading, 'Playfair Display', serif);
+  font-weight: 600;
+  font-size: clamp(1.6rem, 3.2vw, 2.7rem);
+  line-height: 1.08;
+  margin: 0 0 8px;
+}
+.mbcc-panel-rule { height: 1px; width: 60px; margin: 0 0 16px; opacity: 0.55; }
+.mbcc-panel-headline {
+  font-family: var(--font-heading, 'Playfair Display', serif);
+  font-style: italic;
+  font-size: clamp(1rem, 1.3vw, 1.2rem);
+  line-height: 1.4;
+  margin: 0 0 12px;
+  color: rgba(26, 26, 26, 0.82);
+}
+.mbcc-panel-body {
+  font-size: clamp(0.9rem, 1.05vw, 1.02rem);
+  line-height: 1.7;
+  color: rgba(26, 26, 26, 0.66);
+  max-width: 48ch;
+  margin: 0 0 16px;
+}
+.mbcc-panel-facts {
+  list-style: none;
+  margin: 0;
+  padding: 14px 0 0;
+  max-width: 44ch;
+  border-top: 1px solid rgba(92, 10, 10, 0.12);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.mbcc-panel-facts li {
+  font-size: 0.82rem;
+  line-height: 1.55;
+  color: rgba(26, 26, 26, 0.55);
+  padding-left: 16px;
+  position: relative;
+  text-align: left;
+}
+.mbcc-panel-facts li::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0.55em;
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0.55;
+}
+
+/* step rail */
+.mbcc-rail {
+  position: absolute;
+  right: clamp(8px, 1.6vw, 26px);
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 5;
+}
+.mbcc-rail-dot { width: 5px; border-radius: 3px; }
+
+/* ---- Stacked (mobile) presentation: centered, tighter type ---- */
+.mbc-connection.mbcc-stacked .mbcc-eyebrow,
+.mbc-connection.mbcc-stacked .mbcc-intro-title,
+.mbc-connection.mbcc-stacked .mbcc-intro-text,
+.mbc-connection.mbcc-stacked .mbcc-final-title,
+.mbc-connection.mbcc-stacked .mbcc-final-text,
+.mbc-connection.mbcc-stacked .mbcc-hint,
+.mbc-connection.mbcc-stacked .mbcc-panel-num-row,
+.mbc-connection.mbcc-stacked .mbcc-panel-title,
+.mbc-connection.mbcc-stacked .mbcc-panel-headline,
+.mbc-connection.mbcc-stacked .mbcc-panel-body {
+  text-align: center;
+}
+.mbc-connection.mbcc-stacked .mbcc-intro-text,
+.mbc-connection.mbcc-stacked .mbcc-final-text,
+.mbc-connection.mbcc-stacked .mbcc-panel-body { margin-left: auto; margin-right: auto; }
+.mbc-connection.mbcc-stacked .mbcc-hint { justify-content: center; }
+.mbc-connection.mbcc-stacked .mbcc-panel-num-row { justify-content: center; }
+.mbc-connection.mbcc-stacked .mbcc-panel-rule { margin-left: auto; margin-right: auto; }
+.mbc-connection.mbcc-stacked .mbcc-panel-facts { margin: 0 auto; }
+.mbc-connection.mbcc-stacked .mbcc-rail { right: 4px; }
+.mbc-connection.mbcc-stacked .mbcc-panel-title,
+.mbc-connection.mbcc-stacked .mbcc-intro-title,
+.mbc-connection.mbcc-stacked .mbcc-final-title { font-size: clamp(1.35rem, 6vw, 1.7rem); }
+.mbc-connection.mbcc-stacked .mbcc-panel-headline { font-size: 0.98rem; }
+.mbc-connection.mbcc-stacked .mbcc-panel-body,
+.mbc-connection.mbcc-stacked .mbcc-intro-text,
+.mbc-connection.mbcc-stacked .mbcc-final-text { font-size: 0.86rem; max-width: 34ch; }
