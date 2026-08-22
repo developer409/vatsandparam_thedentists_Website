@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -283,8 +283,8 @@
       </div><!-- end walkthrough-sticky -->
     </section>
 
-    <!-- SECTION 3: WHOLE BODY CONNECTION â€” PARALLAX SCROLL -->
-    <section class="wb-section" id="wholeBodySection" data-nav="dark">
+    <!-- SECTION 3: WHOLE BODY CONNECTION — PARALLAX SCROLL -->
+    <section class="wb-section" id="wholeBodySection" data-nav="light">
       <div class="wb-sticky">
 
         <!-- Title screen â€” visible on entry, fades as user scrolls -->
@@ -352,6 +352,11 @@
           <div class="wb-video-layer" data-organ="sleep">
             <video autoplay muted loop playsinline preload="auto">
               <source src="assets/videos/whole_body/sleep_glow.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="wb-video-layer" data-organ="posture">
+            <video autoplay muted loop playsinline preload="auto">
+              <source src="assets/videos/whole_body/posture_glow.mp4" type="video/mp4">
             </video>
           </div>
         </div>
@@ -476,19 +481,28 @@
           </div>
 
           <div class="wb-organ-info" data-organ="sleep">
-            <span class="wb-organ-num">09 &nbsp;/&nbsp; 09</span>
-            <h3 class="wb-organ-name">Sleep Disruption</h3>
-            <p class="wb-organ-headline">Poor sleep quality elevates inflammatory markers and impairs tissue healing and
-              immune function</p>
-            <p class="wb-organ-body">Poor sleep quality elevates inflammatory markers and impairs tissue healing and
-              immune function.</p>
+            <span class="wb-organ-num">09 &nbsp;/&nbsp; 10</span>
+            <h3 class="wb-organ-name">Sleep</h3>
+            <p class="wb-organ-headline">Jaw structure, tongue position, and airway size shape whether sleep is restful</p>
+            <p class="wb-organ-body">Jaw structure, tongue position, and airway size — all mouth-adjacent factors — are central to whether sleep is restful or repeatedly interrupted. Undiagnosed airway restriction shows up first as snoring or fatigue, and correcting it at the source can resolve sleep issues that other approaches only manage.</p>
             <ul class="wb-organ-facts">
-              <li>Increases systemic inflammation</li>
-              <li>Impairs immune response and healing</li>
-              <li>Sleep apnea linked to periodontal disease</li>
+              <li>Airway anatomy (tongue position, jaw structure) as a driver of obstructive sleep apnea</li>
+              <li>Bruxism/TMJ disrupting sleep continuity</li>
+              <li>Correcting airway restriction resolves sleep issues</li>
             </ul>
           </div>
 
+          <div class="wb-organ-info" data-organ="posture">
+            <span class="wb-organ-num">10 &nbsp;/&nbsp; 10</span>
+            <h3 class="wb-organ-name">Posture</h3>
+            <p class="wb-organ-headline">How the jaw sits at rest shapes how the head balances on the spine</p>
+            <p class="wb-organ-body">How the jaw sits at rest shapes how the head balances on the spine — a forward head posture from mouth breathing or a misaligned bite pulls on the neck and shoulders all day, and the same imbalances carry into how the body settles at night, disrupting sleep posture and breathing.</p>
+            <ul class="wb-organ-facts">
+              <li>Craniocervical posture linked to jaw position and airway patency</li>
+              <li>Mouth breathing and malocclusion associated with forward head posture</li>
+              <li>Jaw misalignment disrupts sleep positioning and breathing</li>
+            </ul>
+          </div>
 
         </div><!-- end wb-info-panel -->
 
@@ -503,6 +517,7 @@
           <div class="wb-dot" data-organ="inflammation"><span class="wb-dot-label">pregnancy</span></div>
           <div class="wb-dot" data-organ="glycemic"><span class="wb-dot-label">Glycemic</span></div>
           <div class="wb-dot" data-organ="sleep"><span class="wb-dot-label">Sleep</span></div>
+          <div class="wb-dot" data-organ="posture"><span class="wb-dot-label">Posture</span></div>
         </div>
 
         <!-- Mobile tab buttons -->
@@ -516,6 +531,7 @@
           <button class="wb-mobile-btn" data-organ="inflammation">pregnancy</button>
           <button class="wb-mobile-btn" data-organ="glycemic">Glycemic</button>
           <button class="wb-mobile-btn" data-organ="sleep">Sleep</button>
+          <button class="wb-mobile-btn" data-organ="posture">Posture</button>
         </div>
 
       </div><!-- end wb-sticky -->
@@ -765,6 +781,25 @@
   <script src="nav.js" defer></script>
   <script src="assets/js/about.js" defer></script>
   <script src="assets/js/mbc-connection.js" defer></script>
+
+  <script>
+    (function() {
+      var nav = document.querySelector('.nav');
+      var mbcConnection = document.getElementById('mbcConnection');
+
+      if (!nav || !mbcConnection) return;
+
+      // The .nav--mbc-hidden CSS rule is itself scoped to desktop
+      // (min-width: 821px), so the class can be toggled unconditionally here.
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          nav.classList.toggle('nav--mbc-hidden', entry.isIntersecting);
+        });
+      }, { threshold: 0.05 });
+
+      observer.observe(mbcConnection);
+    })();
+  </script>
 </body>
 
 </html>

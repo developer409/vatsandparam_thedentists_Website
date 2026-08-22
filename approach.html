@@ -238,131 +238,191 @@
         </div>
       </div>
 
-      <!-- The Whole Body Assessment: title own panel, points own panel -->
-      <div class="discovery-item discovery-item--centered discovery-item--title-only fade-in-scroll">
-        <div class="discovery-content discovery-content--hero">
-          <span class="section-label">Clinical Evaluation</span>
-          <h3>The Whole Body Assessment</h3>
-          <p>This is not a routine dental check-up. It is a structured evaluation designed to understand how your oral condition connects to your overall health.</p>
-        </div>
-      </div>
-      <div class="discovery-item discovery-item--full fade-in-scroll">
-        <div class="discovery-panel-wrap">
-          <div class="discovery-panel-box">
-            <div class="discovery-wide-grid discovery-wide-grid--scroll">
-              <div class="discovery-wide-card">
-                <span class="discovery-wide-num">01</span>
+      <!-- The Whole Body Assessment: manual horizontal card slider with arrow & dot navigation -->
+      <section class="eval-slider-section" id="wholeBodyAssessment">
+        <div class="eval-slider-container">
+
+          <div class="eval-slider-head">
+            <span class="section-label">Clinical Evaluation</span>
+            <h3>The Whole Body Assessment</h3>
+            <p>This is not a routine dental check-up. It is a structured evaluation designed to understand how your oral condition connects to your overall health.</p>
+
+            <div class="eval-slider-controls">
+              <button class="eval-slider-btn eval-slider-btn--prev" aria-label="Previous evaluation card" disabled>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+              </button>
+
+              <div class="eval-slider-rail">
+                <button class="eval-dot is-active" aria-label="Evaluation 01: Teeth and Gums">01</button>
+                <span class="eval-rail-seg"></span>
+                <button class="eval-dot" aria-label="Evaluation 02: Bite and Jaw Function">02</button>
+                <span class="eval-rail-seg"></span>
+                <button class="eval-dot" aria-label="Evaluation 03: Airway & Breathing">03</button>
+                <span class="eval-rail-seg"></span>
+                <button class="eval-dot" aria-label="Evaluation 04: Oral Microbiome">04</button>
+                <span class="eval-rail-seg"></span>
+                <button class="eval-dot" aria-label="Evaluation 05: Muscle Balance">05</button>
+                <span class="eval-rail-seg"></span>
+                <button class="eval-dot" aria-label="Evaluation 06: Lifestyle Factors">06</button>
+              </div>
+
+              <button class="eval-slider-btn eval-slider-btn--next" aria-label="Next evaluation card">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="eval-slider-viewport">
+            <div class="eval-slider-track">
+
+              <article class="eval-card is-active">
+                <span class="eval-card__ghost" aria-hidden="true">01</span>
+                <span class="eval-card__label">Evaluation 01</span>
                 <h4>Teeth and Gums</h4>
                 <p>Detailed evaluation of structural integrity and periodontal health.</p>
-              </div>
-              <div class="discovery-wide-card">
-                <span class="discovery-wide-num">02</span>
+              </article>
+
+              <article class="eval-card">
+                <span class="eval-card__ghost" aria-hidden="true">02</span>
+                <span class="eval-card__label">Evaluation 02</span>
                 <h4>Bite and Jaw Function</h4>
                 <p>Analyzing how your upper and lower teeth meet and how your jaw joints function.</p>
-              </div>
-              <div class="discovery-wide-card">
-                <span class="discovery-wide-num">03</span>
+              </article>
+
+              <article class="eval-card">
+                <span class="eval-card__ghost" aria-hidden="true">03</span>
+                <span class="eval-card__label">Evaluation 03</span>
                 <h4>Airway &amp; Breathing</h4>
                 <p>Evaluating airway volume and breathing patterns that influence sleep and energy levels.</p>
-              </div>
-              <div class="discovery-wide-card">
-                <span class="discovery-wide-num">04</span>
+              </article>
+
+              <article class="eval-card">
+                <span class="eval-card__ghost" aria-hidden="true">04</span>
+                <span class="eval-card__label">Evaluation 04</span>
                 <h4>Oral Microbiome</h4>
                 <p>Indicators of bacterial balance that drive inflammation and systemic health.</p>
-              </div>
-              <div class="discovery-wide-card">
-                <span class="discovery-wide-num">05</span>
+              </article>
+
+              <article class="eval-card">
+                <span class="eval-card__ghost" aria-hidden="true">05</span>
+                <span class="eval-card__label">Evaluation 05</span>
                 <h4>Muscle Balance</h4>
                 <p>Mapping functional patterns of facial and neck muscles that contribute to pain.</p>
-              </div>
-              <div class="discovery-wide-card">
-                <span class="discovery-wide-num">06</span>
+              </article>
+
+              <article class="eval-card">
+                <span class="eval-card__ghost" aria-hidden="true">06</span>
+                <span class="eval-card__label">Evaluation 06</span>
                 <h4>Lifestyle Factors</h4>
                 <p>Understanding habits, nutrition, and stress factors contributing to your condition.</p>
-              </div>
-            </div>
-            <div class="values-swipe-hint">Swipe right to know more</div>
-          </div>
-        </div>
-      </div>
+              </article>
 
-      <!-- Who This Is For: title own panel, points own panel -->
-      <div class="discovery-item discovery-item--centered discovery-item--title-only fade-in-scroll">
-        <div class="discovery-content discovery-content--hero">
-          <span class="section-label">Who We Serve</span>
-          <h3>Who We Serve</h3>
-          <p>We specialize in helping persons who are looking for clarity and long-term health, rather than just symptom relief.</p>
-        </div>
-      </div>
-      <div class="discovery-item discovery-item--full fade-in-scroll">
-        <div class="discovery-panel-wrap">
-          <div class="discovery-panel-box">
-            <div class="discovery-wide-grid discovery-wide-grid--2">
-              <div class="discovery-wide-card">
-                <span class="discovery-wide-icon">↩</span>
-                <h4>Recurring Problems</h4>
-                <p>Persons with dental issues that keep returning despite treatment.</p>
-              </div>
-              <div class="discovery-wide-card">
-                <span class="discovery-wide-icon">?</span>
-                <h4>Unexplained Symptoms</h4>
-                <p>Those with headaches, fatigue, or jaw pain without a clear cause.</p>
-              </div>
-              <div class="discovery-wide-card">
-                <span class="discovery-wide-icon">◎</span>
-                <h4>Long-term Solutions</h4>
-                <p>Individuals seeking durable health rather than temporary fixes.</p>
-              </div>
-              <div class="discovery-wide-card">
-                <span class="discovery-wide-icon">✦</span>
-                <h4>System-based Care</h4>
-                <p>Those interested in preventive, whole-body health optimization.</p>
-              </div>
             </div>
           </div>
-        </div>
-      </div>
 
-      <!-- What You Can Expect: title own panel, steps own panel -->
-      <div class="discovery-item discovery-item--centered discovery-item--title-only fade-in-scroll">
-        <div class="discovery-content discovery-content--hero">
-          <span class="section-label">The Process</span>
-          <h3>What You Can Expect</h3>
         </div>
-      </div>
+      </section>
+
+      <!-- Who We Help -> The Process: ONE continuous patient-journey thread,
+           not two stacked sections. A single vertical rail runs the full
+           height; concern panels attach to it, a transition marker crosses
+           from "why you're here" to "what happens next", then process
+           steps continue the same rail with a distinct (badge) node style.
+           Reveal is per-node (.fade-in-scroll), so it progressively lights
+           up as the user scrolls rather than all at once. -->
+      <!-- Who We Help & The Process: Visual journey with maroon boxes and two separate golden vertical thread lines -->
       <div class="discovery-item discovery-item--full fade-in-scroll">
-        <div class="discovery-panel-wrap discovery-panel-wrap--narrow">
-          <div class="discovery-panel-box">
-            <div class="discovery-steps">
-              <div class="discovery-step">
-                <div class="discovery-step__num">1</div>
-                <div>
+        <div class="discovery-panel-wrap journey-wrap">
+          <div class="journey" id="approachJourney">
+
+            <!-- GROUP 1: WHO WE HELP (4 Points connected by golden line 1) -->
+            <div class="journey-group journey-group--who">
+              <div class="journey-group-line" aria-hidden="true"></div>
+
+              <div class="journey-head fade-in-scroll">
+                <span class="section-label">Who We Help</span>
+                <h3 class="journey-head__title">Care for Those Seeking More Than Temporary Relief</h3>
+                <p class="journey-head__intro">We work with individuals who want to better understand the underlying factors behind their health concerns — not simply manage symptoms.</p>
+              </div>
+
+              <div class="journey-node fade-in-scroll">
+                <span class="journey-node__num">01</span>
+                <div class="journey-node__body">
+                  <h4>Recurring Problems</h4>
+                  <p>Issues that continue to return despite previous treatment.</p>
+                </div>
+              </div>
+
+              <div class="journey-node fade-in-scroll">
+                <span class="journey-node__num">02</span>
+                <div class="journey-node__body">
+                  <h4>Unexplained Symptoms</h4>
+                  <p>Concerns such as fatigue, jaw pain, or other symptoms without a clear cause.</p>
+                </div>
+              </div>
+
+              <div class="journey-node fade-in-scroll">
+                <span class="journey-node__num">03</span>
+                <div class="journey-node__body">
+                  <h4>Long-Term Solutions</h4>
+                  <p>For those seeking sustainable health outcomes rather than temporary fixes.</p>
+                </div>
+              </div>
+
+              <div class="journey-node fade-in-scroll">
+                <span class="journey-node__num">04</span>
+                <div class="journey-node__body">
+                  <h4>System-Based Care</h4>
+                  <p>For individuals interested in understanding how oral health and overall health may be connected.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- LINE BREAK BETWEEN WHO WE HELP AND THE PROCESS -->
+            <div class="journey-separator" aria-hidden="true"></div>
+
+            <!-- GROUP 2: THE PROCESS / WHAT HAPPENS NEXT (4 Steps connected by golden line 2) -->
+            <div class="journey-group journey-group--process">
+              <div class="journey-group-line" aria-hidden="true"></div>
+
+              <div class="journey-head fade-in-scroll">
+                <span class="section-label">The Process</span>
+                <h3 class="journey-head__title">What Happens Next</h3>
+              </div>
+
+              <div class="journey-node journey-node--process fade-in-scroll">
+                <span class="journey-node__num journey-node__num--badge">01</span>
+                <div class="journey-node__body">
                   <h4>Listen</h4>
                   <p>Understanding your story, concerns, and health goals.</p>
                 </div>
               </div>
-              <div class="discovery-step">
-                <div class="discovery-step__num">2</div>
-                <div>
+
+              <div class="journey-node journey-node--process fade-in-scroll">
+                <span class="journey-node__num journey-node__num--badge">02</span>
+                <div class="journey-node__body">
                   <h4>Assess</h4>
                   <p>Comprehensive clinical, functional, and radiographic evaluation.</p>
                 </div>
               </div>
-              <div class="discovery-step">
-                <div class="discovery-step__num">3</div>
-                <div>
+
+              <div class="journey-node journey-node--process fade-in-scroll">
+                <span class="journey-node__num journey-node__num--badge">03</span>
+                <div class="journey-node__body">
                   <h4>Educate</h4>
-                  <p>Clear insights into your oral and whole-body health.</p>
+                  <p>Clear insights into your oral health and its broader connections to overall health.</p>
                 </div>
               </div>
-              <div class="discovery-step">
-                <div class="discovery-step__num">4</div>
-                <div>
+
+              <div class="journey-node journey-node--process fade-in-scroll">
+                <span class="journey-node__num journey-node__num--badge">04</span>
+                <div class="journey-node__body">
                   <h4>Plan</h4>
-                  <p>A personalized roadmap for long-term health and longevity.</p>
+                  <p>A personalized roadmap designed around your individual needs and long-term health goals.</p>
                 </div>
               </div>
             </div>
+
           </div>
         </div>
       </div>
@@ -370,7 +430,7 @@
       <div class="discovery-item discovery-item--centered fade-in-scroll">
         <div class="discovery-content" style="text-align: center; max-width: 600px;">
           <h3 style="margin-bottom: var(--space-sm);">Ready to Experience Our Clinical Method?</h3>
-          <p style="margin-bottom: var(--space-lg); color: rgba(255, 255, 255, 0.85);">Schedule a comprehensive consultation and let us build your personalized care blueprint.</p>
+          <p style="margin-bottom: var(--space-lg);">Schedule a comprehensive consultation and let us build your personalized care blueprint.</p>
           <div style="display: flex; gap: var(--space-md); justify-content: center; flex-wrap: wrap; margin-top: var(--space-md);">
             <a href="contact.html" class="btn btn--gold-outline">Schedule Consultation</a>
             <a href="services.html" class="btn btn--gold-solid">Explore Our Services</a>
@@ -520,6 +580,7 @@
   <script src="assets/js/cards.js"></script>
   <script src="assets/js/hsteps.js"></script>
   <script src="assets/js/approach.js"></script>
+  <script src="assets/js/approach-journey.js"></script>
 </body>
 </html>
 

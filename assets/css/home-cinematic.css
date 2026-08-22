@@ -57,7 +57,7 @@
 }
 
 .home-cinematic {
-  --hc-gold: var(--color-gold, #C6A75E);
+  --hc-gold: var(--color-gold-bright, #F2C464);
 }
 
 /* :not(.discovery-duo-card) — the nested Our Mission marker also carries
@@ -356,13 +356,15 @@
   color: var(--hc-gold);
   line-height: 1;
   margin-bottom: var(--space-xs);
+  text-shadow: var(--video-gold-shadow, 0 2px 16px rgba(0, 0, 0, 0.7));
   transition: text-shadow 0.5s ease, transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .home-cinematic .hc-stat__label {
   font-size: var(--fs-small);
-  color: rgba(255, 255, 255, 0.7);
+  color: #fff;
   letter-spacing: 0.04em;
+  text-shadow: var(--video-text-shadow, 0 2px 14px rgba(0, 0, 0, 0.65));
 }
 
 @media (hover: hover) and (pointer: fine) {

@@ -8,7 +8,10 @@
    section fully intact instead of a blank one.
    ============================================================ */
 
-.mbc-connection { display: none; }
+.mbc-connection {
+  display: none;
+  background-color: #ffefef !important;
+}
 
 .mbc-connection.is-ready {
   display: block;
@@ -17,7 +20,8 @@
      this module paints its own so it isn't relying on that showing
      through — matches the #ffefef used by .understand-section on mobile
      for visual continuity there, and reads fine on desktop too. */
-  background: #ffefef;
+  background: #ffefef !important;
+  background-color: #ffefef !important;
   color: var(--color-navy, #5C0A0A);
   font-family: var(--font-body, 'Inter', sans-serif);
   -webkit-font-smoothing: antialiased;
@@ -26,17 +30,26 @@
 .mbcc-track {
   position: relative;
   height: 900vh;
+  background-color: #ffefef !important;
 }
 
 .mbcc-stage {
   position: sticky;
   top: 0;
+  /* 100vh on mobile browsers is measured against the viewport with the
+     address bar collapsed; while it's showing, the actual visible area is
+     shorter, so a plain 100vh box (pinned via position:sticky) runs past
+     the fold and its bottom edge — here, the figure's feet — gets clipped.
+     100dvh tracks the real visible viewport instead; kept as a second
+     declaration so browsers without dvh support keep the 100vh fallback. */
   height: 100vh;
+  height: 100dvh;
   overflow: hidden;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+  background-color: #ffefef !important;
 }
 
 /* progress bar */
@@ -197,6 +210,11 @@
 .mbcc-rail-dot { width: 5px; border-radius: 3px; }
 
 /* ---- Stacked (mobile) presentation: centered, tighter type ---- */
+.mbc-connection.mbcc-stacked .mbcc-stage {
+  padding-top: clamp(85px, 14vh, 120px) !important;
+  box-sizing: border-box;
+  align-content: flex-start;
+}
 .mbc-connection.mbcc-stacked .mbcc-eyebrow,
 .mbc-connection.mbcc-stacked .mbcc-intro-title,
 .mbc-connection.mbcc-stacked .mbcc-intro-text,
