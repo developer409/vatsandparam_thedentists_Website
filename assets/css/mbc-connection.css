@@ -237,8 +237,16 @@
 .mbc-connection.mbcc-stacked .mbcc-rail { right: 4px; }
 .mbc-connection.mbcc-stacked .mbcc-panel-title,
 .mbc-connection.mbcc-stacked .mbcc-intro-title,
-.mbc-connection.mbcc-stacked .mbcc-final-title { font-size: clamp(1.35rem, 6vw, 1.7rem); }
-.mbc-connection.mbcc-stacked .mbcc-panel-headline { font-size: 0.98rem; }
+.mbc-connection.mbcc-stacked .mbcc-final-title { font-size: clamp(1.2rem, 5.2vw, 1.5rem); margin-bottom: 10px; }
+.mbc-connection.mbcc-stacked .mbcc-panel-headline { font-size: 0.9rem; margin-bottom: 8px; }
+/* 34ch capped body text at ~230px wide on a ~346px-wide column, forcing
+   wraps the column had room to avoid — the single biggest cause of the
+   panel text overflowing its box on mobile. Widening to the column's
+   actual width cuts the wrapped line count substantially. */
 .mbc-connection.mbcc-stacked .mbcc-panel-body,
 .mbc-connection.mbcc-stacked .mbcc-intro-text,
-.mbc-connection.mbcc-stacked .mbcc-final-text { font-size: 0.86rem; max-width: 34ch; }
+.mbc-connection.mbcc-stacked .mbcc-final-text { font-size: 0.84rem; line-height: 1.5; max-width: 94%; margin-bottom: 10px; }
+.mbc-connection.mbcc-stacked .mbcc-panel-facts { max-width: 94%; padding-top: 10px; gap: 5px; }
+.mbc-connection.mbcc-stacked .mbcc-panel-facts li { font-size: 0.76rem; line-height: 1.4; }
+.mbc-connection.mbcc-stacked .mbcc-panel-rule { margin-bottom: 10px; }
+.mbc-connection.mbcc-stacked .mbcc-panel-num-row { margin-bottom: 8px; }

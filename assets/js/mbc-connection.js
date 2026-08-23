@@ -232,6 +232,12 @@
 
       if (stacked !== lastStacked) {
         mount.classList.toggle('mbcc-stacked', stacked);
+        // Touch scrolling covers far less distance per gesture than a mouse
+        // wheel, so the same 900vh that feels fine on desktop meant dozens
+        // of swipes to get through on mobile. Shortening the mobile track
+        // doesn't change onScroll's math — span is read live off the
+        // track's actual height on every scroll/resize.
+        track.style.height = (stacked ? 550 : 900) + 'vh';
         lastStacked = stacked;
       }
 
@@ -345,8 +351,13 @@
       bar.style.width = (p * 100).toFixed(2) + '%';
 
       var pad = stacked ? Math.round(Math.min(20, W * 0.05)) : Math.round(Math.min(72, Math.max(24, W * 0.044)));
-      var stageH = stacked ? Math.round(Math.max(200, Math.min(H * 0.42, 380))) : Math.round(H - 16);
-      var panelH = stacked ? Math.max(190, H - stageH - 74) : Math.max(300, Math.min(H * 0.5, 470));
+      // Mirrors .mbcc-stage's own padding-top (clamp(85px,14vh,120px)) so the
+      // budget below isn't handed out as if that space were still free —
+      // it wasn't, which is why content used to run past the bottom of the
+      // stage's own 100dvh box on top of overflowing its own text panel.
+      var topPad = stacked ? Math.max(85, Math.min(H * 0.14, 120)) : 0;
+      var stageH = stacked ? Math.round(Math.max(140, Math.min(H * 0.23, 210))) : Math.round(H - 16);
+      var panelH = stacked ? Math.max(220, H - topPad - stageH - 40) : Math.max(300, Math.min(H * 0.5, 470));
 
       figureCol.style.boxSizing = 'border-box';
       figureCol.style.flex = stacked ? '0 0 100%' : '1 1 46%';
@@ -377,21 +388,44 @@
       target = Math.min(1, Math.max(0, -r.top / span));
     }
 
+    // Without settling/visibility gates this loop called render() on every
+    // single animation frame for as long as the page stayed open —
+    // including while the section was scrolled far out of view or the
+    // animation had already reached its target — competing with real
+    // scroll/paint work and reading back as laggy scrolling everywhere on
+    // the page, not just here.
+    var isVisible = false;
+
     function tick() {
       var diff = target - cur;
       cur += diff * 0.26;
       if (Math.abs(diff) < 0.0004) cur = target;
-      if (Math.abs(cur - state.p) > 0.00025) state.p = cur;
-      render();
-      raf = requestAnimationFrame(tick);
+      var changed = Math.abs(cur - state.p) > 0.00025;
+      if (changed) state.p = cur;
+      if (changed) render();
+      var settled = Math.abs(target - cur) < 0.0004;
+      raf = (isVisible && !settled) ? requestAnimationFrame(tick) : null;
     }
 
-    window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', onScroll);
+    function ensureLoop() {
+      if (raf == null && isVisible) raf = requestAnimationFrame(tick);
+    }
+
+    // Only run the render loop while the track is actually on screen —
+    // scrolling through the rest of the page shouldn't keep this ticking.
+    var visibilityObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        isVisible = entry.isIntersecting;
+        if (isVisible) ensureLoop();
+      });
+    }, { rootMargin: '200px 0px' });
+    visibilityObserver.observe(track);
+
+    window.addEventListener('scroll', function () { onScroll(); ensureLoop(); }, { passive: true });
+    window.addEventListener('resize', function () { onScroll(); ensureLoop(); });
     onScroll();
     cur = target;
     render();
-    raf = requestAnimationFrame(tick);
   }
 
   function init() {
