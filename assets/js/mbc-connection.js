@@ -370,14 +370,22 @@
       // Must clear .nav's 72px fixed height, or the top of the figure
       // renders underneath the navbar instead of below it.
       var topPad = stacked ? Math.max(78, Math.min(H * 0.1, 95)) : 0;
-      // The intro has no headline/facts to make room for, so it can give
-      // the image far more of the screen than a system panel can afford to.
-      var stageH = stacked
-        ? (introLayout
-            ? Math.round(Math.max(260, Math.min(H * 0.52, 420)))
-            : Math.round(Math.max(170, Math.min(H * 0.42, 300))))
-        : Math.round(H - 16);
-      var panelH = stacked ? Math.max(180, H - topPad - stageH - 40) : Math.max(300, Math.min(H * 0.5, 470));
+      var stageH, panelH;
+      if (stacked && introLayout) {
+        // The intro is just a title, one short paragraph and a hint line —
+        // sizing its box the same way as a system panel (image height
+        // first, text gets whatever's left) left a tall mostly-empty box
+        // above the image. Size the text box to what it actually needs
+        // first, then hand the image everything else.
+        panelH = Math.round(Math.max(150, Math.min(H * 0.26, 210)));
+        stageH = Math.round(Math.max(220, H - topPad - panelH - 24));
+      } else if (stacked) {
+        stageH = Math.round(Math.max(170, Math.min(H * 0.42, 300)));
+        panelH = Math.max(180, H - topPad - stageH - 40);
+      } else {
+        stageH = Math.round(H - 16);
+        panelH = Math.max(300, Math.min(H * 0.5, 470));
+      }
 
       figureCol.style.boxSizing = 'border-box';
       figureCol.style.flex = stacked ? '0 0 100%' : '1 1 46%';
