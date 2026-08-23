@@ -219,6 +219,13 @@
   box-sizing: border-box;
   align-content: flex-start;
 }
+/* Intro only (mount.classList toggled by render()): title/text first, a
+   larger centered image below, instead of the compact image-above-text
+   layout every system panel uses — the intro's short copy left most of
+   the screen empty under the old shared layout. */
+.mbc-connection.mbcc-stacked.mbcc-intro-layout .mbcc-figure-col { order: 2; }
+.mbc-connection.mbcc-stacked.mbcc-intro-layout .mbcc-content-col { order: 1; }
+
 .mbc-connection.mbcc-stacked .mbcc-eyebrow,
 .mbc-connection.mbcc-stacked .mbcc-intro-title,
 .mbc-connection.mbcc-stacked .mbcc-intro-text,

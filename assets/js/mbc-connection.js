@@ -222,7 +222,7 @@
     });
 
     var state = { p: 0, w: window.innerWidth, h: window.innerHeight };
-    var cur = 0, target = 0, raf = null, lastStacked = null;
+    var cur = 0, target = 0, raf = null, lastStacked = null, lastIntroLayout = null;
 
     function render() {
       var p = state.p, W = state.w, H = state.h;
@@ -239,6 +239,18 @@
         // track's actual height on every scroll/resize.
         track.style.height = (stacked ? 550 : 900) + 'vh';
         lastStacked = stacked;
+      }
+
+      // Mobile-only: the intro has far less text than any system panel (no
+      // headline, no facts), so it doesn't need the same tight image/text
+      // split — showing the small per-system layout here just reads as a
+      // small picture over a lot of empty space. Swaps to title-first,
+      // bigger-centered-image-below while the intro is what's showing, then
+      // hands back to the compact per-system layout once scrolling starts.
+      var introLayout = stacked && s < 0.55;
+      if (introLayout !== lastIntroLayout) {
+        mount.classList.toggle('mbcc-intro-layout', introLayout);
+        lastIntroLayout = introLayout;
       }
 
       var j = clamp(s, 0, N);
@@ -358,12 +370,18 @@
       // Must clear .nav's 72px fixed height, or the top of the figure
       // renders underneath the navbar instead of below it.
       var topPad = stacked ? Math.max(78, Math.min(H * 0.1, 95)) : 0;
-      var stageH = stacked ? Math.round(Math.max(170, Math.min(H * 0.42, 300))) : Math.round(H - 16);
-      var panelH = stacked ? Math.max(220, H - topPad - stageH - 40) : Math.max(300, Math.min(H * 0.5, 470));
+      // The intro has no headline/facts to make room for, so it can give
+      // the image far more of the screen than a system panel can afford to.
+      var stageH = stacked
+        ? (introLayout
+            ? Math.round(Math.max(260, Math.min(H * 0.52, 420)))
+            : Math.round(Math.max(170, Math.min(H * 0.42, 300))))
+        : Math.round(H - 16);
+      var panelH = stacked ? Math.max(180, H - topPad - stageH - 40) : Math.max(300, Math.min(H * 0.5, 470));
 
       figureCol.style.boxSizing = 'border-box';
       figureCol.style.flex = stacked ? '0 0 100%' : '1 1 46%';
-      figureCol.style.padding = (stacked ? '14px 10px 0' : '12px');
+      figureCol.style.padding = (stacked ? (introLayout ? '4px 10px 0' : '14px 10px 0') : '12px');
 
       // Width fills the column instead of a narrow fixed formula — a tight
       // box was hard-clipping the zoomed-in figure at the edges (visible as
