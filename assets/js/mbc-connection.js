@@ -355,8 +355,10 @@
       // budget below isn't handed out as if that space were still free —
       // it wasn't, which is why content used to run past the bottom of the
       // stage's own 100dvh box on top of overflowing its own text panel.
-      var topPad = stacked ? Math.max(65, Math.min(H * 0.11, 95)) : 0;
-      var stageH = stacked ? Math.round(Math.max(170, Math.min(H * 0.28, 250))) : Math.round(H - 16);
+      // Must clear .nav's 72px fixed height, or the top of the figure
+      // renders underneath the navbar instead of below it.
+      var topPad = stacked ? Math.max(78, Math.min(H * 0.1, 95)) : 0;
+      var stageH = stacked ? Math.round(Math.max(170, Math.min(H * 0.42, 300))) : Math.round(H - 16);
       var panelH = stacked ? Math.max(220, H - topPad - stageH - 40) : Math.max(300, Math.min(H * 0.5, 470));
 
       figureCol.style.boxSizing = 'border-box';
