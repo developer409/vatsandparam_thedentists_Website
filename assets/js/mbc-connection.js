@@ -389,7 +389,7 @@
 
       figureCol.style.boxSizing = 'border-box';
       figureCol.style.flex = stacked ? '0 0 100%' : '1 1 46%';
-      figureCol.style.padding = (stacked ? (introLayout ? '4px 10px 0' : '14px 10px 0') : '12px');
+      figureCol.style.padding = (stacked ? '14px 10px 0' : '12px');
 
       // Width fills the column instead of a narrow fixed formula — a tight
       // box was hard-clipping the zoomed-in figure at the edges (visible as
