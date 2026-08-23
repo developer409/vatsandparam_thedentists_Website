@@ -248,17 +248,9 @@
       var A = pts[i0], B = pts[i0 + 1] || A;
       var tx = A.x + (B.x - A.x) * ef, ty = A.y + (B.y - A.y) * ef;
 
-      // Desktop's close-up zoom (system z values run 2.3-3.1) pushes the
-      // camera in tight enough that the head or feet fall outside the
-      // viewBox and get hard-cropped by SVG's own clipping — fine on a
-      // large screen where that reads as an intentional close-up, but on
-      // a small phone screen it just looks like the picture is cut off.
-      // Damping how far z travels from 1.0 keeps most of the figure in
-      // frame on mobile while still giving each system some zoom emphasis.
-      var zDamp = stacked ? 0.32 : 1;
-      var zTo = 1 + (SYSTEMS[Math.min(i0, N - 1)].z - 1) * zDamp;
-      var zFrom = i0 === 0 ? 1.0 : 1 + (SYSTEMS[i0 - 1].z - 1) * zDamp;
-      var z = zFrom + (zTo - zFrom) * ef - (i0 === 0 ? 0 : 0.55 * zDamp * Math.sin(Math.PI * ef));
+      var zTo = SYSTEMS[Math.min(i0, N - 1)].z;
+      var zFrom = i0 === 0 ? 1.0 : SYSTEMS[i0 - 1].z;
+      var z = zFrom + (zTo - zFrom) * ef - (i0 === 0 ? 0 : 0.55 * Math.sin(Math.PI * ef));
       var est = Math.max(1 - ease(clamp(s, 0, 1)), ease(outro));
       var fx = tx + (200 - tx) * est, fy = ty + (510 - ty) * est;
       z = z + (1.02 - z) * est;
