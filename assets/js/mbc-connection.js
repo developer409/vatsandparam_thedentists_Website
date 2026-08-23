@@ -369,7 +369,7 @@
       // letterboxed buffer around the "meet"-fit content before anything
       // panned/zoomed by the camera reaches the clip boundary.
       svg.style.height = stageH + 'px';
-      svg.style.width = stacked ? Math.round(stageH * 0.62) + 'px' : '100%';
+      svg.style.width = stacked ? Math.round(stageH * 0.95) + 'px' : '100%';
       svg.style.maxWidth = stacked ? '92%' : '100%';
 
       contentCol.style.boxSizing = 'border-box';
