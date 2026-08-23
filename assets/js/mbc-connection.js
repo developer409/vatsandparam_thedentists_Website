@@ -313,7 +313,15 @@
         }
 
         var pd = Math.abs(s - idx);
-        var o = clamp(1 - pd * 2.1, 0, 1);
+        // 2.1 zeroed out a panel by pd=0.48, leaving a fully blank dead zone
+        // between two adjacent systems' visible windows (midpoint of every
+        // transition showed no text at all — the "scroll cuts off" bug).
+        // 1.6 narrows that gap to zero (touching, not overlapping) so
+        // there's always a moment of full text, without going so wide that
+        // both panels sit on top of each other at ~50% opacity through the
+        // whole transition, which just traded a blank gap for an illegible
+        // double-exposed one.
+        var o = clamp(1 - pd * 1.6, 0, 1);
         var pe = panelEls[i];
         pe.root.style.opacity = o.toFixed(3);
         pe.root.style.pointerEvents = o > 0.5 ? 'auto' : 'none';
@@ -321,8 +329,8 @@
         pe.rule.style.width = stacked ? (16 + 40 * o).toFixed(0) + '%' : '60px';
       });
 
-      var oIntro = clamp(1 - s * 2.1, 0, 1);
-      var oFinal = clamp((s - N) * 2.1, 0, 1);
+      var oIntro = clamp(1 - s * 1.6, 0, 1);
+      var oFinal = clamp((s - N) * 1.6, 0, 1);
       introLayer.style.opacity = oIntro.toFixed(3);
       introLayer.style.pointerEvents = oIntro > 0.5 ? 'auto' : 'none';
       finalLayer.style.opacity = oFinal.toFixed(3);
