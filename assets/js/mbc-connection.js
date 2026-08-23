@@ -222,7 +222,7 @@
     });
 
     var state = { p: 0, w: window.innerWidth, h: window.innerHeight };
-    var cur = 0, target = 0, raf = null, lastStacked = null, lastIntroLayout = null;
+    var cur = 0, target = 0, raf = null, lastStacked = null;
 
     function render() {
       var p = state.p, W = state.w, H = state.h;
@@ -239,18 +239,6 @@
         // track's actual height on every scroll/resize.
         track.style.height = (stacked ? 550 : 900) + 'vh';
         lastStacked = stacked;
-      }
-
-      // Mobile-only: the intro has far less text than any system panel (no
-      // headline, no facts), so it doesn't need the same tight image/text
-      // split — showing the small per-system layout here just reads as a
-      // small picture over a lot of empty space. Swaps to title-first,
-      // bigger-centered-image-below while the intro is what's showing, then
-      // hands back to the compact per-system layout once scrolling starts.
-      var introLayout = stacked && s < 0.55;
-      if (introLayout !== lastIntroLayout) {
-        mount.classList.toggle('mbcc-intro-layout', introLayout);
-        lastIntroLayout = introLayout;
       }
 
       var j = clamp(s, 0, N);
@@ -371,17 +359,23 @@
       // renders underneath the navbar instead of below it.
       var topPad = stacked ? Math.max(78, Math.min(H * 0.1, 95)) : 0;
       var stageH, panelH;
-      if (stacked && introLayout) {
+      if (stacked) {
         // The intro is just a title, one short paragraph and a hint line —
         // sizing its box the same way as a system panel (image height
         // first, text gets whatever's left) left a tall mostly-empty box
-        // above the image. Size the text box to what it actually needs
-        // first, then hand the image everything else.
-        panelH = Math.round(Math.max(150, Math.min(H * 0.26, 210)));
-        stageH = Math.round(Math.max(220, H - topPad - panelH - 24));
-      } else if (stacked) {
-        stageH = Math.round(Math.max(170, Math.min(H * 0.42, 300)));
-        panelH = Math.max(180, H - topPad - stageH - 40);
+        // above the image, so it gets its own smaller box with the image
+        // taking the rest. A hard switch between the two sizes at whatever
+        // scroll position counts as "intro" produced a visible jump/jerk
+        // right as the intro was fading into system 1 — blending smoothly
+        // over s=0..1 (the same span the crossfade itself runs over) ties
+        // the resize to that fade instead of snapping independently of it.
+        var introPanelH = Math.round(Math.max(150, Math.min(H * 0.26, 210)));
+        var introStageH = Math.round(Math.max(220, H - topPad - introPanelH - 24));
+        var sysStageH = Math.round(Math.max(170, Math.min(H * 0.42, 300)));
+        var sysPanelH = Math.max(180, H - topPad - sysStageH - 40);
+        var introT = ease(clamp(s, 0, 1));
+        stageH = Math.round(introStageH + (sysStageH - introStageH) * introT);
+        panelH = Math.round(introPanelH + (sysPanelH - introPanelH) * introT);
       } else {
         stageH = Math.round(H - 16);
         panelH = Math.max(300, Math.min(H * 0.5, 470));
