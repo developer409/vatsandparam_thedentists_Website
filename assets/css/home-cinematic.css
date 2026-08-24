@@ -58,12 +58,15 @@
 
 .home-cinematic {
   --hc-gold: var(--color-gold-bright, #F2C464);
-  /* Trial run at the user's request: match approach.html exactly (no
-     shadow, no darkening) to see it directly. Known risk carried over
-     from testing this combination before — text may lose contrast on
-     the video's brighter scenes (e.g. the white-walled conference room). */
-  --video-text-shadow: none;
-  --video-gold-shadow: none;
+  /* The shared --video-text-shadow/--video-gold-shadow tokens default to
+     none sitewide. Redefined here, scoped to .home-cinematic only, so
+     text stays legible over this page's brighter footage without
+     touching the video's own darkening/grade/vignette (which broke
+     legibility when tried) or approach.html's text (untouched — it
+     never sits inside .home-cinematic, so it keeps reading the global
+     none default). */
+  --video-text-shadow: 0 2px 10px rgba(0, 0, 0, 0.55), 0 1px 3px rgba(0, 0, 0, 0.4);
+  --video-gold-shadow: 0 2px 10px rgba(0, 0, 0, 0.55), 0 1px 3px rgba(0, 0, 0, 0.4);
 }
 
 /* :not(.discovery-duo-card) — the nested Our Mission marker also carries
@@ -95,20 +98,19 @@
    To show LESS (if text contrast suffers): do the reverse.
    ------------------------------------------------------------------ */
 .home-cinematic {
-  /* Trial run at the user's request: zeroed to match approach.html's
-     undimmed look exactly. Known risk: this is what made text illegible
-     over the video's brighter footage (e.g. the white-walled conference
-     room shot) last time it was tried. */
-  --hc-grade-strength: 0;
-  --hc-vignette-strength: 0;
+  /* Reverted — lowering these to 0.12 (from 0.45/0.42) made text
+     illegible over the video's brighter footage (e.g. the white-walled
+     conference room shot), since unlike approach.html's darker clip,
+     this background genuinely needs the darkening for text contrast to
+     hold across scenes. Back to the original, known-legible values. */
+  --hc-grade-strength: 0.45;
+  --hc-vignette-strength: 0.42;
 }
 
 .home-cinematic .discovery-video {
   --zoom: 0;
   --vel: 0;
-  /* Trial run at the user's request: undimmed, matching approach.html's
-     video exactly. */
-  filter: brightness(1);
+  filter: brightness(0.68);
   transform: scale(calc(1.02 + var(--zoom) * 0.10 + var(--vel) * 0.018));
   transform-origin: center center;
   will-change: transform;
