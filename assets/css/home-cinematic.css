@@ -58,6 +58,15 @@
 
 .home-cinematic {
   --hc-gold: var(--color-gold-bright, #F2C464);
+  /* The shared --video-text-shadow/--video-gold-shadow tokens default to
+     none sitewide. Redefined here, scoped to .home-cinematic only, so
+     text stays legible over this page's brighter footage without
+     touching the video's own darkening/grade/vignette (which broke
+     legibility when tried) or approach.html's text (untouched — it
+     never sits inside .home-cinematic, so it keeps reading the global
+     none default). */
+  --video-text-shadow: 0 2px 10px rgba(0, 0, 0, 0.55), 0 1px 3px rgba(0, 0, 0, 0.4);
+  --video-gold-shadow: 0 2px 10px rgba(0, 0, 0, 0.55), 0 1px 3px rgba(0, 0, 0, 0.4);
 }
 
 /* :not(.discovery-duo-card) — the nested Our Mission marker also carries
