@@ -89,14 +89,20 @@
    To show LESS (if text contrast suffers): do the reverse.
    ------------------------------------------------------------------ */
 .home-cinematic {
-  --hc-grade-strength: 0.45;
-  --hc-vignette-strength: 0.42;
+  /* Lowered from 0.45/0.42 and the video's own dimming raised from
+     brightness(0.68) below — approach.html's text (no grade, no
+     vignette, no dimming) reads noticeably brighter than home's did.
+     Values kept low rather than zeroed so the layers stay in place
+     doing their job (chapter tinting, edge falloff), just far lighter,
+     rather than deleting the effect outright. */
+  --hc-grade-strength: 0.12;
+  --hc-vignette-strength: 0.12;
 }
 
 .home-cinematic .discovery-video {
   --zoom: 0;
   --vel: 0;
-  filter: brightness(0.68);
+  filter: brightness(0.95);
   transform: scale(calc(1.02 + var(--zoom) * 0.10 + var(--vel) * 0.018));
   transform-origin: center center;
   will-change: transform;
