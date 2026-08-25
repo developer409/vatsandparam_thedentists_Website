@@ -38,6 +38,12 @@
         var centerOffset = 0;
         var running = false;
         var rafId = null;
+        // Card position eases toward the scroll-derived target instead of
+        // snapping straight to it — without this, a mouse wheel that fires
+        // in discrete line-increments (common on Windows) moved the track
+        // in visible steps rather than a smooth glide.
+        var cur = 0;
+        var curInit = false;
 
         // Extra scroll length beyond the pinned viewport, expressed in
         // viewport heights per transition.
@@ -66,7 +72,13 @@
         function update() {
             var range = scrollable();
             var prog = range > 0 ? clamp01(-wrap.getBoundingClientRect().top / range) : 0;
-            var i = prog * (n - 1);
+            var target = prog * (n - 1);
+
+            if (!curInit) { cur = target; curInit = true; }
+            var diff = target - cur;
+            cur += diff * 0.22;
+            if (Math.abs(diff) < 0.001) cur = target;
+            var i = cur;
 
             // Fades out entirely by the time card 2 takes focus (i>=1), so
             // steps 2/3 are completely unaffected — only card 1's opening
