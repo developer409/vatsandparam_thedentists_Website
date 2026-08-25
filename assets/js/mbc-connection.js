@@ -95,7 +95,7 @@
             '<defs><symbol id="mbcc-ic-tooth" viewBox="5 5 90 90"><path d="M28 14C40 6 60 6 72 14c10 7 12 22 8 36-4 14-8 28-14 38-4 6-10 4-11-4l-3-24c-1-7-3-7-4 0l-3 24c-1 8-7 10-11 4-6-10-10-24-14-38-4-14-2-29 8-36Z"/></symbol></defs>' +
             '<g id="mbccCam">' +
               '<image id="mbccAnatomy" href="' + ASSET_BASE + 'anatomy.webp" x="-75.16" y="18.32" width="550.3" height="973.8" preserveAspectRatio="xMidYMid meet" style="opacity:.98"></image>' +
-              '<path id="mbccGuide" d="M200 144 L200 78 L196 252 L183 288 L204 378 L152 716 L110 290 L200 460 L300 440 L200 32 L366 280" pathLength="1" fill="none" stroke-linecap="round" stroke-linejoin="round"></path>' +
+              '<path id="mbccGuide" d="M200 144 L200 78 L196 252 L203 288 L204 378 L152 716 L110 290 L200 460 L300 440 L200 32 L366 280" pathLength="1" fill="none" stroke-linecap="round" stroke-linejoin="round"></path>' +
               '<g id="mbccSegGroup"></g>' +
               '<circle id="mbccTrav" r="7"></circle>' +
               '<g id="mbccMouth">' +
@@ -117,7 +117,7 @@
               '<div class="mbcc-layer" id="mbccFinal">' +
                 '<h3 class="mbcc-final-title">Your mouth is not <em>separate</em> from your body.</h3>' +
                 '<p class="mbcc-final-text">We treat it that way — as one system, examined and cared for in the context of everything it touches.</p>' +
-              '</div>' +
+                '</div>' +
             '</div>' +
           '</div>' +
           '<div class="mbcc-rail" id="mbccRail"></div>' +
@@ -127,6 +127,9 @@
     var svg = mount.querySelector('#mbccSvg');
     var camG = mount.querySelector('#mbccCam');
     var guide = mount.querySelector('#mbccGuide');
+    if (guide) {
+      guide.setAttribute('d', 'M ' + pts[0].x + ' ' + pts[0].y + ' ' + pts.slice(1).map(function (p) { return 'L ' + p.x + ' ' + p.y; }).join(' '));
+    }
     var segGroup = mount.querySelector('#mbccSegGroup');
     var trav = mount.querySelector('#mbccTrav');
     var mouthG = mount.querySelector('#mbccMouth');
