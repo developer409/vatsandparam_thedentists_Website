@@ -56,7 +56,7 @@
         if (!VALID_PAGES.includes(page)) {
             // No hash, or a hash for a page that's since moved to its own file
             // (home/about/approach/treatments/team/technology) — send to the real homepage.
-            window.location.replace('home.html');
+            window.location.replace('index.html');
             return;
         }
 

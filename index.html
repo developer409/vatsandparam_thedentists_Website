@@ -16,6 +16,8 @@
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="assets/css/cards.css">
+  <link rel="stylesheet" href="assets/css/home-cinematic.css">
 </head>
 
 <body>
@@ -33,9 +35,9 @@
   <!-- ========== NAVIGATION ========== -->
   <nav class="nav" id="mainNav">
     <div class="nav__inner">
-      <a href="home.html" class="nav__logo" data-page="home">
+      <a href="index.html" class="nav__logo">
         <div class="nav__logo-icon-container">
-          <img src="assets/logo_teeth.png" alt="Vats & Param logo" class="nav__logo-img">
+          <img src="assets/logo_teeth.png" alt="Vats &amp; Param logo" class="nav__logo-img">
         </div>
         <div class="nav__logo-text">
           Vats &amp; Param
@@ -49,675 +51,192 @@
       </a>
       <a href="contact.html" class="nav__cta-mobile" aria-label="Book Consultation">Book Consultation</a><div class="nav__toggle" id="navToggle"><span></span><span></span><span></span></div>
       <div class="nav__menu" id="navMenu">
-        <button class="nav__close" id="navClose" aria-label="Close menu">✕</button>
-<a href="contact.html" class="btn btn--primary btn--sm nav__cta">Book Consultation</a>
-                <div class="nav__links">
-          <a href="home.html" class="nav__link active" data-page="home">Home</a>
-          <a href="about.html" class="nav__link" data-page="about">About Us</a>
-
-          <a href="approach.html" class="nav__link" data-page="approach">Our Approach</a>
-          <a href="services.html" class="nav__link" data-page="treatments">Services</a>
-          <a href="technology.html" class="nav__link" data-page="technology">Technology</a>
-
-          <a href="team.html" class="nav__link" data-page="team">Team</a>
-
-          <!-- Resources Dropdown -->
+        <div class="nav__links">
+          <a href="index.html" class="nav__link active">Home</a>
+          <div class="nav__item dropdown">
+            <a href="#" class="nav__link dropdown-toggle">About</a>
+            <div class="dropdown-menu">
+              <a href="about.html" class="dropdown-item">Our Story</a>
+              <a href="team.html" class="dropdown-item">Meet Our Team</a>
+              <a href="careers.html" class="dropdown-item">Careers</a>
+            </div>
+          </div>
+          <a href="approach.html" class="nav__link">Our Approach</a>
+          <a href="services.html" class="nav__link">Services</a>
+          <a href="technology.html" class="nav__link">Technology</a>
           <div class="nav__item dropdown">
             <a href="#" class="nav__link dropdown-toggle">Resources</a>
             <div class="dropdown-menu">
-              <a href="education.html" class="dropdown-item" data-page="education">League of Dentists</a>
-              <a href="testimonials.html" class="dropdown-item" data-page="testimonials">Testimonials</a>
+              <a href="blog.html" class="dropdown-item">Blog</a>
+              <a href="testimonials.html" class="dropdown-item">Testimonials</a>
               <a href="achievements.html" class="dropdown-item">Achievements</a>
               <a href="initiatives.html" class="dropdown-item">Initiatives</a>
-              <a href="blog.html" class="dropdown-item">Blog</a>
+              <a href="education.html" class="dropdown-item">League of Dentists</a>
             </div>
           </div>
-
-          <a href="careers.html" class="nav__link" data-page="careers">Careers</a>
-          <a href="contact.html" class="nav__link" data-page="contact">Contact</a>
         </div>
+        <a href="contact.html" class="nav__contact-icon" aria-label="Contact us">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        </a>
+        <a href="contact.html" class="btn btn--primary btn--sm nav__cta">Book Consultation</a>
       </div>
     </div>
   </nav>
 
-  <!-- ========== EDUCATION PAGE ========== -->
-  <section class="page" id="page-education">
-    <div class="page-header">
-      <div class="container">
-        <span class="section-label">Education</span>
-        <h1>League of Dentists</h1>
-        <p>A structured professional mentorship initiative bridging dental education and real-world clinical success.</p>
+  <!-- ========== HOME PAGE ========== -->
+  <section id="page-home">
+    <!-- Story progress rail: fills in gold as the visitor moves through the sections below -->
+    <nav class="story-rail" id="storyRail" aria-label="Page section progress">
+      <span class="story-rail__track"></span>
+      <span class="story-rail__track-fill" id="storyRailFill"></span>
+      <button class="story-rail__dot" data-target="chapter-story" aria-label="Jump to Our Story"><span class="story-rail__label">Our Story</span></button>
+      <button class="story-rail__dot" data-target="chapter-mission" aria-label="Jump to Our Mission"><span class="story-rail__label">Our Mission</span></button>
+      <button class="story-rail__dot" data-target="chapter-values" aria-label="Jump to Our Core Values"><span class="story-rail__label">Core Values</span></button>
+      <button class="story-rail__dot" data-target="chapter-impact" aria-label="Jump to Our Impact"><span class="story-rail__label">Our Impact</span></button>
+      <button class="story-rail__dot" data-target="chapter-cta" aria-label="Jump to end"><span class="story-rail__label">Continue</span></button>
+    </nav>
+    <section class="discovery-section home-cinematic fx-cards" data-nav="dark" data-chapter="story">
+      <div class="immersive-bg">
+        <video autoplay muted loop playsinline preload="metadata" class="discovery-video" id="aboutVideo"></video>
+        <!-- Layers over the pinned video: per-chapter colour grade, vignette
+             for text contrast, and fine grain for a filmic surface. -->
+        <div class="hc-grade" aria-hidden="true"></div>
+        <div class="hc-vignette" aria-hidden="true"></div>
+        <div class="hc-grain" aria-hidden="true"></div>
+        <button class="discovery-video-pause" id="aboutVideoPause" aria-label="Pause background video">⏸</button>
       </div>
-    </div>
 
-    <!-- ======================================================
-         LEAGUE OF DENTISTS – Professional Mentorship Initiative
-         Modular subsection. Can be extracted to its own page.
-         ====================================================== -->
-    <div class="lod-section section section--alt" id="league-of-dentists">
-      <div class="container">
-
-        <!-- LOD: Section Header Block -->
-        <div class="lod-header fade-in">
-          <div class="lod-divider-line"></div>
-          <span class="section-label">Featured Initiative</span>
-          <h2 class="lod-heading">League of Dentists</h2>
-          <p class="lod-subheading">Bridging Dental Education and Real-World Clinical Success</p>
-          <p class="lod-intro">
-            The League of Dentists is a structured professional mentorship initiative founded by Dr. Srivats Bharadwaj
-            and co-founded by Dr. Paramjot Kaur. It is dedicated to transforming dental students and early-career
-            practitioners into confident, practice-ready professionals — bridging the gap between academic training and
-            real-world clinical excellence. Through a personalised and structured approach, the League empowers dentists
-            to lead with clarity, communicate with authority, and build careers of lasting impact.
-          </p>
+      <!-- Hero panel: visible on load -->
+      <div class="discovery-item discovery-item--centered discovery-item--home-hero">
+        <div class="discovery-content discovery-content--hero discovery-content--visible">
+          <h3 class="hc-words">A New Standard in Dental Care</h3>
+          <span class="hc-rule" aria-hidden="true"></span>
+          <p>Founded on the belief that oral health is inseparable from overall wellness, Vats &amp; Param delivers comprehensive, personalized care with diagnostic precision for every individual.</p>
         </div>
 
-        <!-- LOD: Founder Highlight -->
-        <div class="lod-founders fade-in">
-          <div class="lod-founder-card">
-            <div class="lod-founder-img-wrap">
-              <div class="lod-founder-img-placeholder">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"
-                  stroke-linejoin="round">
-                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                  <circle cx="12" cy="7" r="4" />
-                </svg>
-              </div>
-            </div>
-            <div class="lod-founder-info">
-              <span class="lod-founder-role">Founder &amp; Chief Mentor</span>
-              <h3 class="lod-founder-name">Dr. Srivats Bharadwaj</h3>
-              <ul class="lod-founder-points">
-                <li>
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <polyline points="9 18 15 12 9 6" />
-                  </svg>
-                  24+ years of clinical and academic experience
-                </li>
-                <li>
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <polyline points="9 18 15 12 9 6" />
-                  </svg>
-                  Focus on clinical confidence, leadership, and mindset
-                </li>
-                <li>
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <polyline points="9 18 15 12 9 6" />
-                  </svg>
-                  Mentored hundreds of dentists across India
-                </li>
-              </ul>
-            </div>
+        <!-- Scroll indicator -->
+        <div class="scroll-hint" id="homeHeroScrollHint">
+          <span>Scroll to Explore</span>
+          <div class="hint-mouse">
+            <div class="hint-wheel"></div>
           </div>
-
-          <div class="lod-founder-card">
-            <div class="lod-founder-img-wrap">
-              <div class="lod-founder-img-placeholder">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"
-                  stroke-linejoin="round">
-                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                  <circle cx="12" cy="7" r="4" />
-                </svg>
-              </div>
-            </div>
-            <div class="lod-founder-info">
-              <span class="lod-founder-role">Co-Founder &amp; Business Strategist</span>
-              <h3 class="lod-founder-name">Dr. Paramjot Kaur</h3>
-              <ul class="lod-founder-points">
-                <li>
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <polyline points="9 18 15 12 9 6" />
-                  </svg>
-                  Specialist Periodontist with a systems-thinking approach
-                </li>
-                <li>
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <polyline points="9 18 15 12 9 6" />
-                  </svg>
-                  Focus on communication, patient psychology &amp; practice management
-                </li>
-                <li>
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <polyline points="9 18 15 12 9 6" />
-                  </svg>
-                  Builds ethical, patient-centric business models
-                </li>
-              </ul>
-            </div>
+          <div class="hint-arrows">
+            <i></i><i></i><i></i>
           </div>
         </div>
-
-        <!-- LOD: What the League Provides -->
-        <div class="lod-services fade-in">
-          <div class="lod-services-header text-center">
-            <span class="section-label">What We Offer</span>
-            <h3 class="lod-services-title">What the League Provides</h3>
-          </div>
-          <div class="lod-card-grid">
-            <div class="lod-card">
-              <div class="lod-card-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                  stroke-linejoin="round">
-                  <path
-                    d="M12 2C8.5 2 7 5 7 8C7 10.5 8 13.5 6 16C4.5 18 4.5 21 7 22C9.5 23 11 21 12 19C13 21 14.5 23 17 22C19.5 21 19.5 18 18 16C16 13.5 17 10.5 17 8C17 5 15.5 2 12 2Z" />
-                </svg>
-              </div>
-              <h3 class="lod-card-title">Clinical Mentorship</h3>
-              <p class="lod-card-text">One-on-one and group mentoring to build case confidence, clinical
-                decision-making, and procedural fluency.</p>
-            </div>
-            <div class="lod-card">
-              <div class="lod-card-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                  stroke-linejoin="round">
-                  <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
-                  <line x1="8" y1="21" x2="16" y2="21" />
-                  <line x1="12" y1="17" x2="12" y2="21" />
-                </svg>
-              </div>
-              <h3 class="lod-card-title">Practice &amp; Business Training</h3>
-              <p class="lod-card-text">Frameworks for ethical practice growth, team leadership, workflow systems, and
-                financial sustainability.</p>
-            </div>
-            <div class="lod-card">
-              <div class="lod-card-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                  stroke-linejoin="round">
-                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-                </svg>
-              </div>
-              <h3 class="lod-card-title">Communication &amp; Case Acceptance</h3>
-              <p class="lod-card-text">Master the language of dentistry — patient psychology, consultation frameworks,
-                and case presentation skills.</p>
-            </div>
-            <div class="lod-card">
-              <div class="lod-card-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                  stroke-linejoin="round">
-                  <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
-                </svg>
-              </div>
-              <h3 class="lod-card-title">Career Strategy &amp; Growth Planning</h3>
-              <p class="lod-card-text">Structured roadmaps for specialists, generalists, and academic-track dentists to
-                build purposeful careers.</p>
-            </div>
-            <div class="lod-card">
-              <div class="lod-card-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                  stroke-linejoin="round">
-                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-                  <circle cx="9" cy="7" r="4" />
-                  <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-                  <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-                </svg>
-              </div>
-              <h3 class="lod-card-title">Workshops for Dental Colleges</h3>
-              <p class="lod-card-text">Tailored workshops for BDS &amp; MDS students covering clinical readiness,
-                communication, and professional identity.</p>
-            </div>
-            <div class="lod-card">
-              <div class="lod-card-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                  stroke-linejoin="round">
-                  <circle cx="12" cy="12" r="10" />
-                  <line x1="2" y1="12" x2="22" y2="12" />
-                  <path
-                    d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-                </svg>
-              </div>
-              <h3 class="lod-card-title">Peer Learning Community</h3>
-              <p class="lod-card-text">A curated network of mentors and peers for accountability, shared learning, and
-                long-term professional support.</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- LOD: Featured Courses & Programs -->
-        <div class="lod-courses fade-in">
-          <div class="lod-services-header text-center">
-            <span class="section-label">Programs & Courses</span>
-            <h3 class="lod-services-title">Courses Offered by League of Dentists</h3>
-            <p class="lod-services-subtitle">Customized programs designed to transform your clinical skills, mindset, and career trajectory.</p>
-          </div>
-          <div class="lod-courses-grid">
-            <!-- Featured Programs -->
-            <div class="lod-course-card lod-course-card--featured">
-              <div class="lod-course-badge">Featured</div>
-              <h4 class="lod-course-title">Dental Energizer Program</h4>
-              <p class="lod-course-desc">An exclusive program for dentists and dental students who are demotivated and struggling to find their passion. Rebuild your clinical confidence and reignite your passion for dentistry.</p>
-              <div class="lod-course-meta">
-                <span class="lod-course-type">Mentorship Program</span>
-              </div>
-            </div>
-
-            <div class="lod-course-card lod-course-card--featured">
-              <div class="lod-course-badge">Featured</div>
-              <h4 class="lod-course-title">Innovations in Oral Care</h4>
-              <p class="lod-course-desc">Learn to become a creator of the future rather than a follower. This program encourages dentists to innovate, lead change, and shape the future of dentistry through proactive thinking and strategic planning.</p>
-              <div class="lod-course-meta">
-                <span class="lod-course-type">Innovation Workshop</span>
-              </div>
-            </div>
-
-            <div class="lod-course-card lod-course-card--featured">
-              <div class="lod-course-badge">Featured</div>
-              <h4 class="lod-course-title">How to Envision a Charitable Dental Initiative</h4>
-              <p class="lod-course-desc">Balance professional advancement with altruistic goals. Learn how to build a charitable dental initiative while maintaining a sustainable, ethical practice that serves your community.</p>
-              <div class="lod-course-meta">
-                <span class="lod-course-type">Community Dentistry</span>
-              </div>
-            </div>
-
-            <div class="lod-course-card lod-course-card--featured">
-              <div class="lod-course-badge">Featured</div>
-              <h4 class="lod-course-title">Approach to Pediatric and Special Needs Care</h4>
-              <p class="lod-course-desc">"Children dentistry is the future of dentistry." Master the skills needed to provide exceptional pediatric and special needs dental care with confidence, empathy, and clinical precision.</p>
-              <div class="lod-course-meta">
-                <span class="lod-course-type">Clinical Specialization</span>
-              </div>
-            </div>
-
-            <!-- Workshop-Based Programs -->
-            <div class="lod-course-card">
-              <div class="lod-course-badge">Workshop</div>
-              <h4 class="lod-course-title">The Culture of Thinking (Group Workshops)</h4>
-              <p class="lod-course-desc">Develop meta-strategic thinking capabilities through structured group workshops. Learn proven thinking strategies to solve complex clinical and business problems.</p>
-              <div class="lod-course-meta">
-                <span class="lod-course-type">Group Workshop</span>
-                <span class="lod-course-format">Online</span>
-              </div>
-            </div>
-
-            <div class="lod-course-card">
-              <div class="lod-course-badge">Workshop</div>
-              <h4 class="lod-course-title">Impact Consultation (Personalized Workshops)</h4>
-              <p class="lod-course-desc">Build confidence in handling difficult patients and develop your professional presence. Personalized sessions to enhance your communication and consultation skills.</p>
-              <div class="lod-course-meta">
-                <span class="lod-course-type">Personalized Workshop</span>
-                <span class="lod-course-format">Online</span>
-              </div>
-            </div>
-
-            <div class="lod-course-card">
-              <div class="lod-course-badge">Workshop</div>
-              <h4 class="lod-course-title">Effective Treatment Plan (Personalized Workshops)</h4>
-              <p class="lod-course-desc">Bridge the gap between patient expectations and clinical requirements. Learn frameworks to create treatment plans that satisfy both patient needs and clinical best practices.</p>
-              <div class="lod-course-meta">
-                <span class="lod-course-type">Personalized Workshop</span>
-                <span class="lod-course-format">Online</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="lod-courses-note text-center">
-            <p><strong>All programs are customized</strong> after an initial consultation to meet your individual learning needs and career goals.</p>
-            <a href="contact.html" class="btn btn--secondary" style="margin-top: var(--space-lg);">Schedule a Consultation</a>
-          </div>
-        </div>
-
-        <!-- LOD: How It Works – Process Strip -->
-        <div class="lod-process fade-in">
-          <div class="text-center">
-            <span class="section-label">Our Process</span>
-            <h3 class="lod-process-title">How It Works</h3>
-          </div>
-          <div class="lod-process-strip">
-            <div class="lod-process-step">
-              <div class="lod-process-num">01</div>
-              <div class="lod-process-label">Discovery Session</div>
-              <p class="lod-process-desc">A focused conversation to understand your goals, gaps, and aspirations.</p>
-            </div>
-            <div class="lod-process-connector" aria-hidden="true"></div>
-            <div class="lod-process-step">
-              <div class="lod-process-num">02</div>
-              <div class="lod-process-label">Structured Mentorship</div>
-              <p class="lod-process-desc">Personalised curriculum delivered through sessions, workshops, and frameworks.
-              </p>
-            </div>
-            <div class="lod-process-connector" aria-hidden="true"></div>
-            <div class="lod-process-step">
-              <div class="lod-process-num">03</div>
-              <div class="lod-process-label">Practical Implementation</div>
-              <p class="lod-process-desc">Apply learning in real-world scenarios with guided feedback and reflection.
-              </p>
-            </div>
-            <div class="lod-process-connector" aria-hidden="true"></div>
-            <div class="lod-process-step">
-              <div class="lod-process-num">04</div>
-              <div class="lod-process-label">Ongoing Growth Support</div>
-              <p class="lod-process-desc">Continued access to the community, resources, and milestone reviews.</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- LOD: Call to Action -->
-        <div class="lod-cta fade-in">
-          <div class="lod-cta-inner">
-            <span class="section-label" style="text-align:center;display:block;">Professional Mentorship</span>
-            <h3 class="lod-cta-heading">Interested in Professional Mentorship?</h3>
-            <p class="lod-cta-desc">Whether you are a final-year student, a new graduate, or an experienced practitioner
-              looking to grow  the League of Dentists has a structured pathway designed for you.</p>
-            <div class="lod-cta-actions">
-              <a href="contact.html" class="btn btn--primary">Book Discovery Session</a>
-              <a href="contact.html" class="btn btn--secondary">Enquire Now</a>
-            </div>
-          </div>
-        </div>
-
       </div>
-    </div>
-    <!-- END: League of Dentists -->
 
+      <!-- Our Story & Our Mission — story swings in first with just a gold
+           dot beside it; once story has fully settled the line draws out
+           from that dot, and only once the line is nearly drawn does the
+           mission card arrive from the right, so mission never appears
+           until the connection has visibly been made. -->
+      <div class="discovery-item discovery-item--full fade-in-scroll" id="chapter-story" data-chapter="story">
+        <div class="discovery-duo">
+          <div class="discovery-duo-card discovery-duo-card--story">
+            <span class="section-label">Our Story</span>
+            <span class="hc-rule" aria-hidden="true"></span>
+            <h3 class="hc-words">Where It All Began</h3>
+            <p>Vats &amp; Param was founded to transform how dentistry is practiced. With over 50 years of combined clinical experience, we treat the whole person, not isolated symptoms, guided by standardized, evidence-based protocols.</p>
+          </div>
+          <span class="discovery-duo-connector" aria-hidden="true">
+            <span class="discovery-duo-dot"></span>
+            <span class="discovery-duo-line"></span>
+          </span>
+          <div class="discovery-item discovery-duo-card discovery-duo-card--mission" id="chapter-mission" data-chapter="mission">
+            <span class="section-label">Our Mission</span>
+            <span class="hc-rule" aria-hidden="true"></span>
+            <h3 class="hc-words">Root-Cause, Not Quick-Fix</h3>
+            <p>To provide diagnostic-first, root-cause focused dental care that treats the whole person delivering lasting health, not temporary relief.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Core Values title -->
+      <div class="discovery-item discovery-item--centered discovery-item--title-only fade-in-scroll" id="chapter-values" data-chapter="values">
+        <div class="discovery-content discovery-content--hero">
+          <span class="section-label">What Defines Us</span>
+          <h3 class="hc-words">Our Core Values</h3>
+          <span class="hc-rule" aria-hidden="true"></span>
+        </div>
+      </div>
+
+      <!-- Core Values cards -->
+      <div class="discovery-item discovery-item--full fade-in-scroll" data-chapter="values">
+        <div class="discovery-panel-wrap">
+          <div class="discovery-panel-box">
+            <div class="discovery-wide-grid discovery-wide-grid--scroll" id="coreValuesScroll">
+              <div class="discovery-wide-card">
+                <span class="discovery-wide-num">01</span>
+                <h4>We Start By Listening</h4>
+                <p>Before we examine your teeth, we get to know you. Your health, your experiences, your concerns, and what matters most to you. Good care begins with understanding.</p>
+              </div>
+              <div class="discovery-wide-card">
+                <span class="discovery-wide-num">02</span>
+                <h4>We Walk You Through Everything</h4>
+                <p>No jargon, no assumptions. We take the time to explain what we find, why it matters, and what your options are so every decision is yours to make, fully informed.</p>
+              </div>
+              <div class="discovery-wide-card">
+                <span class="discovery-wide-num">03</span>
+                <h4>We Stay With You Long After</h4>
+                <p>Our relationship doesn't end at the chair. We check in, we follow up, and we remain available because good dental care is a partnership, not a transaction.</p>
+              </div>
+            </div>
+            <div class="values-swipe-hint">Swipe right to know more</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Impact title -->
+      <div class="discovery-item discovery-item--centered discovery-item--title-only fade-in-scroll" id="chapter-impact" data-chapter="impact">
+        <div class="discovery-content discovery-content--hero">
+          <span class="section-label">By the Numbers</span>
+          <h3 class="hc-words">Our Impact</h3>
+          <span class="hc-rule" aria-hidden="true"></span>
+        </div>
+      </div>
+
+      <!-- Impact stats -->
+      <div class="discovery-item discovery-item--full fade-in-scroll" data-chapter="impact">
+        <div class="discovery-panel-wrap">
+          <div class="discovery-panel-box">
+            <div class="discovery-wide-grid" id="impact-stats">
+              <div class="discovery-wide-card hc-stat">
+                <div class="hc-stat__num"><span class="counter-val" data-target="50">0</span>+</div>
+                <div class="hc-stat__label">Years Clinical Experience</div>
+              </div>
+              <div class="discovery-wide-card hc-stat">
+                <div class="hc-stat__num"><span class="counter-val" data-target="150">0</span>K+</div>
+                <div class="hc-stat__label">Persons Treated</div>
+              </div>
+              <div class="discovery-wide-card hc-stat">
+                <div class="hc-stat__num"><span class="counter-val" data-target="20">0</span>+</div>
+                <div class="hc-stat__label">Advanced Certifications</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Final CTA Item inside discovery-section to play video in background -->
+      <div class="discovery-item discovery-item--centered fade-in-scroll" id="chapter-cta" data-chapter="cta">
+        <div class="discovery-content" style="text-align: center; max-width: 600px;">
+          <span class="section-label">Continue Exploring</span>
+          <h3 class="hc-words" style="margin-bottom: var(--space-sm);">Want to Know More About Us?</h3>
+          <p style="margin-bottom: var(--space-lg);">Discover the philosophy, people, and whole-body approach behind Vats &amp; Param — and see what makes our care different.</p>
+          <a href="about.html" class="btn btn--gold-solid hc-cta-btn fx-magnetic">About Us</a>
+        </div>
+      </div>
+
+    </section>
   </section>
-
-  <!-- ========== TESTIMONIALS PAGE ========== -->
-  <section class="page" id="page-testimonials" data-nav="light">
-    <div class="page-header">
-      <div class="container">
-        <span class="section-label">Testimonials</span>
-        <h1>What Our Patients Say</h1>
-        <p>Real experiences from leaders, professionals, and families who trust our holistic approach.</p>
-      </div>
-    </div>
-    <div class="section">
-      <div class="container">
-        <div class="grid-2 fade-in" style="gap:var(--space-xl);">
-          <div class="testimonial-card">
-            <svg class="testimonial-card__quote-icon" viewBox="0 0 24 24" fill="currentColor">
-              <path
-                d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z" />
-              <path
-                d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z" />
-            </svg>
-            <p class="testimonial-card__text">"The diagnostic depth here gave me confidence that my treatment addressed
-              the real cause, not just the symptom. My oral health has never been better."</p>
-            <div class="testimonial-card__author">
-              <div class="testimonial-card__avatar">JS</div>
-              <div>
-                <div class="testimonial-card__name">Jaya S., Bengaluru</div>
-                <div class="testimonial-card__title">Tech Entrepreneur</div>
-              </div>
-            </div>
-          </div>
-          <div class="testimonial-card">
-            <svg class="testimonial-card__quote-icon" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z" />
-              <path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z" />
-            </svg>
-            <p class="testimonial-card__text">"Their preventive monitoring plan has kept me ahead of potential issues. I
-              feel proactive about my health now."</p>
-            <div class="testimonial-card__author">
-              <div class="testimonial-card__avatar">LM</div>
-              <div>
-                <div class="testimonial-card__name">Lakshmi M., Bengaluru</div>
-                <div class="testimonial-card__title">Healthcare Executive</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="testimonial-card">
-            <svg class="testimonial-card__quote-icon" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z" />
-              <path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z" />
-            </svg>
-            <p class="testimonial-card__text">"Vats &amp; Param are easily the best dentists in Bangalore. Dr Srivats and Dr Param are very passionate about what they do, and they literally go out of their way in caring for their patients. I would highly recommend Vats &amp; Param for any dental concerns!"</p>
-            <div class="testimonial-card__author">
-              <div class="testimonial-card__avatar">AB</div>
-              <div>
-                <div class="testimonial-card__name">Adarsh Balachandran</div>
-                <div class="testimonial-card__title">Patient</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="testimonial-card">
-            <svg class="testimonial-card__quote-icon" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z" />
-              <path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z" />
-            </svg>
-            <p class="testimonial-card__text">"I have known Dr. Srivats from Vats and Param clinic for over 15 years. He's not only a very experienced and reputed dentist but also a good friend to his patients. He explains the problem and proposed treatment in detail and makes sure you are comfortable with the approach. He checks-in with you throughout the journey and is available 24/7. The entire team is very professional and friendly. Highly recommend."</p>
-            <div class="testimonial-card__author">
-              <div class="testimonial-card__avatar">SS</div>
-              <div>
-                <div class="testimonial-card__name">Sabitha S</div>
-                <div class="testimonial-card__title">Patient</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="testimonial-card">
-            <svg class="testimonial-card__quote-icon" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z" />
-              <path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z" />
-            </svg>
-            <p class="testimonial-card__text">"Dr Srivats and Dr Param are the best dentists I have ever come across. In today's world where the healthcare industry is under a dark cloud of doubt from a patient's perspective, I find both of them genuine and honest in their approach. I am happy to have sought their services and wish them all the best!"</p>
-            <div class="testimonial-card__author">
-              <div class="testimonial-card__avatar">GK</div>
-              <div>
-                <div class="testimonial-card__name">Gaurav Kalra</div>
-                <div class="testimonial-card__title">Patient</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="testimonial-card">
-            <svg class="testimonial-card__quote-icon" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z" />
-              <path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z" />
-            </svg>
-            <p class="testimonial-card__text">"Dr Srivats and team are the most efficient dentists we've ever come across. Their approach is patient centric and the most advanced technology is available right here near us. I can't thank Dr. Srivats and his team enough for making my dentist's trip a great one!"</p>
-            <div class="testimonial-card__author">
-              <div class="testimonial-card__avatar">AM</div>
-              <div>
-                <div class="testimonial-card__name">Anuradha Madyalkar</div>
-                <div class="testimonial-card__title">Patient</div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== CONTACT PAGE ========== -->
-  <section class="page" id="page-contact">
-    <div class="page-header">
-      <div class="container">
-        <span class="section-label">Contact</span>
-        <h1>Get in Touch</h1>
-        <p>We’re ready to discuss your personalized care plan. Fill out the form or reach us directly.</p>
-      </div>
-    </div>
-    <div class="section">
-      <div class="container">
-        <div class="grid-2 fade-in" style="align-items:start;">
-          <div class="contact-form">
-            <form id="contactForm">
-              <div class="form-group">
-                <label class="form-label" for="name">Name</label>
-                <input class="form-input" type="text" id="name" name="name" required />
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="email">Email</label>
-                <input class="form-input" type="email" id="email" name="email" required />
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="phone">Phone</label>
-                <input class="form-input" type="tel" id="phone" name="phone" />
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="message">Message</label>
-                <textarea class="form-textarea" id="message" name="message" rows="5" required></textarea>
-              </div>
-              <button type="submit" class="btn btn--primary">Send Message</button>
-            </form>
-            <div class="form-success" id="formSuccess">
-              <svg viewBox="0 0 24 24" fill="none" stroke="#C6A75E" stroke-width="2">
-                <path d="M5 13l4 4L19 7" />
-              </svg>
-              <p>Thank you! Your message has been sent.</p>
-            </div>
-          </div>
-          <div class="contact-grid">
-            <div class="locations-list">
-              <div class="location-item active" data-lat="12.8732" data-lng="77.6015"
-                data-map="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3889.3752!2d77.5991!3d12.8687!2m3!1f45!2f45!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae15082121300b%3A0x67a07994fa40b8a4!2sBannerghatta%20Rd%2C%20Hulimavu%2C%20Bengaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1709540000001!5m2!1sen!2sin">
-                <div class="location-item__header">
-                  <svg viewBox="0 0 24 24" stroke-width="2">
-                    <path d="M21 10c0 6-9 13-9 13s-9-7-9-13a9 9 0 1 1 18 0z" />
-                  </svg>
-                  <h4>Hulimavu Clinic</h4>
-                </div>
-                <p>363, Bannerghatta Main Road opposite Reliance Digital. Pai Layout, Hulimavu, Bengaluru 560076</p>
-                <div class="location-item__contact">
-                  <a href="tel:+919900114151" style="color: inherit; text-decoration: none;">+91 9900114151</a>
-                </div>
-              </div>
-
-              <div class="location-item" data-lat="12.9156" data-lng="77.5928"
-                data-map="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.7516!2d77.5904!3d12.9101!2m3!1f45!2f45!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae150d15555555%3A0xbb5555555555!2sJP%20Nagar%202nd%20Phase%2C%20Bengaluru!5e0!3m2!1sen!2sin!4v1709540000002!5m2!1sen!2sin">
-                <div class="location-item__header">
-                  <svg viewBox="0 0 24 24" stroke-width="2">
-                    <path d="M21 10c0 6-9 13-9 13s-9-7-9-13a9 9 0 1 1 18 0z" />
-                  </svg>
-                  <h4>J.P Nagar Branch</h4>
-                </div>
-                <p>KR Layout, 2nd Phase, J. P. Nagar, Bengaluru 560078</p>
-                <div class="location-item__contact">
-                  <a href="tel:+919900114151" style="color: inherit; text-decoration: none;">+91 9900114151</a>
-                </div>
-              </div>
-
-              <div class="location-item" data-lat="12.8718" data-lng="77.6033"
-                data-map="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3889.37!2d77.6009!3d12.8688!2m3!1f45!2f45!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae15a13328e19b%3A0xf64a755dd35a8cd1!2sVatsalya%20Dental%20clinic!5e0!3m2!1sen!2sin!4v1709540000003!5m2!1sen!2sin">
-                <div class="location-item__header">
-                  <svg viewBox="0 0 24 24" stroke-width="2">
-                    <path d="M21 10c0 6-9 13-9 13s-9-7-9-13a9 9 0 1 1 18 0z" />
-                  </svg>
-                  <h4>Arekere Clinic</h4>
-                </div>
-                <p>83, 6th Cross Rd, Arekere MICO Layout 2nd stage, Bengaluru 560076</p>
-                <div class="location-item__contact">
-                  <a href="tel:+919900114151" style="color: inherit; text-decoration: none;">+91 9900114151</a>
-                </div>
-              </div>
-            </div>
-
-            <div class="map-view">
-              <div class="map-container" id="contactMapContainer">
-                <iframe id="contactMap"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3889.3752!2d77.5991!3d12.8687!2m3!1f45!2f45!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae15082121300b%3A0x67a07994fa40b8a4!2sBannerghatta%20Rd%2C%20Hulimavu%2C%20Bengaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1709540000001!5m2!1sen!2sin"
-                  allowfullscreen="" loading="lazy"></iframe>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== CAREERS PAGE ========== -->
-  <section class="page" id="page-careers">
-    <div class="section" style="padding: 12rem 1rem 4rem 1rem; background-color: #fafaf8;">
-      <div class="container" style="max-width: 900px;">
-        <div style="line-height: 1.9; color: var(--color-text-dark);">
-          <p style="font-size: 1.05rem; margin-bottom: 1.5rem;">We are attempting to build a culture of ethical, compassionate, science-driven, comprehensive and whole-body focused healthcare.</p>
-
-          <p style="font-size: 1.05rem; margin-bottom: 1.5rem;">Our approach to dentistry goes beyond procedures alone. We value:</p>
-
-          <ul style="font-size: 1rem; margin-bottom: 2rem; margin-left: 2rem;">
-            <li style="margin-bottom: 0.75rem;">Thoughtful diagnosis and comprehensive treatment planning.</li>
-            <li style="margin-bottom: 0.75rem;">Strong communication and healthy patient conversations.</li>
-            <li style="margin-bottom: 0.75rem;">Prevention, education and long-term thinking.</li>
-            <li style="margin-bottom: 0.75rem;">Respect, empathy and patient dignity.</li>
-            <li style="margin-bottom: 0.75rem;">Documentation, hygiene, systems and professional discipline.</li>
-            <li style="margin-bottom: 0.75rem;">Continuous learning and professional growth.</li>
-          </ul>
-
-          <p style="font-size: 1.05rem; margin-bottom: 1.5rem;">We believe the mouth is connected to the rest of health, and where relevant, we encourage broader thinking around prevention, function, lifestyle, oral-systemic understanding and long-term wellbeing.</p>
-
-          <div style="background: white; padding: 2.5rem; border-radius: 12px; border-left: 4px solid var(--color-gold); margin-bottom: 2.5rem;">
-            <p style="font-size: 1rem; margin: 0; line-height: 1.8;">
-              <strong>At Vats &amp; Param, communication is not separate from dentistry — it is part of dentistry.</strong><br><br>
-              <strong>Documentation is not paperwork — it is professionalism.</strong><br><br>
-              <strong>Learning is not optional — it is part of growth.</strong>
-            </p>
-          </div>
-
-          <h2 style="font-size: 1.8rem; margin-bottom: 1.5rem; margin-top: 2.5rem;">WHAT WE LOOK FOR</h2>
-
-          <p style="font-size: 1rem; margin-bottom: 1.5rem;">We are not necessarily looking for "finished" doctors. We are looking for doctors who demonstrate:</p>
-
-          <div style="margin-bottom: 2.5rem; margin-left: 2rem;">
-            <p style="font-size: 1rem; margin-bottom: 0.75rem;"><strong>✔ Curiosity and willingness to learn.</strong></p>
-            <p style="font-size: 1rem; margin-bottom: 0.75rem;"><strong>✔ Compassion and strong human values.</strong></p>
-            <p style="font-size: 1rem; margin-bottom: 0.75rem;"><strong>✔ Professional maturity and accountability.</strong></p>
-            <p style="font-size: 1rem; margin-bottom: 0.75rem;"><strong>✔ Respect for systems, hygiene and documentation.</strong></p>
-            <p style="font-size: 1rem; margin-bottom: 0.75rem;"><strong>✔ Good communication and patient-centred thinking.</strong></p>
-            <p style="font-size: 1rem; margin-bottom: 0.75rem;"><strong>✔ Openness to mentorship, feedback and continuous improvement.</strong></p>
-          </div>
-
-          <p style="font-size: 1rem; margin-bottom: 2.5rem;"><em>Technical skills matter. Character, mindset and teachability matter deeply too.</em></p>
-
-          <h2 style="font-size: 1.8rem; margin-bottom: 1.5rem; margin-top: 2.5rem;">WHAT YOU CAN EXPECT FROM US</h2>
-
-          <p style="font-size: 1rem; margin-bottom: 1.5rem;">If you join us, you can expect:</p>
-
-          <ul style="font-size: 1rem; margin-bottom: 2.5rem; margin-left: 2rem;">
-            <li style="margin-bottom: 0.75rem;">Mentorship and guidance.</li>
-            <li style="margin-bottom: 0.75rem;">Exposure to comprehensive and whole-body focused dentistry.</li>
-            <li style="margin-bottom: 0.75rem;">Development in diagnosis, communication and systems thinking.</li>
-            <li style="margin-bottom: 0.75rem;">Honest feedback and structured growth.</li>
-            <li style="margin-bottom: 0.75rem;">A respectful culture focused on learning, professionalism and long-term development.</li>
-          </ul>
-
-          <p style="font-size: 1rem; margin-bottom: 1.5rem;"><strong>This environment may not suit everyone.</strong></p>
-
-          <p style="font-size: 1rem; margin-bottom: 2.5rem;">But if you are looking for more than "just a job" — if you are seeking growth, purpose, mentorship, challenge and meaningful healthcare culture — this conversation may be worth having.</p>
-
-          <p style="font-size: 1.05rem; margin-bottom: 2.5rem; font-weight: 500;">We look forward to meeting you.</p>
-
-          <p style="font-size: 1rem; line-height: 1.8;">
-            Warm regards,<br>
-            <strong>Dr. Srivats Bharadwaj &amp; Dr. Paramjot Kaur</strong><br>
-            Vats &amp; Param – The Dentists<br>
-            <span style="color: var(--color-gold); font-weight: 500;">Longevity &amp; Whole Body Focused Dentistry</span>
-          </p>
-
-          <hr style="margin: 3rem 0; border: none; border-top: 1px solid #e0e0e0;">
-
-          <h2 style="font-size: 1.8rem; margin-bottom: 1.5rem; margin-top: 2.5rem;">INTERESTED? GET IN TOUCH</h2>
-
-          <p style="font-size: 1rem; margin-bottom: 2rem;">If you'd like to learn more about joining our team, we'd love to hear from you.</p>
-
-          <div style="background: white; padding: 2rem; border-radius: 12px; border: 1px solid var(--color-gold); margin-bottom: 2.5rem;">
-            <p style="font-size: 1rem; margin-bottom: 1.5rem;"><strong>Email:</strong><br><a href="mailto:happytohelp@vatsandparam.com" style="color: var(--color-gold); text-decoration: none; font-weight: 500;">happytohelp@vatsandparam.com</a></p>
-            <p style="font-size: 1rem; margin: 0;"><strong>Phone:</strong><br><a href="tel:+919900114151" style="color: var(--color-gold); text-decoration: none; font-weight: 500;">+91 9900114151</a></p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <style>
-      @media (max-width: 768px) {
-        #page-careers .section { padding: 8rem 1rem 4rem 1rem !important; }
-        #page-careers .container { max-width: 100% !important; }
-        #page-careers ul { margin-left: 1.5rem !important; }
-        #page-careers div[style*="margin-left: 2rem"] { margin-left: 1.5rem !important; }
-        #page-careers h2 { font-size: 1.4rem !important; }
-        #page-careers p { font-size: 0.95rem !important; }
-      }
-    </style>
-  </section>
-
-  <!-- END OF PAGES -->
 
   <!-- ========== FOOTER ========== -->
   <footer class="footer" id="mainFooter">
     <div class="container">
       <div class="footer__grid">
         <div>
-          <a href="home.html" class="nav__logo nav__logo--footer"
+          <a href="index.html" class="nav__logo nav__logo--footer"
             style="margin-bottom:var(--space-sm);display:inline-flex;">
             <div class="nav__logo-icon-container">
               <img src="assets/logo_teeth.png" alt="Vats &amp; Param logo" class="nav__logo-img" style="width:70px;height:70px;">
@@ -735,7 +254,7 @@
         </div>
         <div>
           <h4 class="footer__heading">Navigation</h4>
-          <a href="home.html" class="footer__link">Home</a>
+          <a href="index.html" class="footer__link">Home</a>
           <a href="about.html" class="footer__link">About</a>
           <a href="services.html" class="footer__link">Services</a>
           <a href="approach.html" class="footer__link">Our Approach</a>
@@ -756,7 +275,7 @@
           <a href="initiatives.html" class="footer__link">Initiatives</a>
         </div>
         <div>
-          <h4 class="footer__heading">Contact & Timings</h4>
+          <h4 class="footer__heading">Contact &amp; Timings</h4>
           <p class="footer__link"><a href="mailto:happytohelp@vatsandparam.com" style="color: inherit; text-decoration: none;">happytohelp@vatsandparam.com</a></p>
           <p class="footer__link"><a href="tel:+919900114151" style="color: inherit; text-decoration: none;">+91 9900114151</a></p>
           <p class="footer__link">Mon &#8211; Sat: 10:00 AM &#8211; 7:00 PM.</p>
@@ -792,7 +311,7 @@
       <!-- ===== END LEGAL ===== -->
 
       <div class="footer__bottom">
-        <span>&copy; 2026 Vats & Param. All rights reserved.</span>
+        <span>&copy; 2026 Vats &amp; Param. All rights reserved.</span>
         <span>Dentistry, Reconnected to the Body</span>
       </div>
     </div>
@@ -848,75 +367,8 @@
     </svg>
   </a>
 
-
-
-  <script src="app.js"></script>
-  <script>
-    // Dropdown menu toggle functionality
-    (function() {
-      const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
-
-      dropdownToggles.forEach(toggle => {
-        toggle.addEventListener('click', function(e) {
-          e.preventDefault();
-          const dropdown = this.closest('.nav__item');
-          const isActive = dropdown.classList.contains('active');
-
-          // Close all other dropdowns
-          document.querySelectorAll('.nav__item.dropdown.active').forEach(item => {
-            if (item !== dropdown) {
-              item.classList.remove('active');
-            }
-          });
-
-          // Toggle current dropdown
-          dropdown.classList.toggle('active');
-        });
-      });
-
-      // Close dropdowns when clicking outside
-      document.addEventListener('click', function(e) {
-        if (!e.target.closest('.nav__item.dropdown')) {
-          document.querySelectorAll('.nav__item.dropdown.active').forEach(item => {
-            item.classList.remove('active');
-          });
-        }
-      });
-    })();
-
-    // Adaptive navbar — changes based on section background
-    (function() {
-      var nav = document.getElementById('mainNav');
-      if (!nav) return;
-
-      var sections = document.querySelectorAll('[data-nav]');
-      if (!sections.length) return;
-
-      var navH = nav.offsetHeight || 72;
-
-      var observer = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry) {
-          if (entry.isIntersecting) {
-            var theme = entry.target.getAttribute('data-nav');
-            nav.classList.remove('nav--over-dark', 'nav--over-light');
-            nav.classList.add(theme === 'light' ? 'nav--over-light' : 'nav--over-dark');
-          }
-        });
-      }, {
-        rootMargin: '-' + navH + 'px 0px -' + (window.innerHeight - navH - 1) + 'px 0px',
-        threshold: 0
-      });
-
-      sections.forEach(function(s) { observer.observe(s); });
-    })();
-
-  </script>
-
+  <script src="nav.js"></script>
+  <script src="assets/js/cards.js"></script>
+  <script src="assets/js/home.js"></script>
 </body>
-
 </html>
-
-
-
-
-
