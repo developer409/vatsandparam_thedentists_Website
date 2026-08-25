@@ -134,7 +134,7 @@
   text-transform: uppercase;
   color: rgba(92, 10, 10, 0.42);
 }
-.mbcc-hint span.line { display: block; width: 22px; height: 1px; background: rgba(92, 10, 10, 0.3); }
+.mbcc-hint span.line { display: block; width: 28px; height: 2px; background: var(--color-gold, #C6A75E); opacity: 0.9; }
 
 .mbcc-panel-num-row {
   display: flex;
@@ -143,7 +143,7 @@
   margin-bottom: 12px;
 }
 .mbcc-panel-num { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; }
-.mbcc-panel-label { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(92, 10, 10, 0.45); }
+.mbcc-panel-label { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(92, 10, 10, 0.75); }
 
 .mbcc-panel-title {
   font-family: var(--font-heading, 'Playfair Display', serif);
@@ -152,7 +152,7 @@
   line-height: 1.08;
   margin: 0 0 8px;
 }
-.mbcc-panel-rule { height: 1px; width: 60px; margin: 0 0 16px; opacity: 0.55; }
+.mbcc-panel-rule { height: 2px; width: 60px; margin: 0 0 16px; opacity: 0.9; }
 .mbcc-panel-headline {
   font-family: var(--font-heading, 'Playfair Display', serif);
   font-style: italic;

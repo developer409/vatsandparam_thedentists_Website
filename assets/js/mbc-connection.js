@@ -258,12 +258,13 @@
       camG.setAttribute('transform', 'translate(' + camX.toFixed(2) + ' ' + camY.toFixed(2) + ') scale(' + z.toFixed(4) + ')');
 
       guide.style.stroke = gold;
-      guide.style.strokeWidth = (2.2 / Math.max(1, z) * 1.6).toFixed(2);
+      guide.style.strokeWidth = (3.6 / Math.max(1, z) * 1.6).toFixed(2);
       guide.style.strokeDasharray = '1';
       guide.style.strokeDashoffset = '0';
-      guide.style.opacity = (0.16 - 0.08 * outro).toFixed(3);
+      guide.style.opacity = (0.75 - 0.25 * outro).toFixed(3);
+      guide.style.filter = 'drop-shadow(0 0 4px rgba(198, 167, 94, 0.5))';
 
-      var segW = (2.4 / Math.max(1, z) * 1.6);
+      var segW = (4.2 / Math.max(1, z) * 1.6);
       segPathEls.forEach(function (pEl, k) {
         var destAccent = SYSTEMS[k].accent;
         var prog = k < i0 ? 1 : (k === i0 ? ef : 0);
@@ -272,50 +273,52 @@
         pEl.style.strokeWidth = segW.toFixed(2);
         pEl.style.strokeDasharray = '1';
         pEl.style.strokeDashoffset = (1 - prog).toFixed(4);
-        pEl.style.opacity = active ? (0.85 - 0.55 * outro).toFixed(3) : 0;
+        pEl.style.opacity = active ? (1.0 - 0.2 * outro).toFixed(3) : 0;
+        pEl.style.filter = 'drop-shadow(0 0 6px ' + destAccent + ')';
       });
 
       var travAccent = i0 < N ? SYSTEMS[i0].accent : SYSTEMS[N - 1].accent;
       trav.style.fill = travAccent;
-      trav.style.transform = 'translate(' + tx.toFixed(2) + 'px,' + ty.toFixed(2) + 'px) scale(' + (1.4 / Math.max(1, z) * 1.5).toFixed(3) + ')';
-      trav.style.opacity = (clamp((s - 0.04) * 12, 0, 1) * (0.9 - 0.7 * outro)).toFixed(3);
-      trav.style.filter = 'drop-shadow(0 0 6px ' + travAccent + ')';
+      trav.style.transform = 'translate(' + tx.toFixed(2) + 'px,' + ty.toFixed(2) + 'px) scale(' + (1.6 / Math.max(1, z) * 1.5).toFixed(3) + ')';
+      trav.style.opacity = (clamp((s - 0.04) * 12, 0, 1) * (1.0 - 0.3 * outro)).toFixed(3);
+      trav.style.filter = 'drop-shadow(0 0 8px ' + travAccent + ')';
 
       mouthG.style.opacity = (1 - 0.88 * ease(s)).toFixed(3);
 
       SYSTEMS.forEach(function (sys, i) {
         var idx = i + 1;
         var a = ease(Math.max(0, 1 - Math.abs(s - idx)));
-        var rest = 0.2 + 0.3 * ease(s) + 0.4 * outro;
+        var rest = 0.4 + 0.3 * ease(s) + 0.3 * outro;
         var lit = Math.max(rest, a);
         var k = (1 + 0.32 * a) / Math.max(0.7, z) * 1.2;
         var m = markerEls[i];
         m.g.setAttribute('transform', 'translate(' + sys.x + ' ' + sys.y + ') scale(' + k.toFixed(3) + ')');
-        m.g.style.color = a > 0.05 ? sys.accent : 'rgba(92,10,10,.4)';
-        m.g.style.opacity = (0.2 + 0.8 * lit).toFixed(3);
+        m.g.style.color = a > 0.05 ? sys.accent : 'rgba(92,10,10,.75)';
+        m.g.style.opacity = (0.5 + 0.5 * lit).toFixed(3);
         m.halo.style.fill = sys.accent;
-        m.halo.style.opacity = (0.22 * a).toFixed(3);
-        m.disc.style.stroke = a > 0.05 ? sys.accent : 'rgba(92,10,10,.28)';
-        m.disc.style.strokeWidth = (1 + a).toFixed(2);
+        m.halo.style.opacity = (0.35 * a).toFixed(3);
+        m.disc.style.stroke = a > 0.05 ? sys.accent : 'rgba(92,10,10,.65)';
+        m.disc.style.strokeWidth = (2.0 + 1.2 * a).toFixed(2);
         m.disc.style.fill = '#FBF6EF';
         m.text.style.fontFamily = "var(--font-body, 'Inter', sans-serif)";
         m.text.style.fontSize = '10px';
-        m.text.style.fontWeight = '600';
+        m.text.style.fontWeight = '700';
         m.text.style.letterSpacing = '1.2px';
         m.text.style.textTransform = 'uppercase';
-        m.text.style.fill = a > 0.4 ? sys.accent : 'rgba(92,10,10,.4)';
+        m.text.style.fill = a > 0.3 ? sys.accent : 'rgba(92,10,10,.75)';
         m.text.style.transform = 'translateY(' + (m.companion ? 66 : 34) + 'px)';
-        m.text.style.opacity = (a > 0.35 ? 1 : 0).toFixed(3);
+        m.text.style.opacity = (a > 0.25 ? 1 : 0).toFixed(3);
 
         if (m.companion) {
-          m.companion.style.stroke = a > 0.05 ? sys.accent : 'rgba(92,10,10,.32)';
-          m.companion.style.strokeWidth = (1 + 0.4 * a).toFixed(2);
+          m.companion.style.stroke = a > 0.05 ? sys.accent : 'rgba(92,10,10,.65)';
+          m.companion.style.strokeWidth = (1.8 + 0.6 * a).toFixed(2);
           m.companion.style.strokeLinejoin = 'round';
-          m.companion.style.opacity = (0.32 + 0.5 * lit).toFixed(3);
+          m.companion.style.opacity = (0.65 + 0.35 * lit).toFixed(3);
         }
 
         if (m.bracketPath) {
-          m.bracketPath.style.opacity = (0.2 + 0.8 * lit).toFixed(3);
+          m.bracketPath.style.opacity = (0.65 + 0.35 * lit).toFixed(3);
+          m.bracketPath.style.strokeWidth = '2px';
         }
 
         var pd = Math.abs(s - idx);
