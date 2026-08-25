@@ -194,7 +194,7 @@ const doctorData = {
         fullImage: 'assets/final_photos/Nishita.png',
         education: 'BDS',
         experience: '6+ Years Clinical Practice',
-        languages: 'English, Kannada, Telugu',
+        languages: 'English, Kannada',
         location: 'Hulimavu Centre, Bengaluru',
         locationFull: '363, 1st floor, Above HDFC Bank, Bannerghatta Main Road, Hulimavu, Bengaluru - 560076',
         tags: [
