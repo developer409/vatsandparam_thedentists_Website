@@ -95,4 +95,36 @@
 
         if (window.scrollY < 50) nav.classList.add('nav--transparent');
     }
+
+    // ---- Copy-to-clipboard for email links ----
+    // Clicking a mailto: link tries to launch the OS's default mail app, which
+    // for most visitors is unconfigured (or not the webmail they actually use,
+    // e.g. Gmail) — so instead we copy the address and show a small confirmation,
+    // falling back to the normal mailto: behaviour if the clipboard API is
+    // unavailable or blocked.
+    document.querySelectorAll('a[href^="mailto:"]').forEach(function (link) {
+        link.addEventListener('click', function (e) {
+            if (!navigator.clipboard) return;
+            const email = link.getAttribute('href').replace(/^mailto:/, '').split('?')[0];
+            e.preventDefault();
+            navigator.clipboard.writeText(email).then(function () {
+                const tip = document.createElement('span');
+                tip.textContent = 'Copied!';
+                tip.style.cssText = 'position:absolute;background:#1A1A1A;color:#fff;' +
+                    'font-size:12px;padding:4px 9px;border-radius:4px;pointer-events:none;' +
+                    'z-index:9999;white-space:nowrap;opacity:0;transition:opacity .15s ease;';
+                document.body.appendChild(tip);
+                const rect = link.getBoundingClientRect();
+                tip.style.left = (rect.left + rect.width / 2 + window.scrollX - tip.offsetWidth / 2) + 'px';
+                tip.style.top = (rect.top + window.scrollY - tip.offsetHeight - 8) + 'px';
+                requestAnimationFrame(function () { tip.style.opacity = '1'; });
+                setTimeout(function () {
+                    tip.style.opacity = '0';
+                    setTimeout(function () { tip.remove(); }, 150);
+                }, 1200);
+            }).catch(function () {
+                window.location.href = link.getAttribute('href');
+            });
+        });
+    });
 })();
