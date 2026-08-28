@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -26,6 +26,14 @@
     rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="treatments-redesign.css">
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NXK3SZG11T"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-NXK3SZG11T');
+  </script>
 </head>
 
 <body>
@@ -148,7 +156,7 @@
               <img src="assets/Treatments/Surgical_Procedures/Laser-Dentistry/healing.png" alt="Faster Healing with Laser" style="display:block; width:100%; height:100%; object-fit:cover; position:absolute; top:0; left:0;">
             </div>
             <div class="treat-step__content">
-              <h3><div class="treat-step__marker" style="background:var(--color-navy);">✓</div> Faster Healing</h3>
+              <h3><div class="treat-step__marker" style="background:var(--color-navy);">âœ“</div> Faster Healing</h3>
               <p>Laser treatment <strong>speeds up the healing process</strong> and significantly reduces the risk of post-procedure infection. The laser cauterizes as it works, minimizing bleeding during and after treatment, getting you back to normal faster.</p>
             </div>
           </div>
@@ -426,7 +434,7 @@
             const item = trigger.parentElement;
             item.classList.toggle('active');
             const span = trigger.querySelector('span');
-            span.textContent = item.classList.contains('active') ? '−' : '+';
+            span.textContent = item.classList.contains('active') ? 'âˆ’' : '+';
         });
     });
   </script>
@@ -436,6 +444,7 @@
 </body>
 
 </html>
+
 
 
 

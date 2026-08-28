@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -26,6 +26,14 @@
     rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="treatments-redesign.css">
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NXK3SZG11T"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-NXK3SZG11T');
+  </script>
 </head>
 
 <body>
@@ -364,7 +372,7 @@
             const item = trigger.parentElement;
             item.classList.toggle('active');
             const span = trigger.querySelector('span');
-            span.textContent = item.classList.contains('active') ? '−' : '+';
+            span.textContent = item.classList.contains('active') ? 'âˆ’' : '+';
         });
     });
   </script>
@@ -374,6 +382,7 @@
 </body>
 
 </html>
+
 
 
 

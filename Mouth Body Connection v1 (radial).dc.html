@@ -1,0 +1,346 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NXK3SZG11T"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-NXK3SZG11T');
+  </script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300&family=Karla:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  html { scroll-behavior: auto; }
+  body { margin: 0; background: #F4EDE4; }
+  a { color: #0E3B3A; text-decoration: none; }
+  a:hover { color: #B08D3F; }
+  @keyframes om-pulse { 0%, 100% { opacity: .35; transform: scale(1); } 50% { opacity: .85; transform: scale(1.09); } }
+  @keyframes om-drift { 0%, 100% { transform: rotate(0deg); } 50% { transform: rotate(4deg); } }
+  @keyframes om-dash { to { stroke-dashoffset: -60; } }
+</style>
+</helmet>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="ic-brain" viewBox="0 0 100 100"><path d="M32 41c0-11 8-19 18-19s18 8 18 19c0 6 4 8 4 15 0 12-10 21-22 21s-22-9-22-21c0-7 4-9 4-15Z" fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/><path d="M50 24v52M38 44c6 2 5 9 12 9M62 59c-6 0-8-6-12-6" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/></symbol>
+<symbol id="ic-lungs" viewBox="0 0 100 100"><path d="M50 20v26" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/><path d="M50 46c-4-7-14-9-18-3-5 8-6 23-4 31 2 7 12 8 16 3 4-5 6-14 6-31Z" fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/><path d="M50 46c4-7 14-9 18-3 5 8 6 23 4 31-2 7-12 8-16 3-4-5-6-14-6-31Z" fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/></symbol>
+<symbol id="ic-heart" viewBox="0 0 100 100"><path d="M50 78S22 60 22 42c0-10 8-16 15-16 6 0 11 4 13 8 2-4 7-8 13-8 7 0 15 6 15 16 0 18-28 36-28 36Z" fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/></symbol>
+<symbol id="ic-gut" viewBox="0 0 100 100"><path d="M42 20c0 12-3 15-9 21-10 10-9 27 4 33 13 6 27-3 27-17 0-9-5-15-13-18" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M42 20h12M36 46c6-3 12-2 16 2" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/></symbol>
+<symbol id="ic-joints" viewBox="0 0 100 100"><path d="M36 22v18a14 14 0 0 0 28 0V22M36 78V60a14 14 0 0 1 28 0v18" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/><circle cx="50" cy="50" r="5" fill="currentColor"/></symbol>
+<symbol id="ic-muscles" viewBox="0 0 100 100"><path d="M24 64c8-18 24-28 38-25M28 70c11 6 28 4 36-8M62 39c9 5 13 13 13 23" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/></symbol>
+<symbol id="ic-pregnancy" viewBox="0 0 100 100"><circle cx="44" cy="24" r="8" fill="none" stroke="currentColor" stroke-width="4"/><path d="M44 36c-6 3-9 11-9 21 0 9 2 13 6 15" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/><path d="M45 40c9 2 15 9 15 18s-7 15-16 15" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/><path d="M41 73v9" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/></symbol>
+<symbol id="ic-glycemic" viewBox="0 0 100 100"><path d="M50 20c11 15 19 24 19 34a19 19 0 0 1-38 0c0-10 8-19 19-34Z" fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/><path d="M43 60c0 5 3 8 8 8" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/></symbol>
+<symbol id="ic-sleep" viewBox="0 0 100 100"><path d="M63 24a27 27 0 1 0 15 42 23 23 0 0 1-15-42Z" fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/><path d="M26 26h10l-10 12h10" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="ic-tooth" viewBox="0 0 100 100"><path d="M28 14C40 6 60 6 72 14c10 7 12 22 8 36-4 14-8 28-14 38-4 6-10 4-11-4l-3-24c-1-7-3-7-4 0l-3 24c-1 8-7 10-11 4-6-10-10-24-14-38-4-14-2-29 8-36Z"/></symbol>
+</defs></svg>
+
+<div ref="{{ rootRef }}" style="background:#F4EDE4;color:#0E3B3A;font-family:Karla,system-ui,sans-serif;-webkit-font-smoothing:antialiased">
+
+  <div style="position:relative;height:1000vh">
+    <div style="position:sticky;top:0;height:100vh;overflow:hidden;display:flex;flex-flow:row-reverse wrap;align-items:center;justify-content:center;gap:0">
+
+      <div style="position:absolute;top:0;left:0;right:0;height:2px;background:rgba(14,59,58,.09);z-index:6">
+        <div style="{{ barStyle }}"></div>
+      </div>
+
+      <!-- STAGE -->
+      <div style="{{ stageColStyle }}">
+        <div style="{{ camStyle }}">
+          <svg viewBox="0 0 800 800" style="position:absolute;inset:0;width:100%;height:100%;overflow:visible">
+            <circle cx="400" cy="400" r="298" fill="none" stroke="rgba(14,59,58,.10)" stroke-width="1"/>
+            <circle cx="400" cy="400" r="252" fill="none" stroke="rgba(14,59,58,.07)" stroke-width="1" stroke-dasharray="2 9"/>
+            <sc-for list="{{ lines }}" as="l" hint-placeholder-count="9">
+              <line x1="{{ l.x1 }}" y1="{{ l.y1 }}" x2="{{ l.x2 }}" y2="{{ l.y2 }}" stroke-linecap="round" style="{{ l.style }}"></line>
+            </sc-for>
+            <circle cx="400" cy="400" r="150" fill="#0E3B3A"/>
+            <circle cx="400" cy="400" r="166" fill="none" stroke="rgba(14,59,58,.18)" stroke-width="1"/>
+            <circle cx="400" cy="400" r="150" fill="none" stroke="rgba(176,141,63,.55)" stroke-width="1.2"/>
+          </svg>
+
+          <div style="position:absolute;left:50%;top:50%;width:37.5%;height:37.5%;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,rgba(176,141,63,.55),rgba(176,141,63,0) 70%);animation:om-pulse 4.4s ease-in-out infinite;pointer-events:none"></div>
+
+          <div style="{{ toothStyle }}">
+            <svg viewBox="0 0 100 100" style="width:100%;height:100%;display:block;filter:drop-shadow(0 6px 24px rgba(0,0,0,.35))"><use href="#ic-tooth" fill="#FBF7F1"></use></svg>
+          </div>
+
+          <sc-for list="{{ nodes }}" as="n" hint-placeholder-count="9">
+            <div style="{{ n.wrapStyle }}">
+              <div style="{{ n.discStyle }}">
+                <svg viewBox="0 0 100 100" style="width:56%;height:56%;display:block"><use href="{{ n.icon }}"></use></svg>
+              </div>
+              <div style="{{ n.labelStyle }}">{{ n.label }}</div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+
+      <!-- CONTENT -->
+      <div style="{{ contentColStyle }}">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.24em;color:rgba(14,59,58,.5);text-transform:uppercase;margin-bottom:clamp(10px,2vh,26px)">The Mouthâ€“Body Connection</div>
+
+        <div style="{{ panelBoxStyle }}">
+
+          <div style="{{ introStyle }}">
+            <h2 style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(34px,4.6vw,64px);line-height:1.06;margin:0 0 22px;letter-spacing:-.01em;text-wrap:pretty">Your mouth is the gateway to your <em style="font-style:italic;color:#B08D3F">overall health</em>.</h2>
+            <p style="font-size:clamp(15px,1.15vw,18px);line-height:1.7;color:rgba(14,59,58,.72);max-width:46ch;margin:0 0 30px">What begins at the gumline rarely stays there. Follow the connection outward â€” through nine systems the mouth quietly shapes.</p>
+            <div style="display:flex;align-items:center;gap:12px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;color:rgba(14,59,58,.45);text-transform:uppercase">
+              <span style="display:block;width:26px;height:1px;background:rgba(14,59,58,.35)"></span>Scroll to travel
+            </div>
+          </div>
+
+          <sc-for list="{{ panels }}" as="s" hint-placeholder-count="9">
+            <div style="{{ s.style }}">
+              <div style="display:flex;align-items:baseline;gap:16px;margin-bottom:18px">
+                <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;color:{{ s.accent }}">{{ s.num }}</span>
+                <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:rgba(14,59,58,.5)">{{ s.label }}</span>
+              </div>
+              <h3 style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(34px,4.4vw,60px);line-height:1.05;margin:0 0 10px;letter-spacing:-.01em">{{ s.title }}</h3>
+              <div style="{{ s.ruleStyle }}"></div>
+              <p style="font-size:clamp(15px,1.15vw,18px);line-height:1.75;color:rgba(14,59,58,.72);max-width:46ch;margin:0 0 20px;text-wrap:pretty">{{ s.content }}</p>
+              <p style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;color:rgba(14,59,58,.38);margin:0;text-transform:uppercase">[ Content will be provided ]</p>
+            </div>
+          </sc-for>
+
+          <div style="{{ finalStyle }}">
+            <h2 style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(34px,4.8vw,66px);line-height:1.05;margin:0 0 22px;letter-spacing:-.01em;text-wrap:pretty">Your mouth is not <em style="font-style:italic;color:#B08D3F">separate</em> from your body.</h2>
+            <p style="font-size:clamp(15px,1.15vw,18px);line-height:1.7;color:rgba(14,59,58,.72);max-width:44ch;margin:0 0 32px">We treat it that way â€” as one system, examined and cared for in the context of everything it touches.</p>
+            <a href="#consultation" style="display:inline-flex;align-items:center;gap:12px;border:1px solid rgba(14,59,58,.28);border-radius:999px;padding:14px 26px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase" style-hover="border-color:#B08D3F;color:#B08D3F">Book a consultation</a>
+          </div>
+        </div>
+      </div>
+
+      <div style="{{ railStyle }}">
+        <sc-for list="{{ rail }}" as="r" hint-placeholder-count="11">
+          <div style="{{ r.style }}"></div>
+        </sc-for>
+      </div>
+
+    </div>
+  </div>
+
+  <section id="consultation" style="border-top:1px solid rgba(14,59,58,.12);padding:clamp(60px,10vh,130px) clamp(20px,6vw,90px);display:flex;flex-wrap:wrap;gap:40px;align-items:flex-end;justify-content:space-between">
+    <div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.24em;color:rgba(14,59,58,.45);text-transform:uppercase;margin-bottom:18px">Next</div>
+      <h4 style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(28px,3.4vw,46px);margin:0;letter-spacing:-.01em">Whole-body dentistry, practised quietly.</h4>
+    </div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;color:rgba(14,59,58,.4);text-transform:uppercase">Vats &amp; Param â€” The Dentists</div>
+  </section>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;showConnections&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Composition&quot;},&quot;showLabels&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Composition&quot;},&quot;glow&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:1,&quot;min&quot;:0,&quot;max&quot;:2,&quot;step&quot;:0.1,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Motion&quot;},&quot;gold&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#B08D3F&quot;,&quot;options&quot;:[&quot;#B08D3F&quot;,&quot;#C9A227&quot;,&quot;#9A7B3C&quot;,&quot;#0E3B3A&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Composition&quot;}}">
+class Component extends DCLogic {
+  state = { p: 0, w: 1440, h: 900 };
+
+  SYSTEMS = [
+    { id: 'brain',     label: 'Brain',       title: 'Brain',            accent: '#2F6B4F', icon: '#ic-brain' },
+    { id: 'lungs',     label: 'Lungs',       title: 'Lungs',            accent: '#6B5AA6', icon: '#ic-lungs' },
+    { id: 'heart',     label: 'Heart',       title: 'Heart',            accent: '#A93B2E', icon: '#ic-heart' },
+    { id: 'gut',       label: 'Gut',         title: 'Gut',              accent: '#B9713A', icon: '#ic-gut' },
+    { id: 'joints',    label: 'Joints',      title: 'Joints & Bones',   accent: '#2F5FA8', icon: '#ic-joints' },
+    { id: 'muscles',   label: 'Muscles',     title: 'Muscles',          accent: '#2E7A86', icon: '#ic-muscles' },
+    { id: 'pregnancy', label: 'Pregnancy',   title: 'Pregnancy',        accent: '#8A5A7A', icon: '#ic-pregnancy' },
+    { id: 'glycemic',  label: 'Glycemic',    title: 'Glycemic Health',  accent: '#3C8FA8', icon: '#ic-glycemic' },
+    { id: 'sleep',     label: 'Sleep',       title: 'Sleep',            accent: '#3A4E8C', icon: '#ic-sleep' }
+  ];
+
+  cur = 0; target = 0;
+
+  componentDidMount() {
+    this.onScroll = () => {
+      const el = this.root; if (!el) return;
+      const r = el.getBoundingClientRect();
+      const span = Math.max(1, r.height - window.innerHeight);
+      this.target = Math.min(1, Math.max(0, -r.top / span));
+      if (window.innerWidth !== this.state.w || window.innerHeight !== this.state.h) {
+        this.setState({ w: window.innerWidth, h: window.innerHeight });
+      }
+    };
+    const tick = () => {
+      this.cur += (this.target - this.cur) * 0.12;
+      if (Math.abs(this.target - this.cur) < 0.0004) this.cur = this.target;
+      if (Math.abs(this.cur - this.state.p) > 0.0002) this.setState({ p: this.cur });
+      this.raf = requestAnimationFrame(tick);
+    };
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+    window.addEventListener('resize', this.onScroll);
+    this.onScroll();
+    this.cur = this.target;
+    this.raf = requestAnimationFrame(tick);
+  }
+  componentWillUnmount() {
+    cancelAnimationFrame(this.raf);
+    window.removeEventListener('scroll', this.onScroll);
+    window.removeEventListener('resize', this.onScroll);
+  }
+
+  ease(t) { return t < 0 ? 0 : t > 1 ? 1 : t * t * (3 - 2 * t); }
+  clamp(v, a, b) { return Math.min(b, Math.max(a, v)); }
+
+  renderVals() {
+    const S = this.SYSTEMS, N = S.length, steps = N + 2;
+    const glow = this.props.glow ?? 1;
+    const showLines = this.props.showConnections ?? true;
+    const showLabels = this.props.showLabels ?? true;
+    const gold = this.props.gold ?? '#B08D3F';
+    const p = this.state.p;
+    const s = p * (steps - 1);              // 0 = intro, 1..9 = systems, 10 = final
+    const TARGET = -22;                     // active node sits upper-right
+    const base = k => -90 + (k - 1) * (360 / N);
+    const k = this.clamp(s, 1, N);
+    let rot = TARGET - base(k);
+    if (s < 1) rot = (TARGET - base(1)) * this.ease(s);
+    const outro = this.clamp(s - N, 0, 1);
+    const camScale = 0.93 + 0.07 * this.ease(s) - 0.10 * this.ease(outro);
+    const R = 300, C = 400;
+    const W = this.state.w, H = this.state.h;
+    const stacked = W < 1000;
+    const stageSize = stacked
+      ? Math.max(180, Math.min(H * 0.38, W * 0.66, 340))
+      : Math.max(300, Math.min(H * 0.58, W * 0.50));
+    const tightLabels = stageSize < 260;
+
+    const nodes = [], lines = [];
+    S.forEach((sys, i) => {
+      const idx = i + 1;
+      let a = Math.max(0, 1 - Math.abs(s - idx));
+      a = this.ease(a);
+      const rest = 0.18 + 0.32 * this.ease(s) + 0.42 * outro;
+      const lit = Math.max(rest, a);
+      const ang = (base(idx) + rot) * Math.PI / 180;
+      const x = C + R * Math.cos(ang), y = C + R * Math.sin(ang);
+      const sc = 1 + 0.42 * a;
+      const size = 15;
+      nodes.push({
+        key: sys.id, label: sys.label, icon: sys.icon,
+        wrapStyle: {
+          position: 'absolute', left: (x / 800 * 100) + '%', top: (y / 800 * 100) + '%',
+          width: size + '%', height: size + '%',
+          transform: 'translate(-50%,-50%) scale(' + sc.toFixed(3) + ')',
+          opacity: (0.22 + 0.78 * lit).toFixed(3),
+          display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
+          willChange: 'transform,opacity'
+        },
+        discStyle: {
+          width: '100%', height: '100%', borderRadius: '50%',
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          background: '#FBF6EF',
+          color: a > 0.05 ? sys.accent : 'rgba(14,59,58,.62)',
+          border: '1px solid ' + (a > 0.05 ? sys.accent : 'rgba(14,59,58,.22)'),
+          boxShadow: a > 0.02
+            ? '0 0 ' + (34 * a * glow).toFixed(0) + 'px ' + (6 * a).toFixed(0) + 'px ' + sys.accent + Math.round(a * 60).toString(16).padStart(2, '0')
+            : '0 1px 2px rgba(14,59,58,.06)',
+          transition: 'background .3s linear'
+        },
+        labelStyle: {
+          position: 'absolute', top: '104%', whiteSpace: 'nowrap',
+          fontFamily: "'IBM Plex Mono',monospace", fontSize: 'clamp(8px,1.05vmin,11px)',
+          letterSpacing: '.22em', textTransform: 'uppercase',
+          color: a > 0.4 ? sys.accent : 'rgba(14,59,58,.55)',
+          opacity: !showLabels ? 0 : tightLabels ? (a > 0.55 ? 1 : 0) : (0.35 + 0.65 * lit).toFixed(3)
+        }
+      });
+      const inner = 158, ux = Math.cos(ang), uy = Math.sin(ang);
+      lines.push({
+        key: sys.id,
+        x1: (C + ux * inner).toFixed(1), y1: (C + uy * inner).toFixed(1),
+        x2: (C + ux * (R - 62)).toFixed(1), y2: (C + uy * (R - 62)).toFixed(1),
+        style: {
+          stroke: a > 0.05 ? sys.accent : 'rgba(14,59,58,.55)',
+          strokeWidth: (0.9 + 2.1 * a).toFixed(2),
+          opacity: showLines ? (0.10 + 0.62 * lit).toFixed(3) : 0,
+          strokeDasharray: '5 7',
+          animation: a > 0.5 ? 'om-dash 2.2s linear infinite' : 'none'
+        }
+      });
+    });
+
+    const panels = S.map((sys, i) => {
+      const d = Math.abs(s - (i + 1));
+      const o = this.clamp(1 - d * 1.7, 0, 1);
+      return {
+        key: sys.id, label: sys.label, title: sys.title, accent: sys.accent,
+        num: String(i + 1).padStart(2, '0') + ' / ' + String(N).padStart(2, '0'),
+        content: 'Placeholder â€” the clinical explanation of how oral health influences the ' + sys.label.toLowerCase() + ' will sit here.',
+        ruleStyle: { width: (18 + 60 * o).toFixed(0) + '%', height: '1px', background: sys.accent, opacity: 0.5, margin: '0 0 22px' },
+        style: {
+          position: 'absolute', inset: 0, pointerEvents: o > 0.5 ? 'auto' : 'none',
+          opacity: o.toFixed(3),
+          transform: 'translateY(' + ((s - (i + 1)) * -26).toFixed(1) + 'px)',
+          willChange: 'transform,opacity'
+        }
+      };
+    });
+
+    const oIntro = this.clamp(1 - s * 1.7, 0, 1);
+    const oFinal = this.clamp((s - N) * 1.7, 0, 1);
+    const layer = (o, dy) => ({
+      position: 'absolute', inset: 0, opacity: o.toFixed(3),
+      pointerEvents: o > 0.5 ? 'auto' : 'none',
+      transform: 'translateY(' + dy.toFixed(1) + 'px)', willChange: 'transform,opacity'
+    });
+
+    const toothS = 1.18 - 0.30 * this.ease(s) + 0.16 * outro;
+
+    const pad = stacked ? Math.round(Math.min(20, W * 0.05)) : Math.round(Math.min(72, Math.max(20, W * 0.044)));
+    const panelH = stacked
+      ? Math.max(170, H - stageSize - pad * 2 - 46)
+      : Math.max(300, Math.min(H * 0.48, 460));
+
+    return {
+      stageColStyle: {
+        boxSizing: 'border-box',
+        flex: stacked ? '0 0 100%' : '1 1 420px', display: 'flex', alignItems: 'center',
+        justifyContent: 'center', padding: (stacked ? 8 : 24) + 'px', minWidth: 0
+      },
+      contentColStyle: {
+        boxSizing: 'border-box',
+        flex: stacked ? '0 0 100%' : '1 1 380px', minWidth: 0, position: 'relative',
+        padding: (stacked ? 0 : pad) + 'px ' + pad + 'px ' + pad + 'px'
+      },
+      panelBoxStyle: { position: 'relative', height: Math.round(panelH) + 'px' },
+      rootRef: el => { this.root = el; },
+      nodes, lines, panels,
+      barStyle: { height: '100%', width: (p * 100).toFixed(2) + '%', background: gold, opacity: .75 },
+      camStyle: {
+        position: 'relative', width: Math.round(stageSize) + 'px', height: Math.round(stageSize) + 'px',
+        transform: 'scale(' + camScale.toFixed(3) + ')', willChange: 'transform'
+      },
+      toothStyle: {
+        position: 'absolute', left: '50%', top: '50%', width: '19%', height: '19%',
+        transform: 'translate(-50%,-50%) scale(' + toothS.toFixed(3) + ')',
+        opacity: (0.72 + 0.28 * (1 - this.ease(s)) + 0.2 * outro).toFixed(3),
+        willChange: 'transform'
+      },
+      introStyle: layer(oIntro, s * -26),
+      finalStyle: layer(oFinal, (s - steps + 1) * -26),
+      railStyle: {
+        position: 'absolute', right: 'clamp(10px,2vw,26px)', top: '50%', transform: 'translateY(-50%)',
+        display: 'flex', flexDirection: 'column', gap: '10px', zIndex: 5
+      },
+      rail: Array.from({ length: steps }, (_, i) => {
+        const a = Math.max(0, 1 - Math.abs(s - i) * 1.4);
+        return {
+          key: i,
+          style: {
+            width: '5px', height: (5 + 16 * a).toFixed(1) + 'px', borderRadius: '3px',
+            background: i === 0 || i === steps - 1 ? gold : (S[i - 1] ? S[i - 1].accent : gold),
+            opacity: (0.16 + 0.72 * a).toFixed(3)
+          }
+        };
+      })
+    };
+  }
+}
+</script>
+</body>
+</html>
+

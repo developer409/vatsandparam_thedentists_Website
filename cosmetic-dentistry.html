@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -27,6 +27,14 @@
     rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="treatments-redesign.css">
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NXK3SZG11T"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-NXK3SZG11T');
+  </script>
 </head>
 
 <body>
@@ -90,7 +98,7 @@
         <div class="treat-hero__content">
           <span class="treat-label">Aesthetic Dentistry</span>
           <h1 class="treat-title">Cosmetic Dentistry</h1>
-          <p class="treat-hero__subtext">Designing the smile you've always dreamed of — using precision, artistry, and
+          <p class="treat-hero__subtext">Designing the smile you've always dreamed of â€” using precision, artistry, and
             the latest technology to enhance your natural beauty.</p>
         </div>
         <!-- Hero Image Placeholder -->
@@ -216,7 +224,7 @@
           </div>
           <div class="treat-step__content">
             <h3>
-              <div class="treat-step__marker">✓</div> Personalized Artistry
+              <div class="treat-step__marker">âœ“</div> Personalized Artistry
             </h3>
             <p>We combine clinical expertise with advanced <strong>Digital Smile Design</strong> technology. This allows
               us to map out your new smile before any treatment begins, ensuring the final result perfectly complements
@@ -445,7 +453,7 @@
         const item = trigger.parentElement;
         item.classList.toggle('active');
         const span = trigger.querySelector('span');
-        span.textContent = item.classList.contains('active') ? '−' : '+';
+        span.textContent = item.classList.contains('active') ? 'âˆ’' : '+';
       });
     });
   </script>
@@ -455,6 +463,7 @@
 </body>
 
 </html>
+
 
 
 

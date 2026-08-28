@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -26,6 +26,14 @@
     rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="treatments-redesign.css">
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NXK3SZG11T"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-NXK3SZG11T');
+  </script>
 </head>
 
 <body>
@@ -107,7 +115,7 @@
           <span class="treat-label">Overview</span>
           <h2 class="treat-title">What is Wisdom Teeth Removal?</h2>
         </div>
-        <p class="treat-lead text-center">Wisdom teeth removal is a surgical procedure that involves the extraction of one or more <strong>wisdom teeth</strong> — the last set of molars that typically emerge in the late teenage years or early twenties.</p>
+        <p class="treat-lead text-center">Wisdom teeth removal is a surgical procedure that involves the extraction of one or more <strong>wisdom teeth</strong> â€” the last set of molars that typically emerge in the late teenage years or early twenties.</p>
         <p class="treat-lead text-center" style="margin-top:var(--space-md);">Wisdom teeth may cause problems if they don't have enough space to grow or if they grow in an improper position, which can lead to <strong>pain, infection, and other dental issues</strong>. As a result, many people may require wisdom teeth removal to maintain their oral health and prevent further complications.</p>
       </div>
     </section>
@@ -148,8 +156,8 @@
               <img src="assets/Treatments/Surgical_Procedures/Wisdom-Teeth/recovery.png" alt="Post-Extraction Recovery" style="display:block; width:100%; height:100%; object-fit:cover; position:absolute; top:0; left:0;">
             </div>
             <div class="treat-step__content">
-              <h3><div class="treat-step__marker" style="background:var(--color-navy);">✓</div> Recovery & Healing</h3>
-              <p>With proper post-care, including rest, ice packs, soft foods, and gentle oral hygiene — most patients recover within <strong>3–5 days</strong>. We provide complete guidance to ensure a smooth healing process.</p>
+              <h3><div class="treat-step__marker" style="background:var(--color-navy);">âœ“</div> Recovery & Healing</h3>
+              <p>With proper post-care, including rest, ice packs, soft foods, and gentle oral hygiene â€” most patients recover within <strong>3â€“5 days</strong>. We provide complete guidance to ensure a smooth healing process.</p>
             </div>
           </div>
 
@@ -222,7 +230,7 @@
             <div class="treat-card__title-fixed">Recurring Infections</div>
             <div class="treat-card__overlay">
               <h3 class="treat-principle-card__title">Recurring Infections</h3>
-              <p class="treat-principle-card__text">Repeated episodes of pericoronitis — inflammation of the gum flap over a partially erupted tooth — signal the need for extraction.</p>
+              <p class="treat-principle-card__text">Repeated episodes of pericoronitis â€” inflammation of the gum flap over a partially erupted tooth â€” signal the need for extraction.</p>
             </div>
           </div>
 
@@ -269,7 +277,7 @@
           <div class="treat-faq-item">
             <button class="treat-faq-trigger">How long does recovery take? <span>+</span></button>
             <div class="treat-faq-content">
-              <p>Most people feel significantly better within 3–5 days. Full healing of the extraction sites typically takes about 1–2 weeks. Following post-care instructions closely, such as resting, maintaining a soft diet, and avoiding straws — helps ensure a smooth recovery.</p>
+              <p>Most people feel significantly better within 3â€“5 days. Full healing of the extraction sites typically takes about 1â€“2 weeks. Following post-care instructions closely, such as resting, maintaining a soft diet, and avoiding straws â€” helps ensure a smooth recovery.</p>
             </div>
           </div>
           <div class="treat-faq-item">
@@ -443,7 +451,7 @@
             const item = trigger.parentElement;
             item.classList.toggle('active');
             const span = trigger.querySelector('span');
-            span.textContent = item.classList.contains('active') ? '−' : '+';
+            span.textContent = item.classList.contains('active') ? 'âˆ’' : '+';
         });
     });
   </script>
@@ -453,6 +461,7 @@
 </body>
 
 </html>
+
 
 
 

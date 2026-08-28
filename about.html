@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -34,6 +34,14 @@
       background-color: transparent !important;
     }
   </style>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NXK3SZG11T"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-NXK3SZG11T');
+  </script>
 </head>
 
 <body>
@@ -154,7 +162,7 @@
 
       <!-- Sticky container that pins while user scrolls -->
       <div class="walkthrough-sticky">
-        <!-- Blurred background fill to eliminate black bars (desktop only â€” gated by the
+        <!-- Blurred background fill to eliminate black bars (desktop only Ã¢â‚¬â€ gated by the
              source's own media query, evaluated before any JS runs, so mobile never fetches
              it at all. about.js also removes the element outright on mobile as a backup. -->
         <video autoplay muted loop playsinline preload="auto" poster="assets/videos/walkthrough-poster.jpg"
@@ -293,11 +301,11 @@
       </div><!-- end walkthrough-sticky -->
     </section>
 
-    <!-- SECTION 3: WHOLE BODY CONNECTION — PARALLAX SCROLL -->
+    <!-- SECTION 3: WHOLE BODY CONNECTION â€” PARALLAX SCROLL -->
     <section class="wb-section" id="wholeBodySection" data-nav="light">
       <div class="wb-sticky">
 
-        <!-- Title screen â€” visible on entry, fades as user scrolls -->
+        <!-- Title screen Ã¢â‚¬â€ visible on entry, fades as user scrolls -->
         <div class="wb-title-screen" id="wbTitleScreen">
           <video autoplay muted loop playsinline class="wb-title-video">
             <source src="assets/videos/MOUTH_BODY_16x9_video.mp4" type="video/mp4">
@@ -317,7 +325,7 @@
         <img src="assets/our_clinic_logo/Medical_infographic.jpeg" alt="Mouth-Body Connection Infographic"
           class="wb-mobile-image">
 
-        <!-- Video layers â€” stacked, JS drives parallax translateY transitions -->
+        <!-- Video layers Ã¢â‚¬â€ stacked, JS drives parallax translateY transitions -->
         <div class="wb-video-stack">
           <div class="wb-video-layer" data-organ="brain">
             <video autoplay muted loop playsinline preload="auto">
@@ -374,7 +382,7 @@
         <!-- Dark gradient overlay for text legibility -->
         <div class="wb-overlay"></div>
 
-        <!-- Info panels â€” one per organ, JS controls opacity + child reveals -->
+        <!-- Info panels Ã¢â‚¬â€ one per organ, JS controls opacity + child reveals -->
         <div class="wb-info-panel">
 
           <div class="wb-organ-info" data-organ="brain">
@@ -443,7 +451,7 @@
             <ul class="wb-organ-facts">
               <li>Jaw dysfunction causes neck and back pain</li>
               <li>Periodontal bacteria trigger joint inflammation</li>
-              <li>RA patients have 8Ã— higher rates of gum disease</li>
+              <li>RA patients have 8Ãƒâ€” higher rates of gum disease</li>
             </ul>
           </div>
 
@@ -471,7 +479,7 @@
             </p>
             <ul class="wb-organ-facts">
               <li>Pregnancy gingivitis affects up to 75% of expectant mothers</li>
-              <li>Untreated gum disease increases premature birth risk by 7Ã—</li>
+              <li>Untreated gum disease increases premature birth risk by 7Ãƒâ€”</li>
               <li>Oral bacteria can cross the placental barrier affecting fetal development</li>
             </ul>
           </div>
@@ -494,7 +502,7 @@
             <span class="wb-organ-num">09 &nbsp;/&nbsp; 10</span>
             <h3 class="wb-organ-name">Sleep</h3>
             <p class="wb-organ-headline">Jaw structure, tongue position, and airway size shape whether sleep is restful</p>
-            <p class="wb-organ-body">Jaw structure, tongue position, and airway size — all mouth-adjacent factors — are central to whether sleep is restful or repeatedly interrupted. Undiagnosed airway restriction shows up first as snoring or fatigue, and correcting it at the source can resolve sleep issues that other approaches only manage.</p>
+            <p class="wb-organ-body">Jaw structure, tongue position, and airway size â€” all mouth-adjacent factors â€” are central to whether sleep is restful or repeatedly interrupted. Undiagnosed airway restriction shows up first as snoring or fatigue, and correcting it at the source can resolve sleep issues that other approaches only manage.</p>
             <ul class="wb-organ-facts">
               <li>Airway anatomy (tongue position, jaw structure) as a driver of obstructive sleep apnea</li>
               <li>Bruxism/TMJ disrupting sleep continuity</li>
@@ -506,7 +514,7 @@
             <span class="wb-organ-num">10 &nbsp;/&nbsp; 10</span>
             <h3 class="wb-organ-name">Posture</h3>
             <p class="wb-organ-headline">How the jaw sits at rest shapes how the head balances on the spine</p>
-            <p class="wb-organ-body">How the jaw sits at rest shapes how the head balances on the spine — a forward head posture from mouth breathing or a misaligned bite pulls on the neck and shoulders all day, and the same imbalances carry into how the body settles at night, disrupting sleep posture and breathing.</p>
+            <p class="wb-organ-body">How the jaw sits at rest shapes how the head balances on the spine â€” a forward head posture from mouth breathing or a misaligned bite pulls on the neck and shoulders all day, and the same imbalances carry into how the body settles at night, disrupting sleep posture and breathing.</p>
             <ul class="wb-organ-facts">
               <li>Craniocervical posture linked to jaw position and airway patency</li>
               <li>Mouth breathing and malocclusion associated with forward head posture</li>
@@ -572,7 +580,7 @@
       </div>
     </section>
 
-    <!-- MOBILE STATS â€” shown only on mobile, above Led by Expertise -->
+    <!-- MOBILE STATS Ã¢â‚¬â€ shown only on mobile, above Led by Expertise -->
     <section class="mobile-stats-section">
       <div class="mobile-stats-pills">
         <div class="mobile-stat-pill">
@@ -747,7 +755,7 @@
       <h3 class="policy-modal__title" id="modal-terms-title">Terms &amp; Conditions</h3>
       <p class="policy-modal__body">Use of this website constitutes acceptance of these terms. Content is provided for
         informational purposes only. Users should not rely on website content as a substitute for professional advice,
-        diagnosis or treatment. Vats &amp; Param â€“ The Dentists reserves the right to modify website content without
+        diagnosis or treatment. Vats &amp; Param Ã¢â‚¬â€œ The Dentists reserves the right to modify website content without
         notice.</p>
     </div>
   </div>
@@ -813,4 +821,5 @@
 </body>
 
 </html>
+
 

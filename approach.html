@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -33,6 +33,14 @@
        index.html (body:has(#page-approach.active) in styles.css); here it's always the page. */
     body { background-color: transparent !important; }
   </style>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NXK3SZG11T"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-NXK3SZG11T');
+  </script>
 </head>
 
 <body>
@@ -94,7 +102,7 @@
     <section class="discovery-section fx-cards" data-nav="dark">
       <div class="immersive-bg">
         <video autoplay muted loop playsinline preload="metadata" class="discovery-video" id="approachVideo"></video>
-        <button class="discovery-video-pause" id="approachVideoPause" aria-label="Pause background video">⏸</button>
+        <button class="discovery-video-pause" id="approachVideoPause" aria-label="Pause background video">â¸</button>
       </div>
 
       <!-- Methodology intro panel: visible on load, centered over video -->
@@ -352,7 +360,7 @@
               <div class="journey-head fade-in-scroll">
                 <span class="section-label">Who We Help</span>
                 <h3 class="journey-head__title">Care for Those Seeking More Than Temporary Relief</h3>
-                <p class="journey-head__intro">We work with individuals who want to better understand the underlying factors behind their health concerns — not simply manage symptoms.</p>
+                <p class="journey-head__intro">We work with individuals who want to better understand the underlying factors behind their health concerns â€” not simply manage symptoms.</p>
               </div>
 
               <div class="journey-node fade-in-scroll">
@@ -549,7 +557,7 @@
     <div class="policy-modal__card">
       <button class="policy-modal__close" aria-label="Close">&times;</button>
       <h3 class="policy-modal__title" id="modal-terms-title">Terms &amp; Conditions</h3>
-      <p class="policy-modal__body">Use of this website constitutes acceptance of these terms. Content is provided for informational purposes only. Users should not rely on website content as a substitute for professional advice, diagnosis or treatment. Vats &amp; Param â€“ The Dentists reserves the right to modify website content without notice.</p>
+      <p class="policy-modal__body">Use of this website constitutes acceptance of these terms. Content is provided for informational purposes only. Users should not rely on website content as a substitute for professional advice, diagnosis or treatment. Vats &amp; Param Ã¢â‚¬â€œ The Dentists reserves the right to modify website content without notice.</p>
     </div>
   </div>
 
@@ -593,5 +601,6 @@
   <script src="assets/js/approach-journey.js"></script>
 </body>
 </html>
+
 
 

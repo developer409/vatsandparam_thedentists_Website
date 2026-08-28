@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -28,10 +28,18 @@
   <link rel="stylesheet" href="styles.css">
   <style>
     /* Unlike the video-hero pages (Home/About/Approach), this page isn't full-bleed behind
-       the nav â€” it relied on the SPA's base `.page { padding-top: var(--nav-height) }` rule,
+       the nav Ã¢â‚¬â€ it relied on the SPA's base `.page { padding-top: var(--nav-height) }` rule,
        which doesn't apply here since this page doesn't use the `.page` class. */
     #page-treatments { padding-top: var(--nav-height); }
   </style>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NXK3SZG11T"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-NXK3SZG11T');
+  </script>
 </head>
 
 <body>
@@ -419,7 +427,7 @@
     <div class="policy-modal__card">
       <button class="policy-modal__close" aria-label="Close">&times;</button>
       <h3 class="policy-modal__title" id="modal-terms-title">Terms &amp; Conditions</h3>
-      <p class="policy-modal__body">Use of this website constitutes acceptance of these terms. Content is provided for informational purposes only. Users should not rely on website content as a substitute for professional advice, diagnosis or treatment. Vats &amp; Param â€“ The Dentists reserves the right to modify website content without notice.</p>
+      <p class="policy-modal__body">Use of this website constitutes acceptance of these terms. Content is provided for informational purposes only. Users should not rely on website content as a substitute for professional advice, diagnosis or treatment. Vats &amp; Param Ã¢â‚¬â€œ The Dentists reserves the right to modify website content without notice.</p>
     </div>
   </div>
 
@@ -460,5 +468,6 @@
   <script src="assets/js/services.js"></script>
 </body>
 </html>
+
 
 
