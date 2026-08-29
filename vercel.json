@@ -1,0 +1,24 @@
+{
+  "redirects": [
+    {
+      "source": "/contact-us/",
+      "destination": "/contact.html",
+      "permanent": true
+    },
+    {
+      "source": "/contact-us",
+      "destination": "/contact.html",
+      "permanent": true
+    },
+    {
+      "source": "/about-us/",
+      "destination": "/about.html",
+      "permanent": true
+    },
+    {
+      "source": "/about-us",
+      "destination": "/about.html",
+      "permanent": true
+    }
+  ]
+}
