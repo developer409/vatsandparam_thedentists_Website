@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+  <url>
+    <loc>https://www.vatsandparam.com/</loc>
+    <video:video>
+      <video:thumbnail_loc>https://www.vatsandparam.com/assets/og-image.png</video:thumbnail_loc>
+      <video:title>Vats &amp; Param Clinic Walkthrough</video:title>
+      <video:description>A comprehensive walkthrough of our holistic dental clinic showcasing our state-of-the-art facilities.</video:description>
+      <video:content_loc>https://www.vatsandparam.com/assets/Walkthrough_video_VP.mp4</video:content_loc>
+      <video:duration>150</video:duration>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.vatsandparam.com/about.html</loc>
+    <video:video>
+      <video:thumbnail_loc>https://www.vatsandparam.com/assets/og-image.png</video:thumbnail_loc>
+      <video:title>Comprehensive Oral Assessment</video:title>
+      <video:description>Learn about our comprehensive approach to dental assessments and patient care.</video:description>
+      <video:content_loc>https://www.vatsandparam.com/assets/A_Comprehensive_treatment_v2.mp4</video:content_loc>
+      <video:duration>180</video:duration>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.vatsandparam.com/gum-treatment.html</loc>
+    <video:video>
+      <video:thumbnail_loc>https://www.vatsandparam.com/assets/og-image.png</video:thumbnail_loc>
+      <video:title>Gum Health and Treatment</video:title>
+      <video:description>Explore our advanced gum health treatment options and preventive care methods.</video:description>
+      <video:content_loc>https://www.vatsandparam.com/assets/videos/B.%20Clinical%20treatments/Gum%20Health.mp4</video:content_loc>
+      <video:duration>120</video:duration>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.vatsandparam.com/dental-implants-replacement.html</loc>
+    <video:video>
+      <video:thumbnail_loc>https://www.vatsandparam.com/assets/og-image.png</video:thumbnail_loc>
+      <video:title>Dental Implants and Replacement</video:title>
+      <video:description>Discover how dental implants can restore your smile with our advanced implant techniques.</video:description>
+      <video:content_loc>https://www.vatsandparam.com/assets/videos/B.%20Clinical%20treatments/dental%20implant.mp4</video:content_loc>
+      <video:duration>140</video:duration>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.vatsandparam.com/endodontics-root-canal.html</loc>
+    <video:video>
+      <video:thumbnail_loc>https://www.vatsandparam.com/assets/og-image.png</video:thumbnail_loc>
+      <video:title>Endodontics and Root Canal Treatment</video:title>
+      <video:description>Learn about advanced root canal therapy and endodontic treatments for tooth preservation.</video:description>
+      <video:content_loc>https://www.vatsandparam.com/assets/videos/B.%20Clinical%20treatments/endonics.mp4</video:content_loc>
+      <video:duration>130</video:duration>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.vatsandparam.com/orthodontics-bite-development.html</loc>
+    <video:video>
+      <video:thumbnail_loc>https://www.vatsandparam.com/assets/og-image.png</video:thumbnail_loc>
+      <video:title>Orthodontics and Bite Development</video:title>
+      <video:description>Explore our comprehensive orthodontic solutions for proper bite alignment and dental health.</video:description>
+      <video:content_loc>https://www.vatsandparam.com/assets/videos/B.%20Clinical%20treatments/orthodontics.mp4</video:content_loc>
+      <video:duration>135</video:duration>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.vatsandparam.com/restorative-dentistry-rehabilitation.html</loc>
+    <video:video>
+      <video:thumbnail_loc>https://www.vatsandparam.com/assets/og-image.png</video:thumbnail_loc>
+      <video:title>Restorative Dentistry and Rehabilitation</video:title>
+      <video:description>Discover our restorative dental treatments to rebuild and rehabilitate your smile.</video:description>
+      <video:content_loc>https://www.vatsandparam.com/assets/videos/B.%20Clinical%20treatments/restorative.mp4</video:content_loc>
+      <video:duration>145</video:duration>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.vatsandparam.com/smile-design-aesthetic.html</loc>
+    <video:video>
+      <video:thumbnail_loc>https://www.vatsandparam.com/assets/og-image.png</video:thumbnail_loc>
+      <video:title>Smile Design and Aesthetic Dentistry</video:title>
+      <video:description>Learn about our smile design approach to create beautiful, natural-looking smiles.</video:description>
+      <video:content_loc>https://www.vatsandparam.com/assets/videos/B.%20Clinical%20treatments/smile.mp4</video:content_loc>
+      <video:duration>125</video:duration>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.vatsandparam.com/airway-breathing-sleep-health.html</loc>
+    <video:video>
+      <video:thumbnail_loc>https://www.vatsandparam.com/assets/og-image.png</video:thumbnail_loc>
+      <video:title>Airway, Breathing and Sleep Health</video:title>
+      <video:description>Explore how dental health connects to airway, breathing, and quality sleep.</video:description>
+      <video:content_loc>https://www.vatsandparam.com/assets/videos/C.%20Functional%20and%20Whole%20body/airway.mp4</video:content_loc>
+      <video:duration>160</video:duration>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.vatsandparam.com/bite-tmj-functional-dentistry.html</loc>
+    <video:video>
+      <video:thumbnail_loc>https://www.vatsandparam.com/assets/og-image.png</video:thumbnail_loc>
+      <video:title>Bite, TMJ and Functional Dentistry</video:title>
+      <video:description>Discover functional dentistry solutions for TMJ disorders and bite alignment.</video:description>
+      <video:content_loc>https://www.vatsandparam.com/assets/videos/C.%20Functional%20and%20Whole%20body/Bite%20TMJ.mp4</video:content_loc>
+      <video:duration>155</video:duration>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.vatsandparam.com/complex-medical-dentistry.html</loc>
+    <video:video>
+      <video:thumbnail_loc>https://www.vatsandparam.com/assets/og-image.png</video:thumbnail_loc>
+      <video:title>Complex Medical Dentistry</video:title>
+      <video:description>Learn about our specialized approach to complex dental cases with medical considerations.</video:description>
+      <video:content_loc>https://www.vatsandparam.com/assets/videos/C.%20Functional%20and%20Whole%20body/complex.mp4</video:content_loc>
+      <video:duration>150</video:duration>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.vatsandparam.com/preventive-longevity-dentistry.html</loc>
+    <video:video>
+      <video:thumbnail_loc>https://www.vatsandparam.com/assets/og-image.png</video:thumbnail_loc>
+      <video:title>Preventive and Longevity Dentistry</video:title>
+      <video:description>Explore our preventive approach to dental health for long-term wellness.</video:description>
+      <video:content_loc>https://www.vatsandparam.com/assets/videos/C.%20Functional%20and%20Whole%20body/preventive.mp4</video:content_loc>
+      <video:duration>140</video:duration>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.vatsandparam.com/sports-dentistry.html</loc>
+    <video:video>
+      <video:thumbnail_loc>https://www.vatsandparam.com/assets/og-image.png</video:thumbnail_loc>
+      <video:title>Sports Dentistry</video:title>
+      <video:description>Learn about our sports dentistry services for active individuals and athletes.</video:description>
+      <video:content_loc>https://www.vatsandparam.com/assets/videos/C.%20Functional%20and%20Whole%20body/sports.mp4</video:content_loc>
+      <video:duration>130</video:duration>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.vatsandparam.com/womens-oral-health.html</loc>
+    <video:video>
+      <video:thumbnail_loc>https://www.vatsandparam.com/assets/og-image.png</video:thumbnail_loc>
+      <video:title>Women's Oral Health</video:title>
+      <video:description>Discover specialized dental care tailored to women's unique oral health needs.</video:description>
+      <video:content_loc>https://www.vatsandparam.com/assets/videos/C.%20Functional%20and%20Whole%20body/women.mp4</video:content_loc>
+      <video:duration>125</video:duration>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.vatsandparam.com/pediatric-dentistry.html</loc>
+    <video:video>
+      <video:thumbnail_loc>https://www.vatsandparam.com/assets/og-image.png</video:thumbnail_loc>
+      <video:title>Pediatric Dentistry</video:title>
+      <video:description>Learn about our gentle and compassionate dental care for children.</video:description>
+      <video:content_loc>https://www.vatsandparam.com/assets/videos/D.Population%20based/children(1).mp4</video:content_loc>
+      <video:duration>135</video:duration>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.vatsandparam.com/community-oral-health.html</loc>
+    <video:video>
+      <video:thumbnail_loc>https://www.vatsandparam.com/assets/og-image.png</video:thumbnail_loc>
+      <video:title>Community Oral Health</video:title>
+      <video:description>Explore our community-based oral health initiatives and preventive programs.</video:description>
+      <video:content_loc>https://www.vatsandparam.com/assets/videos/D.Population%20based/community.mp4</video:content_loc>
+      <video:duration>140</video:duration>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.vatsandparam.com/home-care-dentistry.html</loc>
+    <video:video>
+      <video:thumbnail_loc>https://www.vatsandparam.com/assets/og-image.png</video:thumbnail_loc>
+      <video:title>Home Care Dentistry</video:title>
+      <video:description>Learn about our home-based dental care services and preventive strategies.</video:description>
+      <video:content_loc>https://www.vatsandparam.com/assets/videos/D.Population%20based/home%20care.mp4</video:content_loc>
+      <video:duration>130</video:duration>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.vatsandparam.com/senior-oral-health.html</loc>
+    <video:video>
+      <video:thumbnail_loc>https://www.vatsandparam.com/assets/og-image.png</video:thumbnail_loc>
+      <video:title>Senior Oral Health</video:title>
+      <video:description>Discover specialized dental care designed for seniors and elderly patients.</video:description>
+      <video:content_loc>https://www.vatsandparam.com/assets/videos/D.Population%20based/senior%20care.mp4</video:content_loc>
+      <video:duration>135</video:duration>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.vatsandparam.com/specially-abled-dentistry.html</loc>
+    <video:video>
+      <video:thumbnail_loc>https://www.vatsandparam.com/assets/og-image.png</video:thumbnail_loc>
+      <video:title>Specially-Abled Dentistry</video:title>
+      <video:description>Learn about our specialized care for patients with special needs and disabilities.</video:description>
+      <video:content_loc>https://www.vatsandparam.com/assets/videos/D.Population%20based/special%20needs.mp4</video:content_loc>
+      <video:duration>140</video:duration>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.vatsandparam.com/oral-medicine-centre.html</loc>
+    <video:video>
+      <video:thumbnail_loc>https://www.vatsandparam.com/assets/og-image.png</video:thumbnail_loc>
+      <video:title>Oral Medicine and Diagnostics</video:title>
+      <video:description>Explore our oral medicine services and advanced diagnostic techniques.</video:description>
+      <video:content_loc>https://www.vatsandparam.com/assets/videos/ASSESMENTS/oral%20medicine.mp4</video:content_loc>
+      <video:duration>125</video:duration>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.vatsandparam.com/oral-microbiome-diagnostics.html</loc>
+    <video:video>
+      <video:thumbnail_loc>https://www.vatsandparam.com/assets/og-image.png</video:thumbnail_loc>
+      <video:title>Oral Microbiome and Diagnostics</video:title>
+      <video:description>Learn about our microbiome analysis and advanced diagnostic approach to oral health.</video:description>
+      <video:content_loc>https://www.vatsandparam.com/assets/videos/ASSESMENTS/oral%20microbe.mp4</video:content_loc>
+      <video:duration>150</video:duration>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.vatsandparam.com/tobacco-cessation.html</loc>
+    <video:video>
+      <video:thumbnail_loc>https://www.vatsandparam.com/assets/og-image.png</video:thumbnail_loc>
+      <video:title>Tobacco Cessation and Oral Health</video:title>
+      <video:description>Discover how quitting tobacco can dramatically improve your oral and overall health.</video:description>
+      <video:content_loc>https://www.vatsandparam.com/assets/videos/ASSESMENTS/Tobacco.mp4</video:content_loc>
+      <video:duration>120</video:duration>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.vatsandparam.com/mouth-body-connection.html</loc>
+    <video:video>
+      <video:thumbnail_loc>https://www.vatsandparam.com/assets/og-image.png</video:thumbnail_loc>
+      <video:title>Mouth-Body Connection</video:title>
+      <video:description>Explore the fascinating connection between oral health and whole-body wellness.</video:description>
+      <video:content_loc>https://www.vatsandparam.com/assets/videos/MOUTH_BODY_16x9_video.mp4</video:content_loc>
+      <video:duration>180</video:duration>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.vatsandparam.com/services.html</loc>
+    <video:video>
+      <video:thumbnail_loc>https://www.vatsandparam.com/assets/og-image.png</video:thumbnail_loc>
+      <video:title>Our Services Overview</video:title>
+      <video:description>Comprehensive overview of all dental services and specialized treatments offered.</video:description>
+      <video:content_loc>https://www.vatsandparam.com/assets/videos/B_Clinical_Treatment_Specialities.mp4</video:content_loc>
+      <video:duration>170</video:duration>
+    </video:video>
+  </url>
+</urlset>
