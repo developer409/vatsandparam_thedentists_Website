@@ -19,6 +19,16 @@
       "source": "/about-us",
       "destination": "/about.html",
       "permanent": true
+    },
+    {
+      "source": "/awards-achievements/",
+      "destination": "/achievements.html",
+      "permanent": true
+    },
+    {
+      "source": "/awards-achievements",
+      "destination": "/achievements.html",
+      "permanent": true
     }
   ]
 }
