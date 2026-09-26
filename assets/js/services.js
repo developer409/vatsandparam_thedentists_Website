@@ -61,4 +61,50 @@
             if (label) label.textContent = isOpen ? 'Click to view services provided' : 'Hide services provided';
         });
     });
+
+    /* ---- Mobile swipe indicator for the 4 category cards ---- */
+    if (window.matchMedia('(max-width: 820px)').matches) {
+        var svcTrack = document.querySelector('.svc-vcards');
+        var svcCards = svcTrack ? svcTrack.querySelectorAll(':scope > .svc-vcard') : [];
+        var svcDots = document.querySelectorAll('#svcSwipeDots .svc-swipe-dot');
+        var svcHint = document.getElementById('svcSwipeHint');
+
+        if (svcTrack && svcCards.length) {
+            var svcUpdateActiveDot = function () {
+                var trackRect = svcTrack.getBoundingClientRect();
+                var center = trackRect.left + trackRect.width / 2;
+                var closest = 0;
+                var closestDist = Infinity;
+                svcCards.forEach(function (card, i) {
+                    var r = card.getBoundingClientRect();
+                    var dist = Math.abs((r.left + r.width / 2) - center);
+                    if (dist < closestDist) {
+                        closestDist = dist;
+                        closest = i;
+                    }
+                });
+                svcDots.forEach(function (dot, i) { dot.classList.toggle('active', i === closest); });
+            };
+
+            svcDots.forEach(function (dot, i) {
+                dot.addEventListener('click', function () {
+                    if (svcCards[i]) {
+                        svcCards[i].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+                    }
+                });
+            });
+
+            var svcTicking = false;
+            svcTrack.addEventListener('scroll', function () {
+                if (svcHint) svcHint.style.opacity = '0';
+                if (!svcTicking) {
+                    requestAnimationFrame(function () {
+                        svcUpdateActiveDot();
+                        svcTicking = false;
+                    });
+                    svcTicking = true;
+                }
+            }, { passive: true });
+        }
+    }
 })();

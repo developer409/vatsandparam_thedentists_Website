@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -153,12 +153,14 @@
           <span class="svc-vcard__tag">A</span>
           <h2 class="svc-vcard__title">Assessments &amp; Diagnostics</h2>
         </div>
-        <video autoplay muted loop playsinline class="svc-mobile-video">
-          <source src="assets/videos/A_Comprehensive_treatment_v2.mp4" type="video/mp4">
-        </video>
-        <div class="svc-reveal" id="svc-reveal-a" style="max-height:none;overflow:visible;">
+        <div class="svc-mobile-video-wrap">
+          <video autoplay muted loop playsinline class="svc-mobile-video">
+            <source src="assets/videos/A_Comprehensive_treatment_v2.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="svc-reveal" id="svc-reveal-a">
           <p class="svc-vcard__desc">Identifying risks, conditions, and opportunities for prevention before problems develop.</p>
-          <p style="font-size: 0.85rem; color: rgba(255,255,255,0.7); margin: 0 20px 1.5rem; font-style: italic;">Click on a service below to learn more</p>
+          <p class="svc-vcard__subnote">Click on a service below to learn more</p>
           <div class="svc-vcard__pills">
             <a href="comprehensive-oral-assessment.html" class="svc-pill">Comprehensive Oral Health Assessment</a>
             <a href="preventive-longevity-dentistry.html" class="svc-pill">Preventive &amp; Longevity Dentistry</a>
@@ -205,12 +207,14 @@
           <span class="svc-vcard__tag">B</span>
           <h2 class="svc-vcard__title">Clinical Treatment Specialties</h2>
         </div>
-        <video autoplay muted loop playsinline class="svc-mobile-video">
-          <source src="assets/videos/B_Clinical_Treatment_Specialities.mp4" type="video/mp4">
-        </video>
-        <div class="svc-reveal" id="svc-reveal-b" style="max-height:none;overflow:visible;">
+        <div class="svc-mobile-video-wrap">
+          <video autoplay muted loop playsinline class="svc-mobile-video">
+            <source src="assets/videos/B_Clinical_Treatment_Specialities.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="svc-reveal" id="svc-reveal-b">
           <p class="svc-vcard__desc">Precision dental treatments and rehabilitation for lasting structural health.</p>
-          <p style="font-size: 0.85rem; color: rgba(255,255,255,0.7); margin: 0 0 1rem 0; font-style: italic; text-align: center;">Click on a service below to learn more</p>
+          <p class="svc-vcard__subnote">Click on a service below to learn more</p>
           <div class="svc-vcard__pills">
             <a href="gum-treatment.html" class="svc-pill">Gum Health &amp; Periodontal Care</a>
             <a href="orthodontics-bite-development.html" class="svc-pill">Orthodontics &amp; Bite Development</a>
@@ -257,12 +261,14 @@
           <span class="svc-vcard__tag">C</span>
           <h2 class="svc-vcard__title">Functional &amp; Whole-Body Health</h2>
         </div>
-        <video autoplay muted loop playsinline class="svc-mobile-video">
-          <source src="assets/videos/C_Functional_Whole_Body_Health.mp4" type="video/mp4">
-        </video>
-        <div class="svc-reveal" id="svc-reveal-c" style="max-height:none;overflow:visible;">
+        <div class="svc-mobile-video-wrap">
+          <video autoplay muted loop playsinline class="svc-mobile-video">
+            <source src="assets/videos/C_Functional_Whole_Body_Health.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="svc-reveal" id="svc-reveal-c">
           <p class="svc-vcard__desc">Where oral health connects to the whole body, affecting function, breathing, and systemic wellbeing.</p>
-          <p style="font-size: 0.85rem; color: rgba(255,255,255,0.7); margin: 0 0 1rem 0; font-style: italic; text-align: center;">Click on a service below to learn more</p>
+          <p class="svc-vcard__subnote">Click on a service below to learn more</p>
           <div class="svc-vcard__pills">
             <a href="bite-tmj-functional-dentistry.html" class="svc-pill">Bite, TMJ &amp; Functional Dentistry</a>
             <a href="airway-breathing-sleep-health.html" class="svc-pill">Airway, Breathing &amp; Sleep Health</a>
@@ -307,12 +313,14 @@
           <span class="svc-vcard__tag">D</span>
           <h2 class="svc-vcard__title">Population-Based Care</h2>
         </div>
-        <video autoplay muted loop playsinline class="svc-mobile-video">
-          <source src="assets/videos/D_Population_Based_Care.mp4" type="video/mp4">
-        </video>
-        <div class="svc-reveal" id="svc-reveal-d" style="max-height:none;overflow:visible;">
+        <div class="svc-mobile-video-wrap">
+          <video autoplay muted loop playsinline class="svc-mobile-video">
+            <source src="assets/videos/D_Population_Based_Care.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="svc-reveal" id="svc-reveal-d">
           <p class="svc-vcard__desc">Tailored care for every life stage, ability, and community need.</p>
-          <p style="font-size: 0.85rem; color: rgba(255,255,255,0.7); margin: 0 0 1rem 0; font-style: italic; text-align: center;">Click on a service below to learn more</p>
+          <p class="svc-vcard__subnote">Click on a service below to learn more</p>
           <div class="svc-vcard__pills">
             <a href="pediatric-dentistry.html" class="svc-pill">Children&apos;s Oral Health &amp; Development</a>
             <a href="specially-abled-dentistry.html" class="svc-pill">Special Needs Dentistry</a>
@@ -326,6 +334,18 @@
     </div>
 
   </div><!-- /svc-vcards -->
+
+  <!-- Mobile-only: hints that the 4 category cards above scroll horizontally -->
+  <div class="svc-swipe-hint" id="svcSwipeHint">
+    <span>Swipe to explore</span>
+    <span class="svc-swipe-hint__arrow">&#8594;</span>
+  </div>
+  <div class="svc-swipe-dots" id="svcSwipeDots">
+    <span class="svc-swipe-dot active" data-index="0"></span>
+    <span class="svc-swipe-dot" data-index="1"></span>
+    <span class="svc-swipe-dot" data-index="2"></span>
+    <span class="svc-swipe-dot" data-index="3"></span>
+  </div>
   </section>
 
   <!-- ========== FOOTER ========== -->

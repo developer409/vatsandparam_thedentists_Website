@@ -16,8 +16,8 @@
         const element = document.getElementById(elementId);
         if (!element) return;
 
-        const text = element.textContent;
-        const words = text.split(' ');
+        const text = element.textContent.trim();
+        const words = text.split(/\s+/);
         element.innerHTML = words.map(word => `<span class="word">${word}</span>`).join(' ');
     }
 

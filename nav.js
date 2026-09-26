@@ -7,19 +7,82 @@
     // mobile (see below) and must not also close the whole menu on tap.
     const navLinks = document.querySelectorAll('.nav__link:not(.dropdown-toggle), .dropdown-item');
 
+    // Dimmed backdrop behind the slide-in mobile menu, so the page behind it
+    // reads as inactive (dimmed + non-scrolling) instead of staying fully
+    // visible/interactive, which made the panel feel like a stray overlay
+    // rather than a menu. Injected once here rather than added to every page.
+    let navBackdrop = document.getElementById('navBackdrop');
+    if (!navBackdrop && navMenu) {
+        navBackdrop = document.createElement('div');
+        navBackdrop.id = 'navBackdrop';
+        navBackdrop.className = 'nav__backdrop';
+        // Appended inside #mainNav (not document.body) so it shares the nav's
+        // own stacking context (.nav has z-index:1000) — otherwise, as a
+        // body-level sibling, its z-index would compete against that 1000
+        // instead of against .nav__menu's internal z-index, and end up
+        // covering the menu panel itself.
+        var mainNav = document.getElementById('mainNav');
+        (mainNav || document.body).appendChild(navBackdrop);
+    }
+
+    function openMobileMenu() {
+        if (navToggle) {
+            navToggle.classList.add('active');
+            navToggle.setAttribute('aria-expanded', 'true');
+        }
+        if (navMenu) navMenu.classList.add('open');
+        if (navBackdrop) navBackdrop.classList.add('open');
+        var mainNav = document.getElementById('mainNav');
+        if (mainNav) mainNav.classList.add('nav-menu-open');
+        document.body.classList.add('nav-open');
+    }
+
+    function closeMobileMenu() {
+        if (navToggle) {
+            navToggle.classList.remove('active');
+            navToggle.setAttribute('aria-expanded', 'false');
+        }
+        if (navMenu) navMenu.classList.remove('open');
+        if (navBackdrop) navBackdrop.classList.remove('open');
+        var mainNav = document.getElementById('mainNav');
+        if (mainNav) mainNav.classList.remove('nav-menu-open');
+        document.body.classList.remove('nav-open');
+    }
+
     // Toggle Mobile Menu
     if (navToggle && navMenu) {
+        navToggle.setAttribute('aria-expanded', 'false');
+        navToggle.setAttribute('aria-controls', 'navMenu');
+        if (!navToggle.hasAttribute('aria-label')) navToggle.setAttribute('aria-label', 'Toggle navigation menu');
         navToggle.addEventListener('click', () => {
-            navToggle.classList.toggle('active');
-            navMenu.classList.toggle('open');
+            if (navMenu.classList.contains('open')) closeMobileMenu();
+            else openMobileMenu();
         });
     }
+
+    // Close on backdrop tap
+    if (navBackdrop) {
+        navBackdrop.addEventListener('click', closeMobileMenu);
+    }
+
+    // Close on Escape
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && navMenu && navMenu.classList.contains('open')) {
+            closeMobileMenu();
+        }
+    });
+
+    // Close menu on resize to desktop width
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 820 && navMenu && navMenu.classList.contains('open')) {
+            closeMobileMenu();
+        }
+    }, { passive: true });
 
     // Close menu on link click
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
-            if (navMenu) navMenu.classList.remove('open');
-            if (navToggle) navToggle.classList.remove('active');
+            closeMobileMenu();
         });
     });
 

@@ -31,8 +31,8 @@
         var element = document.getElementById(elementId);
         if (!element) return;
 
-        var text = element.textContent;
-        var words = text.split(' ');
+        var text = element.textContent.trim();
+        var words = text.split(/\s+/);
         element.innerHTML = words.map(function (word, i) {
             var delay = baseDelay + i * step;
             return '<span class="word" style="animation-delay:' + delay.toFixed(2) + 's">' + word + '</span>';

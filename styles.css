@@ -76,23 +76,25 @@
 /* ========== SPLASH SCREEN (Mobile) ========== */
 .splash-screen {
   position: fixed;
-  top: 0;
-  left: 0;
+  inset: 0;
   width: 100%;
   height: 100%;
+  height: 100dvh;
   background: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 2rem 1.5rem;
   z-index: 9999;
   opacity: 1;
-  transition: opacity 0.6s ease-out 2s, visibility 0s linear 2.6s;
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1) 2s, visibility 0s linear 2.6s;
   visibility: visible;
 }
 
 .splash-screen.hidden {
   opacity: 0;
   visibility: hidden;
+  pointer-events: none;
 }
 
 .splash-screen__content {
@@ -100,50 +102,80 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.5rem;
+  justify-content: center;
+  width: 100%;
+  max-width: 320px;
+  margin: 0 auto;
 }
 
 .splash-screen__logo {
-  width: 80px;
-  height: 80px;
+  width: 76px;
+  height: 76px;
+  object-fit: contain;
+  margin-bottom: 1.25rem;
   animation: logoFade 0.8s ease-in-out;
+}
+
+.splash-screen__brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1.25rem;
 }
 
 .splash-screen__title {
   font-family: var(--font-heading);
-  font-size: 2rem;
+  font-size: 2.05rem;
   font-weight: 700;
   color: #802929;
-  margin: 0;
+  margin: 0 0 0.35rem 0;
   letter-spacing: 0.5px;
+  line-height: 1.15;
+}
+
+.splash-screen__divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  width: 100%;
+}
+
+.splash-screen__line {
+  height: 1px;
+  width: 18px;
+  background-color: var(--color-gold, #c6a75e);
+  display: inline-block;
 }
 
 .splash-screen__subtitle {
   font-family: var(--font-body);
-  font-size: 0.9rem;
+  font-size: 0.82rem;
   font-weight: 600;
   color: #5C0A0A;
   margin: 0;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
   text-transform: uppercase;
+  line-height: 1;
 }
 
 .splash-screen__tagline {
   font-family: var(--font-body);
-  font-size: 0.85rem;
-  color: #888888;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: #555555;
   margin: 0;
-  line-height: 1.4;
-  max-width: 280px;
+  line-height: 1.45;
+  max-width: 300px;
 }
 
 @keyframes logoFade {
-  0% { opacity: 0; transform: scale(0.8); }
+  0% { opacity: 0; transform: scale(0.85); }
   100% { opacity: 1; transform: scale(1); }
 }
 
 @keyframes wordFadeIn {
-  0% { opacity: 0; transform: translateY(10px); }
+  0% { opacity: 0; transform: translateY(8px); }
   100% { opacity: 1; transform: translateY(0); }
 }
 
@@ -151,13 +183,9 @@
 .splash-screen__subtitle .word,
 .splash-screen__tagline .word {
   display: inline-block;
-  margin-right: 0.3em;
   opacity: 0;
   animation: wordFadeIn 0.6s ease-out forwards;
 }
-
-/* Per-word animation-delay is now set inline by wrapWordsInSpans() in assets/js/home.js,
-   so it stays correct regardless of word count (see comment there). */
 
 /* Hide splash screen on desktop */
 @media (min-width: 769px) {
@@ -572,15 +600,79 @@ p {
 /* Burger menu hidden by default (desktop) */
 /* Will be overridden to display: flex in mobile media query */
 
-/* ========== MOBILE FEATURES - ABOUT PAGE ONLY ========== */
+/* ========== MOBILE FEATURES ========== */
 @media (max-width: 820px) {
-  .nav__logo-tagline {
+  /* ---- Mobile Navbar: Always Solid White ---- */
+  .nav,
+  #mainNav,
+  .nav.nav--transparent,
+  .nav.nav--over-dark,
+  .nav.nav--over-light,
+  .nav.scrolled,
+  .nav.nav--hidden,
+  #mainNav.scrolled,
+  #mainNav.nav--video-hero,
+  #mainNav.nav--video-hero.scrolled,
+  #mainNav.nav-menu-open,
+  body.nav-open #mainNav,
+  body.nav-open .nav {
+    background: #ffffff !important;
+    background-color: #ffffff !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08) !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06) !important;
+  }
+
+  /* Mobile Navbar Logo Colors */
+  .nav .nav__logo-text,
+  #mainNav .nav__logo-text,
+  .nav.nav--transparent .nav__logo-text,
+  .nav.nav--over-dark .nav__logo-text,
+  .nav.nav--over-light .nav__logo-text,
+  main #mainNav .nav__logo-text,
+  body.nav-open #mainNav .nav__logo-text {
+    color: #802929 !important;
+  }
+
+  .nav .nav__logo-subtitle,
+  #mainNav .nav__logo-subtitle,
+  .nav.nav--transparent .nav__logo-subtitle,
+  .nav.nav--over-dark .nav__logo-subtitle,
+  .nav.nav--over-light .nav__logo-subtitle,
+  main #mainNav .nav__logo-subtitle,
+  body.nav-open #mainNav .nav__logo-subtitle {
+    color: #5C0A0A !important;
+  }
+
+  .nav .nav__logo-tagline,
+  #mainNav .nav__logo-tagline,
+  .nav.nav--transparent .nav__logo-tagline,
+  .nav.nav--over-dark .nav__logo-tagline,
+  .nav.nav--over-light .nav__logo-tagline {
+    color: #888888 !important;
     display: block !important;
-    font-size: 0.52rem !important;
+    font-size: 0.65rem !important;
+    font-weight: 500 !important;
+  }
+
+  .nav .logo-line,
+  #mainNav .logo-line,
+  .nav.nav--transparent .logo-line,
+  .nav.nav--over-dark .logo-line,
+  .nav.nav--over-light .logo-line {
+    background-color: var(--color-gold, #C6A75E) !important;
+  }
+
+  .nav .nav__contact-icon,
+  #mainNav .nav__contact-icon {
+    color: var(--color-navy, #1A1A1A) !important;
+    border-color: var(--color-navy, #1A1A1A) !important;
   }
 
   /* ---- Mobile Burger Menu ---- */
-  .nav__toggle {
+  .nav__toggle,
+  #mainNav .nav__toggle {
     display: flex !important;
     position: relative !important;
     z-index: 6000 !important;
@@ -589,236 +681,199 @@ p {
     pointer-events: auto !important;
   }
 
-  /* Moved back inside the burger menu â€” see .nav__cta above */
+  /* Mobile CTA in navbar - hidden since it is inside burger menu */
   .nav__cta-mobile {
     display: none !important;
   }
 
-  .nav__toggle span {
-    background-color: var(--color-navy) !important;
+  .nav__toggle span,
+  #mainNav .nav__toggle span,
+  .nav.nav--transparent .nav__toggle span,
+  .nav.nav--over-dark .nav__toggle span,
+  .nav.nav--over-light .nav__toggle span,
+  .nav.scrolled .nav__toggle span {
+    background-color: var(--color-navy, #1A1A1A) !important;
     display: block !important;
     opacity: 1 !important;
     visibility: visible !important;
   }
 
-  .nav.nav--transparent .nav__toggle span {
-    background-color: #fff !important;
-  }
-
-  .nav__toggle.active span:nth-child(1) {
+  .nav__toggle.active span:nth-child(1),
+  #mainNav .nav__toggle.active span:nth-child(1) {
     transform: translateY(7px) rotate(45deg) !important;
     opacity: 1 !important;
-    background-color: var(--color-navy) !important;
+    background-color: var(--color-navy, #1A1A1A) !important;
   }
 
-  .nav__toggle.active span:nth-child(2) {
+  .nav__toggle.active span:nth-child(2),
+  #mainNav .nav__toggle.active span:nth-child(2) {
     opacity: 0 !important;
   }
 
-  .nav__toggle.active span:nth-child(3) {
+  .nav__toggle.active span:nth-child(3),
+  #mainNav .nav__toggle.active span:nth-child(3) {
     transform: translateY(-7px) rotate(-45deg) !important;
     opacity: 1 !important;
-    background-color: var(--color-navy) !important;
+    background-color: var(--color-navy, #1A1A1A) !important;
   }
 
-  /* The adaptive-theme rules below (nav--over-dark/over-light/transparent) force
-     white toggle bars for the hamburger icon over video heroes, but once the menu
-     is open the toggle sits over the light slide-in panel and must stay navy
-     regardless of theme. #mainNav boosts specificity so this always wins the tie. */
   #mainNav.nav--over-dark .nav__toggle.active span:nth-child(1),
   #mainNav.nav--over-dark .nav__toggle.active span:nth-child(3),
   #mainNav.nav--over-light .nav__toggle.active span:nth-child(1),
   #mainNav.nav--over-light .nav__toggle.active span:nth-child(3),
   #mainNav.nav--transparent .nav__toggle.active span:nth-child(1),
   #mainNav.nav--transparent .nav__toggle.active span:nth-child(3) {
-    background-color: var(--color-navy) !important;
+    background-color: var(--color-navy, #1A1A1A) !important;
   }
 
-  /* ---- Mobile Menu ---- */
+  /* ---- Mobile Menu (Opens below the Navbar) ---- */
   .nav__menu {
     position: fixed !important;
-    top: 0 !important;
-    right: -100% !important;
-    width: 85% !important;
-    max-width: 340px !important;
+    top: 72px !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
     height: auto !important;
-    max-height: 65vh !important;
-    background: var(--color-bg) !important;
-    padding: 0 !important;
+    max-height: calc(100vh - 72px) !important;
+    max-height: calc(100dvh - 72px) !important;
+    background: #ffffff !important;
+    padding: 1.25rem 1.25rem 2rem !important;
     flex-direction: column !important;
-    gap: 0 !important;
-    box-shadow: var(--shadow-elevated) !important;
-    transition: right var(--transition-base) !important;
+    gap: 0.5rem !important;
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.14) !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+    border-radius: 0 0 18px 18px !important;
+    transform: translateY(-8px) !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease, visibility 0.28s !important;
     overflow-y: auto !important;
     overflow-x: hidden !important;
+    -webkit-overflow-scrolling: touch !important;
     display: flex !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-    pointer-events: auto !important;
     z-index: 5999 !important;
-    will-change: right !important;
-    border-radius: 20px !important;
-  }
-
-  /* Clears the hamburger/X toggle (fixed at the top of the bar) so the first
-     item inside the panel â€” the Book Consultation button â€” doesn't sit flush
-     against the very top edge or collide with it. */
-  .nav__menu {
-    padding-top: 4.5rem !important;
   }
 
   .nav__menu.open {
-    right: 0 !important;
-    z-index: 5999 !important;
-    display: flex !important;
-    visibility: visible !important;
+    transform: translateY(0) !important;
     opacity: 1 !important;
+    visibility: visible !important;
     pointer-events: auto !important;
+    z-index: 5999 !important;
   }
 
-  /* When menu is open, X button should be dark on white background */
-  .nav__menu.open + .nav__toggle.active span {
-    background-color: var(--color-navy) !important;
+  /* Dimmed backdrop behind menu (below navbar) */
+  .nav__backdrop {
+    position: fixed !important;
+    top: 72px !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    background: rgba(15, 15, 15, 0.45) !important;
+    backdrop-filter: blur(2px) !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transition: opacity 0.3s ease, visibility 0.3s ease !important;
+    z-index: 5990 !important;
+  }
+
+  .nav__backdrop.open {
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  /* Prevents the page behind the menu from scrolling */
+  body.nav-open {
+    overflow: hidden !important;
   }
 
   .nav__close {
-    position: absolute;
-    top: 1.5rem;
-    right: 1.5rem;
-    background: none;
-    border: none;
-    font-size: 1.8rem;
-    color: var(--color-navy);
-    cursor: pointer;
-    padding: 0;
-    width: 2rem;
-    height: 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 6001;
-  }
-
-  .nav__close:hover {
-    opacity: 0.7;
+    display: none !important;
   }
 
   .nav__links {
     display: flex !important;
-    flex-direction: column;
-    align-items: stretch;
-    width: 100%;
-    padding: 0.75rem var(--space-lg) var(--space-lg);
+    flex-direction: column !important;
+    align-items: stretch !important;
+    width: 100% !important;
+    gap: 0.4rem !important;
+    padding: 0 !important;
     opacity: 1 !important;
     visibility: visible !important;
     z-index: 5998 !important;
-    position: relative;
+    position: relative !important;
     pointer-events: auto !important;
+    background: none !important;
+    border-radius: 0 !important;
   }
 
-  /* ===== FORCE ALL NAV TEXT TO BLACK - NO EXCEPTIONS ===== */
+  /* FORCE ALL NAV TEXT TO DARK */
   .nav__menu,
   .nav__menu *,
   .nav__links,
-  .nav__links * {
+  .nav__links *,
+  #mainNav .nav__menu,
+  #mainNav .nav__menu *,
+  #mainNav .nav__links,
+  #mainNav .nav__links * {
     color: #1A1A1A !important;
   }
 
-  /* All nav items visible on mobile */
   .nav__item {
     display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
+    width: 100% !important;
   }
 
-  /* FORCE BLACK TEXT ON ALL NAV LINKS */
-  .nav__link {
+  .nav__menu .nav__link,
+  #mainNav .nav__menu .nav__link,
+  #mainNav .nav__menu .dropdown-toggle {
     color: #1A1A1A !important;
-  }
-
-  .nav__menu .nav__link {
-    color: #1A1A1A !important;
-    padding: 0.8rem 0 !important;
-    border-bottom: 1px solid var(--color-border) !important;
-    font-size: var(--fs-body) !important;
+    padding: 0.75rem 1rem !important;
+    border: 1px solid rgba(0, 0, 0, 0.08) !important;
+    background: #fbf9f7 !important;
+    border-radius: 10px !important;
+    font-size: 0.95rem !important;
+    font-weight: 500 !important;
     opacity: 1 !important;
     visibility: visible !important;
-    display: block !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    text-align: left !important;
+    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease !important;
   }
 
-  .nav.nav--transparent .nav__menu .nav__link {
+  .nav__menu .nav__link:hover,
+  #mainNav .nav__menu .nav__link:hover,
+  #mainNav .nav__menu .dropdown-toggle:hover {
+    background: #f2ece4 !important;
     color: #1A1A1A !important;
   }
 
-  .nav--over-dark .nav__menu .nav__link {
-    color: #1A1A1A !important;
+  .nav__menu .nav__link.active,
+  #mainNav .nav__menu .nav__link.active {
+    background: #802929 !important;
+    color: #ffffff !important;
+    border-color: #802929 !important;
+    font-weight: 600 !important;
   }
 
-  .nav__menu .nav__link:hover {
-    color: #1A1A1A !important;
+  .nav__menu .dropdown-toggle::after,
+  #mainNav .nav__menu .dropdown-toggle::after {
+    display: inline-block !important;
+    content: '▾' !important;
+    font-size: 0.9rem !important;
+    color: #802929 !important;
+    margin-left: auto !important;
+    transition: transform 0.25s ease !important;
   }
 
-  .nav.nav--transparent .nav__menu .nav__link:hover {
-    color: #1A1A1A !important;
-  }
-
-  .nav__menu .dropdown-toggle {
-    color: #1A1A1A !important;
-  }
-
-  .nav__menu .nav__link.active {
-    color: #1A1A1A !important;
-  }
-
-  /* Force dropdown items black too */
-  .nav__item.dropdown .nav__link {
-    color: #1A1A1A !important;
-  }
-
-  /* ===== OVERRIDE ALL SCROLL/BACKGROUND-AWARE COLORS ===== */
-  .nav.scrolled .nav__link {
-    color: #1A1A1A !important;
-  }
-
-  .nav.nav--transparent .nav__link {
-    color: #1A1A1A !important;
-  }
-
-  .nav--over-light .nav__link {
-    color: #1A1A1A !important;
-  }
-
-  .nav--over-dark .nav__link {
-    color: #1A1A1A !important;
-  }
-
-  .nav.scrolled .nav__menu .nav__link {
-    color: #1A1A1A !important;
-  }
-
-  .nav.nav--transparent .nav__menu .nav__link {
-    color: #1A1A1A !important;
-  }
-
-  .nav--over-light .nav__menu .nav__link {
-    color: #1A1A1A !important;
-  }
-
-  .nav--over-dark .nav__menu .nav__link {
-    color: #1A1A1A !important;
-  }
-
-  /* Hamburger menu text also black */
-  .nav.scrolled .nav__toggle span {
-    background-color: var(--color-navy) !important;
-  }
-
-  .nav--over-light .nav__toggle span {
-    background-color: var(--color-navy) !important;
-  }
-
-  .nav--over-dark .nav__toggle span {
-    background-color: var(--color-navy) !important;
+  .nav__item.dropdown.active > .dropdown-toggle::after {
+    transform: rotate(180deg) !important;
   }
 
   .dropdown-menu {
@@ -828,25 +883,52 @@ p {
     visibility: visible !important;
     box-shadow: none !important;
     border: none !important;
-    padding: 0 0 0 1rem !important;
-    display: block !important;
+    padding: 0 0 0 0.75rem !important;
+    margin: 0.35rem 0 0.5rem 0.5rem !important;
+    border-left: 2px solid var(--color-gold, #c6a75e) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.3rem !important;
     background: transparent !important;
     min-width: auto !important;
     backdrop-filter: none !important;
+    max-height: 0 !important;
+    overflow: hidden !important;
+    transition: max-height 0.3s ease !important;
+  }
+
+  .nav__item.dropdown.active .dropdown-menu {
+    max-height: 400px !important;
   }
 
   .dropdown-item {
-    padding: 0.6rem 0.5rem !important;
-    font-size: 0.85rem !important;
-    border-bottom: 1px solid rgba(0,0,0,0.05) !important;
+    padding: 0.6rem 0.9rem !important;
+    font-size: 0.88rem !important;
+    border-radius: 8px !important;
+    background: #f4f0ec !important;
     display: block !important;
     visibility: visible !important;
     color: #1A1A1A !important;
-    opacity: 1 !important;
+    text-align: left !important;
   }
 
   .dropdown-item:hover {
-    color: #1A1A1A !important;
+    background: #eae2d8 !important;
+  }
+
+  .nav__menu .nav__cta {
+    display: flex !important;
+    width: 100% !important;
+    margin-top: 0.5rem !important;
+    text-align: center !important;
+    justify-content: center !important;
+  }
+
+  /* Hamburger menu text also black */
+  .nav.scrolled .nav__toggle span,
+  .nav--over-light .nav__toggle span,
+  .nav--over-dark .nav__toggle span {
+    background-color: var(--color-navy) !important;
   }
 
   /* ---- Mobile Content for All Pages ---- */
@@ -1246,16 +1328,18 @@ p {
 }
 
 .nav__logo-tagline {
-  font-size: 0.65rem;
+  font-size: 0.78rem;
   color: inherit;
-  opacity: 0.75;
+  opacity: 0.85;
   margin: 2px 0 0;
   letter-spacing: 0.01em;
   line-height: 1.3;
+  font-weight: 500;
 }
 
 .nav__logo--footer .nav__logo-tagline {
-  color: rgba(255,255,255,0.48);
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.65);
 }
 
 .nav__logo--footer .nav__logo-img {
@@ -2903,11 +2987,12 @@ p {
 }
 
 .footer__brand-tagline {
-  font-size: 0.72rem;
-  color: rgba(255,255,255,0.48);
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.65);
   margin: 4px 0 0;
   letter-spacing: 0.02em;
   line-height: 1.4;
+  font-weight: 500;
 }
 
 .footer__heading {
@@ -3297,6 +3382,14 @@ p {
     opacity: 1 !important;
     visibility: visible !important;
     pointer-events: auto !important;
+    /* Visual icon stays 28x16 (via padding below); the tappable box itself
+       meets the 44x44px minimum touch target size. */
+    box-sizing: border-box !important;
+    width: 44px !important;
+    height: 44px !important;
+    padding: 14px 8px !important;
+    justify-content: center !important;
+    margin-right: -8px !important;
   }
 
   /* Make sure burger lines are always visible on mobile */
@@ -3307,21 +3400,14 @@ p {
     visibility: visible !important;
   }
 
-  .nav.nav--transparent .nav__toggle span {
-    background-color: #fff !important;
-  }
-
+  .nav.nav--transparent .nav__toggle span,
   .nav--over-light .nav__toggle span,
-  .nav.scrolled .nav__toggle span {
+  .nav.scrolled .nav__toggle span,
+  .nav.nav--hidden.nav--over-dark .nav__toggle span {
     background-color: var(--color-navy) !important;
   }
 
-  /* When nav is hidden (transparent on mobile) and over a dark section, keep toggle spans white */
-  .nav.nav--hidden.nav--over-dark .nav__toggle span {
-    background-color: #fff !important;
-  }
-
-  /* When menu is open, toggle spans (X button) must be dark red against the white menu drawer */
+  /* When menu is open, toggle spans (X button) must be dark navy */
   .nav__toggle.active span {
     background-color: var(--color-navy) !important;
     opacity: 1 !important;
@@ -3345,171 +3431,16 @@ p {
     text-align: center;
   }
 
-  .nav__menu {
-    position: fixed;
-    top: 0;
-    right: -100%;
-    width: 85%;
-    max-width: 340px;
-    height: 100vh;
-    background: var(--color-bg);
-    padding: 0;
-    flex-direction: column;
-    gap: 0;
-    box-shadow: var(--shadow-elevated);
-    transition: right var(--transition-base);
-    overflow-y: auto;
-    display: flex;
-    opacity: 1 !important;
-    visibility: visible !important;
-    pointer-events: auto !important;
-    border-radius: 20px;
-  }
-
-  .nav__menu.open {
-    right: 0;
-    z-index: 5000;
-    display: flex;
-    opacity: 1 !important;
-    visibility: visible !important;
-    pointer-events: auto !important;
-  }
-
-  .nav__links {
-    flex-direction: column;
-    align-items: stretch;
-    width: 100%;
-    gap: 0.5rem;
-    padding: 0.75rem var(--space-lg) var(--space-lg);
-    opacity: 1 !important;
-    visibility: visible !important;
-    background: none !important;
-    border-radius: 0 !important;
-  }
-
-  /* Force dark black text inside the mobile menu regardless of nav theme,
-     and render each item as its own pill/chip with a maroon border. */
-  .nav__menu .nav__link,
-  .nav.nav--transparent .nav__menu .nav__link,
-  .nav--over-dark .nav__menu .nav__link,
-  .nav--over-light .nav__menu .nav__link,
-  .nav__menu .nav__link {
-    color: #1A1A1A !important;
-    padding: 0.75rem 1.1rem;
-    border: 1px solid var(--color-navy) !important;
-    background: none;
-    border-radius: 999px;
-    font-size: var(--fs-body);
-    text-align: center;
-    opacity: 1 !important;
-    visibility: visible !important;
-    display: block !important;
-  }
-
-  .nav__menu .nav__link:hover,
-  .nav.nav--transparent .nav__menu .nav__link:hover,
-  .nav--over-dark .nav__menu .nav__link:hover {
-    color: #1A1A1A !important;
-  }
-
-  .nav__menu .nav__link.active,
-  .nav.nav--transparent .nav__menu .nav__link.active,
-  .nav--over-dark .nav__menu .nav__link.active,
-  .nav--over-light .nav__menu .nav__link.active {
-    color: #fff !important;
-    background: var(--color-navy) !important;
-    border: 1px solid var(--color-navy) !important;
-    font-weight: 600;
-  }
-
-  .nav__menu .dropdown-toggle,
-  .nav.nav--transparent .nav__menu .dropdown-toggle,
-  .nav--over-dark .nav__menu .dropdown-toggle {
-    color: #1A1A1A !important;
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    gap: 0.4rem !important;
-    cursor: pointer;
-    position: relative !important;
-    text-align: center !important;
-  }
-
-  .nav__menu .dropdown-toggle::after {
-    position: static !important;
-    margin-left: 0 !important;
-    font-size: 1.1rem !important;
-    color: var(--color-navy) !important;
-  }
-
-  .nav__item.dropdown.active > .dropdown-toggle {
-    border-radius: 999px !important;
-  }
-
-  .nav__link::after {
-    display: none;
-  }
-
-  .dropdown-menu {
-    position: static;
-    transform: none;
-    opacity: 1;
-    visibility: visible;
-    box-shadow: none;
-    border: none;
-    padding: 0.4rem 0.75rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-    background: none;
-    border-radius: 0 0 999px 999px;
-    min-width: auto;
-    backdrop-filter: none;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease, border-color 0.3s ease;
-  }
-
-  .nav__item.dropdown.active .dropdown-menu {
-    max-height: 400px;
-  }
-
-  .dropdown-menu::before {
-    display: none;
-  }
-
-  .dropdown-item {
-    padding: 0.65rem 1rem;
-    font-size: 0.85rem;
-    border-bottom: none;
-    border-radius: 999px;
-    display: block !important;
-    visibility: visible !important;
-    color: #1A1A1A !important;
-    opacity: 1 !important;
-    text-align: center;
-  }
-
-  .dropdown-item:hover {
-    color: #1A1A1A !important;
-  }
-
-  .dropdown-toggle::after {
-    display: inline-block;
-    position: static;
-    margin-left: 0;
-  }
-
   .nav__cta {
-    margin: 0 var(--space-lg) 0.5rem;
-    width: auto;
+    margin: 0.5rem 0 0.5rem;
+    width: 100%;
     text-align: center;
     border-radius: 10px;
     box-shadow: 0 4px 14px rgba(128, 41, 41, 0.25);
   }
 
   .nav__contact-icon {
-    margin: 0 auto 0.75rem;
+    margin: 0.5rem auto 0;
   }
 
   /* Grid */
@@ -5918,159 +5849,147 @@ p {
   }
 }
 
-/* --- Treatment & Content Pages: Light Red Navbar --- */
-#page-treatments #mainNav,
-#page-team #mainNav,
-#page-technology #mainNav,
-#page-education #mainNav,
-#page-testimonials #mainNav {
-  background: rgba(220, 130, 130, 0.92) !important;
-  border-bottom: 1px solid rgba(198, 167, 94, 0.3) !important;
-}
+@media (min-width: 821px) {
+  #page-treatments #mainNav,
+  #page-team #mainNav,
+  #page-technology #mainNav,
+  #page-education #mainNav,
+  #page-testimonials #mainNav {
+    background: rgba(220, 130, 130, 0.92) !important;
+    border-bottom: 1px solid rgba(198, 167, 94, 0.3) !important;
+  }
 
-#page-treatments #mainNav .nav__logo-text,
-#page-team #mainNav .nav__logo-text,
-#page-technology #mainNav .nav__logo-text,
-#page-education #mainNav .nav__logo-text,
-#page-testimonials #mainNav .nav__logo-text {
-  color: #fff !important;
-}
+  #page-treatments #mainNav .nav__logo-text,
+  #page-team #mainNav .nav__logo-text,
+  #page-technology #mainNav .nav__logo-text,
+  #page-education #mainNav .nav__logo-text,
+  #page-testimonials #mainNav .nav__logo-text {
+    color: #fff !important;
+  }
 
-#page-treatments #mainNav .nav__link,
-#page-team #mainNav .nav__link,
-#page-technology #mainNav .nav__link,
-#page-education #mainNav .nav__link,
-#page-testimonials #mainNav .nav__link {
-  color: #fff !important;
-}
+  #page-treatments #mainNav .nav__link,
+  #page-team #mainNav .nav__link,
+  #page-technology #mainNav .nav__link,
+  #page-education #mainNav .nav__link,
+  #page-testimonials #mainNav .nav__link {
+    color: #fff !important;
+  }
 
-#page-treatments #mainNav .nav__link:hover,
-#page-team #mainNav .nav__link:hover,
-#page-technology #mainNav .nav__link:hover,
-#page-education #mainNav .nav__link:hover,
-#page-testimonials #mainNav .nav__link:hover,
-#page-treatments #mainNav .nav__link.active,
-#page-team #mainNav .nav__link.active,
-#page-technology #mainNav .nav__link.active,
-#page-education #mainNav .nav__link.active,
-#page-testimonials #mainNav .nav__link.active {
-  color: var(--color-gold) !important;
-}
+  #page-treatments #mainNav .nav__link:hover,
+  #page-team #mainNav .nav__link:hover,
+  #page-technology #mainNav .nav__link:hover,
+  #page-education #mainNav .nav__link:hover,
+  #page-testimonials #mainNav .nav__link:hover,
+  #page-treatments #mainNav .nav__link.active,
+  #page-team #mainNav .nav__link.active,
+  #page-technology #mainNav .nav__link.active,
+  #page-education #mainNav .nav__link.active,
+  #page-testimonials #mainNav .nav__link.active {
+    color: var(--color-gold) !important;
+  }
 
-#page-treatments #mainNav .nav__toggle span,
-#page-team #mainNav .nav__toggle span,
-#page-technology #mainNav .nav__toggle span,
-#page-education #mainNav .nav__toggle span,
-#page-testimonials #mainNav .nav__toggle span {
-  background-color: #fff !important;
-}
+  #page-treatments #mainNav .nav__toggle span,
+  #page-team #mainNav .nav__toggle span,
+  #page-technology #mainNav .nav__toggle span,
+  #page-education #mainNav .nav__toggle span,
+  #page-testimonials #mainNav .nav__toggle span {
+    background-color: #fff !important;
+  }
 
-#page-treatments #mainNav .nav__logo-subtitle,
-#page-team #mainNav .nav__logo-subtitle,
-#page-technology #mainNav .nav__logo-subtitle,
-#page-education #mainNav .nav__logo-subtitle,
-#page-testimonials #mainNav .nav__logo-subtitle {
-  color: var(--color-gold) !important;
-}
+  #page-treatments #mainNav .nav__logo-subtitle,
+  #page-team #mainNav .nav__logo-subtitle,
+  #page-technology #mainNav .nav__logo-subtitle,
+  #page-education #mainNav .nav__logo-subtitle,
+  #page-testimonials #mainNav .nav__logo-subtitle {
+    color: var(--color-gold) !important;
+  }
 
-#page-treatments #mainNav .logo-line,
-#page-team #mainNav .logo-line,
-#page-technology #mainNav .logo-line,
-#page-education #mainNav .logo-line,
-#page-testimonials #mainNav .logo-line {
-  background-color: var(--color-gold) !important;
-}
+  #page-treatments #mainNav .logo-line,
+  #page-team #mainNav .logo-line,
+  #page-technology #mainNav .logo-line,
+  #page-education #mainNav .logo-line,
+  #page-testimonials #mainNav .logo-line {
+    background-color: var(--color-gold) !important;
+  }
 
-/* --- Our Approach Specific Overlay Page Design --- */
-#page-approach,
-#page-about {
-  padding-top: 0 !important;
-}
+  /* Adaptive nav — over dark sections — frosted dark glass */
+  .nav.nav--over-dark {
+    background: rgba(0, 0, 0, 0.30) !important;
+    backdrop-filter: blur(14px) !important;
+    -webkit-backdrop-filter: blur(14px) !important;
+    box-shadow: none !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  }
+  .nav.nav--over-dark .nav__logo-text,
+  .nav.nav--over-dark .nav__logo-subtitle { color: #fff !important; }
+  .nav.nav--over-dark .nav__link { color: rgba(255,255,255,0.85) !important; }
+  .nav.nav--over-dark .nav__link:hover,
+  .nav.nav--over-dark .nav__link.active { color: var(--color-gold) !important; }
+  .nav.nav--over-dark .nav__toggle span { background-color: #fff !important; }
+  .nav.nav--over-dark .logo-line { background-color: var(--color-gold) !important; }
 
-/* --- Transparent Navigation for Video Overlays --- */
-.nav.nav--transparent {
-  background: transparent !important;
-  border-color: transparent !important;
-  box-shadow: none !important;
-}
+  /* Adaptive nav — over light sections */
+  .nav.nav--over-light {
+    background: rgba(255,255,255,0.92) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border-bottom: 1px solid rgba(198,167,94,0.3) !important;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06) !important;
+  }
+  .nav.nav--over-light .nav__logo-text { color: #802929 !important; }
+  .nav.nav--over-light .nav__link { color: var(--color-text-light) !important; }
+  .nav.nav--over-light .nav__link:hover,
+  .nav.nav--over-light .nav__link.active { color: var(--color-gold) !important; }
+  .nav.nav--over-light .nav__toggle span { background-color: var(--color-navy) !important; }
 
-/* Adaptive nav Ã¢â‚¬â€ over dark sections Ã¢â‚¬â€ frosted dark glass */
-.nav.nav--over-dark {
-  background: rgba(0, 0, 0, 0.30) !important;
-  backdrop-filter: blur(14px) !important;
-  -webkit-backdrop-filter: blur(14px) !important;
-  box-shadow: none !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
-}
-.nav.nav--over-dark .nav__logo-text,
-.nav.nav--over-dark .nav__logo-subtitle { color: #fff !important; }
-.nav.nav--over-dark .nav__link { color: rgba(255,255,255,0.85) !important; }
-.nav.nav--over-dark .nav__link:hover,
-.nav.nav--over-dark .nav__link.active { color: var(--color-gold) !important; }
-.nav.nav--over-dark .nav__toggle span { background-color: #fff !important; }
-.nav.nav--over-dark .logo-line { background-color: var(--color-gold) !important; }
+  /* When transparent nav gets scrolled, glass kicks back in */
+  .nav.nav--transparent.scrolled {
+    background: rgba(255, 255, 255, 0.88) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border-bottom: 1px solid rgba(198, 167, 94, 0.4) !important;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08) !important;
+  }
+  .nav.nav--transparent.scrolled .nav__logo-text {
+    color: #802929 !important;
+  }
+  .nav.nav--transparent.scrolled .nav__logo-subtitle,
+  .nav.nav--transparent.scrolled .nav__link {
+    color: var(--color-navy) !important;
+  }
+  .nav.nav--transparent.scrolled .nav__link:hover,
+  .nav.nav--transparent.scrolled .nav__link.active {
+    color: var(--color-gold) !important;
+  }
 
-/* Adaptive nav Ã¢â‚¬â€ over light sections */
-.nav.nav--over-light {
-  background: rgba(255,255,255,0.92) !important;
-  backdrop-filter: blur(20px) !important;
-  -webkit-backdrop-filter: blur(20px) !important;
-  border-bottom: 1px solid rgba(198,167,94,0.3) !important;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.06) !important;
-}
-.nav.nav--over-light .nav__logo-text { color: #802929 !important; }
-.nav.nav--over-light .nav__link { color: var(--color-text-light) !important; }
-.nav.nav--over-light .nav__link:hover,
-.nav.nav--over-light .nav__link.active { color: var(--color-gold) !important; }
-.nav.nav--over-light .nav__toggle span { background-color: var(--color-navy) !important; }
+  .nav.nav--transparent .nav__logo-text {
+    color: #fff !important;
+  }
 
-/* When transparent nav gets scrolled, glass kicks back in */
-.nav.nav--transparent.scrolled {
-  background: rgba(255, 255, 255, 0.88) !important;
-  backdrop-filter: blur(20px) !important;
-  -webkit-backdrop-filter: blur(20px) !important;
-  border-bottom: 1px solid rgba(198, 167, 94, 0.4) !important;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08) !important;
-}
-.nav.nav--transparent.scrolled .nav__logo-text {
-  color: #802929 !important;
-}
-.nav.nav--transparent.scrolled .nav__logo-subtitle,
-.nav.nav--transparent.scrolled .nav__link {
-  color: var(--color-navy) !important;
-}
-.nav.nav--transparent.scrolled .nav__link:hover,
-.nav.nav--transparent.scrolled .nav__link.active {
-  color: var(--color-gold) !important;
-}
+  .nav.nav--transparent .nav__logo-subtitle {
+    color: var(--color-gold) !important;
+  }
 
-.nav.nav--transparent .nav__logo-text {
-  color: #fff !important;
-}
+  .nav.nav--transparent .logo-line {
+    background-color: var(--color-gold) !important;
+  }
 
-.nav.nav--transparent .nav__logo-subtitle {
-  color: var(--color-gold) !important;
-}
+  .nav.nav--transparent .nav__logo-icon-container {
+    color: var(--color-gold) !important;
+  }
 
-.nav.nav--transparent .logo-line {
-  background-color: var(--color-gold) !important;
-}
+  .nav.nav--transparent .nav__link {
+    color: rgba(255, 255, 255, 0.85) !important;
+  }
 
-.nav.nav--transparent .nav__logo-icon-container {
-  color: var(--color-gold) !important;
-}
+  .nav.nav--transparent .nav__link:hover,
+  .nav.nav--transparent .nav__link.active {
+    color: var(--color-gold) !important;
+  }
 
-.nav.nav--transparent .nav__link {
-  color: rgba(255, 255, 255, 0.85) !important;
-}
-
-.nav.nav--transparent .nav__link:hover,
-.nav.nav--transparent .nav__link.active {
-  color: var(--color-gold) !important;
-}
-
-.nav.nav--transparent .nav__link::after {
-  background-color: var(--color-gold) !important;
+  .nav.nav--transparent .nav__link::after {
+    background-color: var(--color-gold) !important;
+  }
 }
 
 /* The chevron on About/Resources reuses the .nav__link::after pseudo-element
@@ -9707,10 +9626,11 @@ p {
 }
 
 .svc-vcard__pills {
-  display: grid;
-  grid-template-columns: repeat(2, max-content);
+  display: flex;
+  flex-wrap: wrap;
   gap: 10px 12px;
   margin-left: 58px;
+  max-width: 640px;
 }
 
 /* Transparent pill links */
@@ -9773,114 +9693,222 @@ p {
   50% { transform: translateX(-50%) translateY(6px); }
 }
 
+.svc-swipe-hint, .svc-swipe-dots { display: none; }
+
 /* ---- Responsive ---- */
 @media (max-width: 820px) {
-  /* Horizontal swipe carousel instead of a vertical stack â€” each card is a
-     fixed-width scroll-snap item (see .svc-vcard--expandable below). */
+  #page-treatments {
+    padding-top: 80px;
+    padding-bottom: 20px;
+  }
+
+  /* Horizontal swipe carousel: each card snaps cleanly into the center */
   .svc-vcards {
+    display: flex;
     flex-direction: row;
-    align-items: flex-start;
+    align-items: stretch;
     overflow-x: auto;
     overflow-y: hidden;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
     -ms-overflow-style: none;
-    /* Extra bottom padding so card content (pills) never ends up sitting under
-       the fixed WhatsApp button (bottom:2rem, 56px) while scrolling. */
-    padding: 8px 6vw 110px;
-    gap: 14px;
+    padding: 10px 18px 20px;
+    gap: 20px;
+    width: 100%;
+    box-sizing: border-box;
   }
   .svc-vcards::-webkit-scrollbar { display: none; }
-  .svc-vcard { border-radius: 16px; height: calc(100vh - 20px); }
-  .svc-vcard__content { padding: 0 20px; }
-  .svc-vcard__desc, .svc-vcard__pills { margin-left: 0; }
-  .svc-vcard__title { font-size: clamp(1.5rem, 5vw, 2rem); }
-  .svc-vcard__pills { grid-template-columns: 1fr; }
-  .svc-pill { font-size: 0.82rem; padding: 8px 16px; white-space: normal; }
-}
 
-/* ---- Expandable mobile-only card (Assessments & Diagnostics) ---- */
-.svc-vcard__mobile-view { display: none; }
-
-@media (max-width: 820px) {
   .svc-vcard--expandable.svc-vcard {
     height: auto;
-    display: block;
-    overflow: visible;
-    flex: 0 0 84vw;
-    width: 84vw;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    flex: 0 0 calc(100vw - 36px);
+    width: calc(100vw - 36px);
+    max-width: 440px;
     scroll-snap-align: center;
+    scroll-snap-stop: always;
+    border-radius: 20px;
+    background: #4A0E17;
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.22);
+    border: 1px solid rgba(255, 255, 255, 0.12);
   }
+
   .svc-vcard--expandable .svc-vcard__desktop-view { display: none; }
+  
   .svc-vcard--expandable .svc-vcard__mobile-view {
-    display: block;
-    background: #000;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, #ffffff 0%, #ffffff 68px, #36080E 69px, #4A0E17 100%);
   }
 
   .svc-mobile-header {
     display: flex;
     align-items: center;
-    gap: 12px;
-    padding: 18px 20px;
-    background: #fff;
-    border-radius: 16px 16px 0 0;
+    gap: 14px;
+    padding: 14px 18px;
+    background: #ffffff;
+    min-height: 68px;
+    box-sizing: border-box;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
   }
+
+  .svc-mobile-header .svc-vcard__tag {
+    width: 36px;
+    height: 36px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    background: var(--color-gold, #C6A75E);
+    color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(198, 167, 94, 0.4);
+  }
+
   .svc-mobile-header .svc-vcard__title {
-    color: var(--color-navy);
+    color: #5C0A0A;
     text-shadow: none;
-    font-size: clamp(1.3rem, 5vw, 1.7rem);
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0;
+  }
+
+  .svc-mobile-video-wrap {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    background: #110204;
   }
 
   .svc-mobile-video {
     display: block;
     width: 100%;
-    height: 42vh;
+    height: 100%;
     object-fit: cover;
-    -webkit-mask-image: linear-gradient(180deg, #000 60%, transparent 100%);
-    mask-image: linear-gradient(180deg, #000 60%, transparent 100%);
+    -webkit-mask-image: linear-gradient(180deg, #000 65%, transparent 100%);
+    mask-image: linear-gradient(180deg, #000 65%, transparent 100%);
   }
 
-  .svc-reveal-trigger {
+  .svc-reveal {
+    display: flex;
+    flex-direction: column;
+    padding: 12px 16px 20px;
+    background: transparent;
+    flex-grow: 1;
+  }
+
+  .svc-reveal .svc-vcard__desc {
+    margin: 0 0 6px 0;
+    color: rgba(255, 255, 255, 0.88);
+    font-size: 0.88rem;
+    line-height: 1.4;
+    font-style: italic;
+    text-align: center;
+  }
+
+  .svc-vcard__subnote {
+    font-size: 0.78rem;
+    color: var(--color-gold, #C6A75E);
+    margin: 0 0 14px 0;
+    font-style: italic;
+    text-align: center;
+    letter-spacing: 0.02em;
+  }
+
+  .svc-reveal .svc-vcard__pills {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    max-width: none;
+  }
+
+  .svc-pill {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
-    width: calc(100% - 32px);
-    margin: -20px auto 0;
-    position: relative;
-    z-index: 2;
-    padding: 12px 20px;
-    background: var(--color-gold, #C6A75E);
-    color: #fff;
-    border: none;
+    text-align: center;
+    padding: 10px 14px;
+    font-size: 0.84rem;
+    font-weight: 500;
     border-radius: 100px;
-    font-size: 0.88rem;
-    font-weight: 600;
-    letter-spacing: 0.02em;
-    cursor: pointer;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    background: rgba(255, 255, 255, 0.07);
+    color: #ffffff;
+    text-decoration: none;
+    line-height: 1.25;
+    white-space: normal;
+    transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
   }
-  .svc-reveal-trigger__chev { transition: transform 0.3s ease; }
-  .svc-reveal-trigger[aria-expanded="true"] .svc-reveal-trigger__chev { transform: rotate(180deg); }
 
-  .svc-reveal {
-    max-height: 0;
-    overflow: hidden;
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0.92) 0%, var(--color-navy) 35%, var(--color-navy-light) 100%);
-    border-radius: 0 0 16px 16px;
-    transition: max-height 0.4s ease;
+  .svc-pill:active {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: #ffffff;
+    transform: scale(0.98);
   }
-  .svc-reveal.active {
-    max-height: 600px;
+
+  .svc-swipe-hint {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin: 8px auto 0;
+    color: var(--color-text-light, #666);
+    padding: 6px 16px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    z-index: 10;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
   }
-  .svc-reveal .svc-vcard__desc {
-    margin: 20px 20px 16px;
-    color: rgba(255,255,255,0.75);
+
+  .svc-swipe-hint__arrow {
+    display: inline-block;
+    animation: svcSwipeArrow 1.4s ease-in-out infinite;
+    color: #802929;
   }
-  .svc-reveal .svc-vcard__pills {
-    margin: 0 20px 60px;
-    grid-template-columns: 1fr;
+
+  @keyframes svcSwipeArrow {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(5px); }
+  }
+
+  .svc-swipe-dots {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin: 10px auto 28px;
+    z-index: 10;
+  }
+
+  .svc-swipe-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(128, 41, 41, 0.25);
+    cursor: pointer;
+    transition: all 0.25s ease;
+  }
+
+  .svc-swipe-dot.active {
+    background: #802929;
+    width: 20px;
+    border-radius: 10px;
+    transform: none;
   }
 }
 
